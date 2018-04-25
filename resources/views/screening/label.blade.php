@@ -1,0 +1,1 @@
+<span class=" label label--{{ str_slug($label) }}">{{ $label }}</span>

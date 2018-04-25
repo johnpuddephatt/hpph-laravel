@@ -1,0 +1,28 @@
+.site-footer {
+  position: relative;
+  background-color: $base-font-color;
+  border-top: 1px solid $base-font-color;
+  color: white;
+  flex: 0 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $small-spacing;
+  @media screen and (orientation: portrait) {
+    padding: $small-spacing $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    padding: $small-spacing 2 * $base-spacing;
+  }
+  @media screen and (min-width: $xl-screen) {
+    padding: $small-spacing 3 * $base-spacing;
+  }
+  .contact-info {
+    margin-bottom: 0;
+    li {
+      float: left;
+      margin-right: $base-spacing;
+    }
+  }
+}

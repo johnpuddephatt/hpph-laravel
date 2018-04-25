@@ -1,0 +1,96 @@
+.listings--content {
+  background-color: #fff;
+  z-index: 9;
+  flex: 1 1 auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: $small-spacing 0;
+  @media screen and (orientation: portrait) {
+    padding: $small-spacing 0;
+  }
+  @media screen and (min-width: $large-screen) {
+    padding: $base-spacing 2 * $base-spacing;  
+  }
+  @media screen and (min-width: $xl-screen) {
+    padding: 2 * $base-spacing 3 * $base-spacing;
+  }
+}
+
+
+.listings--title {
+  font-family: "Bodoni", "Times New Roman";
+  -webkit-font-smoothing: antialiased;
+  font-size: modular-scale(4);
+  padding-bottom: $base-spacing;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: none;
+  border-bottom: $base-border;
+  @media screen and (min-width: $large-screen) {
+    display: block;
+    word-spacing: 9999px;
+    font-size: modular-scale(6);
+  }
+}
+.listings--date {
+  margin: 1.5 * $base-spacing 0 $small-spacing;
+  font-size: modular-scale(0);
+  text-transform: uppercase;
+  padding-left: $small-spacing;
+  @media screen and (orientation: portrait) {
+    padding-left: $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    padding-left: 0;
+  }
+}
+
+
+.listings--entries {
+  text-transform: uppercase;
+  font-size: modular-scale(-1);
+  border-top: 1px solid $light-gray;
+  @media screen and (min-width: $large-screen) {
+    border-top: none;
+  }
+
+  .label {
+    display: inline-block;
+    padding: .3em .2em 0;
+    line-height: .9em;
+    font-size: modular-scale(-1);
+  }
+}
+
+.listings--entry--title {
+  font-weight: 700;
+}
+
+
+.listings--entry--certificate {
+  font-size: modular-scale(-1);
+}
+
+.listings--entry {
+  display: block;
+  line-height: 2 * $base-spacing;
+  color: $base-font-color;
+  border-bottom: 1px solid $light-gray;
+  @media screen and (min-width: $large-screen) {
+    border-bottom: none;
+    line-height: 1.5 * $base-spacing;
+  }
+}
+
+
+.listings--entry--date {
+  width: 4.5 * $base-spacing;
+  padding-right: $small-spacing;
+  padding-left: $small-spacing;
+  @media screen and (orientation: portrait) {
+    padding-left: $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    padding-left: 0;
+  }
+}

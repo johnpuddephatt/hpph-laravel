@@ -1,0 +1,71 @@
+.home-image {
+  flex: 0 0 30%;
+  padding: $base-spacing;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  @media screen and (orientation: portrait) {
+    @include srcset('/images/hpph-l.jpg', 100%);
+  }
+  @media screen and (orientation: landscape) {
+    @include srcset('/images/hpph-l.jpg', 50%);
+    flex: 0 0 50%;
+    background-position: bottom;
+  }
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 50%;
+  }
+}
+
+.listings {
+  flex: 0 0 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @media screen and (orientation: landscape) {
+    flex: 0 0 50%;
+  }
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 50%;
+  }
+
+}
+
+.footer-button {
+  font-size: modular-scale(-1);
+  line-height: .8em;
+  padding-top: .95em;
+}
+
+.listings--footer--contact {
+  font-size: modular-scale(-2);
+}
+
+
+.page-content,
+.header--masthead,
+.listings--content {
+  transition: transform $base-duration $base-timing;
+}
+
+.home-image {
+  transition: opacity $base-duration $base-timing;
+}
+
+body.slide {
+  .home-image {
+    opacity: 0;
+  }
+  .page-content {
+    @media screen and (orientation: landscape) {
+      transform: translateX(-100%);
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .header--masthead, .listings--content {
+      transform: translateY(-30vh);
+    }
+  }
+}

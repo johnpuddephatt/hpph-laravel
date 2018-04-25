@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: visible
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: calc(100% - #{4.25 * $base-spacing});
+  @media screen and (orientation: landscape) {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,15 @@
+@include font-face("Avant Garde", "../fonts/ITCAvantGardeStd-Bold", $file-formats: woff2 woff){
+  font-style: normal;
+  font-weight: 700;
+}
+
+@include font-face("Avant Garde", "../fonts/ITCAvantGardeStd-Md", $file-formats: woff2 woff){
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+@include font-face("Bodoni", "../fonts/Bodoni-Bold-BT", $file-formats: woff2 woff){
+  font-style: normal;
+  font-weight: 700;
+}

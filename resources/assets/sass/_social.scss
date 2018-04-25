@@ -1,0 +1,25 @@
+.header--social {
+  z-index: 9;
+  height: $base-spacing;
+  overflow: hidden;
+  position: relative;
+  z-index: 99;
+  flex: 0 0 auto;
+  margin-left: auto;
+
+  li {
+    display: inline-block;
+    margin-left: $small-spacing/3;
+  }
+  a {
+    display: block;
+    position: relative;
+    width: $base-spacing;
+    height: $base-spacing;
+  }
+  svg {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+}

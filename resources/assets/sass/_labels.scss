@@ -1,0 +1,36 @@
+.label{
+  color: black;
+  &--tuesday-wonder {
+    background-color: $tuesday-wonder;
+  }
+  &--byobaby {
+    background-color: $byo-baby;
+  }
+  &--creatures-of-the-night {
+    background-color: $creatures;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+  }
+  &--hyde-seek {
+    background-color: $hide-seek;
+  }
+  &--memory-matinee {
+    background-color: $memory-matinee;
+  }
+  &--special-films {
+    background-color: $special-films;
+  }
+  &--pavillion-presents {
+    background-color: $pavillion-presents;
+  }
+  &--captioned {
+    background-color: $captioned;
+  }
+  &--autism-friendly {
+    background-color: $autism-friendly;
+  }
+  &--bollywood {
+    background-color: $bollywood;
+
+  }
+}
