@@ -105,7 +105,8 @@
               } else {
                   $('.error').remove();
                   var formattedDate = new Date(data.date);
-                  var labels = data.labels.split(",").join(",<br/>");
+
+                  var labels = data.labels? (data.labels.split(",").join(",<br/>")).trim(',') : "";
                   var output = `
                   <tr data-id='${data.id}'>
                     <td>${formattedDate.getDate()}/${formattedDate.getMonth() + 1}/${formattedDate.getFullYear()}</td>

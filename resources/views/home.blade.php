@@ -6,7 +6,7 @@
   </div>
 
   <div class="listings">
-    @include('listings.content')
+    @include('screening.weekly')
   </div>
 
 @stop

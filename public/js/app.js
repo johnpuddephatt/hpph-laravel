@@ -86,6 +86,14 @@ module.exports = __webpack_require__(2);
 
 // var Barba = require('barba.js');
 
+var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
+var hiddenScreenings = document.querySelector('.hidden-rows');
+if (expandScreeningsButton && hiddenScreenings) {
+  expandScreeningsButton.addEventListener('click', function () {
+    hiddenScreenings.classList.toggle('shown');
+  });
+}
+
 // document.addEventListener('DOMContentLoaded', function(){
 //   Barba.Pjax.start();
 //   Barba.Prefetch.init();

@@ -36,6 +36,10 @@ p {
   margin: 0 0 $small-spacing;
 }
 
+strong {
+  font-weight: 500;
+}
+
 a {
   color: shade($action-color,5%);
   text-decoration: none;
@@ -43,7 +47,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($action-color, 10%);
   }
 }
 

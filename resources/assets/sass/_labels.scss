@@ -1,5 +1,14 @@
+.label {
+  display: inline-block;
+  padding: .3em .3em 0;
+  line-height: .9em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+
 .label{
-  color: black;
+  color: $base-font-color;
   &--tuesday-wonder {
     background-color: $tuesday-wonder;
   }

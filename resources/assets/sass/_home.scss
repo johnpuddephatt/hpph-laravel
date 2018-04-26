@@ -33,39 +33,3 @@
 
 }
 
-.footer-button {
-  font-size: modular-scale(-1);
-  line-height: .8em;
-  padding-top: .95em;
-}
-
-.listings--footer--contact {
-  font-size: modular-scale(-2);
-}
-
-
-.page-content,
-.header--masthead,
-.listings--content {
-  transition: transform $base-duration $base-timing;
-}
-
-.home-image {
-  transition: opacity $base-duration $base-timing;
-}
-
-body.slide {
-  .home-image {
-    opacity: 0;
-  }
-  .page-content {
-    @media screen and (orientation: landscape) {
-      transform: translateX(-100%);
-    }
-  }
-  @media screen and (orientation: portrait) {
-    .header--masthead, .listings--content {
-      transform: translateY(-30vh);
-    }
-  }
-}

@@ -1,38 +1,80 @@
-.listings--content {
+.weekly-screenings--content {
   background-color: #fff;
   z-index: 9;
   flex: 1 1 auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: $small-spacing 0;
+  padding: 0;
   @media screen and (orientation: portrait) {
     padding: $small-spacing 0;
   }
   @media screen and (min-width: $large-screen) {
-    padding: $base-spacing 2 * $base-spacing;  
+    padding: $base-spacing 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
-    padding: 2 * $base-spacing 3 * $base-spacing;
+    padding: 2 * $base-spacing 4 * $base-spacing;
   }
 }
 
 
-.listings--title {
+.weekly-screenings--title {
   font-family: "Bodoni", "Times New Roman";
   -webkit-font-smoothing: antialiased;
   font-size: modular-scale(4);
-  padding-bottom: $base-spacing;
+  padding-bottom: 2 * $base-spacing;
   text-transform: uppercase;
   font-weight: 900;
   display: none;
   border-bottom: $base-border;
+  margin-bottom: 0;
+  font-weight: 700;
   @media screen and (min-width: $large-screen) {
     display: block;
     word-spacing: 9999px;
     font-size: modular-scale(6);
   }
+  span {
+    color: $yellow;
+  }
 }
-.listings--date {
+
+.weekly-screenings--navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: $base-border;
+  line-height: 2 * $base-spacing;
+  margin-bottom: 2 * $base-spacing;
+  line-height: 3 * $base-spacing;
+  font-size: modular-scale(2);
+  @media screen and (min-width: $large-screen) {
+    font-size: modular-scale(-1);
+    line-height: 2 * $base-spacing;
+  }
+  font-weight: 700;
+}
+
+.weekly-screenings--navigation--arrow {
+  font-size: modular-scale(5);
+  line-height: 3 * $base-spacing;
+  @media screen and (min-width: $large-screen) {
+    line-height: 2 * $base-spacing;
+  }
+  font-weight: 500;
+  padding: 0 $small-spacing;
+  &.disabled {
+    color: $light-gray;
+    &:hover {
+      color: $light-gray;
+    }
+  }
+  &:hover {
+    color: $base-font-color;
+  }
+}
+
+
+.weekly-screenings--date {
   margin: 1.5 * $base-spacing 0 $small-spacing;
   font-size: modular-scale(0);
   text-transform: uppercase;
@@ -46,32 +88,25 @@
 }
 
 
-.listings--entries {
+.weekly-screenings--entries {
   text-transform: uppercase;
   font-size: modular-scale(-1);
   border-top: 1px solid $light-gray;
   @media screen and (min-width: $large-screen) {
     border-top: none;
   }
-
-  .label {
-    display: inline-block;
-    padding: .3em .2em 0;
-    line-height: .9em;
-    font-size: modular-scale(-1);
-  }
 }
 
-.listings--entry--title {
+.weekly-screenings--entry--title {
   font-weight: 700;
 }
 
 
-.listings--entry--certificate {
+.weekly-screenings--entry--certificate {
   font-size: modular-scale(-1);
 }
 
-.listings--entry {
+.weekly-screenings--entry {
   display: block;
   line-height: 2 * $base-spacing;
   color: $base-font-color;
@@ -80,10 +115,13 @@
     border-bottom: none;
     line-height: 1.5 * $base-spacing;
   }
+  .label {
+    font-size: modular-scale(-1);
+  }
 }
 
 
-.listings--entry--date {
+.weekly-screenings--entry--date {
   width: 4.5 * $base-spacing;
   padding-right: $small-spacing;
   padding-left: $small-spacing;

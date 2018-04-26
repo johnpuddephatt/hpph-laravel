@@ -1,10 +1,22 @@
+.alert {
+  border: $thick-border;
+  border-color: $yellow;
+  padding: $small-spacing;
+  font-size: modular-scale(-1);
+  margin-top: 2 * $base-spacing;
+  font-weight: 500;
+  &-warning {
+    background-color: $yellow;
+  }
+}
+
+
 .disclaimer {
   font-size: modular-scale(-2);
   border-top: $base-border;
   padding: $small-spacing;
   display: none;
   position: relative;
-
   @media screen and (orientation: portrait) {
     padding: $small-spacing 1.5 * $base-spacing;
     display: block;

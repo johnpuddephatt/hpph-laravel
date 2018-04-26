@@ -6,11 +6,18 @@
   background-color: #fff;
   z-index: 9;
   border-bottom: $base-border;
+  padding: 0 $small-spacing;
+  @media screen and (orientation: portrait) {
+    padding: 0 $base-spacing;
+  }
   @media screen and (min-width: $large-screen) {
     padding: 0 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
     padding: 0 3 * $base-spacing;
+  }
+  .site-header--home-link {
+    margin-right: auto;
   }
   .hpph-logo {
     display: block;
@@ -18,4 +25,12 @@
     margin: $small-spacing 0;
     height: 1.5 * $base-spacing;
   }
+}
+
+
+.site-header--book-button {
+  font-size: modular-scale(-1);
+  line-height: .8em;
+  padding-top: .95em;
+  margin-left: $base-spacing;
 }

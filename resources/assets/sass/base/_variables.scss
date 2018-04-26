@@ -11,8 +11,8 @@ $heading-font-family: $base-font-family;
 $base-font-size: 1em;
 
 // Line height
-$base-line-height: 1.5;
-$heading-line-height: 1.2;
+$base-line-height: 1.4;
+$heading-line-height: .9;
 
 // Other Sizes
 $base-border-radius: 3px;
@@ -34,17 +34,22 @@ $autism-friendly: #005B81;
 $bollywood: #E63823;
 $hide-seek: #FFDD00;
 
-$dark-gray: #333;
-$medium-gray: #D9D9D9;
-$light-gray: #f5f5f5;
+$black: #000;
+$dark-gray: #767372;
+$medium-gray: #A8A6A6;
+$light-gray: #D9D9D9;
+$off-white: #f5f5f5;
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $black;
 $action-color: $yellow;
 
 // Border
-$base-border-color: $medium-gray;
-$base-border: 1px solid $medium-gray;
+$base-border-color: $light-gray;
+
+$base-border: 1px solid $base-border-color;
+$light-border: 1px solid $off-white;
+$thick-border: .15em solid $base-font-color;
 
 // Background Colors
 $base-background-color: #fff;

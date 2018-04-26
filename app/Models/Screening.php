@@ -33,7 +33,12 @@ class Screening extends Model
     */
     public function labels()
     {
+      if($this) {
         return explode(',',$this->labels);
+      }
+      else {
+        return null;
+      }
     }
     /*
     |--------------------------------------------------------------------------
@@ -63,4 +68,5 @@ class Screening extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    
 }

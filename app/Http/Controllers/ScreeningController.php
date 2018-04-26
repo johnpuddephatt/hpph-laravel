@@ -12,9 +12,22 @@ use App\Models\Screening;
 
 class ScreeningController extends Controller
 {
-  public function index() {
-    $screenings = Screening::orderBy('date', 'ASC')->get();
+  public function future() {
+    $screenings = Screening::where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
     return view('home', compact('screenings'));
+  }
+
+  public function weekly($week = 1) {
+    // $weekday = date("w") - 1;
+    // if ($weekday < 0)
+    //   $weekday += 7;
+    // $week_commencing = date("Y/m/d",time() + (($week - 1) * 7 - $weekday) * 86400);
+    // $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6 - $weekday) * 86400);
+    if($week < 1 || $week > 8) abort(404);
+    $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * 86400);
+    $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 7) * 86400);
+    $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->orderBy('date')->orderBy('time')->get();
+    return view('home', compact('screenings','week','week_commencing','week_ending'));
   }
 
   public function addScreening(Request $request) {

@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'ScreeningController@index');
+Route::get('/', 'ScreeningController@weekly');
+Route::get('/week-{week}', 'ScreeningController@weekly');
 
 Route::get('/film/{slug}', 'FilmController@single');
 
