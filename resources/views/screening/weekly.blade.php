@@ -20,7 +20,7 @@
   @if(count($screenings))
     @php $current_date = '' @endphp
     @foreach ($screenings as $screening)
-      @if($screening->film->slug)
+      @if($screening->film)
         @if ($current_date != $screening->date)
           @if(!$loop->first)
             </div>
