@@ -558,7 +558,7 @@ hr {
   display: block;
   width: auto;
   margin: 0.7rem 0;
-  height: 2.1rem;
+  height: 2.45rem;
 }
 
 .site-header--book-button {
@@ -892,6 +892,20 @@ hr {
 
 .weekly-screenings--title span {
   color: #FFDC48;
+  word-spacing: 0;
+}
+
+.weekly-screenings--title span span {
+  color: #000;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 0.40187757em;
+  font-style: italic;
+}
+
+.weekly-screenings--title span span span {
+  font-style: normal;
+  font-size: 1em;
 }
 
 .weekly-screenings--navigation {

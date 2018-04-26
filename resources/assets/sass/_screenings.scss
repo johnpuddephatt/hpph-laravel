@@ -35,6 +35,18 @@
   }
   span {
     color: $yellow;
+    word-spacing: 0;
+    span {
+      color: $base-font-color;
+      text-transform: none;
+      font-weight: 400;
+      font-size: modular-scale(-5);
+      font-style: italic;
+      span {
+        font-style: normal;
+        font-size: modular-scale(0)
+      }
+    }
   }
 }
 

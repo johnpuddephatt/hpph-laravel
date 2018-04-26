@@ -1,6 +1,6 @@
 <div class="weekly-screenings--content">
   <div class="weekly-screenings--header">
-    <h1 class="weekly-screenings--title">Your friendly, local, independent <span>cinema</span></h1>
+    <h1 class="weekly-screenings--title">Your friendly, local, independent <span>cinema <span>Est.<span>1914</span></span></span></h1>
     <nav class="weekly-screenings--navigation">
       @if($week == 1)
         <span class="weekly-screenings--navigation--arrow disabled">&laquo;</span>
@@ -20,24 +20,26 @@
   @if(count($screenings))
     @php $current_date = '' @endphp
     @foreach ($screenings as $screening)
-      @if ($current_date != $screening->date)
-        @if(!$loop->first)
-          </div>
-        @endif
-        <h2 class="weekly-screenings--date">{{ Carbon\Carbon::parse($screening->date)->format('D d F')}}</h2>
-        @php $current_date = $screening->date @endphp
-        <div class="weekly-screenings--entries">
-      @endif
-        <a class="weekly-screenings--entry" href="/film/{{ $screening->film->slug }}" data-barba="slide">
-          <span class="weekly-screenings--entry--date">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}:</span>
-          <span class="weekly-screenings--entry--title">{{ $screening->film->title }}</span>
-          @if($screening->film->certificate)
-            <span class="weekly-screenings--entry--certificate">({{ $screening->film->certificate }})</span>
+      @if($screening->film->slug)
+        @if ($current_date != $screening->date)
+          @if(!$loop->first)
+            </div>
           @endif
-          @foreach ($screening->labels() as $label)
-            @include ('screening.label')
-          @endforeach
-        </a>
+          <h2 class="weekly-screenings--date">{{ Carbon\Carbon::parse($screening->date)->format('D d F')}}</h2>
+          @php $current_date = $screening->date @endphp
+          <div class="weekly-screenings--entries">
+        @endif
+          <a class="weekly-screenings--entry" href="/film/{{ $screening->film->slug }}" data-barba="slide">
+            <span class="weekly-screenings--entry--date">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}:</span>
+            <span class="weekly-screenings--entry--title">{{ $screening->film->title }}</span>
+            @if($screening->film->certificate)
+              <span class="weekly-screenings--entry--certificate">({{ $screening->film->certificate }})</span>
+            @endif
+            @foreach ($screening->labels() as $label)
+              @include ('screening.label')
+            @endforeach
+          </a>
+        @endif
     @endforeach
     @if($week > 1)
       <div class="alert">
