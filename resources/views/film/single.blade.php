@@ -87,7 +87,7 @@
             @if( $film->f_rating )<tr><td>F-Rating:</td><td>{{ $film->f_rating }} <a href="http://f-rated.org/" target="_blank">Find out more</a></td></tr>@endif
             @if( $film->association )<tr><td>Association:</td><td>{{ $film->association }}</td></tr>@endif
             @if( $film->format )<tr><td>Format:</td><td>{{ $film->format }}</td></tr>@endif
-            @if( $film->tickets && $film->tickets !== '<br>')<tr><td>Tickets:</td><td>{!! $film->tickets !!}</td></tr>@endif
+            @if( $film->tickets && $film->tickets !== '<p><br></p>')<tr><td>Tickets:</td><td>{!! $film->tickets !!}</td></tr>@endif
           </table>
         </div>
       </div>
