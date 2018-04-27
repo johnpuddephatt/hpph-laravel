@@ -137,6 +137,7 @@
 .single-listing--screenings {
   td {
     border-bottom: $light-border;
+    vertical-align: top;
   }
   table {
     margin: 0;
@@ -214,6 +215,7 @@
   }
   td {
     padding: 0;
+    vertical-align: top;
     border-bottom: none;
     &:first-child {
       font-weight: 700;
