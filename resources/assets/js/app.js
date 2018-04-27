@@ -16,7 +16,7 @@ if(expandScreeningsButton && hiddenScreenings) {
   expandScreeningsButton.addEventListener('click', (e)=>{
     hiddenScreenings.classList.toggle('shown');
     e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
-    screeningsHeader.textContent =  screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
+    screeningsHeader.textContent =  screeningsHeader.textContent == "Upcoming screenings" ? "All screenings" : "Upcoming screenings";
 
   });
 }

@@ -37,7 +37,7 @@
         <div class="single-listing--screenings">
           @if (count($screenings))
 
-          <h2 class="single-listing--screenings--header">Next screenings</h2>
+          <h2 class="single-listing--screenings--header">Upcoming screenings</h2>
           <table>
             <tbody class="initial-rows">
               @php $current_date = ''; $date_count = 0 @endphp
@@ -69,7 +69,7 @@
             </tbody>
           </table>
           @if($date_count > 1)
-            <button class="button__small single-listing--screenings--show-all">show all screenings</button>
+            <button class="button__small single-listing--screenings--show-all">Show all screenings</button>
           @endif
         @else
           <div class="alert">No screenings currently scheduled.</div>
