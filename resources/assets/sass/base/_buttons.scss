@@ -31,6 +31,11 @@
       background-color: $action-color;
     }
   }
+  &:focus {
+    outline: .2em solid transparentize($yellow,.5);
+    outline-offset: .2em;
+    box-shadow: none;
+  }
 
 }
 

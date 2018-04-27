@@ -42,9 +42,9 @@ textarea {
   }
 
   &:focus {
-    border-color: $action-color;
-    box-shadow: $form-box-shadow-focus;
-    outline: none;
+    outline: .2em solid transparentize($yellow,.5);
+    outline-offset: .2em;
+    box-shadow: none;
   }
 
   &:disabled {

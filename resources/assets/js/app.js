@@ -12,9 +12,11 @@
 var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
 var hiddenScreenings = document.querySelector('.hidden-rows');
 if(expandScreeningsButton && hiddenScreenings) {
-  expandScreeningsButton.addEventListener('click', ()=>{
+  expandScreeningsButton.addEventListener('click', (e)=>{
     hiddenScreenings.classList.toggle('shown');
-  });
+    if (e.target.textContent=="Hide") e.target.textContent = "Show all screenings";
+      else e.target.textContent = "Hide";
+    });
 }
 
 

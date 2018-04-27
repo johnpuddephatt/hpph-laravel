@@ -6,15 +6,15 @@
   background-color: #fff;
   z-index: 9;
   border-bottom: $base-border;
-  padding: 0 $small-spacing;
+  padding: $small-spacing;
   @media screen and (orientation: portrait) {
-    padding: 0 $base-spacing;
+    padding: $small-spacing $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
-    padding: 0 2 * $base-spacing;
+    padding: $small-spacing 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
-    padding: 0 3 * $base-spacing;
+    padding: $small-spacing 3 * $base-spacing;
   }
   .site-header--home-link {
     margin-right: auto;
@@ -22,7 +22,7 @@
   .hpph-logo {
     display: block;
     width: auto;
-    margin: $small-spacing 0;
+    margin: 0;
     height: 1.5 * $base-spacing;
   }
 }

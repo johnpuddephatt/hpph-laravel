@@ -12,6 +12,7 @@ class FilmController extends Controller
 {
   public function single($slug) {
     $film = Film::where('slug', $slug)->first();
+    if(!$film) abort(404);
     $screenings = Screening::where([['film_id',$film->id],['date', '>=', date('Y/m/d')]])->orderBy('date')->orderBy('time')->get();
     return view('film.single', compact('film','screenings'));
   }

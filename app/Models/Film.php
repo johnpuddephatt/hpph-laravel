@@ -19,7 +19,7 @@ class Film extends Model
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['title','slug','certificate','thumb','description','runtime','buy_url','director','starring','country','language'];
+    protected $fillable = ['title','subtitle','slug','certificate','thumb','description','runtime','buy_url','director','starring','country','language','f_rating','year','association','format','tickets'];
     // protected $hidden = [];
     // protected $dates = [];
 

@@ -20,6 +20,11 @@ body {
   letter-spacing: .05em;
 }
 
+::selection {
+  color: white;
+  background-color: $yellow;
+}
+
 h1,
 h2,
 h3,
@@ -48,6 +53,11 @@ a {
   &:focus,
   &:hover {
     color: shade($action-color, 10%);
+  }
+  &:focus {
+    outline: .2em solid transparentize($yellow,.5);
+    outline-offset: .2em;
+    box-shadow: none;
   }
 }
 

@@ -48,8 +48,8 @@
 <script>
 
   var editor = document.getElementById('quill-editor-{{ $field['name'] }}');
-  const cloudName = 'letsdance';
-  const unsignedUploadPreset = 'hxep6y90';
+  const cloudName_{{ $field['name'] }} = 'letsdance';
+  const unsignedUploadPreset_{{ $field['name'] }} = 'hxep6y90';
 
 
   editor.addEventListener("dragenter", dragenter, false);
@@ -86,14 +86,11 @@
 
 
 
-  var quill = new Quill(editor, {
+  var quill_{{ $field['name'] }} = new Quill(editor, {
     theme: 'snow',
     modules: {
       toolbar: {
-        container: [[{ header: [1, 2, false] }],
-        ['bold', 'italic'],
-        ['link'],
-        ['image']],
+        container: [{!! $field['toolbar'] !!}],
       handlers: { image: selectLocalImage }
       }
     },
@@ -129,7 +126,7 @@
    */
   function saveToServer(file) {
   quill.enable(false);
-  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  var url = `https://api.cloudinary.com/v1_1/${cloudName_{{ $field['name'] }}}/upload`;
   var xhr = new XMLHttpRequest();
   var fd = new FormData();
   const range = quill.getSelection() || {index: quill.getLength(), length: 0};
@@ -170,7 +167,7 @@
     }
   };
 
-  fd.append('upload_preset', unsignedUploadPreset);
+  fd.append('upload_preset', {{ $field['name'] }}_unsignedUploadPreset);
   fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
   fd.append('file', file);
   xhr.send(fd);

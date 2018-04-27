@@ -28,63 +28,109 @@ class FilmCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $titleArray = [   // Browse
+        $titleArray = [
           'name' => 'title',
           'label' => 'Title',
           'type' => 'text',
           'attributes' => [
             'class' => 'form-control input-lg'
           ],
-          'tab' => 'Film details'
+          'tab' => 'Overview'
         ];
 
-        $descriptionArray = [   // Browse
+        $subtitleArray = [
+          'name' => 'subtitle',
+          'label' => 'Subtitle',
+          'type' => 'text',
+          'tab' => 'Overview'
+        ];
+
+        $descriptionArray = [
           'name' => 'description',
           'label' => 'Description',
           'type' => 'quill',
-          'tab' => 'Film details'
+          'tab' => 'Overview',
+          'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
         ];
 
-        $certificateArray = [   // Browse
+        $certificateArray = [
           'name' => 'certificate',
           'label' => 'Certificate',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details',
         ];
 
-        $runtimeArray = [   // Browse
+        $yearArray = [
+          'name' => 'year',
+          'label' => 'Year',
+          'type' => 'text',
+          'tab' => 'Details'
+        ];
+
+        $associationArray = [
+          'name' => 'association',
+          'label' => 'Association',
+          'type' => 'text',
+          'tab' => 'Details'
+        ];
+
+        $formatArray = [
+          'name' => 'format',
+          'label' => 'Format',
+          'type' => 'text',
+          'tab' => 'Details'
+        ];
+
+        $fRatingArray = [
+          'name' => 'f_rating',
+          'label' => 'F-Rating',
+          'type' => 'text',
+          'tab' => 'Details'
+        ];
+
+        $runtimeArray = [
           'name' => 'runtime',
           'label' => 'Runtime',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details',
+          'suffix' => 'minutes',
         ];
 
-        $directorArray = [   // Browse
+        $directorArray = [
           'name' => 'director',
           'label' => 'Director',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details'
         ];
 
-        $countryArray = [   // Browse
+        $countryArray = [
           'name' => 'country',
           'label' => 'Country',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details'
         ];
 
-        $starringArray = [   // Browse
+        $starringArray = [
           'name' => 'starring',
           'label' => 'Starring',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details'
         ];
 
-        $languageArray = [   // Browse
+        $ticketsArray = [
+          'name' => 'tickets',
+          'label' => 'Tickets',
+          'type' => 'quill',
+          'tab' => 'Details',
+          // 'toolbar' => "[{ header: [1, 2, false] }],['bold', 'italic']"
+          'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
+        ];
+
+        $languageArray = [
           'name' => 'language',
           'label' => 'Language',
           'type' => 'text',
-          'tab' => 'Film details'
+          'tab' => 'Details'
         ];
 
         $screeningsArray = [
@@ -94,7 +140,7 @@ class FilmCrudController extends CrudController
           'tab' => 'Screenings'
         ];
 
-        $thumbArray = [   // Browse
+        $thumbArray = [
             'name' => 'thumb',
             'label' => 'Thumbnail',
             'type' => 'image',
@@ -102,10 +148,10 @@ class FilmCrudController extends CrudController
             'hint' => 'Thumbnails may be cropped on the site',
             'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
             'crop' => true, // set to true to allow cropping, false to disable
-            'tab' => 'Film details'
+            'tab' => 'Overview'
         ];
 
-        $this->crud->addFields([$titleArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$descriptionArray], 'both');
+        $this->crud->addFields([$titleArray,$subtitleArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray], 'both');
 
         $this->crud->addColumns([$titleArray]);
 

@@ -3,7 +3,7 @@
   border-color: $yellow;
   padding: $small-spacing;
   font-size: modular-scale(-1);
-  margin-top: 2 * $base-spacing;
+  margin: $small-spacing 0;
   font-weight: 500;
   &-warning {
     background-color: $yellow;

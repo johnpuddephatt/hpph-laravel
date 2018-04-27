@@ -4,32 +4,37 @@
   flex: 1 1 auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0;
+}
+
+.weekly-screenings--header,
+.weekly-screenings--navigation,
+.weekly-screenings--screenings {
+  padding: 0 $small-spacing;
   @media screen and (orientation: portrait) {
-    padding: $small-spacing 0;
+    padding: 0 0;
   }
   @media screen and (min-width: $large-screen) {
-    padding: $base-spacing 2 * $base-spacing;
+    padding: 0 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
-    padding: 2 * $base-spacing 4 * $base-spacing;
+    padding: 0 4 * $base-spacing;
   }
 }
 
 
 .weekly-screenings--title {
   font-family: "Bodoni", "Times New Roman";
+  line-height: $tight-heading-line-height;
   -webkit-font-smoothing: antialiased;
   font-size: modular-scale(4);
-  padding-bottom: 2 * $base-spacing;
   text-transform: uppercase;
   font-weight: 900;
   display: none;
-  border-bottom: $base-border;
-  margin-bottom: 0;
+  margin: $base-spacing 0;
   font-weight: 700;
   @media screen and (min-width: $large-screen) {
     display: block;
+    margin: 2 * $base-spacing 0 $base-spacing;
     word-spacing: 9999px;
     font-size: modular-scale(6);
   }
@@ -54,24 +59,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  border-top: $base-border;
   border-bottom: $base-border;
-  line-height: 2 * $base-spacing;
-  margin-bottom: 2 * $base-spacing;
-  line-height: 3 * $base-spacing;
   font-size: modular-scale(2);
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(-1);
-    line-height: 2 * $base-spacing;
   }
   font-weight: 700;
 }
 
+.weekly-screenings--screenings {
+  .alert {
+    margin-top: 2 * $base-spacing;
+  }
+}
+
 .weekly-screenings--navigation--arrow {
   font-size: modular-scale(5);
-  line-height: 3 * $base-spacing;
-  @media screen and (min-width: $large-screen) {
-    line-height: 2 * $base-spacing;
-  }
   font-weight: 500;
   padding: 0 $small-spacing;
   &.disabled {
@@ -103,10 +108,7 @@
 .weekly-screenings--entries {
   text-transform: uppercase;
   font-size: modular-scale(-1);
-  border-top: 1px solid $light-gray;
-  @media screen and (min-width: $large-screen) {
-    border-top: none;
-  }
+  border-top: $light-border;
 }
 
 .weekly-screenings--entry--title {
@@ -116,25 +118,54 @@
 
 .weekly-screenings--entry--certificate {
   font-size: modular-scale(-1);
+  display: inline-block;
+  margin-left: $small-spacing/2;
 }
 
 .weekly-screenings--entry {
-  display: block;
-  line-height: 2 * $base-spacing;
+  display: flex;
+  &:focus {
+    outline: 1px solid $yellow;
+    outline-offset: 0px;
+  }
+  padding: $base-spacing 0;
   color: $base-font-color;
-  border-bottom: 1px solid $light-gray;
+  border-bottom: $light-border;
+  line-height: $base-line-height;
   @media screen and (min-width: $large-screen) {
-    border-bottom: none;
-    line-height: 1.5 * $base-spacing;
+    padding: $small-spacing 0;
   }
   .label {
     font-size: modular-scale(-1);
   }
+  &:hover,&:focus,&:active {
+    &::after {
+      color: $yellow;
+    }
+  }
+  &::after {
+    font-size: modular-scale(5);
+    align-self: center;
+    content: '»';
+    color: $light-gray;
+    line-height: 0;
+    opacity: .5;
+    margin-left: auto;
+    padding-right: $small-spacing;
+    @media screen and (orientation: portrait) {
+      padding-right: $base-spacing;
+    }
+  }
 }
 
+.weekly-screenings--entry--labels {
+  padding-left: $small-spacing;
+  display: inline-block;
+}
 
 .weekly-screenings--entry--date {
-  width: 4.5 * $base-spacing;
+  flex: 0 0;
+  width: 3.5 * $base-spacing;
   padding-right: $small-spacing;
   padding-left: $small-spacing;
   @media screen and (orientation: portrait) {
