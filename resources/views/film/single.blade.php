@@ -15,8 +15,8 @@
          //res.cloudinary.com/letsdance/image/fetch/w_1600,q_85,c_fill/{{ url($film->thumb) }} 1600w,
        "
        sizes="
-        (orientation: landscape) 100vw,
-        50vw
+        (orientation: landscape) 50vw,
+        100vw
        "
       />
     </div>
