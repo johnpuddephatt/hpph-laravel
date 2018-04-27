@@ -148,6 +148,8 @@
       font-weight: 700;
       padding-right: $small-spacing;
       text-transform: uppercase;
+      width: 1px;
+      white-space: nowrap;
     }
     tr:last-child td {
       // border-bottom: none;
