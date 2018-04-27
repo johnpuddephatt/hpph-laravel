@@ -11,12 +11,14 @@
 
 var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
 var hiddenScreenings = document.querySelector('.hidden-rows');
+var screeningsHeader = document.querySelector('.single-listing--screenings--header');
 if(expandScreeningsButton && hiddenScreenings) {
   expandScreeningsButton.addEventListener('click', (e)=>{
     hiddenScreenings.classList.toggle('shown');
-    if (e.target.textContent=="Hide") e.target.textContent = "Show all screenings";
-      else e.target.textContent = "Hide";
-    });
+    e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
+    screeningsHeader.textContent =  screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
+
+  });
 }
 
 
