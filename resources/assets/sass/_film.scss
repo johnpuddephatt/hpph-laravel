@@ -102,7 +102,7 @@
     }
   }
   @media screen and (orientation: portrait) {
-    padding: $small-spacing 0 2.5 * $base-spacing;
+    padding: $small-spacing $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
     margin: 0 2 * $base-spacing;
