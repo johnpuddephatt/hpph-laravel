@@ -14,7 +14,7 @@
 
     @include('header')
 
-    <main class="page-content" aria-label="Content">
+    <main class="page-content" aria-label="Content" id="main" tabIndex="-1">
       @yield('content')
     </main>
 

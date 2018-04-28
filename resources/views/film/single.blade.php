@@ -55,7 +55,7 @@
                   @endif
                   @if ( $date_count == 2 )
                     </tbody>
-                    <tbody class="hidden-rows">
+                    <tbody class="hidden-rows shown">
                   @endif
                   <tr>
                   <td>{{ Carbon\Carbon::parse($screening->date)->format('D d F')}}</td><td>

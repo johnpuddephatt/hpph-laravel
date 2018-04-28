@@ -43,3 +43,18 @@
     margin-left: $base-spacing;
   }
 }
+
+
+.skip-to-main-content {
+  position: fixed;
+  display: inline-block;
+  background-color: white;
+  font-weight: 700;
+  padding: $small-spacing;
+  top: 0;
+  border: $thick-border;
+  left: -9999px;
+  &:focus {
+    left: 0;
+  }
+}

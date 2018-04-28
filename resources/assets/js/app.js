@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
   var hiddenScreenings = document.querySelector('.hidden-rows');
+  hiddenScreenings.classList.remove('shown');
   var screeningsHeader = document.querySelector('.single-listing--screenings--header');
   if(expandScreeningsButton && hiddenScreenings) {
     expandScreeningsButton.addEventListener('click', (e)=>{

@@ -28,6 +28,11 @@ body {
   overflow-x: hidden;
 }
 
+#main:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .page-content {
   position: relative;
   top: 2.5 * $base-spacing;

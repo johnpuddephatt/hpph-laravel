@@ -108,12 +108,17 @@
 
 
 .weekly-screenings--date {
-  margin: 1.5 * $base-spacing 0 $small-spacing;
+  padding: 1.5 * $base-spacing 0 $small-spacing;
+  margin-bottom: 0;
   font-size: modular-scale(0);
   text-transform: uppercase;
   padding-left: $small-spacing;
   @media screen and (orientation: portrait) {
     padding-left: $base-spacing;
+    background-color: $off-white;
+    border-bottom: $base-border;
+    font-size: modular-scale(1);
+
   }
   @media screen and (min-width: $large-screen) {
     padding-left: 0;
@@ -125,6 +130,9 @@
   text-transform: uppercase;
   font-size: modular-scale(-1);
   border-top: $light-border;
+  @media screen and (orientation: portrait) {
+    border-top: none;
+  }
 }
 
 .weekly-screenings--entry--title {
