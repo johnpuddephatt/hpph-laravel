@@ -146,7 +146,7 @@ class FilmCrudController extends CrudController
             'type' => 'image',
             'upload' => 'true',
             'hint' => 'Thumbnails may be cropped on the site',
-            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+            'aspect_ratio' => 1.85, // ommit or set to 0 to allow any aspect ratio
             'crop' => true, // set to true to allow cropping, false to disable
             'tab' => 'Overview'
         ];

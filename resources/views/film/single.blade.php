@@ -5,17 +5,17 @@
 
 
     <div class="single-listing--image">
-      <img alt="Image for {{ $film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,e_colorize:100,q_85,c_fill/{{ url($film->thumb) }}"
+      <img alt="Image for {{ $film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,f_auto,q_85,c_fill/{{ url($film->thumb) }}"
        srcset="
-         //res.cloudinary.com/letsdance/image/fetch/w_320,h_320,q_85,c_fill/{{ url($film->thumb) }} 320w,
-         //res.cloudinary.com/letsdance/image/fetch/w_480,h_480,q_85,c_fill/{{ url($film->thumb) }} 480w,
-         //res.cloudinary.com/letsdance/image/fetch/w_640,h_640,q_85,c_fill/{{ url($film->thumb) }} 640w,
-         //res.cloudinary.com/letsdance/image/fetch/w_800,h_800,q_85,c_fill/{{ url($film->thumb) }} 800w,
-         //res.cloudinary.com/letsdance/image/fetch/w_1020,h_1020,q_85,c_fill/{{ url($film->thumb) }} 1020w,
-         //res.cloudinary.com/letsdance/image/fetch/w_1600,h_1600,q_85,c_fill/{{ url($film->thumb) }} 1600w,
+         //res.cloudinary.com/letsdance/image/fetch/w_320,f_auto,q_85,c_fill/{{ url($film->thumb) }} 320w,
+         //res.cloudinary.com/letsdance/image/fetch/w_480,f_auto,q_85,c_fill/{{ url($film->thumb) }} 480w,
+         //res.cloudinary.com/letsdance/image/fetch/w_640,f_auto,q_85,c_fill/{{ url($film->thumb) }} 640w,
+         //res.cloudinary.com/letsdance/image/fetch/w_800,f_auto,q_85,c_fill/{{ url($film->thumb) }} 800w,
+         //res.cloudinary.com/letsdance/image/fetch/w_1020,f_auto,q_85,c_fill/{{ url($film->thumb) }} 1020w,
+         //res.cloudinary.com/letsdance/image/fetch/w_1600,f_auto,q_85,c_fill/{{ url($film->thumb) }} 1600w,
        "
        sizes="
-        (orientation: landscape) 50vw,
+        (orientation: landscape) 85vw,
         100vw
        "
        class="fade-image-onload"
