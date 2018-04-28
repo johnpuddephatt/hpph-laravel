@@ -118,6 +118,7 @@
   border-bottom: $base-border;
   font-size: modular-scale(-1);
   padding: 0 $small-spacing;
+  position: relative;
   @media screen and (orientation: portrait) {
     padding: 0 $base-spacing;
   }
@@ -134,6 +135,7 @@
   table {
     margin: 0;
     table-layout: auto;
+    width: 100%;
     margin-bottom: $small-spacing;
     td:last-child {
       // text-align: right;
