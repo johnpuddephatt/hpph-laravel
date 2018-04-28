@@ -83,6 +83,8 @@
   background-color: #fff;
   border-bottom: $base-border;
   padding-bottom: $base-spacing;
+  position: relative;
+  z-index: 9;
   @media screen and (orientation: portrait) {
     padding: $base-spacing;
     position: sticky;
