@@ -28,10 +28,10 @@
         <h1 class="single-listing--title">{{ $film->title }}</h1>
         <div class="single-listing--subtitle">{{ $film->subtitle }}</div>
         <div class="single-listing--meta">
-@if($film->year){{ $film->year }}@endif
-@if($film->certificate), Cert.{{ $film->certificate }}@endif
-@if($film->runtime), {{ $film->runtime . 'mins' }}@endif
-@if($film->country), {{ $film->country }}@endif.
+@if($film->year){{ $film->year }}. @endif
+@if($film->certificate){{ 'Cert.' . $film->certificate }}. @endif
+@if($film->runtime){{ $film->runtime . 'mins' }}. @endif
+@if($film->country){{ $film->country }}. @endif
         </div>
       </div>
       <div class="single-listing--content">
