@@ -9,7 +9,7 @@
   @media screen and (orientation: portrait) {
     margin-top: $banner-image-height;
     position: relative;
-    min-height: calc(100vh - #{4 * $base-spacing});
+    min-height: calc(100vh - #{2.5 * $base-spacing});
   }
   @media screen and (orientation: landscape) {
     display: flex;
