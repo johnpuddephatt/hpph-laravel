@@ -12,12 +12,8 @@
   a {
     display: block;
     position: relative;
-    width: $base-spacing;
-    height: $base-spacing;
-    @media screen and (orientation: portrait) {
-      width: .75 * $base-spacing;
-      height: .75 * $base-spacing;
-    }
+    width: .75 * $base-spacing;
+    height: .75 * $base-spacing;
     &:hover {
       svg * {
         fill: $yellow;

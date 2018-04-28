@@ -30,9 +30,6 @@
     width: auto;
     margin: 0;
     height: 1.25 * $base-spacing;
-    @media screen and (orientation: landscape) {
-      height: 1.5 * $base-spacing;
-    }
   }
 }
 
