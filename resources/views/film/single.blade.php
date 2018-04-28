@@ -26,7 +26,7 @@
 
       <div class="single-listing--header">
         <h1 class="single-listing--title">{{ $film->title }}</h1>
-        <div class="single-listing--subtitle">{{ $film->subtitle }}</div>
+        @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
         <div class="single-listing--meta">
 @if($film->year){{ $film->year }}. @endif
 @if($film->certificate){{ 'Cert.' . $film->certificate }}. @endif
