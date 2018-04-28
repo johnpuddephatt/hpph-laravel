@@ -88,7 +88,6 @@
   }
   @media screen and (orientation: portrait) {
     position: sticky;
-    border-bottom: none;
     top: 2.5 * $base-spacing;
     top: calc(#{2.5 * $base-spacing} - 2px );
   }
@@ -190,6 +189,11 @@
     padding-right: $small-spacing;
     @media screen and (orientation: portrait) {
       padding-right: $base-spacing;
+    }
+  }
+  &:first-child .weekly-screenings--date {
+    @media screen and (orientation: portrait) {
+      border-top: none;
     }
   }
 }
