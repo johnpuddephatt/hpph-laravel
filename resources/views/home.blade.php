@@ -5,7 +5,7 @@
   <div class="home-image">
   </div>
 
-  <div class="listings">
+  <div class="home-listings">
     @include('screening.weekly')
   </div>
 

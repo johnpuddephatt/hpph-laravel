@@ -19,13 +19,15 @@ body {
 }
 
 body {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .page-content {
   position: relative;
   top: 2.5 * $base-spacing;
+  padding-bottom: 1.5 * $base-spacing;
   @media screen and (orientation: landscape) {
+    padding-bottom: 0;
     top: 0;
     display: flex;
     flex-direction: row;

@@ -155,19 +155,12 @@
   .label {
     font-size: modular-scale(-1);
   }
-  &:hover,&:focus {
+  &:focus,&:active {
+    background-color: $yellow;
+    color: white;
+    outline: none;
     &::after {
-      color: $yellow;
-    }
-  }
-  @media screen and (orientation: portrait) {
-    &:active {
-      background-color: $yellow;
       color: white;
-      outline: none;
-      &::after {
-        color: white;
-      }
     }
   }
   &::after {
