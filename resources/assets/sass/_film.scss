@@ -76,31 +76,6 @@
 .single-listing--description {
   -webkit-overflow-scrolling: touch;
   font-size: modular-scale(-1);
-  & > *:first-child {
-    padding-top: $base-spacing;
-    @media screen and (min-width: $large-screen) {
-      padding-top: 1 * $base-spacing;
-    }
-  }
-  & > *:last-child {
-    padding-bottom: $base-spacing;
-    margin-bottom: 0;
-    @media screen and (min-width: $large-screen) {
-      padding-bottom: 1 * $base-spacing;
-    }
-  }
-  & > * {
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
-    @media screen and (orientation: portrait) {
-      padding-left: $base-spacing;
-      padding-right: $base-spacing;
-    }
-    @media screen and (min-width: $large-screen) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
   @media screen and (orientation: portrait) {
     padding: $small-spacing $base-spacing;
   }
