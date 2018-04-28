@@ -35,14 +35,9 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
-if(fadeOnloadImage && !fadeOnloadImage.classList.contains('loaded')) {
+if(fadeOnloadImage && !fadeOnloadImage.naturalWidth) {
   fadeOnloadImage.classList.add('loading');
-  // fadeOnloadImage.onload = fadeOnloadImage.classList.remove('loading');
-}
-
-window.fadeImage = function(image) {
-  image.classList.remove('loading');
-  image.classList.add('loaded');
+  fadeOnloadImage.onload = fadeOnloadImage.classList.remove('loading');
 }
 
 

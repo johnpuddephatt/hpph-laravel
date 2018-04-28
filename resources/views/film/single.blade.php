@@ -5,7 +5,7 @@
 
 
     <div class="single-listing--image">
-      <img onload="fadeImage(this)" alt="Image for {{ $film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,e_colorize:100,q_85,c_fill/{{ url($film->thumb) }}"
+      <img alt="Image for {{ $film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,e_colorize:100,q_85,c_fill/{{ url($film->thumb) }}"
        srcset="
          //res.cloudinary.com/letsdance/image/fetch/w_320,h_320,q_85,c_fill/{{ url($film->thumb) }} 320w,
          //res.cloudinary.com/letsdance/image/fetch/w_480,h_480,q_85,c_fill/{{ url($film->thumb) }} 480w,
