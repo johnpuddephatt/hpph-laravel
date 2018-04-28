@@ -20,14 +20,11 @@ if(expandScreeningsButton && hiddenScreenings) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-  var fadeOnloadImage = document.querySelector('.fade-image-onload');
-  if(fadeOnloadImage) {
-    fadeOnloadImage.classList.add('loading');
-  }
-  // fadeOnloadImage.onLoad = fadeOnloadImage.classList.remove('loading');
+var fadeOnloadImage = document.querySelector('.fade-image-onload');
+if(fadeOnloadImage) {
+  fadeOnloadImage.classList.add('loading');
+}
 
-});
 
 // document.addEventListener('DOMContentLoaded', function(){
 //   Barba.Pjax.start();
