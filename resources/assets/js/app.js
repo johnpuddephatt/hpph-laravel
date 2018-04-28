@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if(fadeOnloadImage) {
     fadeOnloadImage.classList.add('loading');
   }
-  fadeOnloadImage.onLoad = fadeOnloadImage.classList.remove('loading');
+  // fadeOnloadImage.onLoad = fadeOnloadImage.classList.remove('loading');
 
 });
 
