@@ -9,32 +9,36 @@
 
 // var Barba = require('barba.js');
 
-var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
-var hiddenScreenings = document.querySelector('.hidden-rows');
-var screeningsHeader = document.querySelector('.single-listing--screenings--header');
-if(expandScreeningsButton && hiddenScreenings) {
-  expandScreeningsButton.addEventListener('click', (e)=>{
-    hiddenScreenings.classList.toggle('shown');
-    e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
-    screeningsHeader.textContent =  screeningsHeader.textContent == "Upcoming screenings" ? "All screenings" : "Upcoming screenings";
-  });
-}
+document.addEventListener('DOMContentLoaded', function(){
 
-var fadeOnloadImage = document.querySelector('.fade-image-onload');
-if(fadeOnloadImage) {
-  fadeOnloadImage.classList.add('loading');
-  fadeOnloadImage.addEventListener('load',()=>{
-    fadeOnloadImage.classList.remove('loading');
-  })
-}
+  var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
+  var hiddenScreenings = document.querySelector('.hidden-rows');
+  var screeningsHeader = document.querySelector('.single-listing--screenings--header');
+  if(expandScreeningsButton && hiddenScreenings) {
+    expandScreeningsButton.addEventListener('click', (e)=>{
+      hiddenScreenings.classList.toggle('shown');
+      e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
+      screeningsHeader.textContent =  screeningsHeader.textContent == "Upcoming screenings" ? "All screenings" : "Upcoming screenings";
+    });
+  }
 
-var disclaimerBox = document.querySelector('.disclaimer');
-var disclaimerButton = document.querySelector('.disclaimer-close');
-if (disclaimerButton && disclaimerBox) {
-  disclaimerButton.addEventListener('click', function(){
-    disclaimerButton.parentNode.parentNode.removeChild(disclaimerBox);
-  });
-}
+  var fadeOnloadImage = document.querySelector('.fade-image-onload');
+  if(fadeOnloadImage) {
+    fadeOnloadImage.classList.add('loading');
+    fadeOnloadImage.addEventListener('load',()=>{
+      fadeOnloadImage.classList.remove('loading');
+    })
+  }
+
+  var disclaimerBox = document.querySelector('.disclaimer');
+  var disclaimerButton = document.querySelector('.disclaimer-close');
+  if (disclaimerButton && disclaimerBox) {
+    disclaimerButton.addEventListener('click', function(){
+      disclaimerButton.parentNode.parentNode.removeChild(disclaimerBox);
+    });
+  }
+
+});
 
 
 // document.addEventListener('DOMContentLoaded', function(){
