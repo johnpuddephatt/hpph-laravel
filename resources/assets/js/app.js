@@ -17,10 +17,17 @@ if(expandScreeningsButton && hiddenScreenings) {
     hiddenScreenings.classList.toggle('shown');
     e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
     screeningsHeader.textContent =  screeningsHeader.textContent == "Upcoming screenings" ? "All screenings" : "Upcoming screenings";
-
   });
 }
 
+document.addEventListener('DOMContentLoaded', function(){
+  var fadeOnloadImage = document.querySelector('.fade-image-onload');
+  if(fadeOnloadImage) {
+    fadeOnloadImage.classList.add('loading');
+  }
+  fadeOnloadImage.onLoad = fadeOnloadImage.classList.remove('loading');
+
+});
 
 // document.addEventListener('DOMContentLoaded', function(){
 //   Barba.Pjax.start();

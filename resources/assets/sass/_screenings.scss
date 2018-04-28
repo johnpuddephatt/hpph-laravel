@@ -63,10 +63,10 @@
   border-top: $base-border;
   border-bottom: $base-border;
   font-size: modular-scale(2);
+  font-weight: 700;
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(-1);
   }
-  font-weight: 700;
 }
 
 .weekly-screenings--screenings {

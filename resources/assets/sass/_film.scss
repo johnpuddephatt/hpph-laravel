@@ -42,6 +42,7 @@
 
 .single-listing--image {
   flex: 0 0 50%;
+  background-color: $off-white;
   order: 2;
   @media screen and (orientation: portrait) {
     flex: 0 0 30%;
@@ -58,6 +59,11 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: opacity 1s $base-timing;
+    &.loading {
+      opacity: 0;
+      transition: opacity 0ms;
+    }
   }
 }
 

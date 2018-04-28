@@ -18,6 +18,7 @@
         (orientation: landscape) 50vw,
         100vw
        "
+       class="fade-image-onload"
       />
     </div>
 
