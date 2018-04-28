@@ -1,31 +1,38 @@
 .home-image {
-  flex: 0 0 30%;
-  padding: $base-spacing;
-  display: flex;
-  align-items: flex-end;
   background-size: cover;
   background-position: center 70%;
   background-repeat: no-repeat;
   @media screen and (orientation: portrait) {
     @include srcset('/images/hpph-l.jpg', 100%);
+    height: 30vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 2.5 * $base-spacing;
   }
   @media screen and (orientation: landscape) {
     @include srcset('/images/hpph-l.jpg', 50%);
     flex: 0 0 50%;
     background-position: bottom;
+    display: flex;
+    align-items: flex-end;
   }
   @media screen and (min-width: $large-screen) {
     flex: 0 0 50%;
+
   }
 }
 
 .listings {
-  flex: 0 0 70%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  @media screen and (orientation: portrait) {
+    top: 30vh;
+    position: relative;
+  }
   @media screen and (orientation: landscape) {
     flex: 0 0 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   @media screen and (min-width: $large-screen) {
     flex: 0 0 50%;

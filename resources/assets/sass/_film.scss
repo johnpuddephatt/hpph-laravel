@@ -31,23 +31,33 @@
 // }
 
 .single-listing--text {
-  flex: 1 1 auto;
-  overflow: hidden;
+  background-color: white;
   @media screen and (orientation: portrait) {
-    overflow: auto;
+    top: 30vh;
+    position: relative;
   }
-  display: flex;
-  flex-direction: column;
+  @media screen and (orientation: landscape) {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
 }
 
 .single-listing--image {
-  flex: 0 0 50%;
   background-color: $off-white;
-  order: 2;
-  @media screen and (orientation: portrait) {
-    flex: 0 0 30%;
-    order: 0;
+  @media screen and (orientation: landscape) {
+    flex: 0 0 50%;
+    order: 2;
   }
+  @media screen and (orientation: portrait) {
+    height: 30vh;
+    position: fixed;
+    top: 2.5 * $base-spacing;
+    left: 0;
+    right: 0;
+  }
+
   padding: 0;
   position: relative;
   img {
@@ -69,8 +79,10 @@
 
 
 .single-listing--content {
-  flex: 1 1 auto;
-  overflow: auto;
+  @media screen and (orientation: landscape) {
+    flex: 1 1 auto;
+    overflow: auto;
+  }
 }
 
 .single-listing--description {
@@ -97,6 +109,8 @@
   padding-bottom: $base-spacing;
   @media screen and (orientation: portrait) {
     padding: $base-spacing;
+    position: sticky;
+    top: 2.5 * $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
     padding: $base-spacing 2 * $base-spacing;

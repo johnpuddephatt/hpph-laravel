@@ -2,8 +2,11 @@
   background-color: #fff;
   z-index: 9;
   flex: 1 1 auto;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  @media screen and (orientation: portrait) {
+    overflow: visible;
+  }
 }
 
 .weekly-screenings--header,
@@ -57,28 +60,42 @@
 
 .weekly-screenings--navigation {
   display: flex;
+  background-color: white;
+  z-index: 99;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-top: $base-border;
   border-bottom: $base-border;
-  font-size: modular-scale(2);
+  font-size: modular-scale(1);
   font-weight: 700;
+  position: sticky;
+  top: -2px;
+  height: 3 * $base-spacing;
   @media screen and (min-width: $large-screen) {
-    font-size: modular-scale(-1);
+    font-size: modular-scale(0);
+  }
+  @media screen and (orientation: portrait) {
+    position: sticky;
+    top: 2.5 * $base-spacing;
+    top: calc(#{2.5 * $base-spacing} - 2px );
   }
 }
 
 .weekly-screenings--screenings {
   .alert {
-    margin-top: 2 * $base-spacing;
+    margin: $base-spacing $base-spacing;
   }
 }
 
 .weekly-screenings--navigation--arrow {
   font-size: modular-scale(5);
   font-weight: 500;
-  padding: 0 $small-spacing;
+  padding: $small-spacing;
+  @media screen and (orientation: portrait) {
+    padding: $base-spacing;
+  }
+  line-height: 0;
   &.disabled {
     color: $light-gray;
     &:hover {
@@ -138,9 +155,19 @@
   .label {
     font-size: modular-scale(-1);
   }
-  &:hover,&:focus,&:active {
+  &:hover,&:focus {
     &::after {
       color: $yellow;
+    }
+  }
+  @media screen and (orientation: portrait) {
+    &:active {
+      background-color: $yellow;
+      color: white;
+      outline: none;
+      &::after {
+        color: white;
+      }
     }
   }
   &::after {
@@ -165,7 +192,8 @@
 
 .weekly-screenings--entry--date {
   flex: 0 0;
-  width: 3.5 * $base-spacing;
+  width: 3.75 * $base-spacing;
+  box-sizing: content-box;
   padding-right: $small-spacing;
   padding-left: $small-spacing;
   @media screen and (orientation: portrait) {

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 *,
@@ -18,15 +19,16 @@ body {
 }
 
 body {
-  overflow: visible
+  overflow: auto;
 }
 
 .page-content {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  height: calc(100% - #{4.25 * $base-spacing});
+  top: 2.5 * $base-spacing;
   @media screen and (orientation: landscape) {
+    top: 0;
+    display: flex;
     flex-direction: row;
+    height: calc(100% - #{4 * $base-spacing});
   }
 }

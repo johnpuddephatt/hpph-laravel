@@ -55,8 +55,8 @@ a {
     color: shade($action-color, 10%);
   }
   &:focus {
-    outline: .2em solid transparentize($yellow,.5);
-    outline-offset: .2em;
+    outline: .15rem solid transparentize($yellow,.5);
+    outline-offset: .15rem;
     box-shadow: none;
   }
 }

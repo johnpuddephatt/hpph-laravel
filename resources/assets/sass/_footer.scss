@@ -1,7 +1,7 @@
 .site-footer {
   position: relative;
   background-color: $base-font-color;
-  border-top: 1px solid $base-font-color;
+  height: 1.5 * $base-spacing;
   color: white;
   flex: 0 0 auto;
   align-items: center;
@@ -11,6 +11,10 @@
   padding: $small-spacing;
   @media screen and (orientation: portrait) {
     padding: $small-spacing $base-spacing;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   @media screen and (min-width: $large-screen) {
     padding: $small-spacing 2 * $base-spacing;

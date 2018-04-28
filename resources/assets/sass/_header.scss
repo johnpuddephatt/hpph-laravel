@@ -7,8 +7,14 @@
   z-index: 9;
   border-bottom: $base-border;
   padding: $small-spacing;
+  height: 2.5 * $base-spacing;
+  box-sizing: border-box;
   @media screen and (orientation: portrait) {
     padding: $small-spacing $base-spacing;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
   @media screen and (min-width: $large-screen) {
     padding: $small-spacing 2 * $base-spacing;
@@ -23,7 +29,10 @@
     display: block;
     width: auto;
     margin: 0;
-    height: 1.5 * $base-spacing;
+    height: 1.25 * $base-spacing;
+    @media screen and (orientation: landscape) {
+      height: 1.5 * $base-spacing;
+    }
   }
 }
 
@@ -32,5 +41,8 @@
   font-size: modular-scale(-1);
   line-height: .8em;
   padding-top: .95em;
-  margin-left: $base-spacing;
+  margin-left: $small-spacing;
+  @media screen and (orientation: landscape) {
+    margin-left: $base-spacing;
+  }
 }
