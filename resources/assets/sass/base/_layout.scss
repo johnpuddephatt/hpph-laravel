@@ -17,15 +17,15 @@ html,body {
   position: relative;
   margin: 0;
   padding: 0;
+  @media screen and (orientation: landscape) {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
-  @media screen and (orientation: landscape) {
-    height: 100%;
-    overflow: hidden;
-  }
 }
 
 .page-content {
