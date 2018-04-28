@@ -116,6 +116,7 @@
   @media screen and (orientation: portrait) {
     padding-left: $base-spacing;
     background-color: $off-white;
+    border-top: $base-border;
     border-bottom: $base-border;
     font-size: modular-scale(1);
 
