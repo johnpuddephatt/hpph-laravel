@@ -49,13 +49,13 @@
             </a>
           @endif
       @endforeach
-      @if($week > 1)
-        <div class="alert">
-          Full listings are confirmed every Monday for the week beginning the following Friday. To receive weekly listings as soon as they're confirmed, <a href="http://eepurl.com/yHJXT" target="_blank">sign up here.</a>
-        </div>
-      @endif
+
+    @elseif ($week > 1)
+      <div class="alert">No screenings currently scheduled for this week.</div>
     @else
-      <div class="alert">No screenings currently scheduled this week.</div>
+      <div class="alert">
+        Full listings are confirmed every Monday for the week beginning the following Friday. To receive weekly listings as soon as they're confirmed, <a href="http://eepurl.com/yHJXT" target="_blank">sign up here.</a>
+      </div>
     @endif
   </div>
 </div>

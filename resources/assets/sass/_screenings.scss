@@ -28,27 +28,39 @@
   font-family: "Bodoni", "Times New Roman";
   line-height: $tight-heading-line-height;
   -webkit-font-smoothing: antialiased;
-  font-size: modular-scale(4);
+  font-size: modular-scale(5);
   text-transform: uppercase;
   font-weight: 900;
-  display: none;
   margin: $base-spacing 0;
   font-weight: 700;
+  word-spacing: 9999px;
+  margin: 2 * $base-spacing 0 $base-spacing;
+  @media screen and (orientation: portrait) {
+    position: absolute;
+    z-index: 999;
+    color: white;
+    bottom: 100%;
+    padding: 0 $small-spacing;
+    text-shadow: rgba(0,0,0,.75) 0 0 30px;
+  }
   @media screen and (min-width: $large-screen) {
-    display: block;
-    margin: 2 * $base-spacing 0 $base-spacing;
-    word-spacing: 9999px;
     font-size: modular-scale(6);
+    color: $base-font-color;
   }
   span {
     color: $yellow;
     word-spacing: 0;
     span {
       color: $base-font-color;
+
       text-transform: none;
       font-weight: 400;
       font-size: modular-scale(-5);
       font-style: italic;
+      @media screen and (orientation: portrait) {
+        color: white;
+        font-size: modular-scale(-4);
+      }
       span {
         font-style: normal;
         font-size: modular-scale(0)
@@ -76,14 +88,18 @@
   }
   @media screen and (orientation: portrait) {
     position: sticky;
+    border-bottom: none;
     top: 2.5 * $base-spacing;
     top: calc(#{2.5 * $base-spacing} - 2px );
   }
 }
 
 .weekly-screenings--screenings {
+  margin-bottom: 4 * $base-spacing;
   .alert {
-    margin: $base-spacing $base-spacing;
+    @media screen and (orientation: portrait) {
+      margin: $base-spacing $base-spacing;
+    }
   }
 }
 
@@ -117,7 +133,6 @@
     padding-left: $base-spacing;
     background-color: $off-white;
     border-top: $base-border;
-    border-bottom: $base-border;
     font-size: modular-scale(1);
 
   }
