@@ -35,8 +35,11 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
-if(fadeOnloadImage && !fadeOnloadImage.naturalWidth) {
+if(fadeOnloadImage) {
   fadeOnloadImage.classList.add('loading');
+  if(fadeOnloadImage.naturalWidth) {
+    fadeOnloadImage.classList.remove('loading');
+  }
   fadeOnloadImage.onload = function() {
     fadeOnloadImage.classList.remove('loading');
   }
