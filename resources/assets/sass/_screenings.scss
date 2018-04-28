@@ -140,10 +140,7 @@
 
 .weekly-screenings--entry {
   display: flex;
-  &:focus {
-    outline: 1px solid $yellow;
-    outline-offset: 0px;
-  }
+  -webkit-tap-highlight-color: $yellow;
   padding: $base-spacing 0;
   color: $base-font-color;
   border-bottom: $light-border;
@@ -151,16 +148,12 @@
   @media screen and (min-width: $large-screen) {
     padding: $small-spacing 0;
   }
+  &:focus {
+    outline: 1px solid $yellow;
+    outline-offset: 0px;
+  }
   .label {
     font-size: modular-scale(-1);
-  }
-  &:focus,&:active {
-    background-color: $yellow;
-    color: white;
-    outline: none;
-    &::after {
-      color: white;
-    }
   }
   &::after {
     font-size: modular-scale(5);
