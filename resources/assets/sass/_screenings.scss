@@ -133,11 +133,14 @@
     background-color: $off-white;
     border-top: $base-border;
     font-size: modular-scale(1);
-
+    &:first-child {
+      border-top: none;
+    }
   }
   @media screen and (min-width: $large-screen) {
     padding-left: 0;
   }
+
 }
 
 
@@ -189,11 +192,6 @@
     padding-right: $small-spacing;
     @media screen and (orientation: portrait) {
       padding-right: $base-spacing;
-    }
-  }
-  &:first-child .weekly-screenings--date {
-    @media screen and (orientation: portrait) {
-      border-top: none;
     }
   }
 }
