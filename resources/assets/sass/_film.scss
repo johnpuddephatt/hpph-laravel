@@ -65,9 +65,9 @@
   & > *:last-child {
     margin-bottom: 0;
   }
-  padding: $small-spacing;
+  margin: $small-spacing;
   @media screen and (orientation: portrait) {
-    padding: $base-spacing;
+    margin: $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
     margin: $base-spacing 2 * $base-spacing;
