@@ -12,6 +12,7 @@
          //res.cloudinary.com/letsdance/image/fetch/w_640,f_auto,q_85,c_fill/{{ url($film->thumb) }} 640w,
          //res.cloudinary.com/letsdance/image/fetch/w_800,f_auto,q_85,c_fill/{{ url($film->thumb) }} 800w,
          //res.cloudinary.com/letsdance/image/fetch/w_1020,f_auto,q_85,c_fill/{{ url($film->thumb) }} 1020w,
+         //res.cloudinary.com/letsdance/image/fetch/w_1200,f_auto,q_85,c_fill/{{ url($film->thumb) }} 1200w,
          //res.cloudinary.com/letsdance/image/fetch/w_1600,f_auto,q_85,c_fill/{{ url($film->thumb) }} 1600w,
        "
        sizes="
