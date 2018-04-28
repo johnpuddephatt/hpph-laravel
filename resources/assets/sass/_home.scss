@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   @media screen and (orientation: portrait) {
     @include srcset('/images/hpph-l.jpg', 100%);
-    height: 30vh;
+    height: $banner-image-height;
     position: fixed;
     left: 0;
     right: 0;
@@ -25,7 +25,7 @@
 
 .home-listings {
   @media screen and (orientation: portrait) {
-    margin-top: 30vh;
+    margin-top: $banner-image-height;
     position: relative;
     padding-bottom: 1.5 * $base-spacing;
   }

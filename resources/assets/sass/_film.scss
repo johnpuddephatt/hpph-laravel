@@ -7,7 +7,7 @@
 .single-listing--text {
   background-color: white;
   @media screen and (orientation: portrait) {
-    margin-top: 30vh;
+    margin-top: $banner-image-height;
     position: relative;
   }
   @media screen and (orientation: landscape) {
@@ -25,7 +25,7 @@
     order: 2;
   }
   @media screen and (orientation: portrait) {
-    height: 30vh;
+    height: $banner-image-height;
     position: fixed;
     top: 2.5 * $base-spacing;
     left: 0;
