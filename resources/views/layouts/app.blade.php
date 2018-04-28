@@ -20,17 +20,7 @@
 
     @include('footer')
 
-
     <script src="/js/app.js"></script>
 
-    <script>
-      var disclaimerBox = document.querySelector('.disclaimer');
-      var disclaimerButton = document.querySelector('.disclaimer-close');
-      if (disclaimerButton && disclaimerBox) {
-        disclaimerButton.addEventListener('click', function(){
-          disclaimerButton.parentNode.parentNode.removeChild(disclaimerBox);
-        });
-      }
-    </script>
   </body>
 </html>

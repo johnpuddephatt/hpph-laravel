@@ -26,6 +26,15 @@ if(fadeOnloadImage) {
 }
 
 
+var disclaimerBox = document.querySelector('.disclaimer');
+var disclaimerButton = document.querySelector('.disclaimer-close');
+if (disclaimerButton && disclaimerBox) {
+  disclaimerButton.addEventListener('click', function(){
+    disclaimerButton.parentNode.parentNode.removeChild(disclaimerBox);
+  });
+}
+
+
 // document.addEventListener('DOMContentLoaded', function(){
 //   Barba.Pjax.start();
 //   Barba.Prefetch.init();
