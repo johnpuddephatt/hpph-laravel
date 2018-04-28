@@ -23,8 +23,10 @@ if(expandScreeningsButton && hiddenScreenings) {
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
 if(fadeOnloadImage) {
   fadeOnloadImage.classList.add('loading');
+  fadeOnloadImage.addEventListener('load',()=>{
+    fadeOnloadImage.classList.remove('loading');
+  })
 }
-
 
 var disclaimerBox = document.querySelector('.disclaimer');
 var disclaimerButton = document.querySelector('.disclaimer-close');
