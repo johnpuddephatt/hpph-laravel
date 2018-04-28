@@ -9,6 +9,7 @@
 
 // var Barba = require('barba.js');
 
+
 document.addEventListener('DOMContentLoaded', function(){
 
   var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
@@ -22,13 +23,8 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  var fadeOnloadImage = document.querySelector('.fade-image-onload');
-  if(fadeOnloadImage) {
-    fadeOnloadImage.classList.add('loading');
-    fadeOnloadImage.onload = fadeOnloadImage.classList.remove('loading');
-  }
 
-  var disclaimerBox = document.querySelector('.disclaimer');
+   disclaimerBox = document.querySelector('.disclaimer');
   var disclaimerButton = document.querySelector('.disclaimer-close');
   if (disclaimerButton && disclaimerBox) {
     disclaimerButton.addEventListener('click', function(){
@@ -37,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
 });
+
+var fadeOnloadImage = document.querySelector('.fade-image-onload');
+if(fadeOnloadImage && !fadeOnloadImage.classList.contains('loaded')) {
+  fadeOnloadImage.classList.add('loading');
+  // fadeOnloadImage.onload = fadeOnloadImage.classList.remove('loading');
+}
+
+window.fadeImage = function(image) {
+  image.classList.remove('loading');
+  image.classList.add('loaded');
+}
 
 
 // document.addEventListener('DOMContentLoaded', function(){
