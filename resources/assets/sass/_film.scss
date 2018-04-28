@@ -76,14 +76,17 @@
 .single-listing--description {
   -webkit-overflow-scrolling: touch;
   font-size: modular-scale(-1);
+  & > *:last-child {
+    margin-bottom: 0;
+  }
   @media screen and (orientation: portrait) {
-    padding: $small-spacing $base-spacing;
+    padding: $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
-    margin: 0 2 * $base-spacing;
+    margin: $base-spacing 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
-    margin: 0 3 * $base-spacing;
+    margin: $base-spacing 3 * $base-spacing;
   }
 }
 
@@ -96,7 +99,7 @@
     padding: $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
-    padding: $small-spacing 2 * $base-spacing;
+    padding: $base-spacing 2 * $base-spacing;
   }
   @media screen and (min-width: $xl-screen) {
     padding: 2 * $base-spacing 3 * $base-spacing $base-spacing;
@@ -118,7 +121,7 @@
   font-weight: 500;
   color: $medium-gray;
   line-height: $heading-line-height;
-  margin-bottom: 1.5 * $small-spacing;
+  margin-bottom: $small-spacing;
 }
 
 .single-listing--screenings {
