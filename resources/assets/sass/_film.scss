@@ -54,10 +54,11 @@
 
 
 .single-listing--content {
-  padding-bottom: $base-spacing;
+  padding-bottom: 1.5 * $base-spacing;
   @media screen and (orientation: landscape) {
     flex: 1 1 auto;
     overflow: auto;
+    padding-bottom: $small-spacing;
   }
 }
 
