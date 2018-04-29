@@ -20,7 +20,7 @@
 
     @include('footer')
 
-    <script src="{{ env('APP_URL') . '/js/app.js' }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 
   </body>
 </html>
