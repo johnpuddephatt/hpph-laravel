@@ -3,15 +3,15 @@
   @if( $local != true ) {
     @each $size in $sizes {
       @media screen and (min-width: $size) {
-        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px},q_#{$quality}/#{$baseurl}#{$image}')
+        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px},q_#{$quality},f_auto/#{$baseurl}#{$image}')
       }
       @media screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: $size),
              screen and (min-resolution: 150dpi) and (min-width: $size) {
-        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px * 1.5},q_#{$quality}/#{$baseurl}#{$image}')
+        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px * 1.5},q_#{$quality},f_auto/#{$baseurl}#{$image}')
       }
       @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: $size),
              screen and (min-resolution: 200dpi) and (min-width: $size) {
-        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px * 2},q_#{$quality}/#{$baseurl}#{$image}')
+        background-image: url('http://res.cloudinary.com/#{$cloudinary}/image/fetch/w_#{$width/100% * $size/1px * 2},q_#{$quality},f_auto/#{$baseurl}#{$image}')
       }
     }
   } @else {
