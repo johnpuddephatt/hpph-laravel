@@ -69,6 +69,7 @@
   position: sticky;
   top: -2px;
   transform: translateZ(0);
+  z-index: 9;
   @media screen and (orientation: portrait) {
     top: 2.5 * $base-spacing;
     top: calc(#{2.5 * $base-spacing} - 2px );
