@@ -38,17 +38,17 @@ document.addEventListener('DOMContentLoaded', function(){
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
 if(fadeOnloadImage) {
   fadeOnloadImage.classList.add('loading')
-  fadeOnloadImage.classList.add('was-loading');
   console.log('was-loading');
-  if(fadeOnloadImage.naturalWidth) {
-    fadeOnloadImage.classList.remove('loading');
-    fadeOnloadImage.classList.add('natural-width-method');
-    console.log('natural width method');
-  }
+
   fadeOnloadImage.onload = function() {
     fadeOnloadImage.classList.remove('loading');
-    fadeOnloadImage.classList.add('onload-method');
     console.log('onload method');
+  }
+  if(fadeOnloadImage.naturalWidth) {
+    setTimeout(()=>{
+      fadeOnloadImage.classList.remove('loading');
+    }, 200);
+    console.log('natural width method');
   }
 }
 
