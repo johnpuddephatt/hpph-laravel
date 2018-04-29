@@ -16,7 +16,6 @@
     flex-direction: column;
     flex: 1 1 auto;
     overflow: hidden;
-    padding-bottom: $base-spacing;
   }
 }
 
@@ -55,11 +54,10 @@
 
 
 .single-listing--content {
-  padding-bottom: 1.5 * $base-spacing;
+  padding-bottom: $base-spacing;
   @media screen and (orientation: landscape) {
     flex: 1 1 auto;
     overflow: auto;
-    padding-bottom: 0;
   }
 }
 
