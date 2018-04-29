@@ -11,7 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.sass', 'public/css')
-    .copy('resources/assets/images/*', 'public/images')
-    .browserSync('http://public.hpph-laravel.localhost/');
+mix.js('resources/assets/js/app.js', 'public/js');
+mix.sass('resources/assets/sass/app.sass', 'public/css');
+mix.copy('resources/assets/images/*', 'public/images');
+mix.browserSync('http://public.hpph-laravel.localhost/');
+
+mix.version();

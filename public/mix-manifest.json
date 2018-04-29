@@ -1,9 +1,9 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/images/hpph-l.jpg": "/images/hpph-l.jpg",
-    "/images/logo-strapline-right.svg": "/images/logo-strapline-right.svg",
-    "/images/logo-strapline.svg": "/images/logo-strapline.svg",
-    "/images/logo.svg": "/images/logo.svg",
-    "/images/opengraph.jpg": "/images/opengraph.jpg"
+    "/js/app.js": "/js/app.js?id=cb73905d323ae7ac05f2",
+    "/css/app.css": "/css/app.css?id=81f50871d85495fb1332",
+    "/images/hpph-l.jpg": "/images/hpph-l.jpg?id=645b137d69d0eba9057d",
+    "/images/logo-strapline-right.svg": "/images/logo-strapline-right.svg?id=d66f5e45498b1e3ab61b",
+    "/images/logo-strapline.svg": "/images/logo-strapline.svg?id=04eda395ed99e54b281d",
+    "/images/logo.svg": "/images/logo.svg?id=04eda395ed99e54b281d",
+    "/images/opengraph.jpg": "/images/opengraph.jpg?id=71a4d7250cd22f07e771"
 }

@@ -8,7 +8,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{{ env('APP_NAME')}}</title>
-      <link rel="stylesheet" href="{{ env('APP_URL') . '/css/app.css' }}" />
+      <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
     </head>
     <body class="{{implode(' ', $body_classes)}}">
 
