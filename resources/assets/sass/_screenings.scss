@@ -32,20 +32,15 @@
   text-transform: uppercase;
   font-weight: 900;
   margin: $base-spacing 0;
+  color: $base-font-color;
   font-weight: 700;
   word-spacing: 9999px;
   margin: 2 * $base-spacing 0 $base-spacing;
   @media screen and (orientation: portrait) {
-    position: absolute;
-    z-index: 999;
-    color: white;
-    bottom: 100%;
-    padding: 0 $small-spacing;
-    text-shadow: rgba(0,0,0,.75) 0 0 30px;
+    display: none;
   }
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(6);
-    color: $base-font-color;
   }
   span {
     color: $yellow;
