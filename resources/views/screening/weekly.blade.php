@@ -4,18 +4,20 @@
   </div>
 
   <nav class="weekly-screenings--navigation">
-    @if($week == 1)
-      <span class="weekly-screenings--navigation--arrow disabled">&laquo;</span>
-      <span class="weekly-screenings--navigation--date">Showing this week</span>
-    @else
-      <a class="weekly-screenings--navigation--arrow" href="/week-{{$week - 1}}">&laquo;</a>
-      <span class="weekly-screenings--navigation--date">{{ Carbon\Carbon::parse($week_commencing)->format('D d F') }} &mdash; {{ Carbon\Carbon::parse($week_ending)->format('D d F') }}</span>
-    @endif
-    @if($week == 8)
-      <span class="weekly-screenings--navigation--arrow disabled">&raquo;</span>
-    @else
-      <a class="weekly-screenings--navigation--arrow" href="/week-{{$week + 1}}">&raquo;</a>
-    @endif
+    <div class="weekly-screenings--navigation--inner">
+      @if($week == 1)
+        <span class="weekly-screenings--navigation--arrow disabled">&laquo;</span>
+        <span class="weekly-screenings--navigation--date">Showing this week</span>
+      @else
+        <a class="weekly-screenings--navigation--arrow" href="/week-{{$week - 1}}">&laquo;</a>
+        <span class="weekly-screenings--navigation--date">{{ Carbon\Carbon::parse($week_commencing)->format('D d F') }} &mdash; {{ Carbon\Carbon::parse($week_ending)->format('D d F') }}</span>
+      @endif
+      @if($week == 8)
+        <span class="weekly-screenings--navigation--arrow disabled">&raquo;</span>
+      @else
+        <a class="weekly-screenings--navigation--arrow" href="/week-{{$week + 1}}">&raquo;</a>
+      @endif
+    </div>
   </nav>
 
   <div class="weekly-screenings--screenings">

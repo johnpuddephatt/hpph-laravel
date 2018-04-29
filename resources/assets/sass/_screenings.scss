@@ -70,6 +70,17 @@
 }
 
 .weekly-screenings--navigation {
+  display: block;
+  position: sticky;
+  top: -2px;
+  transform: translateZ(0);
+  @media screen and (orientation: portrait) {
+    top: 2.5 * $base-spacing;
+    top: calc(#{2.5 * $base-spacing} - 2px );
+  }
+}
+
+.weekly-screenings--navigation--inner {
   display: flex;
   background-color: white;
   z-index: 99;
@@ -80,16 +91,9 @@
   border-bottom: $base-border;
   font-size: modular-scale(1);
   font-weight: 700;
-  position: sticky;
-  top: -2px;
   height: 3 * $base-spacing;
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(0);
-  }
-  @media screen and (orientation: portrait) {
-    position: sticky;
-    top: 2.5 * $base-spacing;
-    top: calc(#{2.5 * $base-spacing} - 2px );
   }
 }
 
@@ -173,6 +177,11 @@
   line-height: $base-line-height;
   @media screen and (min-width: $large-screen) {
     padding: $small-spacing 0;
+  }
+  &:hover {
+    &::after {
+      color: $yellow;
+    }
   }
   &:focus {
     outline: 1px solid $yellow;
