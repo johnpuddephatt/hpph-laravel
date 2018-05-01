@@ -6,9 +6,9 @@
     </div>
 
     <textarea style="display: none"
-    	id="quill-{{ $field['name'] }}"
+    	id="quill-textarea-{{ $field['name'] }}"
         name="{{ $field['name'] }}"
-        @include('crud::inc.field_attributes', ['default_class' => 'form-control quill'])
+        @include('crud::inc.field_attributes', ['default_class' => 'form-control quill-textarea-' . $field['name']])
     	>{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}</textarea>
 
     {{-- HINT --}}
@@ -47,14 +47,14 @@
 @push('crud_fields_scripts')
 <script>
 
-  var editor = document.getElementById('quill-editor-{{ $field['name'] }}');
+  var editor_{{ $field['name'] }} = document.getElementById('quill-editor-{{ $field['name'] }}');
   const cloudName_{{ $field['name'] }} = 'letsdance';
   const unsignedUploadPreset_{{ $field['name'] }} = 'hxep6y90';
 
 
-  editor.addEventListener("dragenter", dragenter, false);
-  editor.addEventListener("dragover", dragover, false);
-  editor.addEventListener("drop", drop, false);
+  editor_{{ $field['name'] }}.addEventListener("dragenter", dragenter, false);
+  editor_{{ $field['name'] }}.addEventListener("dragover", dragover, false);
+  editor_{{ $field['name'] }}.addEventListener("drop", drop, false);
 
   function dragenter(e) {
     e.stopPropagation();
@@ -86,7 +86,7 @@
 
 
 
-  var quill_{{ $field['name'] }} = new Quill(editor, {
+  var quill_{{ $field['name'] }} = new Quill(editor_{{ $field['name'] }}, {
     theme: 'snow',
     modules: {
       toolbar: {
@@ -125,18 +125,18 @@
    * @param {File} file
    */
   function saveToServer(file) {
-  quill.enable(false);
+  quill_{{ $field['name'] }}.enable(false);
   var url = `https://api.cloudinary.com/v1_1/${cloudName_{{ $field['name'] }}}/upload`;
   var xhr = new XMLHttpRequest();
   var fd = new FormData();
-  const range = quill.getSelection() || {index: quill.getLength(), length: 0};
+  const range = quill_{{ $field['name'] }}.getSelection() || {index: quill_{{ $field['name'] }}.getLength(), length: 0};
   xhr.open('POST', url, true);
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
   // Reset the upload progress bar
   var progressBar = `<div class="progress-container"><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated" id="progress"></div></div></div>`;
 
-  editor.insertAdjacentHTML('beforeend',progressBar);
+  editor_{{ $field['name'] }}.insertAdjacentHTML('beforeend',progressBar);
   document.getElementById('progress').style.width = 0;
 
   // Update progress (can be used to show progress indicator)
@@ -163,7 +163,7 @@
       var response = JSON.parse(xhr.responseText);
       alert(response.error.message);
       document.querySelector('.progress-container').remove();
-      quill.enable(true);
+      quill_{{ $field['name'] }}.enable(true);
     }
   };
 
@@ -182,23 +182,24 @@
     // push image url to rich editor.
     // quill.editor.insertEmbed(range.index, 'image', url);
     var Delta = Quill.import('delta');
-    quill.updateContents(new Delta()
+    quill_{{ $field['name'] }}.updateContents(new Delta()
                 .retain(range.index)
                 .delete(range.length)
                 .insert({ image: url }));
 
-    quill.enable(true);
+    quill_{{ $field['name'] }}.enable(true);
   }
 
 
-  var editorContent = editor.querySelector('.ql-editor');
-  var textarea = document.getElementById('quill-{{ $field['name'] }}');
+
+  var editorContent_{{ $field['name'] }} = editor_{{ $field['name'] }}.querySelector('.ql-editor');
+  var textarea_{{ $field['name'] }} = document.getElementById('quill-textarea-{{ $field['name'] }}');
 
    document.forms[0].addEventListener('submit',function(){
-     textarea.value = editorContent.innerHTML;
+     textarea_{{ $field['name'] }}.value = editorContent_{{ $field['name'] }}.innerHTML;
    });
 
-   editorContent.innerHTML = textarea.value;
+   editorContent_{{ $field['name'] }}.innerHTML = textarea_{{ $field['name'] }}.value;
 
 </script>
 @endpush
