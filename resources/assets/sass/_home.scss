@@ -9,6 +9,7 @@
     left: 0;
     right: 0;
     top: 2.5 * $base-spacing;
+
   }
   @media screen and (orientation: landscape) {
     @include srcset('/images/hpph-l.jpg', 50%);

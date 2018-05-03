@@ -91,10 +91,15 @@
     modules: {
       toolbar: {
         container: [{!! $field['toolbar'] !!}],
-      handlers: { image: selectLocalImage }
+        handlers: {
+          image: selectLocalImage,
+        }
       }
     },
   });
+
+  function hpphEmbed() { alert('nothing to see here') };
+
 
   /**
   * Step1. select local image
