@@ -18,7 +18,7 @@ class CreateScreeningsTable extends Migration
             $table->integer('film_id');
             $table->date('date');
             $table->string('time');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('labels')->nullable();
         });
     }

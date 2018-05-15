@@ -24,7 +24,10 @@
     padding: $small-spacing 3 * $base-spacing;
   }
   .site-header--home-link {
-    margin-right: auto;
+    margin-right: $base-spacing;
+    @media screen and (min-width: $large-screen) {
+      margin-right: 1.5 * $base-spacing;
+    }
   }
   .hpph-logo {
     display: block;
@@ -34,6 +37,23 @@
   }
 }
 
+.site-header--navigation {
+  margin-right: auto;
+  li {
+    float: left;
+    margin-right: $small-spacing;
+    @media screen and (min-width: $large-screen) {
+      margin-right: $base-spacing;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  a {
+    color: $base-font-color;
+    font-size: modular-scale(-1);
+  }
+}
 
 .site-header--book-button {
   font-size: modular-scale(-1);

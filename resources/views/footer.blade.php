@@ -5,4 +5,6 @@
       <li><strong>Email:</strong> <a href="mailto:info@hydeparkpicturehouse.co.uk">info@hydeparkpicturehouse.co.uk</a></li>
     </ul>
   </div>
+  @include('social')
+
 </footer>

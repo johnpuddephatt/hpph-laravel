@@ -61,7 +61,10 @@
                   <td>{{ Carbon\Carbon::parse($screening->date)->format('D d F')}}</td><td>
                   @php $current_date = $screening->date @endphp
                 @endif
-                    <a href="http://www.jack-roe.co.uk/websales/sales/hydlee/actual_book?perfcode={{ $screening->url }}" class="listings--screenings--book button button__ghost button__small">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}
+                    <a
+                      @if($screening->url && is_numeric($screening->url)) href="http://www.jack-roe.co.uk/websales/sales/hydlee/actual_book?perfcode={{ $screening->url }}"
+                      @elseif($screening->url) href="{{ $screening->url }}" @endif
+                      class="listings--screenings--book button button__ghost button__small">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}
                       @foreach ($screening->labels() as $label)
                         @if ($label)
                           @include ('screening.label')
