@@ -60,7 +60,13 @@ class ScreeningCrudController extends CrudController
           'type' => 'text'
         ];
 
-        $this->crud->addFields([$filmArray, $dateArray, $timeArray, $labelsArray], 'both');
+        $urlArray = [   // Browse
+          'name' => 'url',
+          'label' => 'URL',
+          'type' => 'text'
+        ];
+
+        $this->crud->addFields([$filmArray, $dateArray, $urlArray, $timeArray, $labelsArray], 'both');
 
         $this->crud->addColumns([$filmArray,$dateArray]);
 
