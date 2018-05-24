@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function(){
     hiddenScreenings.classList.remove('shown');
     expandScreeningsButton.addEventListener('click', (e)=>{
       hiddenScreenings.classList.toggle('shown');
-      e.target.textContent =  e.target.textContent == "Hide" ? "Show all screenings" : "Hide";
-      screeningsHeader.textContent =  screeningsHeader.textContent == "Upcoming screenings" ? "All screenings" : "Upcoming screenings";
+      e.target.textContent =  e.target.textContent == "Hide" ? "More screenings" : "Hide";
+      screeningsHeader.textContent =  screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
     });
   }
 
@@ -38,17 +38,16 @@ document.addEventListener('DOMContentLoaded', function(){
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
 if(fadeOnloadImage) {
   fadeOnloadImage.classList.add('loading')
-  console.log('was-loading');
 
   fadeOnloadImage.onload = function() {
     fadeOnloadImage.classList.remove('loading');
-    console.log('onload method');
+
   }
   if(fadeOnloadImage.naturalWidth) {
     setTimeout(()=>{
       fadeOnloadImage.classList.remove('loading');
     }, 200);
-    console.log('natural width method');
+
   }
 }
 
