@@ -10,6 +10,17 @@
 // var Barba = require('barba.js');
 
 
+var simpleslider = require('simple-slider');
+var slider = document.querySelector('.simple-slider');
+if(slider) {
+  simpleslider.getSlider({
+    container: slider,
+    transitionTime:1,
+    delay:3.5
+  });
+}
+
+
 document.addEventListener('DOMContentLoaded', function(){
 
   var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
