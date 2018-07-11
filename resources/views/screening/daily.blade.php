@@ -43,17 +43,15 @@
                 @endif
               </div>
               <div class="daily-screenings--entry--image">
-                <img alt="Image for {{ $screening->film->title }}" src="{{ url($screening->film->thumb) }}" />
+                @include('utils.cloudinary', [
+                  'alt' => "Image for" . $screening->film->title,
+                  'img' => url($screening->film->thumb),
+                  'class' => "fade-image-onload",
+                  'height' => "320",
+                  'width' => "180",
+                  'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw"
+                ])
               </div>
-              {{-- <img alt="Image for {{ $screening->film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,f_auto,g_faces,q_85,c_fill/{{ url($screening->film->thumb) }}"
-               srcset="
-                 //res.cloudinary.com/letsdance/image/fetch/w_100,f_auto,g_faces,q_85,c_fill/{{ url($screening->film->thumb) }} 100w,
-                 //res.cloudinary.com/letsdance/image/fetch/w_180,f_auto,g_faces,q_85,c_fill/{{ url($screening->film->thumb) }} 180w,
-                 //res.cloudinary.com/letsdance/image/fetch/w_300,f_auto,g_faces,q_85,c_fill/{{ url($screening->film->thumb) }} 300w,
-               "
-               sizes="25vw"
-               class="fade-image-onload"
-              /> --}}
             </a>
           @endif
       @endforeach

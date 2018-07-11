@@ -6,24 +6,24 @@
   a {
     display: inline-block;
     margin-left: $small-spacing/2;
-    color: $base-font-color;
-    padding: 0 $base-spacing;
-    line-height: 1.75 * $base-spacing;
-    border-radius: 2 * $base-spacing;
-    transition: border $base-duration $base-timing;
-    font-weight: 700;
     text-transform: uppercase;
-    font-size: modular-scale(-1);
-    color: $medium-gray;
-    border: $thick-border;
-    border-color: transparent;
-    &:hover {
-      border-color: $medium-gray;
-    }
-    &.current {
-      color: $dark-gray;
-      border-color: $dark-gray;
-    }
+    // color: $base-font-color;
+    // padding: 0 $base-spacing;
+    // line-height: 1.75 * $base-spacing;
+    // border-radius: 2 * $base-spacing;
+    // transition: border $base-duration $base-timing;
+    // font-weight: 700;
+    // font-size: modular-scale(-1);
+    // color: $medium-gray;
+    // border: $thick-border;
+    // border-color: transparent;
+    // &:hover {
+    //   border-color: $medium-gray;
+    // }
+    // &.current {
+    //   color: $dark-gray;
+    //   border-color: $dark-gray;
+    // }
   }
 
 }

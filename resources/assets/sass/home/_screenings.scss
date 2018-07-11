@@ -153,9 +153,7 @@
       color: $yellow;
     }
     .daily-screenings--entry--title-inner {
-      &::after {
-        opacity: 1;
-      }
+      @extend %underline;
     }
   }
   &:focus {
@@ -229,19 +227,18 @@
 
 .daily-screenings--entry--title-inner {
   position: relative;
-
-  &::after {
-    transition: opacity $base-duration $base-timing;
-    position: absolute;
-    opacity: 0;
-    content: '';
-    left: 0;
-    right: 0;
-    height: $small-spacing/2;
-    bottom: -$xl-border-width;
-    height: $xl-border-width;
-    background-color: $yellow;
-  }
+  // &::after {
+  //   transition: opacity $base-duration $base-timing;
+  //   position: absolute;
+  //   opacity: 0;
+  //   content: '';
+  //   left: 0;
+  //   right: 0;
+  //   height: $small-spacing/2;
+  //   bottom: -$xl-border-width;
+  //   height: $xl-border-width;
+  //   background-color: $yellow;
+  // }
 }
 
 .daily-screenings--entry--description {

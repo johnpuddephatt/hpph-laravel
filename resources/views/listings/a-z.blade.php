@@ -10,7 +10,6 @@
       <div class="az-listings--listings">
         @foreach ($films as $film)
           <a class="az-listings--entry" href="/film/{{ $film->slug }}">
-
             <div class="az-listings--entry--image">
               @include('utils.cloudinary', [
                 'alt' => "Image for" . $film->title,
@@ -19,7 +18,8 @@
                 'height' => "320",
                 'width' => "180",
                 'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw"
-              ])            </div>
+              ])
+            </div>
             <div class="az-listings--entry--text">
               <div class="az-listings--entry--header">
                 <h3 class="az-listings--entry--title">
