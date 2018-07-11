@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     body.classList.add('slider-loading');
     firstSlide.classList.add('coming-in');
-    firstSlide.addEventListener('load', ()=>{
+    // firstSlide.addEventListener('load', ()=>{
     // imagesLoaded( firstSlide, function( instance ) {
       setTimeout(()=>{
         loadingText.classList.add('fade-in-loading-text');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         // });
 
       }, 5000);
-    });
+    // });
     function onChangeFn(prev,next) {
       slides[prev].classList.remove('in');
       slides[prev].classList.add('out');
