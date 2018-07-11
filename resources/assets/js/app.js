@@ -24,44 +24,44 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     body.classList.add('slider-loading');
     firstSlide.classList.add('coming-in');
-    imagesLoaded( firstSlide, function( instance ) {
+    // imagesLoaded( firstSlide, function( instance ) {
       setTimeout(()=>{
         loadingText.classList.add('fade-in-loading-text');
       }, 1000);
-    //
-    //   setTimeout(()=>{
-    //     firstSlide.classList.remove('coming-in');
-    //     body.classList.remove('slider-loading');
-    //
-    //     imagesLoaded( slides, function( instance ) {
-    //       console.log('all slider images are loaded');
-    //       simpleslider.getSlider({
-    //         container: slider,
-    //         duration: 2,
-    //         delay: 5,
-    //         prop: 'opacity',
-    //         unit: '',
-    //         init: 0,
-    //         show: 1,
-    //         end: 0,
-    //         onChange: onChangeFn,
-    //         onChangeEnd: onChangeEndFn
-    //       });
-    //     });
-    //
-    //   }, 5000);
-    });
-    // function onChangeFn(prev,next) {
-    //   slides[prev].classList.remove('in');
-    //   slides[prev].classList.add('out');
-    //   slides[next].classList.add('coming-in');
-    // }
-    //
-    // function onChangeEndFn(prev,next) {
-    //   slides[prev].classList.remove('coming-in');
-    //   slides[prev].classList.add('in');
-    //   slides[next].classList.remove('out');
-    // }
+
+      setTimeout(()=>{
+        firstSlide.classList.remove('coming-in');
+        body.classList.remove('slider-loading');
+
+        // imagesLoaded( slides, function( instance ) {
+          console.log('all slider images are loaded');
+          simpleslider.getSlider({
+            container: slider,
+            duration: 2,
+            delay: 5,
+            prop: 'opacity',
+            unit: '',
+            init: 0,
+            show: 1,
+            end: 0,
+            onChange: onChangeFn,
+            onChangeEnd: onChangeEndFn
+          });
+        // });
+
+      }, 5000);
+    // });
+    function onChangeFn(prev,next) {
+      slides[prev].classList.remove('in');
+      slides[prev].classList.add('out');
+      slides[next].classList.add('coming-in');
+    }
+
+    function onChangeEndFn(prev,next) {
+      slides[prev].classList.remove('coming-in');
+      slides[prev].classList.add('in');
+      slides[next].classList.remove('out');
+    }
   }
 });
 
