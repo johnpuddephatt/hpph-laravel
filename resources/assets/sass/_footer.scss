@@ -1,42 +1,72 @@
 .site-footer {
+  padding: 3 * $base-spacing 0;
   position: relative;
-  background-color: $base-font-color;
-  height: 1.5 * $base-spacing;
+  background-color: $black;
   color: white;
-  flex: 0 0 auto;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: $small-spacing;
-  @media screen and (orientation: portrait) {
-    padding: $small-spacing $base-spacing;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  @media screen and (min-width: $large-screen) {
-    padding: $small-spacing 2 * $base-spacing;
-  }
-  @media screen and (min-width: $xl-screen) {
-    padding: $small-spacing 3 * $base-spacing;
-  }
-  .contact-info {
-    margin-bottom: 0;
-    li {
-      float: left;
-      margin-right: $base-spacing;
+  > .container {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (orientation: portrait) {
+      flex-wrap: wrap;
+    }
+    > div + div {
+      margin-right: auto;
+      @media screen and (orientation: landscape) {
+        margin-left: $base-spacing;
+        @media screen and (min-width: $large-screen) {
+          margin-left: 3 * $base-spacing;
+        }
+      }
+
     }
   }
 }
 
-.footer-button {
-  font-size: modular-scale(-1);
-  line-height: .8em;
-  padding-top: .95em;
+.site-footer--header {
+  color: white;
+  line-height: 1.5 * $base-spacing;
 }
 
-.listings--footer--contact {
-  font-size: modular-scale(-2);
+.site-footer--contact {
+  flex: 0 0 30%;
+  margin-right: auto;
+  @media screen and (orientation: portrait) {
+    flex: 0 0 100%;
+    margin-top: 2 * $base-spacing;
+    order: 3;
+  }
+}
+
+
+
+.site-footer--strapline {
+  font-family: $heading-font-family;
+  color: white;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  font-size: modular-scale(3);
+  span {
+    text-transform: none;
+    font-size: modular-scale(-2);
+  }
+}
+
+.site-footer--contact-info {
+  font-size: modular-scale(1);
+  font-family: $heading-font-family;
+  letter-spacing: 0;
+  font-style: italic;
+  margin-bottom: 0;
+  li {
+  }
+}
+
+.site-footer--menu-link {
+  color: white;
+  line-height: 1.5 * $base-spacing;
+  font-size: modular-scale(-1);
+  text-transform: lowercase;
 }

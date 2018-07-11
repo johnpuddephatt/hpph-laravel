@@ -27,7 +27,7 @@ class ScreeningController extends Controller
     $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * 86400);
     $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * 86400);
     $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->orderBy('date')->orderBy('time')->get();
-    return view('home', compact('screenings','week','week_commencing','week_ending'));
+    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending'));
   }
 
   public function addScreening(Request $request) {
@@ -38,10 +38,10 @@ class ScreeningController extends Controller
     );
     $validator = Validator::make ( Input::all(), $rules );
     if ($validator->fails ()) {
-        return Response::json ( array (
-          'errors' => $validator->getMessageBag()->toArray ()
-        ) );
-      }
+      return Response::json ( array (
+        'errors' => $validator->getMessageBag()->toArray ()
+      ));
+    }
     else {
       $data = new Screening ();
       $data->film_id = $request->film_id;

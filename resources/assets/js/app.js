@@ -9,16 +9,63 @@
 
 // var Barba = require('barba.js');
 
-
 var simpleslider = require('simple-slider');
-var slider = document.querySelector('.simple-slider');
-if(slider) {
-  simpleslider.getSlider({
-    container: slider,
-    transitionTime:1,
-    delay:3.5
-  });
-}
+var imagesLoaded = require('imagesLoaded');
+
+var slider = document.querySelector('.section--home-slider');
+var loadingText = document.querySelector('.loading-text');
+var body = document.querySelector('body');
+
+document.addEventListener('DOMContentLoaded', ()=>{
+
+  if(slider) {
+    var firstSlide = slider.querySelector('.home-slider--slide');
+    var slides = slider.querySelectorAll('.home-slider--slide');
+
+    body.classList.add('slider-loading');
+    firstSlide.classList.add('coming-in');
+    imagesLoaded( firstSlide, function( instance ) {
+      setTimeout(()=>{
+        loadingText.classList.add('fade-in-loading-text');
+      }, 1000);
+
+      setTimeout(()=>{
+        firstSlide.classList.remove('coming-in');
+        body.classList.remove('slider-loading');
+
+        imagesLoaded( slides, function( instance ) {
+          console.log('all slider images are loaded');
+          simpleslider.getSlider({
+            container: slider,
+            duration: 2,
+            delay: 5,
+            prop: 'opacity',
+            unit: '',
+            init: 0,
+            show: 1,
+            end: 0,
+            onChange: onChangeFn,
+            onChangeEnd: onChangeEndFn
+          });
+        });
+
+      }, 5000);
+    });
+    function onChangeFn(prev,next) {
+      slides[prev].classList.remove('in');
+      slides[prev].classList.add('out');
+      slides[next].classList.add('coming-in');
+    }
+
+    function onChangeEndFn(prev,next) {
+      slides[prev].classList.remove('coming-in');
+      slides[prev].classList.add('in');
+      slides[next].classList.remove('out');
+    }
+  }
+});
+
+
 
 
 document.addEventListener('DOMContentLoaded', function(){

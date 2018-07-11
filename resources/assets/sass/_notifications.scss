@@ -1,11 +1,10 @@
 .alert {
-  border: $thick-border;
-  border-color: $yellow;
-  padding: $small-spacing;
-  font-size: modular-scale(-1);
+  background-color: $yellow;
+  padding: 2 * $base-spacing;
+  text-align: center;
   margin: $small-spacing 0;
   font-weight: 500;
-  &-warning {
+  &__warning {
     background-color: $yellow;
   }
 }

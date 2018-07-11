@@ -10,7 +10,7 @@
       <title>{{ env('APP_NAME')}}</title>
       <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
     </head>
-    <body class="{{implode(' ', $body_classes)}}">
+    <body class="@stack('body-classes')">
 
     @include('header')
 

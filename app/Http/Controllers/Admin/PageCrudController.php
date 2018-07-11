@@ -48,6 +48,10 @@ class PageCrudController extends CrudController
                                 'label' => trans('backpack::pagemanager.slug'),
                                 ]);
 
+        $this->crud->enableReorder('name', 2);
+        $this->crud->allowAccess('reorder');
+        $this->crud->orderBy('lft');
+
         /*
         |--------------------------------------------------------------------------
         | FIELDS

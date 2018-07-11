@@ -25,7 +25,7 @@
 
 
 .weekly-screenings--title {
-  font-family: "Bodoni", "Times New Roman";
+  font-family: $heading-font-family;
   line-height: $tight-heading-line-height;
   -webkit-font-smoothing: antialiased;
   font-size: modular-scale(5);

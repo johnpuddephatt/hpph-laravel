@@ -53,6 +53,13 @@ class FilmCrudController extends CrudController
           'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
         ];
 
+        $shortDescriptionArray = [
+          'name' => 'short_description',
+          'label' => 'Short description',
+          'type' => 'textarea',
+          'tab' => 'Overview'
+        ];
+
         $certificateArray = [
           'name' => 'certificate',
           'label' => 'Certificate',
@@ -151,7 +158,7 @@ class FilmCrudController extends CrudController
             'tab' => 'Overview'
         ];
 
-        $this->crud->addFields([$titleArray,$subtitleArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray], 'both');
+        $this->crud->addFields([$titleArray,$subtitleArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray], 'both');
 
         $this->crud->addColumns([$titleArray]);
 

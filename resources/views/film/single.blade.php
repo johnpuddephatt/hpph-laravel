@@ -2,25 +2,17 @@
 
 @section('content')
 
-
-
+  <div class="single-listing">
     <div class="single-listing--image">
-      <img alt="Image for {{ $film->title }}" src="//res.cloudinary.com/letsdance/image/fetch/w_720,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }}"
-       srcset="
-         //res.cloudinary.com/letsdance/image/fetch/w_320,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 320w,
-         //res.cloudinary.com/letsdance/image/fetch/w_480,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 480w,
-         //res.cloudinary.com/letsdance/image/fetch/w_640,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 640w,
-         //res.cloudinary.com/letsdance/image/fetch/w_800,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 800w,
-         //res.cloudinary.com/letsdance/image/fetch/w_1020,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 1020w,
-         //res.cloudinary.com/letsdance/image/fetch/w_1200,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 1200w,
-         //res.cloudinary.com/letsdance/image/fetch/w_1600,f_auto,g_faces,q_85,c_fill/{{ url($film->thumb) }} 1600w,
-       "
-       sizes="
-        (orientation: landscape) 85vw,
-        100vw
-       "
-       class="fade-image-onload"
-      />
+      @include('utils.cloudinary', [
+        'alt' => "Image for" . $film->title,
+        'img' => url($film->thumb),
+        'class' => "fade-image-onload",
+        'height' => "500",
+        'width' => "500",
+        'sizes' => "(orientation: landscape) 85vw, 100vw"
+      ])
+
     </div>
 
     <div class="single-listing--text">
@@ -38,13 +30,13 @@
       <div class="single-listing--content">
 
         <div class="single-listing--screenings">
-          @if (count($screenings))
+          @if (count($film->screenings))
 
           <h2 class="single-listing--screenings--header">Next screenings</h2>
           <table>
             <tbody class="initial-rows">
               @php $current_date = ''; $date_count = 0 @endphp
-              @foreach ($screenings as $screening)
+              @foreach ($film->screenings as $screening)
 
                 @if ($current_date != $screening->date)
                   @php $date_count++ @endphp
@@ -99,7 +91,7 @@
         </div>
       </div>
     </div>
-
+  </div>
 
 
 @stop

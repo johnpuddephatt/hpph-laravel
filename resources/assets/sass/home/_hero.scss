@@ -1,0 +1,56 @@
+.home-slider--loading {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 9;
+}
+
+.loading-text {
+  margin-bottom: $base-spacing;
+  font-family: $heading-font-family;
+  font-size: modular-scale(8);
+  line-height: $tight-heading-line-height;
+  word-spacing: 99999px;
+  text-transform: uppercase;
+  &.fade-in-loading-text span {
+    animation: 12 * $base-duration 0ms inOut forwards linear;
+  }
+  span {
+    display: block;
+    opacity: 0;
+    &:nth-child(2) {
+      animation-delay: 2 * $base-duration;
+    }
+    &:nth-child(3) {
+      animation-delay: 4 * $base-duration;
+    }
+    &:nth-child(4) {
+      animation-delay: 6 * $base-duration;
+    }
+    &:nth-child(5) {
+      color: $yellow;
+      animation-delay: 8 * $base-duration;
+    }
+  }
+}
+
+
+@keyframes inOut {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -19,7 +19,7 @@ class Film extends Model
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['title','subtitle','slug','certificate','thumb','description','runtime','buy_url','director','starring','country','language','f_rating','year','association','format','tickets'];
+    protected $fillable = ['title','subtitle','slug','certificate','thumb','description','short_description','runtime','buy_url','director','starring','country','language','f_rating','year','association','format','tickets'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -56,6 +56,7 @@ class Film extends Model
             $this->attributes[$attribute_name] = '/storage/'.$destination_path.'/'.$filename;
         }
       }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

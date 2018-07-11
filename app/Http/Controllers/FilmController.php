@@ -11,9 +11,31 @@ use Carbon\Carbon;
 class FilmController extends Controller
 {
   public function single($slug) {
-    $film = Film::where('slug', $slug)->first();
+
+    $film = Film::where('slug',$slug)->with(['screenings' => function ($query) {
+      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+    }])->first();
+
     if(!$film) abort(404);
-    $screenings = Screening::where([['film_id',$film->id],['date', '>=', date('Y/m/d')]])->orderBy('date')->orderBy('time')->get();
-    return view('film.single', compact('film','screenings'));
+    return view('film.single', compact('film'));
+  }
+
+  public function index() {
+
+    $films = Film::whereHas('screenings', function ($query) {
+      $query->where('date', '>=', date('Y/m/d'));
+    })->with(['screenings' => function ($query) {
+      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+    }])->orderBy('title')->get();
+
+    foreach($films as $film) {
+      $film->start_date = Carbon::parse($film->screenings->first()->date)->format('d F');
+      $film->start_date_day = explode(' ', $film->start_date)[0];
+      $film->start_date_month = last(explode(' ', $film->start_date));
+      $film->end_date = Carbon::parse($film->screenings->last()->date)->format('d F');
+      $film->end_date_month = last(explode(' ', $film->end_date));
+    }
+
+    return view('listings.a-z', compact('films'));
   }
 }

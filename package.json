@@ -23,6 +23,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "imagesloaded": "^4.1.4",
         "simple-slider": "^1.0.0"
     }
 }

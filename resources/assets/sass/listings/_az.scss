@@ -1,0 +1,114 @@
+.az-listings--listings {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 (-$small-spacing);
+  @media screen and (min-width: $large-screen) {
+    margin: 0 (-$base-spacing);
+  }
+  @media screen and (orientation: portrait) {
+    margin: 0;
+    display: block;
+  }
+
+}
+
+.az-listings--entry {
+  flex: 0 0 50%;
+  padding: 0 $small-spacing;
+
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 33.333%;
+    padding: 0 $base-spacing;
+
+  }
+  @media screen and (orientation: portrait) {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  margin-bottom: $base-spacing;
+  color: $base-font-color;
+  &:hover, &:focus {
+    outline: none;
+    color: $base-font-color;
+    .az-listings--entry--title--inner::after {
+      opacity: 1;
+    }
+  }
+}
+
+.az-listings--entry--image {
+  margin-bottom: $base-spacing;
+  @media screen and (orientation: portrait) {
+    flex: 0 0 25%;
+    margin-right: $small-spacing;
+  }
+  img {
+    display: block;
+  }
+}
+
+.az-listings--entry--header {
+  min-height: 2 * $base-spacing;
+  margin-bottom: $small-spacing;
+  @media screen and (orientation: portrait) {
+    min-height: initial;
+    margin-bottom: $small-spacing/2;
+  }
+}
+
+.az-listings--entry--title {
+  margin-bottom: $xl-border-width;
+  font-weight: 700;
+  font-size: modular-scale(1);
+  @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(2);
+  }
+}
+
+.az-listings--entry--subtitle {
+  font-weight: 500;
+  color: $medium-gray;
+}
+
+.az-listings--entry--description {
+  font-size: modular-scale(-1);
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
+
+}
+
+
+.az-listings--entry--title--inner {
+  position: relative;
+  &::after {
+    transition: opacity $base-duration $base-timing;
+    position: absolute;
+    opacity: 0;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: -$xl-border-width;
+    height: $xl-border-width;
+    background-color: $yellow;
+  }
+}
+
+.az-listings--entry--date {
+  // font-weight: 700;
+  font-style: italic;
+  font-size: modular-scale(1);
+  letter-spacing: 0;
+  margin-bottom: $small-spacing;
+  font-family: $heading-font-family;
+}
+
+.az-listings--entry--certificate {
+  font-size: modular-scale(-3);
+  display: inline-block;
+  font-weight: 400;
+  color: $medium-gray;
+}

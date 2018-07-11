@@ -17,3 +17,8 @@
   font-style: normal;
   font-weight: 700;
 }
+
+@include font-face("Bodoni", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
+  font-style: italic;
+  font-weight: 400;
+}
