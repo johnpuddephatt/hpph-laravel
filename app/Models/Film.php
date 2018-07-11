@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Carbon\Carbon;
+
 
 class Film extends Model
 {
@@ -56,6 +58,26 @@ class Film extends Model
             $this->attributes[$attribute_name] = '/storage/'.$destination_path.'/'.$filename;
         }
       }
+
+    public function getDateRange() {
+      $this->start_date = Carbon::parse($this->screenings->first()->date)->format('d F');
+      $this->start_date_day = explode(' ', $this->start_date)[0];
+      $this->start_date_month = last(explode(' ', $this->start_date));
+      $this->end_date = Carbon::parse($this->screenings->last()->date)->format('d F');
+      $this->end_date_month = last(explode(' ', $this->end_date));
+
+      $date_range = $this->start_date_day . ' ';
+      if ($this->start_date_month != $this->end_date_month || $this->start_date == $this->end_date ) {
+        $date_range .= $this->start_date_month;
+      }
+      if ($this->start_date != $this->end_date) {
+        $date_range .= '– ';
+      }
+      if ($this->start_date != $this->end_date) {
+        $date_range .= $this->end_date;
+      }
+      return $date_range;
+    }
 
     /*
     |--------------------------------------------------------------------------

@@ -28,13 +28,13 @@ class FilmController extends Controller
       $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
     }])->orderBy('title')->get();
 
-    foreach($films as $film) {
-      $film->start_date = Carbon::parse($film->screenings->first()->date)->format('d F');
-      $film->start_date_day = explode(' ', $film->start_date)[0];
-      $film->start_date_month = last(explode(' ', $film->start_date));
-      $film->end_date = Carbon::parse($film->screenings->last()->date)->format('d F');
-      $film->end_date_month = last(explode(' ', $film->end_date));
-    }
+    // foreach($films as $film) {
+    //   $film->start_date = Carbon::parse($film->screenings->first()->date)->format('d F');
+    //   $film->start_date_day = explode(' ', $film->start_date)[0];
+    //   $film->start_date_month = last(explode(' ', $film->start_date));
+    //   $film->end_date = Carbon::parse($film->screenings->last()->date)->format('d F');
+    //   $film->end_date_month = last(explode(' ', $film->end_date));
+    // }
 
     return view('listings.a-z', compact('films'));
   }

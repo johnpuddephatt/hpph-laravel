@@ -33,6 +33,22 @@ class Slide extends Model
       return 'no title set';
     }
   }
+  public function getUrl() {
+    if($this->url) {
+      return $this->url;
+    }
+    elseif (class_exists($this->type)) {
+      $this_related_id = ($this[lcfirst(class_basename($this->type)) . '_id']);
+      $related_item = $this->type::find($this_related_id);
+      return lcfirst(class_basename($this->type)) . '/' . $related_item->slug;
+    }
+    else {
+      return null;
+    }
+  }
+  public function getSubheading() {
+    return 'test';
+  }
   public function getThumb() {
     if($this->thumb) {
       return $this->thumb;
@@ -43,7 +59,7 @@ class Slide extends Model
       return $related_item->thumb;
     }
     else {
-      return 'http://www.placecage.com/1000/600';
+      return '//www.placehold.it/640/360';
     }
   }
 

@@ -17,12 +17,12 @@
             'width' => "1280",
             'sizes' => "(orientation: portrait) 178vw, 100vw"
           ])
-          <div class="home-slider--text">
+          <a href="{{ url($slide->getUrl())}}" class="home-slider--text">
             <div class="container">
-              <div class="home-slider--heading">{{ $slide->getHeading() }}</div>
-              <div class="home-slider--subheading">Screening from 6th May</div>
+              <div class="home-slider--heading"><span>{{ $slide->getHeading() }}</span></div>
+              <div class="home-slider--subheading">{{ $slide->getSubheading()}}</div>
             </div>
-          </div>
+          </a>
         </div>
       @endforeach
     @endif

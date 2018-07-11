@@ -15,6 +15,7 @@ var imagesLoaded = require('imagesLoaded');
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
 var body = document.querySelector('body');
+newVisitor = false;
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -26,31 +27,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
     firstSlide.classList.add('coming-in');
     // firstSlide.addEventListener('load', ()=>{
     // imagesLoaded( firstSlide, function( instance ) {
+    if(newVisitor) {
       setTimeout(()=>{
         loadingText.classList.add('fade-in-loading-text');
       }, 1000);
 
       setTimeout(()=>{
-        firstSlide.classList.remove('coming-in');
-        body.classList.remove('slider-loading');
-
-        // imagesLoaded( slides, function( instance ) {
-          console.log('all slider images are loaded');
-          simpleslider.getSlider({
-            container: slider,
-            duration: 2,
-            delay: 5,
-            prop: 'opacity',
-            unit: '',
-            init: 0,
-            show: 1,
-            end: 0,
-            onChange: onChangeFn,
-            onChangeEnd: onChangeEndFn
-          });
-        // });
-
+      startSlider();
       }, 5000);
+    }
+    else {
+      startSlider();
+    }
     // });
     function onChangeFn(prev,next) {
       slides[prev].classList.remove('in');
@@ -62,6 +50,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
       slides[prev].classList.remove('coming-in');
       slides[prev].classList.add('in');
       slides[next].classList.remove('out');
+    }
+
+    function startSlider() {
+      firstSlide.classList.remove('coming-in');
+      body.classList.remove('slider-loading');
+
+      // imagesLoaded( slides, function( instance ) {
+        simpleslider.getSlider({
+          container: slider,
+          duration: 2,
+          delay: 5,
+          prop: 'opacity',
+          unit: '',
+          init: 0,
+          show: 1,
+          end: 0,
+          onChange: onChangeFn,
+          onChangeEnd: onChangeEndFn
+        });
+      // });
     }
   }
 });

@@ -15,8 +15,8 @@
                 'alt' => "Image for" . $film->title,
                 'img' => url($film->thumb),
                 'class' => "fade-image-onload",
-                'height' => "320",
-                'width' => "180",
+                'width' => "320",
+                'height' => "180",
                 'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw"
               ])
             </div>
@@ -34,13 +34,7 @@
               </div>
 
               <div class="az-listings--entry--date">
-                {{ $film->start_date_day }}
-                @if ($film->start_date_month != $film->end_date_month || $film->start_date == $film->end_date )
-                  {{ $film->start_date_month}}
-                @endif
-                @if ($film->start_date != $film->end_date)
-                &ndash; {{ $film->end_date }}
-                @endif
+                {{ $film->getDateRange() }}
               </div>
 
               @if($film->short_description)

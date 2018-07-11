@@ -15,7 +15,7 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  
+
   &.coming-in {
     .home-slider--text .container > * {
       opacity: 0;
@@ -44,11 +44,18 @@
 .home-slider--text {
   color: white;
   position: absolute;
+  z-index: 99;
   bottom: 0;
   left: 0;
   width: 100%;
   .container {
     padding-bottom: $base-spacing;
+  }
+  &:hover {
+    color: white;
+    .home-slider--heading span {
+      @extend %underline_simple;
+    }
   }
 }
 
@@ -65,6 +72,8 @@
   font-size: modular-scale(5);
   line-height: $heading-line-height;
 }
+
+
 
 .home-slider--subheading {
   &::after {

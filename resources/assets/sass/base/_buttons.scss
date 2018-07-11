@@ -49,6 +49,9 @@
     text-transform: none;
     border: $thick-border;
     border-color: $yellow;
+    &:hover {
+      background-color: $yellow;
+    }
   }
   &__text {
     background-color: transparent;
