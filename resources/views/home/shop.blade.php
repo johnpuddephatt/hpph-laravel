@@ -24,7 +24,7 @@
             'width' => "500",
           ])
           <div class="inner">
-            <h3 class="shop--link--title">Vouchers</h3>
+            <h3 class="shop--link--title">Gift Vouchers</h3>
           </div>
         </a>
         <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/product/membership">

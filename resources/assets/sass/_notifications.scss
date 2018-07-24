@@ -1,11 +1,16 @@
 .alert {
   background-color: $yellow;
-  padding: 2 * $base-spacing;
+  padding: 4 * $base-spacing;
   text-align: center;
   margin: $small-spacing 0;
   font-weight: 500;
   &__warning {
     background-color: $yellow;
+  }
+  a {
+    color: $base-font-color;
+    font-weight: bolder;
+    text-decoration: underline;
   }
 }
 

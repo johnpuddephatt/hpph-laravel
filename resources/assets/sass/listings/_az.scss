@@ -71,10 +71,12 @@
 .az-listings--entry--subtitle {
   font-weight: 500;
   color: $medium-gray;
+  font-size: modular-scale(1);
 }
 
 .az-listings--entry--description {
   font-size: modular-scale(-1);
+  color: $medium-gray;
   @media screen and (orientation: portrait) {
     display: none;
   }
@@ -87,12 +89,10 @@
 }
 
 .az-listings--entry--date {
-  // font-weight: 700;
-  font-style: italic;
-  font-size: modular-scale(1);
-  letter-spacing: 0;
   margin-bottom: $small-spacing;
-  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: modular-scale(-1);
+
 }
 
 .az-listings--entry--certificate {

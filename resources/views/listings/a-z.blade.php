@@ -5,7 +5,7 @@
   <section class="section section--az-listings">
     <div class="container">
       <h2 class="section-title">What’s On</h2>
-      @include('listings.navigation')
+      @include('listings.navigation', ['type' => 'az'])
 
       <div class="az-listings--listings">
         @foreach ($films as $film)
@@ -27,7 +27,7 @@
                     {{ $film->title }}
                   </span>
                   @if($film->certificate)
-                    <span class="az-listings--entry--certificate">{{ $film->certificate }}</span>
+                    <span class="az-listings--entry--certificate">({{ $film->certificate }})</span>
                   @endif
                 </h3>
                 <div class="az-listings--entry--subtitle">{{ $film->subtitle }}</div>

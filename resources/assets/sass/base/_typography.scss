@@ -84,6 +84,7 @@ sup {
   text-align: center;
   margin: 4 * $base-spacing 0 2 * $base-spacing;
   letter-spacing: .025em;
+  -webkit-font-smoothing: antialiased;
 }
 
 %underline {

@@ -1,16 +1,19 @@
+@push('body-classes','page')
+
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
-    <main>
-      <h1>{{ $page->title }}!</h1>
+  <img src="{{ $page->header_image or '/images/page-header.jpg' }}" class="page-standard--header">
+
+  <div class="container page-standard--container">
+    <main class="page-standard--main">
+      <h1 class="page-standard--title">{{ $page->title }}!</h1>
       {!! $page->content !!}
     </main>
-    <aside>
-      <h2>Section: {{ $parent_page->title }}</h2>
+    <aside class="page-standard--aside">
       <ul>
         @foreach ($sibling_pages as $sibling_page)
-        <li>{{ $sibling_page->title }}</li>
+        <li><a class="page-standard--aside--link" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}">{{ $sibling_page->title }}</li>
         @endforeach
       </ul>
     </aside>

@@ -47,7 +47,17 @@ class Slide extends Model
     }
   }
   public function getSubheading() {
-    return 'test';
+    if($this->subheading) {
+      return $this->subheading;
+    }
+    elseif (lcfirst(class_basename($this->type)) == 'film') {
+      $this_related_id = ($this['film_id']);
+      $related_item = $this->type::find($this_related_id);
+      return $related_item->getDateRange();
+    }
+    else {
+      return null;
+    }
   }
   public function getThumb() {
     if($this->thumb) {

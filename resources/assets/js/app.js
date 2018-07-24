@@ -15,7 +15,7 @@ var imagesLoaded = require('imagesLoaded');
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
 var body = document.querySelector('body');
-newVisitor = false;
+newVisitor = !sessionStorage.getItem('oldVisitor');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
       setTimeout(()=>{
       startSlider();
       }, 5000);
+      sessionStorage.setItem('oldVisitor', true);
+
     }
     else {
       startSlider();
@@ -119,36 +121,18 @@ if(fadeOnloadImage) {
 }
 
 
-// document.addEventListener('DOMContentLoaded', function(){
-//   Barba.Pjax.start();
-//   Barba.Prefetch.init();
-//
-// });
-//
-// var body = document.querySelector('body');
-// var sliders = document.querySelectorAll('[data-barba=slide]');
-// for(var i = 0; i < sliders.length; i++) {
-//   sliders[i].addEventListener('click', function(){
-//     body.classList.add('slide');
-//   })
-// }
-// var unsliders = document.querySelectorAll('[data-barba=unslide]');
-// for(var i = 0; i < unsliders.length; i++) {
-//   unsliders[i].addEventListener('click', function(){
-//     body.classList.remove('slide');
-//   })
-// }
 
-// window.Vue = require('vue');
-//
-// /**
-//  * Next, we will create a fresh Vue application instance and attach it to
-//  * the page. Then, you may begin adding components to this application
-//  * or customize the JavaScript scaffolding to fit your unique needs.
-//  */
-//
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
+var weeklyNavigationMenuTrigger = document.querySelector('.weekly-screenings--navigation--trigger');
+var weeklyNavigationMenuTarget = document.querySelector('.weekly-screenings--week-picker');
+if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
+  weeklyNavigationMenuTrigger.addEventListener('click', ()=>{
+    weeklyNavigationMenuTrigger.classList.toggle('active');
+    weeklyNavigationMenuTarget.classList.toggle('visible');
+  });
+  body.addEventListener('click', (e)=> {
+    if(!e.target.classList.contains('weekly-screenings--navigation--trigger')) {
+      weeklyNavigationMenuTrigger.classList.remove('active');
+      weeklyNavigationMenuTarget.classList.remove('visible');
+    }
+  })
+}

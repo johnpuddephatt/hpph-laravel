@@ -77,6 +77,7 @@
 .shop--link--title {
   font-family: $heading-font-family;
   font-style: italic;
+  -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-size: modular-scale(3);
   color: white;
@@ -85,6 +86,11 @@
 
 .shop--link--description {
   color: white;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: modular-scale(1);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
   &::before {
     content: '';
     display: block;

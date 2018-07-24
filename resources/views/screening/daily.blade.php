@@ -29,7 +29,7 @@
                 <h3 class="daily-screenings--entry--title">
                   <span class="daily-screenings--entry--title-inner">{{ $screening->film->title }}</span>
                   @if($screening->film->certificate)
-                    <span class="daily-screenings--entry--certificate">{{ $screening->film->certificate }}</span>
+                    <span class="daily-screenings--entry--certificate">({{ $screening->film->certificate }})</span>
                   @endif
                 </h3>
                 <div class="daily-screenings--entry--description">{{ $screening->film->short_description }}</div>

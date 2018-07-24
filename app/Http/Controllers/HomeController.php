@@ -14,12 +14,15 @@ use App\Models\Slide;
 class HomeController extends Controller
 {
   public function index($day = 1) {
+
+    // Get slides
     $slides = Slide::where('active',true)->get();
+
+    // Get screenings
     $today_date = date("Y/m/d",time());
     $today_time = date("H:i",time() - 1800);
 
     $screenings_today = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film')->get();
-
 
     // Out of range; abort.
     if($day < 1 || $day > 7) abort(404);

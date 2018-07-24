@@ -1,0 +1,40 @@
+.page-standard--header {
+  height: 40vw;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-standard--container {
+  display: flex;
+  flex-direction: row;
+  // @extend %padded-box;
+}
+.page-standard--main {
+  flex: 0 1 70%;
+  margin: 2 * $base-spacing 0;
+  margin-right: 6 * $base-spacing;
+}
+
+.page-standard--aside {
+  flex: 0 0 30%;
+  margin: 6 * $base-spacing 0 2 * $base-spacing;
+  padding-left: $small-spacing;
+  border-left: $small-spacing solid $yellow;
+}
+
+.page-standard--title {
+  font-size: modular-scale(6);
+  margin-bottom: 1.5 * $base-spacing;
+  font-family: $heading-font-family;
+  font-style: italic;
+}
+
+.page-standard--aside--link {
+  display: block;
+  font-weight: 700;
+  color: $base-font-color;
+  font-size: modular-scale(1);
+  padding: 0 $small-spacing;
+  margin-bottom: $small-spacing;
+}

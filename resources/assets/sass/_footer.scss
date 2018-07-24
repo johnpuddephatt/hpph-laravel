@@ -14,9 +14,11 @@
     > div + div {
       margin-right: auto;
       @media screen and (orientation: landscape) {
-        margin-left: $base-spacing;
-        @media screen and (min-width: $large-screen) {
-          margin-left: 3 * $base-spacing;
+        margin-left: auto;
+        margin-right: 2 * $base-spacing;
+        &:last-child {
+          margin-left: 0;
+          margin-right: 0;
         }
       }
 
@@ -39,10 +41,14 @@
   }
 }
 
+.site-footer--menu {
+
+}
 
 
 .site-footer--strapline {
   font-family: $heading-font-family;
+  line-height: $tight-heading-line-height;
   color: white;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -55,7 +61,6 @@
 }
 
 .site-footer--contact-info {
-  font-size: modular-scale(1);
   font-family: $heading-font-family;
   letter-spacing: 0;
   font-style: italic;
