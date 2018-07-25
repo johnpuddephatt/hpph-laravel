@@ -9,7 +9,7 @@
 
     <div class="weekly-screenings--content">
 
-      <div class="weekly-screenings--screenings">
+      <div class="weekly-screenings--screenings container">
         @if(count($screenings))
           @php $current_date = '' @endphp
           @foreach ($screenings as $screening)
@@ -20,7 +20,7 @@
                 @endif
                 <h2 class="weekly-screenings--date">{{ Carbon\Carbon::parse($screening->date)->format('D d F') }}</h2>
                 @php $current_date = $screening->date @endphp
-                <div class="weekly-screenings--entries container">
+                <div class="weekly-screenings--entries">
               @endif
               <a class="weekly-screenings--entry" href="/film/{{ $screening->film->slug }}" data-barba="slide">
                 <div class="weekly-screenings--entry--date">{{ Carbon\Carbon::parse($screening->time)->format('g.iA') }}</div>
