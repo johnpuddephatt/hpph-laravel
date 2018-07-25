@@ -31,6 +31,9 @@ body {
 
 .page-content {
   position: relative;
+  @media (orientation: portrait) {
+    padding-top: $header-height-portrait;
+  }
 }
 
 .container {

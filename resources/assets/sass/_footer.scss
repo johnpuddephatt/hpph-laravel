@@ -75,3 +75,25 @@
   font-size: modular-scale(-1);
   text-transform: lowercase;
 }
+
+
+
+.secondary-footer {
+  background-color: $yellow;
+  padding: $base-spacing 0;
+  .container {
+    @extend %padded-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media (min-width: $large-screen) {
+      flex-wrap: nowrap;
+    }
+    li {
+      flex: 0 1 20%;
+      margin: 0 $small-spacing;
+    }
+  }
+}

@@ -1,5 +1,6 @@
-<nav class="weekly-screenings--footer-navigation">
-  <div class="weekly-screenings--footer-navigation--inner">
+<nav class="weekly-screenings--footer-navigation container">
+
+  <div class="weekly-screenings--footer-navigation--inner ">
     @if($week == 1)
       <span class="weekly-screenings--footer-navigation--arrow disabled"><i>&laquo;</i>Previous week</span>
     @else

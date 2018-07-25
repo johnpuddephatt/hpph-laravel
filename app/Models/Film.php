@@ -60,18 +60,19 @@ class Film extends Model
       }
 
     public function getDateRange() {
-      $this->start_date = Carbon::parse($this->screenings->first()->date)->format('d F');
+      $this->start_date = Carbon::parse($this->screenings->first()->date)->format('D d F');
       $this->start_date_day = explode(' ', $this->start_date)[0];
+      $this->start_date_dayname = explode(' ', $this->start_date)[1];
       $this->start_date_month = last(explode(' ', $this->start_date));
-      $this->end_date = Carbon::parse($this->screenings->last()->date)->format('d F');
+      $this->end_date = Carbon::parse($this->screenings->last()->date)->format('D d F');
       $this->end_date_month = last(explode(' ', $this->end_date));
 
-      $date_range = $this->start_date_day . ' ';
+      $date_range = $this->start_date_day . ' ' . $this->start_date_dayname . ' ';
       if ($this->start_date_month != $this->end_date_month || $this->start_date == $this->end_date ) {
         $date_range .= $this->start_date_month;
       }
       if ($this->start_date != $this->end_date) {
-        $date_range .= '– ';
+        $date_range .= ' to ';
       }
       if ($this->start_date != $this->end_date) {
         $date_range .= $this->end_date;

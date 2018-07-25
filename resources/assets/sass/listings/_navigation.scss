@@ -1,32 +1,47 @@
 .listings-navigation {
-  padding: $small-spacing 0;
   margin-bottom: $base-spacing;
-  &::after {
-    position: absolute;
-    width: 100%;
-    height: 1.1px;
-    background-color: $light-gray;
-    content: '';
-    bottom: 1px;
-    left: 0;
-
+  .listings-navigation--inner {
+    display: flex;
+    position: relative;
+    height: 3 * $base-spacing;
+    align-items: center;
+    flex-direction: row;
+    padding: $small-spacing;
+    @media (orientation: portrait) {
+      height: 2 * $base-spacing;
+      margin-left: -$small-spacing;
+      margin-right: -$small-spacing;
+      @media screen and (min-width: $medium-screen) {
+        margin-left: -$base-spacing;
+        margin-right: -$base-spacing;
+        padding-left: $base-spacing;
+        padding-right: $base-spacing;
+      }
+    }
+    &::after {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $light-gray;
+      content: '';
+      bottom: 0px;
+      left: 0;
+    }
   }
-  display: flex;
-  height: 3 * $base-spacing;
-  align-items: center;
-  flex-direction: row;
+
+
+
   background-color: white;
   position: sticky;
   top: -2px;
-  transform: translateZ(0);
   z-index: 99;
   @media screen and (orientation: portrait) {
-    top: 2.5 * $base-spacing;
-    top: calc(#{2.5 * $base-spacing} - 2px );
+    top: $header-height-portrait;
+    top: calc(#{$header-height-portrait} - 2px );
   }
   a {
     display: inline-block;
-    margin-left: $base-spacing;
+    margin-right: $base-spacing;
     color: $medium-gray;
     font-weight: 700;
     font-size: modular-scale(0);
@@ -45,8 +60,6 @@
   }
 
 
-
-
   .weekly-screenings--week-picker {
     display: none;
     top: 100%;
@@ -58,8 +71,22 @@
     z-index: 99;
     background-color: white;
     box-shadow: $base-shadow;
+    @media (orientation: portrait) {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+    }
     &.visible {
       display: block;
+      @media (orientation: portrait) {
+        display: flex;
+      }
     }
   }
 

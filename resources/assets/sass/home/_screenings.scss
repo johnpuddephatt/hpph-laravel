@@ -11,8 +11,8 @@
   transform: translateZ(0);
   z-index: 99;
   @media screen and (orientation: portrait) {
-    top: 2.5 * $base-spacing;
-    top: calc(#{2.5 * $base-spacing} - 2px );
+    top: $header-height-portrait;
+    top: calc(#{$header-height-portrait} - 2px );
   }
 }
 
@@ -29,6 +29,14 @@
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(0);
   }
+  @media screen and (orientation: portrait) {
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    height: 2 * $base-spacing;
+
+  }
 }
 
 .daily-screenings--navigation--link {
@@ -36,7 +44,8 @@
   font-weight: 500;
   font-size: modular-scale(-1);
   position: relative;
-  margin-right: $small-spacing;
+  margin-right: $base-spacing;
+
   sup {
     display: none;
   }
@@ -45,7 +54,6 @@
   }
   @media screen and (min-width: $medium-screen) {
     // padding: 0 $small-spacing/2;
-    margin-right: $base-spacing;
     display: inline;
     &:nth-child(5) {
       display: block;
@@ -203,8 +211,11 @@
 .daily-screenings--entry--text {
   margin-right: $small-spacing;
   flex-grow: 1;
-  @media screen and (min-width: $large-screen) {
+  @media screen and (min-width: $medium-screen) {
     margin-right: $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    margin-right: 2 * $base-spacing;
   }
 }
 
@@ -247,6 +258,9 @@
 .daily-screenings--entry--description {
   font-size: modular-scale(-1);
   color: $medium-gray;
+  @media (orientation: portrait) {
+    display: none;
+  }
 
 }
 

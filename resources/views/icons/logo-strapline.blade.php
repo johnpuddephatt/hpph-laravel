@@ -1,7 +1,7 @@
 <svg class="hpph-logo" alt="Hyde Park Picture House"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 	 x="0px" y="0px" width="380px" height="138.6px" viewBox="50 0 430 200" >
-	 <style>@media (orientation: portrait) { .est-1914 { display: none } }</style>
+	 
 	 <path class="est-1914 picture-house" d="M299.7,174.3c-2.2,3.7-4.8,7.2-7.2,10.7c-0.3,0.3-0.8,0.8-1.3,0.8H284c2.2-3,3.7-5.4,5.6-7.7c-5.1-0.3-8-2.2-9.1-6.4
 	 	c-1.9-7.7,3.5-13.4,10.7-13.1C300.4,158.7,303.4,167.9,299.7,174.3z M294.3,168.1c0-2.2-1.3-3.7-3.5-3.7c-1.9,0-3.7,1.6-3.7,3.5
 	 	c0,2.2,1.6,3.7,3.5,3.7C293,171.6,294.3,170.3,294.3,168.1z M358.8,175.6h3v5.1c-0.8,0-1.6,0-2.7,0.3v4.5h-6.7V181h-11.7

@@ -1,6 +1,15 @@
+.slider-loading {
+  height: 100%;
+  overflow: hidden;
+}
+
 .section--home-slider {
   height: 100vh;
   width: 100%;
+  margin-top: -($header-height-landscape);
+  @media (orientation: portrait) {
+    margin-top: -($header-height-portrait);
+  }
   position: relative;
   overflow: hidden;
   transition: opacity 15 * $base-duration $base-timing;
@@ -30,6 +39,17 @@
       transition: opacity 5 * $base-duration $base-timing;
       transform: translateY(0em);
     }
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background-color: rgba(0,0,0,.25);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0) 50%, rgba(0,0,0,.25) 100%);
   }
 }
 

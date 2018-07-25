@@ -1,4 +1,7 @@
 .az-listings--listings {
+
+}
+.az-listings--inner {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -10,7 +13,6 @@
     margin: 0;
     display: block;
   }
-
 }
 
 .az-listings--entry {
@@ -51,8 +53,12 @@
 }
 
 .az-listings--entry--header {
-  min-height: 2 * $base-spacing;
+  min-height: 2 * $heading-line-height * 1em;
   margin-bottom: $small-spacing;
+  font-size: modular-scale(1);
+  @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(2);
+  }
   @media screen and (orientation: portrait) {
     min-height: initial;
     margin-bottom: $small-spacing/2;
@@ -60,18 +66,15 @@
 }
 
 .az-listings--entry--title {
-  margin-bottom: $xl-border-width;
+  margin-bottom: 0;
   font-weight: 700;
-  font-size: modular-scale(1);
-  @media screen and (min-width: $medium-screen) {
-    font-size: modular-scale(2);
-  }
+  font-size: modular-scale(0);
 }
 
 .az-listings--entry--subtitle {
   font-weight: 500;
   color: $medium-gray;
-  font-size: modular-scale(1);
+  font-size: modular-scale(-1);
 }
 
 .az-listings--entry--description {
@@ -80,7 +83,6 @@
   @media screen and (orientation: portrait) {
     display: none;
   }
-
 }
 
 
@@ -90,7 +92,7 @@
 
 .az-listings--entry--date {
   margin-bottom: $small-spacing;
-  font-weight: 700;
+  font-weight: 500;
   font-size: modular-scale(-1);
 
 }

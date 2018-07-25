@@ -1,6 +1,6 @@
 
 .weekly-screenings--header,
-.weekly-screenings--screenings {
+.weekly-screenings--entry {
   @extend %padded-box;
 }
 
@@ -34,22 +34,24 @@
 }
 
 .weekly-screenings--date {
-  font-size: modular-scale(3);
+  font-size: modular-scale(1);
   margin-top: 4 * $base-spacing;
   margin-bottom: $base-spacing;
-  border-bottom: $thick-border;
-  display: inline-block;
-}
+  color: $base-font-color;
+  margin-left: 3.5 * $base-spacing;
+  margin-right: 3.5 * $base-spacing;
+  border-bottom: $base-border;
+  }
 
 .weekly-screenings--entry {
   display: flex;
   -webkit-tap-highlight-color: $yellow;
-  padding: $base-spacing 0;
+  padding: $small-spacing 0;
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
   @media screen and (min-width: $large-screen) {
-    padding: 1.5 * $base-spacing 0;
+    padding: $base-spacing 0;
   }
   &:last-child {
     // border-bottom: $base-border;
@@ -102,23 +104,24 @@
     padding-left: $small-spacing;
     font-size: modular-scale(3);
   }
-  @media screen and (min-width: $large-screen) {
-    padding-left: $base-spacing;
-  }
+
 }
 
 .weekly-screenings--entry--text {
   margin-right: $small-spacing;
   flex-grow: 1;
-  @media screen and (min-width: $large-screen) {
+  @media screen and (min-width: $medium-screen) {
     margin-right: $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    margin-right: 2 * $base-spacing;
   }
 }
 
 .weekly-screenings--entry--image {
   flex: 0 0 30%;
   @media screen and (min-width: $medium-screen) {
-
+    flex: 0 0 20%;
   }
   img {
     display: block;
@@ -131,6 +134,9 @@
   margin-bottom: $small-spacing;
   font-size: modular-scale(2);
   @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(2);
+  }
+  @media screen and (min-width: $large-screen) {
     font-size: modular-scale(3);
   }
 }
@@ -154,7 +160,9 @@
 .weekly-screenings--entry--description {
   font-size: modular-scale(-1);
   color: $medium-gray;
-
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
 }
 
 .weekly-screenings--entry--certificate {
@@ -173,22 +181,30 @@
 
 
 .weekly-screenings--footer-navigation {
-  margin: $base-spacing 0 3 * $base-spacing;
-  line-height: 2 * $base-spacing;
-  padding-top: $small-spacing;
-  font-weight: 700;
+  margin-top: $base-spacing;
   -webkit-font-smoothing: antialiased;
-  border-top: $base-border;
+  @media screen and (orientation: portrait) {
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+  }
 }
 .weekly-screenings--footer-navigation--inner {
+  border-top: $base-border;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media screen and (orientation: portrait) {
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+  }
 }
 
 .weekly-screenings--footer-navigation--arrow {
-  flex: 0 0 25%;
-  line-height:  2 * $base-spacing;
+  flex: 0 0 50%;
+  line-height: 3 * $base-spacing;
+  @media (orientation: portrait) {
+    line-height: 2 * $base-spacing;
+  }
   color: $base-font-color;
   font-weight: 600;
   &:hover {
@@ -196,6 +212,10 @@
   }
   &:last-child {
     text-align: right;
+    i {
+      margin-left: $base-spacing/2;
+      margin-right: 0;
+    }
   }
   &.disabled {
     color: $light-gray;
@@ -204,13 +224,13 @@
     }
   }
   i {
-    font-size: modular-scale(9);
+    font-size: modular-scale(4);
     font-style: normal;
     font-weight: 500;
     vertical-align: middle;
     line-height:  2 * $base-spacing;
     display: inline-block;
-    margin: 0 $small-spacing;
+    margin-right: $base-spacing/2;
   }
 }
 

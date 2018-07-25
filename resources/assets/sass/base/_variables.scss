@@ -24,6 +24,9 @@ $base-spacing: $base-line-height * 1rem;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
+$header-height-portrait: 3 * $base-spacing;
+$header-height-landscape: 3.5 * $base-spacing;
+
 // Colors
 $yellow: #FFDC48;
 

@@ -3,9 +3,9 @@
 @section('content')
 
   <section class="section section--az-listings">
-    <div class="container">
-      <h2 class="section-title">What’s On</h2>
-      @include('listings.navigation', ['type' => 'weekly'])
+
+    <h2 class="section-title">What’s On</h2>
+    @include('listings.navigation', ['type' => 'weekly'])
 
     <div class="weekly-screenings--content">
 
@@ -20,7 +20,7 @@
                 @endif
                 <h2 class="weekly-screenings--date">{{ Carbon\Carbon::parse($screening->date)->format('D d F') }}</h2>
                 @php $current_date = $screening->date @endphp
-                <div class="weekly-screenings--entries">
+                <div class="weekly-screenings--entries container">
               @endif
               <a class="weekly-screenings--entry" href="/film/{{ $screening->film->slug }}" data-barba="slide">
                 <div class="weekly-screenings--entry--date">{{ Carbon\Carbon::parse($screening->time)->format('g.iA') }}</div>
@@ -42,7 +42,14 @@
                   @endif
                 </div>
                 <div class="weekly-screenings--entry--image">
-                  <img alt="Image for {{ $screening->film->title }}" src="{{ url($screening->film->thumb) }}" />
+                  @include('utils.cloudinary', [
+                    'alt' => "Image for" . $screening->film->title,
+                    'img' => url($screening->film->thumb),
+                    'class' => "fade-image-onload",
+                    'width' => "320",
+                    'height' => "180",
+                    'sizes' => "25vw"
+                  ])
                 </div>
               </a>
               @endif
@@ -61,6 +68,5 @@
     </div>
     @include('listings.navigation-footer')
 
-  </div>
 </section>
 @stop
