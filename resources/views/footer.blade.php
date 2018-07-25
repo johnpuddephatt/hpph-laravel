@@ -30,7 +30,7 @@
 
   <li><img src="{{url('/images/logos/bfi.png')}}" /></li>
   <li><img src="{{url('/images/logos/city-varieties.png')}}" /></li>
-  <li><img src="{{url('/images/logos/europa-cinemas.png')}}" /></li>
+  <li class="double"><img src="{{url('/images/logos/europa-cinemas.png')}}" /></li>
   <li><img src="{{url('/images/logos/garfield-weston.png')}}" /></li>
   <li><img src="{{url('/images/logos/leeds-city-council.png')}}" /></li>
   <li><img src="{{url('/images/logos/lottery-fund.png')}}" /></li>

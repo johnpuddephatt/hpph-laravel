@@ -3,7 +3,9 @@
 @extends('layouts.app')
 
 @section('content')
-  <img src="{{ $page->header_image or '/images/page-header.jpg' }}" class="page-standard--header">
+  <div class="page-standard--header">
+    <img src="{{ $page->header_image or '/images/page-header.jpg' }}" class="page-standard--header--image">
+  </div>
 
   <div class="container page-standard--container">
     <main class="page-standard--main">
@@ -11,11 +13,12 @@
       {!! $page->content !!}
     </main>
     <aside class="page-standard--aside">
-      <ul>
+      <h2 class="page-standard--aside--heading">{{ $parent_page->title }}</h2>
+      <nav class="page-standard--aside--nav">
         @foreach ($sibling_pages as $sibling_page)
-        <li><a class="page-standard--aside--link" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}">{{ $sibling_page->title }}</li>
+        <a class="page-standard--aside--link" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}">{{ $sibling_page->title }}</a>
         @endforeach
-      </ul>
+      </nav>
     </aside>
   </div>
 @stop

@@ -94,6 +94,9 @@
     li {
       flex: 0 1 20%;
       margin: 0 $small-spacing;
+      &.double {
+        flex-basis: 40%;
+      }
     }
   }
 }

@@ -6,7 +6,6 @@
 
 
 .weekly-screenings--screenings {
-  margin-bottom: 4 * $base-spacing;
   .alert {
     @media screen and (orientation: portrait) {
       margin: $base-spacing $base-spacing;
@@ -128,13 +127,13 @@
 }
 
 .weekly-screenings--entry--text {
-  margin-right: $small-spacing;
+  margin-right: $base-spacing;
   flex-grow: 1;
   @media screen and (min-width: $medium-screen) {
-    margin-right: $base-spacing;
+    margin-right: 2 * $base-spacing;
   }
   @media screen and (min-width: $large-screen) {
-    margin-right: 2 * $base-spacing;
+    margin-right: 3 * $base-spacing;
   }
 }
 
@@ -201,7 +200,7 @@
 
 
 .weekly-screenings--footer-navigation {
-  margin-top: $base-spacing;
+  margin-top: 0;
   -webkit-font-smoothing: antialiased;
   @media screen and (orientation: portrait) {
     margin-left: -$small-spacing;

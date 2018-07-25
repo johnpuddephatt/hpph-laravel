@@ -51,7 +51,7 @@ trait PageTemplates
                         'type' => 'quill',
                         'placeholder' => trans('backpack::pagemanager.content_placeholder'),
                         'tab' => 'Content',
-                        'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
+                        'toolbar' => "[{ 'header': '2' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
 
                     ]);
     }
