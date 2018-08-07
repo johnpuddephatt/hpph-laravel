@@ -7,9 +7,13 @@
   border: 1px solid $medium-gray;
 }
 
-
 .label{
   color: $base-font-color;
+  &__dark-bg {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    border-color: $dark-gray;
+  }
   // &--tuesday-wonder {
   //   background-color: $tuesday-wonder;
   // }

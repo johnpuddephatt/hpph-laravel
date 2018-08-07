@@ -1020,47 +1020,10 @@ body.film .site-header .site-header--navigation a {
   color: #333;
 }
 
-.label--tuesday-wonder {
-  background-color: #3ebbd0;
-}
-
-.label--byobaby {
-  background-color: #D18500;
-}
-
-.label--creatures-of-the-night {
-  background-color: #000000;
+.label__dark-bg {
   color: white;
   -webkit-font-smoothing: antialiased;
-}
-
-.label--hyde-seek {
-  background-color: #FFDD00;
-}
-
-.label--memory-matinee {
-  background-color: #F08CB8;
-}
-
-.label--special-films {
-  background-color: #179480;
-}
-
-.label--pavillion-presents {
-  background-color: #BF9481;
-}
-
-.label--captioned {
-  background-color: #002F3F;
-  color: white;
-}
-
-.label--autism-friendly {
-  background-color: #005B81;
-}
-
-.label--bollywood {
-  background-color: #E63823;
+  border-color: #767372;
 }
 
 .alert {
