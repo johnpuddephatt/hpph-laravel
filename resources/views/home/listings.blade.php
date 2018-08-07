@@ -42,7 +42,7 @@
                         @include('film.strand')
                       @endforeach
                       @if($screening->film->audio_description)
-                        <span title="Audio described" class="label label--audio-described">AD</span>
+                        @include('film.audio-description')
                       @endif
                       @if($screening->tags)
                         <div class="daily-screenings--entry--labels">
