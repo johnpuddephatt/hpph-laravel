@@ -27,13 +27,19 @@
 
 <div class="secondary-footer">
   <ul class="container">
-  <li><img src="{{url('/images/logos/lottery-fund.png')}}" /></li>
-  <li><img src="{{url('/images/logos/leeds-city-council.png')}}" /></li>
-  <li><img src="{{url('/images/logos/bfi.png')}}" /></li>
-  <li><img src="{{url('/images/logos/garfield-weston.png')}}" /></li>
-  <li class="double"><img src="{{url('/images/logos/europa-cinemas.png')}}" /></li>
-  <li></li>
-  <li><img src="{{url('/images/logos/city-varieties.png')}}" /></li>
-  <li><img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /></li>
+    <li class="double">
+      <p>Hyde Park Picture House, is part of Leeds Grand Theatre & Opera House Ltd.</p>
+      <p>Registered Charity No. 500408</p>
+      {{-- <img src="{{url('/images/logos/city-varieties.png')}}" /> --}}
+      {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
+    </li>
+    <li></li>
+    <li><img src="{{url('/images/logos/lottery-fund.png')}}" /></li>
+    <li><img src="{{url('/images/logos/leeds-city-council.png')}}" /></li>
+    <li><img src="{{url('/images/logos/bfi.png')}}" /></li>
+    <li><img src="{{url('/images/logos/garfield-weston.png')}}" /></li>
+    <li><img src="{{url('/images/logos/europa-cinemas.png')}}" /></li>
+
+
   </ul>
 </div>

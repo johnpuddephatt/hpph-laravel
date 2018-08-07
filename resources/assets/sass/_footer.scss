@@ -81,6 +81,7 @@
 .secondary-footer {
   background-color: $yellow;
   padding: $base-spacing 0;
+  letter-spacing: 0.025em;
   .container {
     display: flex;
     flex-direction: row;
@@ -92,9 +93,21 @@
     }
     li {
       flex: 0 1 20%;
-      margin: 0 $small-spacing;
+      margin: 0;
+      + li {
+        margin-left: $small-spacing;
+      }
       &.double {
-        flex-basis: 40%;
+        flex-basis: 45%;
+        p {
+          font-size: modular-scale(-1);
+          font-weight: 500;
+          margin-bottom: $small-spacing/2;
+          &:last-child {
+            margin-bottom: 0;
+            font-weight: 700;
+          }
+        }
       }
     }
   }

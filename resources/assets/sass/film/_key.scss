@@ -5,6 +5,9 @@ margin-top: 2.5 * $base-spacing;
   display: flex;
   flex-direction: row;
   margin: $small-spacing 0;
+  .label {
+    margin-bottom: auto;
+  }
   > * + * {
     margin-left: $small-spacing;
   }
