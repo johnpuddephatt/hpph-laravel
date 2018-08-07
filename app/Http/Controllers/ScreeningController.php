@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
 
 use App\Models\Screening;
+use App\Models\Tag;
 
 class ScreeningController extends Controller
 {
@@ -19,43 +20,62 @@ class ScreeningController extends Controller
 
   public function weekly($week = 1) {
     // $weekday = date("w") - 1;
-    // if ($weekday < 0)
+    // if($weekday < 0)
     //   $weekday += 7;
-    // $week_commencing = date("Y/m/d",time() + (($week - 1) * 7 - $weekday) * 86400);
-    // $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6 - $weekday) * 86400);
+    // $week_commencing = date("Y/m/d",time() +(($week - 1) * 7 - $weekday) * 86400);
+    // $week_ending = date("Y/m/d",time() +((($week - 1) * 7) + 6 - $weekday) * 86400);
     if($week < 1 || $week > 8) abort(404);
-    $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * 86400);
-    $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * 86400);
+    $week_commencing = date("Y/m/d",time() +(($week - 1) * 7) * 86400);
+    $week_ending = date("Y/m/d",time() +((($week - 1) * 7) + 6) * 86400);
     $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->orderBy('date')->orderBy('time')->get();
-    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending'));
+    return view('film.weekly', compact('screenings','week','week_commencing','week_ending'));
   }
 
   public function addScreening(Request $request) {
-    $rules = array (
+    $rules = array(
       'film_id' => 'required',
       'date' => 'required',
       'time' => 'required',
     );
-    $validator = Validator::make ( Input::all(), $rules );
-    if ($validator->fails ()) {
-      return Response::json ( array (
-        'errors' => $validator->getMessageBag()->toArray ()
+    $validator = Validator::make(Input::all(), $rules);
+    if($validator->fails()) {
+      return Response::json(array(
+        'errors' => $validator->getMessageBag()->toArray()
       ));
     }
     else {
-      $data = new Screening ();
+      $data = new Screening();
       $data->film_id = $request->film_id;
       $data->date = $request->date;
       $data->time = $request->time;
       $data->url = $request->url;
-      $data->labels = $request->labels;
-      $data->save ();
-      return response ()->json ( $data );
+
+      $data->save();
+
+      if($request->tags) {
+        $tag_list=array();
+        foreach($request->tags as $tag_id) {
+          $tag = Tag::find($tag_id);
+          $data->tags()->save($tag);
+          array_push($tag_list, $tag->title);
+        }
+
+        $data->tags = $tag_list;
+      }
+
+
+      return response()->json($data);
     }
   }
 
   public function deleteScreening(Request $request) {
-    Screening::find( $request->id )->delete ();
-    return response ()->json ();
+    $screening = Screening::find( $request->id );
+    $screening->tags()->detach();
+
+    foreach($screening->tags as $tag) {
+
+    }
+    $screening->delete();
+    return response()->json();
   }
 }

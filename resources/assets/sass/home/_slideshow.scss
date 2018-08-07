@@ -1,3 +1,24 @@
+.section--home-hero {
+  position: relative;
+  &::before {
+    content: '»';
+    text-indent: -30px;
+    position: absolute;
+    left: 50%;
+    bottom: $small-spacing/2;
+    cursor: pointer;
+    transform: translate(-50%,50%) rotate(90deg);
+    z-index: 9;
+    width: 3 * $base-spacing;
+    height: 3 * $base-spacing;
+    line-height: 3 * $base-spacing;
+    text-align: center;
+    color: white;
+    font-size: modular-scale(6);
+    opacity: .75;
+    display: block;
+  }
+}
 .slider-loading {
   height: 100%;
   overflow: hidden;
@@ -11,7 +32,6 @@
     margin-top: -($header-height-portrait);
   }
   position: relative;
-  overflow: hidden;
   transition: opacity 15 * $base-duration $base-timing;
   .slider-loading & {
     opacity: 0;
@@ -22,13 +42,12 @@
 .home-slider--slide {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   position: relative;
 
   &.coming-in {
     .home-slider--text .container > * {
       opacity: 0;
-      transform: translateY(3em);
+      transform: translateY(3rem);
       transition: none;
     }
   }
@@ -37,9 +56,10 @@
     .home-slider--text .container > * {
       opacity: 0;
       transition: opacity 5 * $base-duration $base-timing;
-      transform: translateY(0em);
+      transform: translateY(0rem);
     }
   }
+
   &::after {
     content: '';
     display: block;
@@ -62,20 +82,22 @@
 
 
 .home-slider--text {
-  color: white;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+      .home-slider--heading span {
+        @extend %underline_simple;
+      }
+    }
+  }
   position: absolute;
   z-index: 99;
-  bottom: 0;
+  bottom: $base-spacing;
   left: 0;
   width: 100%;
   .container {
     padding-bottom: $base-spacing;
-  }
-  &:hover {
-    color: white;
-    .home-slider--heading span {
-      @extend %underline_simple;
-    }
   }
 }
 
@@ -84,7 +106,7 @@
 }
 
 .home-slider--text > .container *:nth-child(2) {
-  transition: opacity 1s $base-duration, transform 1s $base-duration;
+  transition: opacity 1s $base-duration/3, transform 1s $base-duration/3;
 }
 
 .home-slider--heading {

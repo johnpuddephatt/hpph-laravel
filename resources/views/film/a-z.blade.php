@@ -3,7 +3,7 @@
 @section('content')
   <section class="section section--az-listings">
       <h2 class="section-title">What’s On</h2>
-      @include('listings.navigation', ['type' => 'az'])
+      @include('film.navigation', ['type' => 'az'])
       <div class="az-listings--listings container">
         <div class="az-listings--inner">
           @foreach ($films as $film)
@@ -35,6 +35,14 @@
                 </div>
                 @if($film->short_description)
                   <p class="az-listings--entry--description">{{ $film->short_description }}</p>
+                @endif
+              </div>
+              <div class="az-listings--entry--footer">
+                @foreach($film->strands()->get() as $strand)
+                  @include('film.strand')
+                @endforeach
+                @if($film->audio_description)
+                  @include('film.audio-description')
                 @endif
               </div>
             </a>

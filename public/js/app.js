@@ -154,17 +154,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
-  var hiddenScreenings = document.querySelector('.hidden-rows');
-  var screeningsHeader = document.querySelector('.single-listing--screenings--header');
-  if (expandScreeningsButton && hiddenScreenings) {
-    hiddenScreenings.classList.remove('shown');
-    expandScreeningsButton.addEventListener('click', function (e) {
-      hiddenScreenings.classList.toggle('shown');
-      e.target.textContent = e.target.textContent == "Hide" ? "More screenings" : "Hide";
-      screeningsHeader.textContent = screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
-    });
-  }
+  // var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
+  // var hiddenScreenings = document.querySelector('.hidden-rows');
+  // var screeningsHeader = document.querySelector('.single-listing--screenings--header');
+  // if(expandScreeningsButton && hiddenScreenings) {
+  //   hiddenScreenings.classList.remove('shown');
+  //   expandScreeningsButton.addEventListener('click', (e)=>{
+  //     hiddenScreenings.classList.toggle('shown');
+  //     e.target.textContent =  e.target.textContent == "Hide" ? "More screenings" : "Hide";
+  //     screeningsHeader.textContent =  screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
+  //   });
+  // }
+
 
   disclaimerBox = document.querySelector('.disclaimer');
   var disclaimerButton = document.querySelector('.disclaimer-close');

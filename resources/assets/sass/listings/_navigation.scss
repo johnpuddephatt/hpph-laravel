@@ -28,9 +28,6 @@
       left: 0;
     }
   }
-
-
-
   background-color: white;
   position: sticky;
   top: -2px;
@@ -68,7 +65,7 @@
     width: 16em;
     width: max-content;
     position: absolute;
-    z-index: 99;
+    z-index: 9999;
     background-color: white;
     box-shadow: $base-shadow;
     @media (orientation: portrait) {
@@ -106,6 +103,11 @@
 
   .weekly-screenings--navigation--trigger {
     font-size: modular-scale(0);
+    padding-left: 1.5 * $base-spacing;
+    background-size: $base-spacing auto;
+    background-repeat: no-repeat;
+    background-position: $base-spacing/3 center;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogICAgPHBhdGggc3R5bGU9ImxpbmUtaGVpZ2h0Om5vcm1hbDt0ZXh0LWluZGVudDowO3RleHQtYWxpZ246c3RhcnQ7dGV4dC1kZWNvcmF0aW9uLWxpbmU6bm9uZTt0ZXh0LWRlY29yYXRpb24tc3R5bGU6c29saWQ7dGV4dC1kZWNvcmF0aW9uLWNvbG9yOiMwMDA7dGV4dC10cmFuc2Zvcm06bm9uZTtibG9jay1wcm9ncmVzc2lvbjp0Yjtpc29sYXRpb246YXV0bzttaXgtYmxlbmQtbW9kZTpub3JtYWwiIGQ9Ik0gMyAxIEwgMyAyIEwgMi41IDIgQyAxLjY3NzQ2ODYgMiAxIDIuNjc3NDY4NiAxIDMuNSBMIDEgMTIuNSBDIDEgMTMuMzIyNTMxIDEuNjc3NDY4NiAxNCAyLjUgMTQgTCAxMi41IDE0IEMgMTMuMzIyNTMxIDE0IDE0IDEzLjMyMjUzMSAxNCAxMi41IEwgMTQgMy41IEMgMTQgMi42Nzc0Njg2IDEzLjMyMjUzMSAyIDEyLjUgMiBMIDEyIDIgTCAxMiAxIEwgMTEgMSBMIDExIDIgTCA0IDIgTCA0IDEgTCAzIDEgeiBNIDIuNSAzIEwgMyAzIEwgMyA0IEwgNCA0IEwgNCAzIEwgMTEgMyBMIDExIDQgTCAxMiA0IEwgMTIgMyBMIDEyLjUgMyBDIDEyLjc4MTQ2OSAzIDEzIDMuMjE4NTMxNCAxMyAzLjUgTCAxMyA1IEwgMiA1IEwgMiAzLjUgQyAyIDMuMjE4NTMxNCAyLjIxODUzMTQgMyAyLjUgMyB6IE0gMiA2IEwgMTMgNiBMIDEzIDEyLjUgQyAxMyAxMi43ODE0NjkgMTIuNzgxNDY5IDEzIDEyLjUgMTMgTCAyLjUgMTMgQyAyLjIxODUzMTQgMTMgMiAxMi43ODE0NjkgMiAxMi41IEwgMiA2IHogTSA1IDcgTCA1IDggTCA2IDggTCA2IDcgTCA1IDcgeiBNIDcgNyBMIDcgOCBMIDggOCBMIDggNyBMIDcgNyB6IE0gOSA3IEwgOSA4IEwgMTAgOCBMIDEwIDcgTCA5IDcgeiBNIDExIDcgTCAxMSA4IEwgMTIgOCBMIDEyIDcgTCAxMSA3IHogTSAzIDkgTCAzIDEwIEwgNCAxMCBMIDQgOSBMIDMgOSB6IE0gNSA5IEwgNSAxMCBMIDYgMTAgTCA2IDkgTCA1IDkgeiBNIDcgOSBMIDcgMTAgTCA4IDEwIEwgOCA5IEwgNyA5IHogTSA5IDkgTCA5IDEwIEwgMTAgMTAgTCAxMCA5IEwgOSA5IHogTSAxMSA5IEwgMTEgMTAgTCAxMiAxMCBMIDEyIDkgTCAxMSA5IHogTSAzIDExIEwgMyAxMiBMIDQgMTIgTCA0IDExIEwgMyAxMSB6IE0gNSAxMSBMIDUgMTIgTCA2IDEyIEwgNiAxMSBMIDUgMTEgeiBNIDcgMTEgTCA3IDEyIEwgOCAxMiBMIDggMTEgTCA3IDExIHoiLz4KPC9zdmc+Cg==);
     &::after {
       content: '▾';
       display: inline-block;

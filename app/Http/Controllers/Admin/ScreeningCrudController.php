@@ -54,10 +54,14 @@ class ScreeningCrudController extends CrudController
           'type' => 'time'
         ];
 
-        $labelsArray = [   // Browse
-          'name' => 'labels',
-          'label' => 'Labels',
-          'type' => 'text'
+        $tagsArray = [
+          'label' => "Tags",
+          'type' => 'select2_multiple',
+          'name' => 'tags', // the method that defines the relationship in your Model
+          'entity' => 'tags', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Tag", // foreign key model
+          'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
         ];
 
         $urlArray = [   // Browse
@@ -66,7 +70,7 @@ class ScreeningCrudController extends CrudController
           'type' => 'text'
         ];
 
-        $this->crud->addFields([$filmArray, $dateArray, $urlArray, $timeArray, $labelsArray], 'both');
+        $this->crud->addFields([$filmArray, $dateArray, $urlArray, $timeArray, $tagsArray], 'both');
 
         $this->crud->addColumns([$filmArray,$dateArray]);
 

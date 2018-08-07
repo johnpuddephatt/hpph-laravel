@@ -12,8 +12,8 @@
       <tr>
         <th>Date</th>
         <th>Time</th>
-        <th>Jack-Roe ID</th>
-        <th>Labels</th>
+        <th>Jack-Roe</th>
+        <th>Tags</th>
         <th></th>
       </tr>
       <tr>
@@ -23,8 +23,13 @@
             placeholder="Enter time"></td>
         <td><input type="text" class="form-control" id="newScreeningUrl" name="newScreeningUrl"
             placeholder="Enter ID"></td>
-        <td><input type="text" class="form-control" id="newScreeningLabels" name="newScreeningLabels"
-            placeholder="Labels"></td>
+        <td>
+          <select multiple id="newScreeningTags" name="newScreeningTags" class="form-control select2_multiple">
+            @foreach(\App\Models\Tag::get() as $tag)
+              <option form-control select2_multiple value="{{ $tag->id }}">{{ $tag->title }}</option>
+            @endforeach
+          </select>
+        </td>
             <td>
               <button class="btn btn-primary  btn-block" id="screening-add">
                   <span class="glyphicon glyphicon-plus"></span> Add
@@ -40,8 +45,8 @@
           <td>{{$screening->time}}</td>
           <td>{{$screening->url}}</td>
           <td>
-            @foreach ($screening->labels() as $label)
-              {{ $label }},<br/>
+            @foreach ($screening->tags as $tag)
+              <span class="label label-info">{{ $tag->title }}</span>
             @endforeach
           </td>
           <td><a href="/admin/screening/{{$screening->id}}/edit" class="screening-edit btn btn-xs btn-block btn-default" data-id="{{$screening->id}}" ><span class="glyphicon glyphicon-edit"></span> Edit</a> <button class="screening-delete btn btn-xs btn-block btn-danger" data-id="{{ $screening->id }}"><span class="glyphicon glyphicon-trash"></span> Delete</button></td>
@@ -56,18 +61,73 @@
 {{-- ########################################## --}}
 {{-- Extra CSS and JS for this particular field --}}
 {{-- If a field type is shown multiple times on a form, the CSS and JS will only be loaded once --}}
+@if ($crud->checkIfFieldIsFirstOfItsType(['type'=>'select2_multiple','name'=>'screenings'], $fields))
+  @push('crud_fields_styles')
+      <!-- include select2 css-->
+      <link href="{{ asset('vendor/adminlte/bower_components/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+  @endpush
+  @push('crud_fields_scripts')
+    <!-- include select2 js-->
+    <script src="{{ asset('vendor/adminlte/bower_components/select2/dist/js/select2.min.js') }}"></script>
+    <script>
+      jQuery(document).ready(function($) {
+        // trigger select2 for each untriggered select2_multiple box
+        $('.select2_multiple').each(function (i, obj) {
+          if (!$(obj).hasClass("select2-hidden-accessible"))
+          {
+            var $obj = $(obj).select2({
+              theme: "bootstrap"
+            });
+
+            var options = [];
+            @if (isset($field['model']))
+              @foreach ($field['model']::all() as $connected_entity_entry)
+                options.push({{ $connected_entity_entry->getKey() }});
+              @endforeach
+            @endif
+
+            @if(isset($field['select_all']) && $field['select_all'])
+              $(obj).parent().find('.clear').on("click", function () {
+                $obj.val([]).trigger("change");
+              });
+              $(obj).parent().find('.select_all').on("click", function () {
+                $obj.val(options).trigger("change");
+              });
+            @endif
+          }
+        });
+      });
+    </script>
+  @endpush
+@endif
+
+
 @if ($crud->checkIfFieldIsFirstOfItsType($field, $fields))
 
-    {{-- FIELD CSS - will be loaded in the after_styles section --}}
-    @push('crud_fields_styles')
-    {{-- @push('crud_fields_styles')
-        {{-- YOUR CSS HERE --}}
-    @endpush
+  @push('crud_fields_styles')
+      <!-- include select2 css-->
 
-    {{-- FIELD JS - will be loaded in the after_scripts section --}}
-    @push('crud_fields_scripts')
-        {{-- YOUR JS HERE --}}
+      <style>
+      #screenings-table td,
+      #screenings-table th {
+        padding: 8px 4px 4px 0;
+      }
 
+      #newScreeningDate {
+        width: 11.5em;
+      }
+      #newScreeningTime {
+        width: 6.5em;
+      }
+      #newScreeningUrl {
+        width: 6.5em;
+      }
+      </style>
+  @endpush
+
+  {{-- FIELD JS - will be loaded in the after_scripts section --}}
+  @push('crud_fields_scripts')
 
     <script>
       $("#screening-add").click(function(e) {
@@ -78,7 +138,7 @@
           'date': $('input[name=newScreeningDate]').val(),
           'time': $('input[name=newScreeningTime]').val(),
           'url': $('input[name=newScreeningUrl]').val(),
-          'labels': $('input[name=newScreeningLabels]').val(),
+          'tags': $('select[name=newScreeningTags]').val(),
         }
 
         $.ajax({
@@ -105,14 +165,20 @@
               } else {
                   $('.error').remove();
                   var formattedDate = new Date(data.date);
+                  var tags = '';
+                  if(data.tags) {
+                    for (var i = 0; i < data.tags.length; i++) {
+                      tags += `<span class="label label-info">${data.tags[i]}</span> `;
+                    }
+                  };
 
-                  var labels = data.labels? (data.labels.split(",").join(",<br/>")).trim(',') : "";
+                  console.log(data.tags);
                   var output = `
                   <tr data-id='${data.id}'>
                     <td>${formattedDate.getDate()}/${formattedDate.getMonth() + 1}/${formattedDate.getFullYear()}</td>
                     <td class="col-md-3">${data.time}</td>
                     <td class="col-md-3">${data.url}</td>
-                    <td class="col-md-3">${labels}</td>
+                    <td class="col-md-3">${tags}</td>
                     <td><a href="/admin/screening/${data.id}/edit" class='screening-edit btn btn-xs btn-block btn-default' data-id='${data.id}'><span class='glyphicon glyphicon-edit'></span> Edit</a> <button class='screening-delete btn btn-xs btn-block btn-danger' data-id='${data.id}'><span class='glyphicon glyphicon-trash'></span> Delete</button></td>
                   </tr>"`;
                   $('#screenings-table tbody').prepend(output);

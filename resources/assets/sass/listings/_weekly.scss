@@ -33,20 +33,19 @@
 }
 
 .weekly-screenings--date {
-  font-size: modular-scale(0);
-  @media screen and (min-width: $medium-screen) {
-    // font-size: modular-scale(1);
-  }
+  font-size: modular-scale(1);
+  background-color: #fff;
   color: $base-font-color;
-  margin-bottom: $base-spacing;
+  margin-bottom: 0;
   line-height: 2 * $base-spacing;
+  border-top: $base-border;
   border-bottom: $base-border;
+  border-bottom-color: $base-font-color;
   position: sticky;
   z-index: 98;
-  background-color: $off-white;
   top: 3 * $base-spacing;
   top: calc(3 * #{$base-spacing} - 2px);
-  padding: 0 $small-spacing;
+  padding: $small-spacing $small-spacing;
 
   @media screen and (orientation: portrait) {
     top: calc(#{$header-height-portrait + 2 * $base-spacing}  - 2px );
@@ -54,7 +53,10 @@
     margin-right: -$base-spacing;
     padding-left: $base-spacing;
     padding-right: $base-spacing;
-    z-index: 100;
+    z-index: 9;
+  }
+  &:first-child {
+    border-top: none;
   }
 
 }
@@ -70,7 +72,7 @@
     // padding: $base-spacing 0;
   }
   &:last-child {
-    // border-bottom: $base-border;
+    border-bottom: none;
   }
   &:hover, &:focus {
     color: $base-font-color;
@@ -115,6 +117,8 @@
   font-weight: 400;
   text-transform: lowercase;
   padding-left: 0;
+  margin-top: $small-spacing;
+  line-height: $base-spacing;
   font-size: modular-scale(1);
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(2);
@@ -128,6 +132,8 @@
 
 .weekly-screenings--entry--text {
   margin-right: $base-spacing;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   @media screen and (min-width: $medium-screen) {
     margin-right: 2 * $base-spacing;
@@ -150,13 +156,22 @@
 
 .weekly-screenings--entry--title {
   font-weight: 700;
-  margin-bottom: $small-spacing;
   font-size: modular-scale(1);
+  margin-bottom: 0;
+  margin-top: $small-spacing;
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(2);
   }
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(3);
+  }
+}
+
+.weekly-screenings--entry--subtitle {
+  color: $yellow;
+  font-weight: 600;
+  @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(1);
   }
 }
 
@@ -178,26 +193,37 @@
 
 .weekly-screenings--entry--description {
   font-size: modular-scale(-1);
+  margin-top: $small-spacing/2;
+  margin-bottom: $small-spacing/2;
   color: $medium-gray;
-  @media screen and (orientation: portrait) {
-    display: none;
+  display: none;
+  @media screen and (min-width: $large-screen) {
+    display: block;
   }
 }
 
 .weekly-screenings--entry--certificate {
-  font-size: modular-scale(-3);
+  font-size: modular-scale(-5);
   display: inline-block;
   font-weight: 400;
   color: $medium-gray;
+}
 
+.weekly-screenings--entry--footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: modular-scale(-1);
+  padding-bottom: $small-spacing/2;
+  * + * {
+    margin-left: $small-spacing/2;
+  }
 }
 
 .weekly-screenings--entry--labels {
-  padding-left: $small-spacing;
   display: inline-block;
 }
-
-
 
 .weekly-screenings--footer-navigation {
   margin-top: 0;

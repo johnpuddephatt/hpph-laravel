@@ -9,24 +9,30 @@ class PageController extends Controller
 {
     public function index($slug1,$slug2 = '')
     {
+
         if(!$slug2) {
           $page = Page::where([['slug',$slug1],['parent_id',null]])->first();
-
         }
         else {
-
           $parent_page = Page::findBySlug($slug1);
-
-          $page = Page::where([['slug',$slug2],['parent_id',$parent_page->id]])->first();
-
+          if($parent_page) {
+            $page = Page::where([['slug',$slug2],['parent_id',$parent_page->id]])->first();
+          }
+          else {
+            abort(404);
+          }
         }
-        $parent_page_id = $page->parent_id ? $page->parent_id : $page->id;
-        $parent_page = Page::find($parent_page_id);
-        $sibling_pages = Page::where('parent_id', $parent_page_id)->get();
+
         if (!$page)
         {
-            abort(404, 'Please go back to our <a href="'.url('').'">homepage</a>.');
+            abort(404);
         }
-        return view('pages.'.$page->template, compact('page', 'parent_page', 'sibling_pages'));
+        else {
+          $parent_page_id = isset($page->parent_id) ? $page->parent_id : $page->id;
+          $parent_page = Page::find($parent_page_id);
+          $sibling_pages = Page::where('parent_id', $parent_page_id)->get();
+          return view('pages.'.$page->template, compact('page', 'parent_page', 'sibling_pages'));
+        }
+
     }
 }

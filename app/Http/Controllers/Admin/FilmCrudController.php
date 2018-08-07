@@ -22,6 +22,23 @@ class FilmCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/film');
         $this->crud->setEntityNameStrings('film', 'films');
 
+        $this->crud->setDefaultPageLength(100); // number of rows shown in table view
+
+        $this->crud->addFilter([
+          'type' => 'simple',
+          'name' => 'futureScreenings',
+          'label'=> 'Current only'
+        ],
+        false,
+        function() { // if the filter is active
+          $this->crud->addClause('hasFutureScreenings'); // apply the "hasFutureScreenings" eloquent scope
+        });
+
+
+
+
+
+
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -40,7 +57,14 @@ class FilmCrudController extends CrudController
 
         $subtitleArray = [
           'name' => 'subtitle',
-          'label' => 'Subtitle',
+          'label' => 'Event subtitle',
+          'type' => 'text',
+          'tab' => 'Overview'
+        ];
+
+        $altLanguageTitleArray = [
+          'name' => 'alt_language_title',
+          'label' => 'Alternative language title',
           'type' => 'text',
           'tab' => 'Overview'
         ];
@@ -91,7 +115,10 @@ class FilmCrudController extends CrudController
         $fRatingArray = [
           'name' => 'f_rating',
           'label' => 'F-Rating',
-          'type' => 'text',
+          'type' => 'select_from_array',
+          'options' => ['0' => 'No','1' => 'Single','3' => 'Triple'],
+          'allows_null' => false,
+          'default' => '0',
           'tab' => 'Details'
         ];
 
@@ -158,9 +185,46 @@ class FilmCrudController extends CrudController
             'tab' => 'Overview'
         ];
 
-        $this->crud->addFields([$titleArray,$subtitleArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray], 'both');
+        $dateCol = [
+          'name' => 'created_at',
+          'label' => 'Date created',
+          'type' => 'datetime',
+        ];
 
-        $this->crud->addColumns([$titleArray]);
+        $strandArray = [
+          'label' => "Strand",
+          'type' => 'select2_multiple',
+          'name' => 'strands', // the method that defines the relationship in your Model
+          'entity' => 'strands', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Strand", // foreign key model
+          'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+          'tab' => 'Overview'
+        ];
+
+        $audioDescriptionArray = [
+          'name' => 'audio_description',
+          'label' => 'Audio description',
+          'type' => 'checkbox',
+          'tab' => 'Details'
+        ];
+
+        $freeArray = [
+          'name' => 'free',
+          'label' => 'Free',
+          'type' => 'checkbox',
+          'tab' => 'Details'
+        ];
+
+        $this->crud->addFields([$titleArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+
+        $this->crud->addColumns([$titleArray,$dateCol]);
+
+        if (!$this->request->has('order')) {
+          $this->crud->orderBy('title');
+        }
+
+
 
 
     }

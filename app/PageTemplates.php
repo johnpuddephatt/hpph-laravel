@@ -52,7 +52,16 @@ trait PageTemplates
                         'placeholder' => trans('backpack::pagemanager.content_placeholder'),
                         'tab' => 'Content',
                         'toolbar' => "[{ 'header': '2' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
-
+                    ]);
+        $this->crud->addField([
+                        'name' => 'thumb',
+                        'label' => 'Thumbnail',
+                        'type' => 'image',
+                        'upload' => 'true',
+                        'hint' => 'Thumbnails may be cropped on the site',
+                        'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+                        'crop' => true, // set to true to allow cropping, false to disable
+                        'tab' => 'Content'
                     ]);
     }
 

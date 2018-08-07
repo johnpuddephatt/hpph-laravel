@@ -14,6 +14,7 @@
   transition: opacity 5 * $base-duration 5 * $base-duration $base-timing;
   .slider-loading & {
     opacity: 0;
+    transition: opacity 0ms 0ms;
   }
 
   @media screen and (orientation: portrait) {
@@ -40,7 +41,9 @@
     }
   }
   body.home &,
-  body.page & {
+  body.page &,
+  body.film &
+   {
     margin-bottom: -($header-height-landscape);
     @media screen and (orientation: portrait) {
       margin-bottom: 0;
@@ -105,7 +108,6 @@
 
 .site-header--book-button {
   font-size: modular-scale(-1);
-  padding-top: 1.2em;
   margin-left: $base-spacing;
   background-color: transparent;
   border: .15em solid white;

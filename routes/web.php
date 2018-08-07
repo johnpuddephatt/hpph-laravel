@@ -32,6 +32,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
   CRUD::resource('screening', 'ScreeningCrudController');
   Route::post ( 'screening/add', '\App\Http\Controllers\ScreeningController@addScreening' );
   Route::post ( 'screening/delete', '\App\Http\Controllers\ScreeningController@deleteScreening' );
+  CRUD::resource('strand', 'StrandCrudController');
+  CRUD::resource('tag', 'TagCrudController');
 });
 
 // Route::post ( '/admin/addScreening', 'ScreeningController@addScreening' );

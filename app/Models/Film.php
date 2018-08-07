@@ -19,9 +19,9 @@ class Film extends Model
 
     protected $table = 'films';
     // protected $primaryKey = 'id';
-    public $timestamps = false;
+    public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['title','subtitle','slug','certificate','thumb','description','short_description','runtime','buy_url','director','starring','country','language','f_rating','year','association','format','tickets'];
+    protected $fillable = ['title','subtitle','slug','certificate','thumb','description','short_description','runtime','buy_url','director','starring','country','language','f_rating','year','association','format','tickets','alt_language_title','free','audio_description'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -60,11 +60,11 @@ class Film extends Model
       }
 
     public function getDateRange() {
-      $this->start_date = Carbon::parse($this->screenings->first()->date)->format('D d F');
+      $this->start_date = Carbon::parse($this->screenings->first()->date)->format('D j F');
       $this->start_date_day = explode(' ', $this->start_date)[0];
       $this->start_date_dayname = explode(' ', $this->start_date)[1];
       $this->start_date_month = last(explode(' ', $this->start_date));
-      $this->end_date = Carbon::parse($this->screenings->last()->date)->format('D d F');
+      $this->end_date = Carbon::parse($this->screenings->last()->date)->format('D j F');
       $this->end_date_month = last(explode(' ', $this->end_date));
 
       $date_range = $this->start_date_day . ' ' . $this->start_date_dayname . ' ';
@@ -72,11 +72,15 @@ class Film extends Model
         $date_range .= $this->start_date_month;
       }
       if ($this->start_date != $this->end_date) {
-        $date_range .= ' to ';
+        $date_range .= ' – ';
       }
       if ($this->start_date != $this->end_date) {
         $date_range .= $this->end_date;
       }
+      if ($this->screenings->count() == 1) {
+        $date_range .= ', ' . Carbon::parse($this->screenings->first()->time)->format('g.iA');
+      }
+
       return $date_range;
     }
 
@@ -91,12 +95,22 @@ class Film extends Model
       return $this->hasMany('App\Models\Screening');
     }
 
+    public function strands()
+    {
+      return $this->belongsToMany('App\Models\Strand');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
     */
-
+    public function scopeHasFutureScreenings($query)
+    {
+      return $query->whereHas('screenings', function ($query) {
+        $query->where('date', '>=', date('Y/m/d'));
+      });
+    }
     /*
     |--------------------------------------------------------------------------
     | ACCESORS

@@ -1,0 +1,1 @@
+<span title="{{ $strand->description }}" class="label label--{{ str_slug($strand->title) }}">{{ $strand->title }}</span>

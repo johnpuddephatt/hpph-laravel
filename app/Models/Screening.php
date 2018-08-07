@@ -19,7 +19,7 @@ class Screening extends Model
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['film_id','date','time','labels','url'];
+    protected $fillable = ['film_id','date','time','url'];
     // protected $hidden = [];
     protected $dates = ['date'];
     protected $dateFormat = 'Y/m/d';
@@ -31,15 +31,7 @@ class Screening extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function labels()
-    {
-      if($this) {
-        return explode(',',$this->labels);
-      }
-      else {
-        return null;
-      }
-    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
@@ -49,6 +41,11 @@ class Screening extends Model
     public function film()
     {
       return $this->belongsTo('App\Models\Film');
+    }
+
+    public function tags()
+    {
+      return $this->belongsToMany('App\Models\Tag');
     }
 
     /*
@@ -68,5 +65,5 @@ class Screening extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    
+
 }

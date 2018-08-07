@@ -1,0 +1,28 @@
+.single-listing--screenings--key {
+margin-top: 2.5 * $base-spacing;
+}
+.single-listing--screenings--key--item {
+  display: flex;
+  flex-direction: row;
+  margin: $small-spacing 0;
+  > * + * {
+    margin-left: $small-spacing;
+  }
+}
+
+.single-listing--screenings--key--heading {
+  font-size: modular-scale(0);
+}
+
+.single-listing--screenings--key--abbreviation {
+  float: left;
+}
+
+.single-listing--screenings--key--title,
+.single-listing--screenings--key--description {
+  font-size: modular-scale(-1);
+}
+
+.single-listing--screenings--key--title {
+  margin-bottom: $small-spacing/2;
+}

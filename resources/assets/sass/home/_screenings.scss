@@ -23,8 +23,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: $base-border;
   font-size: modular-scale(1);
+  position: relative;
   height: 3 * $base-spacing;
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(0);
@@ -35,7 +35,15 @@
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     height: 2 * $base-spacing;
-
+  }
+  &::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $light-gray;
+    content: '';
+    bottom: 1px;
+    left: 0;
   }
 }
 
@@ -212,6 +220,8 @@
 .daily-screenings--entry--text {
   margin-right: $small-spacing;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: $medium-screen) {
     margin-right: $base-spacing;
   }
@@ -269,14 +279,21 @@
 }
 
 .daily-screenings--entry--certificate {
-  font-size: modular-scale(-3);
+  font-size: modular-scale(-5);
   display: inline-block;
   font-weight: 400;
   color: $medium-gray;
 
 }
 
-.daily-screenings--entry--labels {
-  padding-left: $small-spacing;
-  display: inline-block;
+.daily-screenings--entry--footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: $small-spacing;
+  font-size: modular-scale(-1);
+  * + * {
+    margin-left: $small-spacing/2;
+  }
 }
