@@ -9,9 +9,9 @@
       'alt' => "Image for" . $film->title,
       'img' => url($film->thumb),
       'class' => "single-listing--header--img fade-image-onload",
-      'height' => "500",
-      'width' => "500",
-      'sizes' => "(orientation: landscape) 85vw, 100vw"
+      'height' => "450",
+      'width' => "1280",
+      'sizes' => "100vw"
     ])
   </div>
 
