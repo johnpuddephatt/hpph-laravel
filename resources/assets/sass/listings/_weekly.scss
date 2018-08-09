@@ -43,8 +43,8 @@
   border-bottom-color: $base-font-color;
   position: sticky;
   z-index: 98;
-  top: 3 * $base-spacing;
-  top: calc(3 * #{$base-spacing} - 2px);
+  top: 2.5 * $base-spacing;
+  top: calc(2.5 * #{$base-spacing} - 3px);
   padding: $small-spacing $small-spacing;
 
   @media screen and (orientation: portrait) {

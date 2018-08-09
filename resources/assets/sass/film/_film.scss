@@ -33,6 +33,9 @@
 
 .single-listing--content {
   margin-bottom: 1.5 * $base-spacing;
+  h3:not(:first-child) {
+    margin-top: $base-spacing;
+  }
 }
 
 .single-listing--text {

@@ -19,6 +19,8 @@ class Tag extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
+    // protected $hidden = ['pivot','relations'];
+
     protected $fillable = ['title','abbreviation','description','color'];
     // protected $hidden = [];
     // protected $dates = [];
@@ -34,9 +36,9 @@ class Tag extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function tags()
+    public function screenings()
     {
-      return $this->belongsToMany('App\Models\Tag');
+      return $this->belongsToMany('App\Models\Screening');
     }
     /*
     |--------------------------------------------------------------------------

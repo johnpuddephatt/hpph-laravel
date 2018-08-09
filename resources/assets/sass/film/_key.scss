@@ -1,12 +1,18 @@
 .single-listing--screenings--key {
-margin-top: 2.5 * $base-spacing;
+  margin-top: 2.5 * $base-spacing;
 }
 .single-listing--screenings--key--item {
   display: flex;
   flex-direction: row;
   margin: $small-spacing 0;
+  justify-content: flex-end;
   .label {
     margin-bottom: auto;
+    font-size: modular-scale(-2);
+
+  }
+  > div {
+    flex: 0 0 80%;
   }
   > * + * {
     margin-left: $small-spacing;
@@ -24,6 +30,7 @@ margin-top: 2.5 * $base-spacing;
 .single-listing--screenings--key--title,
 .single-listing--screenings--key--description {
   font-size: modular-scale(-1);
+
 }
 
 .single-listing--screenings--key--title {

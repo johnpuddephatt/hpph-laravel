@@ -21,8 +21,10 @@
           <tbody class="hidden-rows shown">
         @endif --}}
         <tr>
-        <td>{{ Carbon\Carbon::parse($screening->date)->format('D j F')}}</td><td>
-        @php $current_date = $screening->date @endphp
+        <td>{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}</td><td>
+        @php
+          $current_date = $screening->date;
+        @endphp
       @endif
         <a
           @if($screening->url && is_numeric($screening->url)) href="http://www.jack-roe.co.uk/websales/sales/hydlee/actual_book?perfcode={{ $screening->url }}"
@@ -30,18 +32,18 @@
           class="listings--screenings--book button button__ghost button__small">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}
           @foreach ($screening->tags as $tag)
               @include ('screening.tag')
-              @php
-              if(!in_array($tag, $tag_array, true)){
-                array_push($tag_array,$tag);
-              }
-              @endphp
-
+              @php array_push($tag_array,$tag) @endphp
           @endforeach
+          @if($film->audio_description)
+            @include('film.audio-description')
+          @endif
         </a>
     @endforeach
   </tbody>
 </table>
 
+
 @if (count($tag_array))
+  @php $tag_array = $tag_array @endphp
   @include('screening.selector-key')
 @endif

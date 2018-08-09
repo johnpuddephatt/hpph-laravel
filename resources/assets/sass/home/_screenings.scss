@@ -158,7 +158,7 @@
   border-bottom: $light-border;
   line-height: $base-line-height;
   @media screen and (min-width: $large-screen) {
-    padding: 1.5 * $base-spacing 0;
+    padding: 1 * $base-spacing 0;
   }
   &:last-child {
     border-bottom: $base-border;

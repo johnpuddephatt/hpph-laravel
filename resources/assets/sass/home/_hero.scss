@@ -14,10 +14,10 @@
 }
 
 .loading-text {
-  margin-bottom: $base-spacing;
+  margin-bottom: 2 * $base-spacing;
   font-family: $heading-font-family;
-  font-size: modular-scale(8);
-  line-height: $tight-heading-line-height;
+  font-size: modular-scale(5);
+  line-height: .8;
   word-spacing: 99999px;
   text-transform: uppercase;
   &.fade-in-loading-text span {

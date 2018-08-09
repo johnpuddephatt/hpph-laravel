@@ -13,7 +13,7 @@ class FilmController extends Controller
   public function single($slug) {
 
     $film = Film::where('slug',$slug)->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
     }])->first();
 
     if(!$film) abort(404);
@@ -33,7 +33,7 @@ class FilmController extends Controller
     // }])->orderBy('title')->get();
     $array = '';
     $films = Film::hasFutureScreenings()->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->with('tags');
     }])->get()->sortBy(function ($i) {
 
       return trim(str_replace('The', '', ' ' . $i['title'] . ' '));

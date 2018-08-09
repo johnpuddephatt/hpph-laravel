@@ -18,6 +18,9 @@
 
   <div class="container single-listing--heading">
     <div class="single-listing--text">
+      @foreach($film->strands()->get() as $strand)
+        @include('film.strand')
+      @endforeach
       <h1 class="single-listing--title">{{ $film->title }}</h1>
       @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
       <div class="single-listing--meta">
@@ -28,12 +31,8 @@
       </div>
       <div class="single-listing--strand">
         @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
-        @foreach($film->strands()->get() as $strand)
-          @include('film.strand')
-        @endforeach
-        @if($film->audio_description)
-          @include('film.audio-description')
-        @endif
+
+
       </div>
     </div>
 
@@ -43,7 +42,8 @@
   <div class="container single-listing--content">
     <div class="single-listing--text">
       <div class="single-listing--text--content">
-          {!! $film->description !!}
+        <h2 class="sr-only">Film description</h2>
+        {!! $film->description !!}
       </div>
       <div class="single-listing--text--footer">
         <table>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="single-listing--screenings">
-      <h2 class="single-listing--screenings--header">Screenings</h2>
+      <h2 class="single-listing--screenings--header">Showtimes</h2>
       @if (count($film->screenings))
 
         @include('screening.selector')

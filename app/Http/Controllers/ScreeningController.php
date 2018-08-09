@@ -24,11 +24,29 @@ class ScreeningController extends Controller
     //   $weekday += 7;
     // $week_commencing = date("Y/m/d",time() +(($week - 1) * 7 - $weekday) * 86400);
     // $week_ending = date("Y/m/d",time() +((($week - 1) * 7) + 6 - $weekday) * 86400);
+
     if($week < 1 || $week > 8) abort(404);
-    $week_commencing = date("Y/m/d",time() +(($week - 1) * 7) * 86400);
+
+    $today_date = date("Y/m/d",time());
+    $today_time = date("H:i",time() - 1800);
+
+    // First week; collect today screenings separately
+    if($week == 1) {
+      $week_commencing = date("Y/m/d",time() + 86400);
+      $screenings_today = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film')->orderBy('date')->orderBy('time')->get();
+    }
+    // Other weeks
+    else {
+      $week_commencing = date("Y/m/d",time() +(($week - 1) * 7) * 86400);
+    }
+
     $week_ending = date("Y/m/d",time() +((($week - 1) * 7) + 6) * 86400);
-    $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->orderBy('date')->orderBy('time')->get();
-    return view('film.weekly', compact('screenings','week','week_commencing','week_ending'));
+
+
+
+
+    $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->with('film')->orderBy('date')->orderBy('time')->get();
+    return view('film.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today'));
   }
 
   public function addScreening(Request $request) {

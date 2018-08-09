@@ -630,6 +630,17 @@ sup {
   font-size: 0.5787037em;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .section-title {
   font-family: "Bodoni", "Times New Roman";
   font-weight: 400;
@@ -1577,10 +1588,10 @@ body.film .site-header .site-header--navigation a {
 }
 
 .loading-text {
-  margin-bottom: 1.66rem;
+  margin-bottom: 3.32rem;
   font-family: "Bodoni", "Times New Roman";
-  font-size: 4.29981696em;
-  line-height: 1;
+  font-size: 2.48832em;
+  line-height: .8;
   word-spacing: 99999px;
   text-transform: uppercase;
 }
@@ -1998,7 +2009,7 @@ body.film .site-header .site-header--navigation a {
 
 @media screen and (min-width: 900px) {
   .daily-screenings--entry {
-    padding: 2.49rem 0;
+    padding: 1.66rem 0;
   }
 }
 
@@ -2504,8 +2515,8 @@ body.film .site-header .site-header--navigation a {
   position: -webkit-sticky;
   position: sticky;
   z-index: 98;
-  top: 4.98rem;
-  top: calc(3 * 1.66rem - 2px);
+  top: 4.15rem;
+  top: calc(2.5 * 1.66rem - 3px);
   padding: 0.83rem 0.83rem;
 }
 
@@ -2802,7 +2813,7 @@ body.film .site-header .site-header--navigation a {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  height: 4.98rem;
+  height: 4.15rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2993,6 +3004,10 @@ body.film .site-header .site-header--navigation a {
 
 .single-listing--content {
   margin-bottom: 2.49rem;
+}
+
+.single-listing--content h3:not(:first-child) {
+  margin-top: 1.66rem;
 }
 
 .single-listing--text {
@@ -3188,10 +3203,20 @@ body.film .site-header .site-header--navigation a {
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 0.83rem 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .single-listing--screenings--key--item .label {
   margin-bottom: auto;
+  font-size: 0.69444444em;
+}
+
+.single-listing--screenings--key--item > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80%;
+          flex: 0 0 80%;
 }
 
 .single-listing--screenings--key--item > * + * {

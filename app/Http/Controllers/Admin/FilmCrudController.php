@@ -74,7 +74,7 @@ class FilmCrudController extends CrudController
           'label' => 'Description',
           'type' => 'quill',
           'tab' => 'Overview',
-          'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
+          'toolbar' => "[{ 'header': '3' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
         ];
 
         $shortDescriptionArray = [
