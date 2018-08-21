@@ -1,5 +1,5 @@
-<table>
-  <tbody class="initial-rows">
+<table class="screenings-table">
+  <tbody>
     @php
       $current_date = '';
       $date_count = 0;
@@ -26,10 +26,12 @@
           $current_date = $screening->date;
         @endphp
       @endif
-        <a
-          @if($screening->url && is_numeric($screening->url)) href="http://www.jack-roe.co.uk/websales/sales/hydlee/actual_book?perfcode={{ $screening->url }}"
-          @elseif($screening->url) href="{{ $screening->url }}" @endif
-          class="listings--screenings--book button button__ghost button__small">{{ Carbon\Carbon::parse($screening->time)->format('h.iA') }}
+        <div class="screenings-table--screening">
+        <input type="radio" id="screening-{{$screening->id}}" name="screening" data-time="{{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}" data-date="{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}" data-url="{{$screening->url}}" />
+
+          <label for="screening-{{$screening->id}}">
+            {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
+          </label>
           @foreach ($screening->tags as $tag)
               @include ('screening.tag')
               @php array_push($tag_array,$tag) @endphp
@@ -37,13 +39,15 @@
           @if($film->audio_description)
             @include('film.audio-description')
           @endif
-        </a>
+        </div>
     @endforeach
   </tbody>
+
 </table>
+<div class="screenings-table--announcer"><p class="info"><i>i</i>Select a screening above to purchase tickets</p></div>
 
 
-@if (count($tag_array))
+@if (count($tag_array) || $film->audio_description)
   @php $tag_array = $tag_array @endphp
   @include('screening.selector-key')
 @endif

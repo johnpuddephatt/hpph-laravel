@@ -3,14 +3,15 @@
   background-color: $action-color;
   border: 0;
   border-radius: 0;
+  border: 1px solid $medium-gray;
   color: $base-font-color;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
-  font-weight: 700;
-  line-height: 1.5 * $base-spacing;
+  font-weight: 500;
+  line-height: 1.25 * $base-spacing;
   padding: 0 $small-spacing;
   text-align: center;
   text-decoration: none;

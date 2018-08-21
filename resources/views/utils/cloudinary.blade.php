@@ -12,6 +12,6 @@ $breakpoints = [90,120,150,180,240,360,480,640,720,960,1080,1200,1440,1600]
   @if (isset($pathonly) && $pathonly == true)
     {{  url($img) }}
   @else
-    <img alt="{{ $alt }}" class="{{ $class }}" src="{{  url($img) }}"/>
+    <img alt="{{ $alt }}" class="{{ $class }}" src="{{  url($img) }}" onload="console.log(this)"/>
   @endif
 @endif

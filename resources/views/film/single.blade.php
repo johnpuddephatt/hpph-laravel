@@ -19,7 +19,9 @@
   <div class="container single-listing--heading">
     <div class="single-listing--text">
       @foreach($film->strands()->get() as $strand)
-        @include('film.strand')
+        <div class="single-listing--strand">
+          @include('film.strand')
+        </div>
       @endforeach
       <h1 class="single-listing--title">{{ $film->title }}</h1>
       @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
@@ -45,6 +47,18 @@
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
       </div>
+      @foreach($film->strands()->get() as $strand)
+        <div class="single-listing--strand-details" style="background-color: {{ $strand->color }}">
+          <h3 class="single-listing--strand-heading">{{$strand->title}}</h3>
+          {!! $strand->description !!}
+        </div>
+      @endforeach
+      @foreach($film->seasons()->get() as $season)
+        <div class="single-listing--season-details">
+          <h3 class="single-listing--season-heading">{{$season->title}}</h3>
+          {!! $season->short_description !!}
+        </div>
+      @endforeach
       <div class="single-listing--text--footer">
         <table>
           @if( $film->language )<tr><td>Language:</td><td>{{ $film->language }}</td></tr>@endif
@@ -67,7 +81,7 @@
         <button class="button__small single-listing--screenings--show-all">More screenings</button>
       @endif --}}
     @else
-      <div class="alert">No screenings currently scheduled.</div>
+      <div class="alert">{{ $film->custom_coming_soon ?? "Screenings for this film are yet to be scheduled." }}</div>
     @endif
     </div>
   </div>

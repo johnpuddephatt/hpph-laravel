@@ -1,5 +1,8 @@
 .page-standard--header {
-  height: 35vw;
+  height: 56.25vw;
+  @media (orientation: landscape) {
+    height: 35vw;
+  }
   width: 100%;
   position: relative;
   &::after {

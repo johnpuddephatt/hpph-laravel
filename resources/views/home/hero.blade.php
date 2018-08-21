@@ -28,5 +28,6 @@
           </div>
         @endforeach
     </div>
+    <a href="#daily-screenings" class="section--home-hero--jump">»</a>
   </section>
 @endif

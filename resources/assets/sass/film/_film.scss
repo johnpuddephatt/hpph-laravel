@@ -1,5 +1,8 @@
 .single-listing--image {
-  height: 35vw;
+  height: 56.25vw;
+  @media (orientation: landscape) {
+    height: 35vw;
+  }
   width: 100%;
   position: relative;
   &::after {
@@ -26,7 +29,7 @@
 .single-listing--content {
   display: flex;
   flex-direction: column;
-  @media (orientation: landscape) {
+  @media screen and (orientation: landscape) and (min-width: $medium-screen) {
     flex-direction: row;
   }
 }
@@ -50,8 +53,11 @@
 }
 
 .single-listing--heading > div {
-  margin-top: 2 * $base-spacing;
-  margin-bottom: 2 * $base-spacing;
+  margin-top: $base-spacing;
+  @media screen and (min-width: $medium-screen) {
+    margin-top: 2 * $base-spacing;
+  }
+  margin-bottom: 1.5 * $base-spacing;
   padding-bottom: $base-spacing;
   border-bottom: $base-border;
 }
@@ -82,7 +88,9 @@
 
 .single-listing--meta {
   color: $medium-gray;
-  margin-top: $small-spacing/2;
+  @media (min-width: $large-screen) {
+    margin-top: $small-spacing/2;
+  }
   font-size: modular-scale(-1);
   > * {
     margin-right: $small-spacing/2;
@@ -90,8 +98,29 @@
 }
 
 .single-listing--strand {
-  margin-top: $small-spacing;
+  margin-bottom: $small-spacing/2;
 }
+
+.single-listing--strand-details,
+.single-listing--season-details {
+  padding: $small-spacing;
+  margin-top: $base-spacing;
+  font-size: modular-scale(-1);
+  border: $medium-border;
+  + .single-listing--strand-details,
+  + .single-listing--season-details {
+    margin-top: $small-spacing;
+  }
+}
+
+.single-listing--strand-heading,
+.single-listing--season-heading, {
+  text-transform: uppercase;
+  margin-bottom: $small-spacing/4;
+  font-weight: 500;
+}
+
+
 
 .single-listing--text--footer {
   border-top: $base-border;
@@ -105,13 +134,15 @@
     border-bottom: none;
     padding: 0 0 $small-spacing;
     vertical-align: top;
+    font-size: modular-scale(-1);
+
     &:first-child {
       padding-right: $base-spacing;
       font-weight: 700;
     }
     &:last-child {
       width: 100%;
-      font-size: modular-scale(-1);
+      line-height: $base-spacing;
     }
   }
 }
@@ -130,45 +161,6 @@
     flex: 0 0 40%;
     margin-left: 0;
   }
-  td {
-    border-bottom: $light-border;
-    padding: $small-spacing/2 0;
-  }
-  table {
-    margin: 0;
-    width: 100%;
-    margin-bottom: $small-spacing;
-    table-layout: auto;
-    td:last-child {
-      // text-align: right;
-    }
-    td:first-child {
-      font-weight: 600;
-      padding-right: $base-spacing/2;
-      font-size: modular-scale(-1);
-    }
-    tr:last-child td {
-      // border-bottom: none;
-    }
-  }
-  .label {
-    font-size: modular-scale(-1);
-  }
-  .initial-rows {
-    tr:first-child td {
-      border-top: $light-border;
-    }
-  }
-  .hidden-rows {
-    display: none;
-    tr:first-child td {
-      border-top: $light-border;
-    }
-    &.shown {
-      display: table-row-group;
-    }
-  }
-
 }
 
 .listings--screenings--book {
@@ -184,5 +176,6 @@
 
 
 .single-listing--screenings--header {
-  margin-bottom: $base-spacing;
+  margin-bottom: $small-spacing;
+  font-size: modular-scale(2);
 }

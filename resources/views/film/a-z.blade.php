@@ -31,8 +31,14 @@
                   <div class="az-listings--entry--subtitle">{{ $film->subtitle }}</div>
                 </div>
                 <div class="az-listings--entry--date">
-                  {{ $film->getDateRange() }}
+                  @if (count($film->screenings))
+                    {{ $film->getDateRange() }}
+                  @else
+                    TBC
+                  @endif
+
                 </div>
+
                 @if($film->short_description)
                   <p class="az-listings--entry--description">{{ $film->short_description }}</p>
                 @endif

@@ -9,13 +9,15 @@
 
 // var Barba = require('barba.js');
 
+var smoothScroll = require ('smoothScroll');
+
 var simpleslider = require('simple-slider');
-var imagesLoaded = require('imagesLoaded');
+// var imagesLoaded = require('imagesLoaded');
 
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
 var body = document.querySelector('body');
-newVisitor = !sessionStorage.getItem('oldVisitor');
+// newVisitor = !sessionStorage.getItem('oldVisitor');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -27,20 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     firstSlide.classList.add('coming-in');
     // firstSlide.addEventListener('load', ()=>{
     // imagesLoaded( firstSlide, function( instance ) {
-    if(newVisitor) {
-      setTimeout(()=>{
-        loadingText.classList.add('fade-in-loading-text');
-      }, 1000);
-
-      setTimeout(()=>{
-      startSlider();
-      }, 5000);
-      sessionStorage.setItem('oldVisitor', true);
-
-    }
-    else {
-      startSlider();
-    }
+    startSlider();
     // });
     function onChangeFn(prev,next) {
       slides[prev].classList.remove('in');
@@ -136,3 +125,70 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
     }
   })
 }
+
+
+
+(function() {
+  // Get all the <h2> headings
+  const keyTitle = document.querySelector('.single-listing--screenings--key--heading');
+  const keyContent = document.querySelector('.single-listing--screenings--key--content');
+
+  if(keyTitle && keyContent) {
+    // Give each <h2> a toggle button child
+    // with the SVG plus/minus icon
+    keyTitle.innerHTML = `${keyTitle.textContent}
+      <button class="button button__small button__text" aria-expanded="false">
+        Show key
+      </button>
+    `
+
+    // Assign the button
+    let btn = keyTitle.querySelector('button')
+    keyContent.classList.add('accordion-enabled')
+    keyContent.hidden = true
+
+    btn.onclick = () => {
+      console.log(btn)
+      // Cast the state as a boolean
+      let expanded = btn.getAttribute('aria-expanded') === 'true' || false
+
+      // Switch the state
+      btn.setAttribute('aria-expanded', !expanded)
+      // Switch the content's visibility
+      keyContent.hidden = expanded
+      console.log(keyContent)
+    }
+  }
+})()
+
+const screeningTable = document.querySelector('.screenings-table');
+const screeningAnnouncer = document.querySelector('.screenings-table--announcer');
+
+if(screeningTable && screeningAnnouncer) {
+
+  function selectScreening(screeningTime,screeningDate,screeningURL) {
+
+    screeningAnnouncer.innerHTML = `<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>${screeningDate} at ${screeningTime}<a class="button" href="{screeningURL}">Book now</a></p>`;
+  }
+
+  screeningTable.addEventListener('click',(e)=>{
+    if(e.target.nodeName == 'INPUT') {
+      selectScreening(e.target.dataset.time,e.target.dataset.date,e.target.dataset.url);
+    }
+  })
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var screeningID = url.searchParams.get("screeningID");
+    if(screeningID) {
+
+      var screeningInput = document.querySelector('input#screening-' + screeningID);
+      if(screeningInput) {
+        screeningInput.checked = true;
+        selectScreening(screeningInput.dataset.time,screeningInput.dataset.date,screeningInput.dataset.url)
+      }
+    }
+  })
+}
+

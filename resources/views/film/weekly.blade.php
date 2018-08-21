@@ -10,7 +10,7 @@
     <div class="weekly-screenings--content">
 
       <div class="weekly-screenings--screenings container">
-        @if(count($screenings_today))
+        @if( isset($screenings_today) && count($screenings_today))
           <h2 class="weekly-screenings--date">Today</h2>
           <div class="weekly-screenings--entries">
             @foreach ($screenings_today as $screening)

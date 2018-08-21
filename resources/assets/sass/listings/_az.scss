@@ -5,12 +5,14 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 0 (-$small-spacing);
+  overflow: hidden;
+  width: 100%;
+  margin: 0 (-$small-spacing) $base-spacing;
   @media screen and (min-width: $large-screen) {
-    margin: 0 (-$base-spacing);
+    margin: 0 (-$base-spacing) $base-spacing;
   }
   @media screen and (orientation: portrait) {
-    margin: 0;
+    margin: 0 0 $small-spacing;
     display: block;
   }
 }
@@ -47,6 +49,7 @@
   margin-bottom: $base-spacing;
   @media screen and (orientation: portrait) {
     flex: 0 0 25%;
+    margin-bottom: 0;
     margin-right: $small-spacing;
   }
   img {
@@ -56,14 +59,18 @@
 
 .az-listings--entry--header {
   min-height: 2 * $heading-line-height * 1em;
-  margin-bottom: $small-spacing;
   font-size: modular-scale(1);
+  margin-bottom: 0;
+  margin-bottom: $small-spacing/2;
+
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(2);
+    margin-bottom: $small-spacing;
+
   }
   @media screen and (orientation: portrait) {
     min-height: initial;
-    margin-bottom: $small-spacing/2;
+    margin-bottom: 0;
   }
 }
 
@@ -75,9 +82,11 @@
 
 .az-listings--entry--subtitle {
   font-weight: 500;
-
   color: $yellow;
-  font-size: modular-scale(-1);
+  font-size: modular-scale(-2);
+  @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(-1);
+  }
 }
 
 .az-listings--entry--description {
@@ -91,13 +100,14 @@
 
 .az-listings--entry--title--inner {
   position: relative;
+  display: inline-block;
 }
 
 .az-listings--entry--date {
   margin-bottom: $small-spacing;
   font-weight: 500;
   font-size: modular-scale(-1);
-
+  min-height: modular-scale(-1) * $base-line-height;
 }
 
 .az-listings--entry--certificate {

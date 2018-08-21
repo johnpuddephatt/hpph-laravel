@@ -130,6 +130,23 @@ class FilmCrudController extends CrudController
           'suffix' => 'minutes',
         ];
 
+        $trailerDurationArray = [
+          'name' => 'trailer_duration',
+          'label' => 'Trailer duration',
+          'type' => 'text',
+          'tab' => 'Screenings',
+          'suffix' => 'minutes',
+          'hint' => 'Use this to override the default trailer duration, which is used to calculate screening end times.'
+        ];
+
+        $customComingSoonArray = [
+          'name' => 'custom_coming_soon',
+          'label' => 'Custom coming soon message',
+          'type' => 'textarea',
+          'tab' => 'Screenings',
+          'hint' => 'Use this to override the default coming soon message, shown on films which have had no screenings added.'
+        ];
+
         $directorArray = [
           'name' => 'director',
           'label' => 'Director',
@@ -155,7 +172,7 @@ class FilmCrudController extends CrudController
           'name' => 'tickets',
           'label' => 'Tickets',
           'type' => 'quill',
-          'tab' => 'Details',
+          'tab' => 'Screenings',
           // 'toolbar' => "[{ header: [1, 2, false] }],['bold', 'italic']"
           'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
@@ -202,21 +219,32 @@ class FilmCrudController extends CrudController
           'tab' => 'Overview'
         ];
 
+        $seasonArray = [
+          'label' => "Season",
+          'type' => 'select2_multiple',
+          'name' => 'seasons', // the method that defines the relationship in your Model
+          'entity' => 'seasons', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Season", // foreign key model
+          'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+          'tab' => 'Overview'
+        ];
+
         $audioDescriptionArray = [
           'name' => 'audio_description',
           'label' => 'Audio description',
           'type' => 'checkbox',
-          'tab' => 'Details'
+          'tab' => 'Screenings'
         ];
 
         $freeArray = [
           'name' => 'free',
           'label' => 'Free',
           'type' => 'checkbox',
-          'tab' => 'Details'
+          'tab' => 'Screenings'
         ];
 
-        $this->crud->addFields([$titleArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+        $this->crud->addFields([$titleArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
         $this->crud->addColumns([$titleArray,$dateCol]);
 

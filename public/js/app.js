@@ -63,8 +63,9 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
@@ -72,7 +73,8 @@ module.exports = __webpack_require__(5);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -86,13 +88,15 @@ module.exports = __webpack_require__(5);
 
 // var Barba = require('barba.js');
 
+var smoothScroll = __webpack_require__(21);
+
 var simpleslider = __webpack_require__(2);
-var imagesLoaded = __webpack_require__(3);
+// var imagesLoaded = require('imagesLoaded');
 
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
 var body = document.querySelector('body');
-newVisitor = !sessionStorage.getItem('oldVisitor');
+// newVisitor = !sessionStorage.getItem('oldVisitor');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -137,18 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     firstSlide.classList.add('coming-in');
     // firstSlide.addEventListener('load', ()=>{
     // imagesLoaded( firstSlide, function( instance ) {
-    if (newVisitor) {
-      setTimeout(function () {
-        loadingText.classList.add('fade-in-loading-text');
-      }, 1000);
-
-      setTimeout(function () {
-        startSlider();
-      }, 5000);
-      sessionStorage.setItem('oldVisitor', true);
-    } else {
-      startSlider();
-    }
+    startSlider();
   }
 });
 
@@ -205,8 +198,68 @@ if (weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
   });
 }
 
+(function () {
+  // Get all the <h2> headings
+  var keyTitle = document.querySelector('.single-listing--screenings--key--heading');
+  var keyContent = document.querySelector('.single-listing--screenings--key--content');
+
+  if (keyTitle && keyContent) {
+    // Give each <h2> a toggle button child
+    // with the SVG plus/minus icon
+    keyTitle.innerHTML = keyTitle.textContent + '\n      <button class="button button__small button__text" aria-expanded="false">\n        Show key\n      </button>\n    ';
+
+    // Assign the button
+    var btn = keyTitle.querySelector('button');
+    keyContent.classList.add('accordion-enabled');
+    keyContent.hidden = true;
+
+    btn.onclick = function () {
+      console.log(btn);
+      // Cast the state as a boolean
+      var expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+
+      // Switch the state
+      btn.setAttribute('aria-expanded', !expanded);
+      // Switch the content's visibility
+      keyContent.hidden = expanded;
+      console.log(keyContent);
+    };
+  }
+})();
+
+var screeningTable = document.querySelector('.screenings-table');
+var screeningAnnouncer = document.querySelector('.screenings-table--announcer');
+
+if (screeningTable && screeningAnnouncer) {
+  var selectScreening = function selectScreening(screeningTime, screeningDate, screeningURL) {
+
+    screeningAnnouncer.innerHTML = '<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>' + screeningDate + ' at ' + screeningTime + '<a class="button" href="{screeningURL}">Book now</a></p>';
+  };
+
+  screeningTable.addEventListener('click', function (e) {
+    if (e.target.nodeName == 'INPUT') {
+      selectScreening(e.target.dataset.time, e.target.dataset.date, e.target.dataset.url);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var screeningID = url.searchParams.get("screeningID");
+    if (screeningID) {
+
+      var screeningInput = document.querySelector('input#screening-' + screeningID);
+      if (screeningInput) {
+        screeningInput.checked = true;
+        selectScreening(screeningInput.dataset.time, screeningInput.dataset.date, screeningInput.dataset.url);
+      }
+    }
+  });
+}
+
 /***/ }),
-/* 2 */
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
@@ -454,516 +507,143 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 3 */
+
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * imagesLoaded v4.1.4
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
- */
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, smoothScroll) {
+  'use strict';
 
-( function( window, factory ) { 'use strict';
-  // universal module definition
+  // Support RequireJS and CommonJS/NodeJS module formats.
+  // Attach smoothScroll to the `window` when executed as a <script>.
 
-  /*global define: false, module: false, require: false */
-
-  if ( true ) {
-    // AMD
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(4)
-    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
-      return factory( window, EvEmitter );
-    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+  // RequireJS
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (smoothScroll),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS
-    module.exports = factory(
-      window,
-      require('ev-emitter')
-    );
+
+  // CommonJS
+  } else if (typeof exports === 'object' && typeof module === 'object') {
+    module.exports = smoothScroll();
+
   } else {
-    // browser global
-    window.imagesLoaded = factory(
-      window,
-      window.EvEmitter
-    );
+    root.smoothScroll = smoothScroll();
   }
 
-})( typeof window !== 'undefined' ? window : this,
-
-// --------------------------  factory -------------------------- //
-
-function factory( window, EvEmitter ) {
-
+})(this, function(){
 'use strict';
 
-var $ = window.jQuery;
-var console = window.console;
+// Do not initialize smoothScroll when running server side, handle it in client:
+if (typeof window !== 'object') return;
 
-// -------------------------- helpers -------------------------- //
+// We do not want this script to be applied in browsers that do not support those
+// That means no smoothscroll on IE9 and below.
+if(document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) { return; }
 
-// extend objects
-function extend( a, b ) {
-  for ( var prop in b ) {
-    a[ prop ] = b[ prop ];
-  }
-  return a;
+// Get the top position of an element in the document
+var getTop = function(element, start) {
+    // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
+    if(element.nodeName === 'HTML') return -start
+    return element.getBoundingClientRect().top + start
+}
+// ease in out function thanks to:
+// http://blog.greweb.fr/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/
+var easeInOutCubic = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 }
+
+// calculate the scroll position we should be in
+// given the start and end point of the scroll
+// the time elapsed from the beginning of the scroll
+// and the total duration of the scroll (default 500ms)
+var position = function(start, end, elapsed, duration) {
+    if (elapsed > duration) return end;
+    return start + (end - start) * easeInOutCubic(elapsed / duration); // <-- you can change the easing funtion there
+    // return start + (end - start) * (elapsed / duration); // <-- this would give a linear scroll
 }
 
-var arraySlice = Array.prototype.slice;
+// we use requestAnimationFrame to be called by the browser before every repaint
+// if the first argument is an element then scroll to the top of this element
+// if the first argument is numeric then scroll to this location
+// if the callback exist, it is called when the scrolling is finished
+// if context is set then scroll that element, else scroll window
+var smoothScroll = function(el, duration, callback, context){
+    duration = duration || 500;
+    context = context || window;
+    var start = context.scrollTop || window.pageYOffset;
 
-// turn element or nodeList into an array
-function makeArray( obj ) {
-  if ( Array.isArray( obj ) ) {
-    // use object if already an array
-    return obj;
-  }
-
-  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
-  if ( isArrayLike ) {
-    // convert nodeList to array
-    return arraySlice.call( obj );
-  }
-
-  // array of single index
-  return [ obj ];
-}
-
-// -------------------------- imagesLoaded -------------------------- //
-
-/**
- * @param {Array, Element, NodeList, String} elem
- * @param {Object or Function} options - if function, use as callback
- * @param {Function} onAlways - callback function
- */
-function ImagesLoaded( elem, options, onAlways ) {
-  // coerce ImagesLoaded() without new, to be new ImagesLoaded()
-  if ( !( this instanceof ImagesLoaded ) ) {
-    return new ImagesLoaded( elem, options, onAlways );
-  }
-  // use elem as selector string
-  var queryElem = elem;
-  if ( typeof elem == 'string' ) {
-    queryElem = document.querySelectorAll( elem );
-  }
-  // bail if bad element
-  if ( !queryElem ) {
-    console.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
-    return;
-  }
-
-  this.elements = makeArray( queryElem );
-  this.options = extend( {}, this.options );
-  // shift arguments if no options set
-  if ( typeof options == 'function' ) {
-    onAlways = options;
-  } else {
-    extend( this.options, options );
-  }
-
-  if ( onAlways ) {
-    this.on( 'always', onAlways );
-  }
-
-  this.getImages();
-
-  if ( $ ) {
-    // add jQuery Deferred object
-    this.jqDeferred = new $.Deferred();
-  }
-
-  // HACK check async to allow time to bind listeners
-  setTimeout( this.check.bind( this ) );
-}
-
-ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
-
-ImagesLoaded.prototype.options = {};
-
-ImagesLoaded.prototype.getImages = function() {
-  this.images = [];
-
-  // filter & find items if we have an item selector
-  this.elements.forEach( this.addElementImages, this );
-};
-
-/**
- * @param {Node} element
- */
-ImagesLoaded.prototype.addElementImages = function( elem ) {
-  // filter siblings
-  if ( elem.nodeName == 'IMG' ) {
-    this.addImage( elem );
-  }
-  // get background image on element
-  if ( this.options.background === true ) {
-    this.addElementBackgroundImages( elem );
-  }
-
-  // find children
-  // no non-element nodes, #143
-  var nodeType = elem.nodeType;
-  if ( !nodeType || !elementNodeTypes[ nodeType ] ) {
-    return;
-  }
-  var childImgs = elem.querySelectorAll('img');
-  // concat childElems to filterFound array
-  for ( var i=0; i < childImgs.length; i++ ) {
-    var img = childImgs[i];
-    this.addImage( img );
-  }
-
-  // get child background images
-  if ( typeof this.options.background == 'string' ) {
-    var children = elem.querySelectorAll( this.options.background );
-    for ( i=0; i < children.length; i++ ) {
-      var child = children[i];
-      this.addElementBackgroundImages( child );
+    if (typeof el === 'number') {
+      var end = parseInt(el);
+    } else {
+      var end = getTop(el, start);
     }
-  }
-};
 
-var elementNodeTypes = {
-  1: true,
-  9: true,
-  11: true
-};
+    var clock = Date.now();
+    var requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+        function(fn){window.setTimeout(fn, 15);};
 
-ImagesLoaded.prototype.addElementBackgroundImages = function( elem ) {
-  var style = getComputedStyle( elem );
-  if ( !style ) {
-    // Firefox returns null if in a hidden iframe https://bugzil.la/548397
-    return;
-  }
-  // get url inside url("...")
-  var reURL = /url\((['"])?(.*?)\1\)/gi;
-  var matches = reURL.exec( style.backgroundImage );
-  while ( matches !== null ) {
-    var url = matches && matches[2];
-    if ( url ) {
-      this.addBackground( url, elem );
+    var step = function(){
+        var elapsed = Date.now() - clock;
+        if (context !== window) {
+          context.scrollTop = position(start, end, elapsed, duration);
+        }
+        else {
+          window.scroll(0, position(start, end, elapsed, duration));
+        }
+
+        if (elapsed > duration) {
+            if (typeof callback === 'function') {
+                callback(el);
+            }
+        } else {
+            requestAnimationFrame(step);
+        }
     }
-    matches = reURL.exec( style.backgroundImage );
-  }
-};
-
-/**
- * @param {Image} img
- */
-ImagesLoaded.prototype.addImage = function( img ) {
-  var loadingImage = new LoadingImage( img );
-  this.images.push( loadingImage );
-};
-
-ImagesLoaded.prototype.addBackground = function( url, elem ) {
-  var background = new Background( url, elem );
-  this.images.push( background );
-};
-
-ImagesLoaded.prototype.check = function() {
-  var _this = this;
-  this.progressedCount = 0;
-  this.hasAnyBroken = false;
-  // complete if no images
-  if ( !this.images.length ) {
-    this.complete();
-    return;
-  }
-
-  function onProgress( image, elem, message ) {
-    // HACK - Chrome triggers event before object properties have changed. #83
-    setTimeout( function() {
-      _this.progress( image, elem, message );
-    });
-  }
-
-  this.images.forEach( function( loadingImage ) {
-    loadingImage.once( 'progress', onProgress );
-    loadingImage.check();
-  });
-};
-
-ImagesLoaded.prototype.progress = function( image, elem, message ) {
-  this.progressedCount++;
-  this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
-  // progress event
-  this.emitEvent( 'progress', [ this, image, elem ] );
-  if ( this.jqDeferred && this.jqDeferred.notify ) {
-    this.jqDeferred.notify( this, image );
-  }
-  // check if completed
-  if ( this.progressedCount == this.images.length ) {
-    this.complete();
-  }
-
-  if ( this.options.debug && console ) {
-    console.log( 'progress: ' + message, image, elem );
-  }
-};
-
-ImagesLoaded.prototype.complete = function() {
-  var eventName = this.hasAnyBroken ? 'fail' : 'done';
-  this.isComplete = true;
-  this.emitEvent( eventName, [ this ] );
-  this.emitEvent( 'always', [ this ] );
-  if ( this.jqDeferred ) {
-    var jqMethod = this.hasAnyBroken ? 'reject' : 'resolve';
-    this.jqDeferred[ jqMethod ]( this );
-  }
-};
-
-// --------------------------  -------------------------- //
-
-function LoadingImage( img ) {
-  this.img = img;
+    step();
 }
 
-LoadingImage.prototype = Object.create( EvEmitter.prototype );
+var linkHandler = function(ev) {
+    if (!ev.defaultPrevented) {
+        ev.preventDefault();
 
-LoadingImage.prototype.check = function() {
-  // If complete is true and browser supports natural sizes,
-  // try to check for image status manually.
-  var isComplete = this.getIsImageComplete();
-  if ( isComplete ) {
-    // report based on naturalWidth
-    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
-    return;
-  }
+        if (location.hash !== this.hash) window.history.pushState(null, null, this.hash)
+        // using the history api to solve issue #1 - back doesn't work
+        // most browser don't update :target when the history api is used:
+        // THIS IS A BUG FROM THE BROWSERS.
+        // change the scrolling duration in this call
+        var node = document.getElementById(this.hash.substring(1))
+        if (!node) return; // Do not scroll to non-existing node
 
-  // If none of the checks above matched, simulate loading on detached element.
-  this.proxyImage = new Image();
-  this.proxyImage.addEventListener( 'load', this );
-  this.proxyImage.addEventListener( 'error', this );
-  // bind to image as well for Firefox. #191
-  this.img.addEventListener( 'load', this );
-  this.img.addEventListener( 'error', this );
-  this.proxyImage.src = this.img.src;
-};
-
-LoadingImage.prototype.getIsImageComplete = function() {
-  // check for non-zero, non-undefined naturalWidth
-  // fixes Safari+InfiniteScroll+Masonry bug infinite-scroll#671
-  return this.img.complete && this.img.naturalWidth;
-};
-
-LoadingImage.prototype.confirm = function( isLoaded, message ) {
-  this.isLoaded = isLoaded;
-  this.emitEvent( 'progress', [ this, this.img, message ] );
-};
-
-// ----- events ----- //
-
-// trigger specified handler for event type
-LoadingImage.prototype.handleEvent = function( event ) {
-  var method = 'on' + event.type;
-  if ( this[ method ] ) {
-    this[ method ]( event );
-  }
-};
-
-LoadingImage.prototype.onload = function() {
-  this.confirm( true, 'onload' );
-  this.unbindEvents();
-};
-
-LoadingImage.prototype.onerror = function() {
-  this.confirm( false, 'onerror' );
-  this.unbindEvents();
-};
-
-LoadingImage.prototype.unbindEvents = function() {
-  this.proxyImage.removeEventListener( 'load', this );
-  this.proxyImage.removeEventListener( 'error', this );
-  this.img.removeEventListener( 'load', this );
-  this.img.removeEventListener( 'error', this );
-};
-
-// -------------------------- Background -------------------------- //
-
-function Background( url, element ) {
-  this.url = url;
-  this.element = element;
-  this.img = new Image();
+        smoothScroll(node, 500, function (el) {
+            location.replace('#' + el.id)
+            // this will cause the :target to be activated.
+        });
+    }
 }
 
-// inherit LoadingImage prototype
-Background.prototype = Object.create( LoadingImage.prototype );
+// We look for all the internal links in the documents and attach the smoothscroll function
+document.addEventListener("DOMContentLoaded", function () {
+    var internal = document.querySelectorAll('a[href^="#"]:not([href="#"])'), a;
+    for(var i=internal.length; a=internal[--i];){
+        a.addEventListener("click", linkHandler, false);
+    }
+});
 
-Background.prototype.check = function() {
-  this.img.addEventListener( 'load', this );
-  this.img.addEventListener( 'error', this );
-  this.img.src = this.url;
-  // check if image is already complete
-  var isComplete = this.getIsImageComplete();
-  if ( isComplete ) {
-    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
-    this.unbindEvents();
-  }
-};
-
-Background.prototype.unbindEvents = function() {
-  this.img.removeEventListener( 'load', this );
-  this.img.removeEventListener( 'error', this );
-};
-
-Background.prototype.confirm = function( isLoaded, message ) {
-  this.isLoaded = isLoaded;
-  this.emitEvent( 'progress', [ this, this.element, message ] );
-};
-
-// -------------------------- jQuery -------------------------- //
-
-ImagesLoaded.makeJQueryPlugin = function( jQuery ) {
-  jQuery = jQuery || window.jQuery;
-  if ( !jQuery ) {
-    return;
-  }
-  // set local variable
-  $ = jQuery;
-  // $().imagesLoaded()
-  $.fn.imagesLoaded = function( options, callback ) {
-    var instance = new ImagesLoaded( this, options, callback );
-    return instance.jqDeferred.promise( $(this) );
-  };
-};
-// try making plugin
-ImagesLoaded.makeJQueryPlugin();
-
-// --------------------------  -------------------------- //
-
-return ImagesLoaded;
+// return smoothscroll API
+return smoothScroll;
 
 });
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * EvEmitter v1.1.0
- * Lil' event emitter
- * MIT License
- */
-
-/* jshint unused: true, undef: true, strict: true */
-
-( function( global, factory ) {
-  // universal module definition
-  /* jshint strict: false */ /* globals define, module, window */
-  if ( true ) {
-    // AMD - RequireJS
-    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS - Browserify, Webpack
-    module.exports = factory();
-  } else {
-    // Browser globals
-    global.EvEmitter = factory();
-  }
-
-}( typeof window != 'undefined' ? window : this, function() {
-
-"use strict";
-
-function EvEmitter() {}
-
-var proto = EvEmitter.prototype;
-
-proto.on = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // set events hash
-  var events = this._events = this._events || {};
-  // set listeners array
-  var listeners = events[ eventName ] = events[ eventName ] || [];
-  // only add once
-  if ( listeners.indexOf( listener ) == -1 ) {
-    listeners.push( listener );
-  }
-
-  return this;
-};
-
-proto.once = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // add event
-  this.on( eventName, listener );
-  // set once flag
-  // set onceEvents hash
-  var onceEvents = this._onceEvents = this._onceEvents || {};
-  // set onceListeners object
-  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
-  // set flag
-  onceListeners[ listener ] = true;
-
-  return this;
-};
-
-proto.off = function( eventName, listener ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  var index = listeners.indexOf( listener );
-  if ( index != -1 ) {
-    listeners.splice( index, 1 );
-  }
-
-  return this;
-};
-
-proto.emitEvent = function( eventName, args ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  // copy over to avoid interference if .off() in listener
-  listeners = listeners.slice(0);
-  args = args || [];
-  // once stuff
-  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
-
-  for ( var i=0; i < listeners.length; i++ ) {
-    var listener = listeners[i]
-    var isOnce = onceListeners && onceListeners[ listener ];
-    if ( isOnce ) {
-      // remove listener
-      // remove before trigger to prevent recursion
-      this.off( eventName, listener );
-      // unset once flag
-      delete onceListeners[ listener ];
-    }
-    // trigger listener
-    listener.apply( this, args );
-  }
-
-  return this;
-};
-
-proto.allOff = function() {
-  delete this._events;
-  delete this._onceEvents;
-};
-
-return EvEmitter;
-
-}));
-
-
-/***/ }),
-/* 5 */
+/***/ 5:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-/******/ ]);
+
+/******/ });
