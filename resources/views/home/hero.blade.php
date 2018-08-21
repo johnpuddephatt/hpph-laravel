@@ -9,14 +9,26 @@
           <div class="home-slider--slide">
             <!-- Use a 16:9 image, 100w when portrait, (16/9%)w when portrait?? -->
             <!-- Check this in practice on iPhone – image size could be big! -->
-            @include('utils.cloudinary', [
-              'alt' => "Image for " . $slide->getHeading(),
-              'img' => url($slide->getThumb()),
-              'class' => "home-slider--image",
-              'height' => "720",
-              'width' => "1280",
-              'sizes' => "(orientation: portrait) 178vw, 100vw"
-            ])
+            @if ($loop->first)
+              @include('utils.cloudinary', [
+                'alt' => "Image for " . $slide->getHeading(),
+                'img' => url($slide->getThumb()),
+                'class' => "home-slider--image home-slider--first",
+                'height' => "720",
+                'width' => "1280",
+                'sizes' => "(orientation: portrait) 178vw, 100vw",
+                'onload' => "console.log(this)"
+              ])
+            @else
+              @include('utils.cloudinary', [
+                'alt' => "Image for " . $slide->getHeading(),
+                'img' => url($slide->getThumb()),
+                'class' => "home-slider--image",
+                'height' => "720",
+                'width' => "1280",
+                'sizes' => "(orientation: portrait) 178vw, 100vw",
+              ])
+            @endif
             <div class="home-slider--text">
               <div class="container">
                 <a href="{{ url($slide->getUrl())}}">
