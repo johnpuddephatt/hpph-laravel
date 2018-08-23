@@ -44,11 +44,11 @@
   position: sticky;
   z-index: 98;
   top: 2.5 * $base-spacing;
-  top: calc(2.5 * #{$base-spacing} - 3px);
+  top: calc(2.5 * #{$base-spacing} - 1px);
   padding: $small-spacing $small-spacing;
 
   @media screen and (orientation: portrait) {
-    top: calc(#{$header-height-portrait + 2 * $base-spacing}  - 2px );
+    top: calc(#{2 * $base-spacing}  - 1px );
     margin-left: -$base-spacing;
     margin-right: -$base-spacing;
     padding-left: $base-spacing;
@@ -127,7 +127,6 @@
     padding-left: $small-spacing;
     font-size: modular-scale(3);
   }
-
 }
 
 .weekly-screenings--entry--text {

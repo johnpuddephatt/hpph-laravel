@@ -29,6 +29,12 @@
     font-size: modular-scale(-1);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
+    &.current {
+      color: $yellow;
+      svg * {
+        stroke: $yellow;
+      }
+    }
   }
 }
 

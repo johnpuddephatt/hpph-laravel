@@ -1,5 +1,5 @@
 <nav class="site-footer--navigation">
-  <a class="site-footer--navigation--link" href="#">
+  <a class="site-footer--navigation--link current" href="#">
 
     <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
   <svg version="1.1"
