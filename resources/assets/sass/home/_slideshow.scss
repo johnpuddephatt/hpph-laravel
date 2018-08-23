@@ -26,15 +26,16 @@
 .section--home-slider {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   margin-top: -($header-height-landscape);
-  @media (orientation: portrait) {
-    margin-top: -($header-height-portrait);
-  }
   position: relative;
   transition: opacity 15 * $base-duration $base-timing;
   .slider-loading & {
     opacity: 0;
     transition: none;
+  }
+  @media (orientation: portrait) and (max-width: $medium-screen) {
+    height: calc(100vh - #{3 * $base-spacing});
   }
 }
 
@@ -44,7 +45,7 @@
   position: relative;
 
   &.coming-in {
-    .home-slider--text .container > * {
+    .home-slider--link > * {
       opacity: 0;
       transform: translateY(3rem);
       transition: none;
@@ -52,7 +53,7 @@
   }
 
   &.out {
-    .home-slider--text .container > * {
+    .home-slider--link > * {
       opacity: 0;
       transition: opacity 5 * $base-duration $base-timing;
       transform: translateY(0rem);
@@ -100,11 +101,17 @@
   }
 }
 
-.home-slider--text > .container * {
+.home-slider--link {
+  float: left;
+  padding-right: $base-spacing;
+  margin-bottom: $base-spacing;
+}
+
+.home-slider--link * {
   transition: opacity 1s, transform 1s;
 }
 
-.home-slider--text > .container *:nth-child(2) {
+.home-slider--link *:nth-child(2) {
   transition: opacity 1s $base-duration/3, transform 1s $base-duration/3;
 }
 

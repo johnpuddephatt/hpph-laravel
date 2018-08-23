@@ -29,7 +29,9 @@
                 <a class="daily-screenings--entry" href="/film/{{ $screening->film->slug }}?screeningID={{$screening->id}}" data-barba="slide">
                   <div class="daily-screenings--entry--date">
                     {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
-                    <div class="daily-screenings--entry--finish-time">Finishes {{ Carbon\Carbon::parse($screening->time)->addMinutes($screening->film->runtime + ($screening->film->trailer_duration ?? 20))->format('g.ia') }}</div>
+                    @if(is_numeric($screening->film->runtime))
+                      <div class="daily-screenings--entry--finish-time">Finishes {{ Carbon\Carbon::parse($screening->time)->addMinutes($screening->film->runtime + (is_numeric($screening->film->trailer_duration) ? $screening->film->trailer_duration : 20))->format('g.ia') }}</div>
+                    @endif
                   </div>
                   <div class="daily-screenings--entry--text">
                     <h3 class="daily-screenings--entry--title">

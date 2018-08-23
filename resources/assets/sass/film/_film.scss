@@ -50,6 +50,14 @@
     flex: 0 0 45%;
   }
 
+  @media (orientation: portrait) {
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+  }
+
+
 }
 
 .single-listing--heading > div {

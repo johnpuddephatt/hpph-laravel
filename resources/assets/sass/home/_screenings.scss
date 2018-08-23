@@ -10,10 +10,6 @@
   top: -2px;
   transform: translateZ(0);
   z-index: 99;
-  @media screen and (orientation: portrait) {
-    top: $header-height-portrait;
-    top: calc(#{$header-height-portrait} - 2px );
-  }
 }
 
 .daily-screenings--navigation--inner {

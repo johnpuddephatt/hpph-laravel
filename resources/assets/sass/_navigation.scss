@@ -17,18 +17,18 @@
     transition: opacity 0ms 0ms;
   }
 
-  @media screen and (orientation: portrait) {
-    padding: $small-spacing 0;
-    height: $header-height-portrait;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-bottom: $base-border;
-    // box-shadow: $base-shadow;
-  }
+  // @media screen and (orientation: portrait) {
+  //   padding: $small-spacing 0;
+  //   height: $header-height-portrait;
+  //   position: fixed;
+  //   z-index: 9999;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   background-color: white;
+  //   border-bottom: $base-border;
+  //   // box-shadow: $base-shadow;
+  // }
   .site-header--home-link {
     outline-offset: $small-spacing;
     margin-right: $base-spacing;
@@ -45,26 +45,26 @@
   body.film &
    {
     margin-bottom: -($header-height-landscape);
-    @media screen and (orientation: portrait) {
-      margin-bottom: 0;
-    }
+    // @media screen and (orientation: portrait) {
+    //   margin-bottom: 0;
+    // }
     .site-header--navigation a {
       color: white;
     }
-    @media screen and (orientation: landscape) {
+
       background-color: transparent;
       border-bottom: none;
       box-shadow: none;
 
-      .hpph-logo {
-        .hyde-park {
-          fill: $yellow;
-        }
-        .picture-house {
-          fill: white;
-        }
+    .hpph-logo {
+      .hyde-park {
+        fill: $yellow;
+      }
+      .picture-house {
+        fill: white;
       }
     }
+
   }
   .hpph-logo {
     display: block;
@@ -75,6 +75,7 @@
     @media screen and (orientation: portrait) {
       width: 6 * $base-spacing;
     }
+    
   }
 }
 

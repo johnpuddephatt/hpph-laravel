@@ -1,4 +1,53 @@
+.site-footer--navigation {
+  display: none;
+  @media (orientation: portrait) and (max-width: $medium-screen) {
+    display: block;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // height: 3.5 * $base-spacing;
+    background-color: $base-font-color;
+    padding: $small-spacing/2 $small-spacing;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    overflow: hidden;
+  }
+  svg {
+    width: 1.5 * $base-spacing;
+    height: 1.5 * $base-spacing;
+    // margin-bottom: $small-spacing/4;
+  }
+  .site-footer--navigation--link {
+    text-align: center;
+    flex: 0 0 25%;
+    color: white;
+    text-transform: uppercase;
+    font-size: modular-scale(-1);
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
 .site-footer {
+  @media (orientation: portrait) and (max-width: $medium-screen) {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &.visible {
+      display: block;
+    }
+  }
+}
+
+.site-footer--primary {
   padding: 3 * $base-spacing 0;
   position: relative;
   background-color: $black;
@@ -78,7 +127,7 @@
 
 
 
-.secondary-footer {
+.site-footer--secondary {
   background-color: $yellow;
   padding: $base-spacing 0;
   letter-spacing: 0.025em;

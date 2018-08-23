@@ -1,37 +1,25 @@
 @if(count($slides))
   <section class="section section--home-hero">
-    <div class="home-slider--loading container">
+    {{-- <div class="home-slider--loading container">
       <h2 class="loading-text"><span>Your</span><span>friendly</span><span>local</span><span>independent</span><span>cinema</span></h2>
-    </div>
+    </div> --}}
     <div class="section section--home-slider">
 
         @foreach ($slides as $slide)
           <div class="home-slider--slide">
             <!-- Use a 16:9 image, 100w when portrait, (16/9%)w when portrait?? -->
             <!-- Check this in practice on iPhone – image size could be big! -->
-            @if ($loop->first)
-              @include('utils.cloudinary', [
-                'alt' => "Image for " . $slide->getHeading(),
-                'img' => url($slide->getThumb()),
-                'class' => "home-slider--image home-slider--first",
-                'height' => "720",
-                'width' => "1280",
-                'sizes' => "(orientation: portrait) 178vw, 100vw",
-                'onload' => "console.log(this)"
-              ])
-            @else
-              @include('utils.cloudinary', [
-                'alt' => "Image for " . $slide->getHeading(),
-                'img' => url($slide->getThumb()),
-                'class' => "home-slider--image",
-                'height' => "720",
-                'width' => "1280",
-                'sizes' => "(orientation: portrait) 178vw, 100vw",
-              ])
-            @endif
+            @include('utils.cloudinary', [
+              'alt' => "Image for " . $slide->getHeading(),
+              'img' => url($slide->getThumb()),
+              'class' => "home-slider--image",
+              'height' => "720",
+              'width' => "1280",
+              'sizes' => "(orientation: portrait) 178vw, 100vw",
+            ])
             <div class="home-slider--text">
               <div class="container">
-                <a href="{{ url($slide->getUrl())}}">
+                <a class="home-slider--link" href="{{ url($slide->getUrl())}}">
                   <div class="home-slider--heading"><span>{{ $slide->getHeading() }}</span></div>
                   <div class="home-slider--subheading">{{ $slide->getSubheading()}}</div>
                 </a>

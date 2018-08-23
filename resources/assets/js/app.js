@@ -22,15 +22,23 @@ var body = document.querySelector('body');
 document.addEventListener('DOMContentLoaded', ()=>{
 
   if(slider) {
-    var firstSlide = slider.querySelector('.home-slider--slide');
-    var slides = slider.querySelectorAll('.home-slider--slide');
+    const firstSlide = slider.querySelector('.home-slider--slide');
+    const firstSlideImage = firstSlide.querySelector('.home-slider--image');
+
+    const slides = slider.querySelectorAll('.home-slider--slide');
 
     body.classList.add('slider-loading');
     firstSlide.classList.add('coming-in');
-    // firstSlide.addEventListener('load', ()=>{
-    // imagesLoaded( firstSlide, function( instance ) {
-    startSlider();
-    // });
+
+    var firstSlideImageCheck = setTimeout(()=>{
+      console.log('checking!');
+      if(fadeOnloadImage.naturalWidth) {
+        startSlider();
+        clearTimeout(firstSlideImageCheck);
+        console.log('cleared!');
+      }
+    }, 200);
+
     function onChangeFn(prev,next) {
       slides[prev].classList.remove('in');
       slides[prev].classList.add('out');
@@ -70,20 +78,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 document.addEventListener('DOMContentLoaded', function(){
 
-  // var expandScreeningsButton = document.querySelector('.single-listing--screenings--show-all');
-  // var hiddenScreenings = document.querySelector('.hidden-rows');
-  // var screeningsHeader = document.querySelector('.single-listing--screenings--header');
-  // if(expandScreeningsButton && hiddenScreenings) {
-  //   hiddenScreenings.classList.remove('shown');
-  //   expandScreeningsButton.addEventListener('click', (e)=>{
-  //     hiddenScreenings.classList.toggle('shown');
-  //     e.target.textContent =  e.target.textContent == "Hide" ? "More screenings" : "Hide";
-  //     screeningsHeader.textContent =  screeningsHeader.textContent == "Next screenings" ? "All screenings" : "Next screenings";
-  //   });
-  // }
-
-
-   disclaimerBox = document.querySelector('.disclaimer');
+  disclaimerBox = document.querySelector('.disclaimer');
   var disclaimerButton = document.querySelector('.disclaimer-close');
   if (disclaimerButton && disclaimerBox) {
     disclaimerButton.addEventListener('click', function(){
@@ -99,14 +94,13 @@ if(fadeOnloadImage) {
 
   fadeOnloadImage.onload = function() {
     fadeOnloadImage.classList.remove('loading');
-
   }
-  if(fadeOnloadImage.naturalWidth) {
-    setTimeout(()=>{
+  var fadeOnloadImageCheck = setTimeout(()=>{
+    if(fadeOnloadImage.naturalWidth) {
       fadeOnloadImage.classList.remove('loading');
-    }, 200);
-
-  }
+      clearTimeout(fadeOnloadImageCheck);
+    }
+  }, 200);
 }
 
 

@@ -47,7 +47,10 @@
 
 .screenings-table--announcer {
   background-color: $off-white;
-  padding: 1.5 * $small-spacing;
+  padding: 1.5 * $small-spacing $small-spacing;
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
+  margin-top: -1px;
   line-height: 1.5 * $base-spacing;
   font-size: modular-scale(-1);
   p {
