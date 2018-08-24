@@ -228,9 +228,12 @@ if (screeningTable && screeningAnnouncer) {
 
 var navTrigger = document.getElementById('nav-trigger');
 var nav = document.querySelector('.site-footer');
+var navBar = document.querySelector('.site-footer--navigation');
 navTrigger.addEventListener('click', function (e) {
   e.preventDefault();
   nav.classList.toggle('visible');
+  navTrigger.classList.toggle('open');
+  navBar.classList.toggle('nav-open');
   document.documentElement.classList.toggle('locked');
 });
 

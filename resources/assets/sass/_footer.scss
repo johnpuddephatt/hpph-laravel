@@ -33,11 +33,17 @@
     font-size: modular-scale(-1);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
-    &.current {
+    &.current, &.open {
       color: $yellow;
       svg * {
         stroke: $yellow;
       }
+    }
+  }
+  &.nav-open .site-footer--navigation--link.current {
+    color: white;
+    svg * {
+      stroke: white;
     }
   }
 }

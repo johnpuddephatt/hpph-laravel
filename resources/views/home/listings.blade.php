@@ -18,7 +18,7 @@
               <a class="daily-screenings--navigation--link"  href="/day-{{ $i }}#daily-screenings">{!! $loop_date !!}</a>
             @endif
           @endfor
-          <a class="button button__ghost daily-screenings--navigation--view-all" href="/whats-on/">See full listings</a>
+          <a class="button button__ghost daily-screenings--navigation--view-all" href="/whats-on/">View all</a>
         </div>
       </nav>
 

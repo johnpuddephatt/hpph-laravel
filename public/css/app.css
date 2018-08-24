@@ -890,12 +890,22 @@ body.film .site-header .hpph-logo .picture-house {
   -webkit-font-smoothing: antialiased;
 }
 
-.site-footer--navigation .site-footer--navigation--link.current {
+.site-footer--navigation .site-footer--navigation--link.current,
+.site-footer--navigation .site-footer--navigation--link.open {
   color: #FFDC48;
 }
 
-.site-footer--navigation .site-footer--navigation--link.current svg * {
+.site-footer--navigation .site-footer--navigation--link.current svg *,
+.site-footer--navigation .site-footer--navigation--link.open svg * {
   stroke: #FFDC48;
+}
+
+.site-footer--navigation.nav-open .site-footer--navigation--link.current {
+  color: white;
+}
+
+.site-footer--navigation.nav-open .site-footer--navigation--link.current svg * {
+  stroke: white;
 }
 
 .site-footer .hpph-logo {
