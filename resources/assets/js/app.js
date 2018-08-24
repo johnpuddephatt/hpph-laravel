@@ -169,3 +169,15 @@ navTrigger.addEventListener('click',(e)=>{
   body.classList.toggle('locked');
 })
 
+
+
+/*
+** UA sniffing to prevent judder on Chrome iOS
+*/
+
+if(navigator.userAgent.match('CriOS')) {
+  document.addEventListener('DOMContentLoaded', ()=>{
+    var homeSlider = document.querySelector('.section--home-slider');
+    homeSlider.style.height = homeSlider.clientHeight + 'px';
+  });
+}

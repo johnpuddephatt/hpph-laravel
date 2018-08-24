@@ -238,6 +238,17 @@ navTrigger.addEventListener('click', function (e) {
   body.classList.toggle('locked');
 });
 
+/*
+** UA sniffing to prevent judder on Chrome iOS
+*/
+
+if (navigator.userAgent.match('CriOS')) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var homeSlider = document.querySelector('.section--home-slider');
+    homeSlider.style.height = homeSlider.clientHeight + 'px';
+  });
+}
+
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
