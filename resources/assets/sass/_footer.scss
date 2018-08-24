@@ -184,7 +184,7 @@
     li {
       flex: 0 1 16%;
       @media (min-width: $medium-screen) {
-        flex: 0 1 20%;
+        flex: 0 1 21%;
       }
       margin: 0;
       + li {
@@ -200,7 +200,7 @@
         }
       }
       &.andahalf {
-        flex-basis: 20%;
+        flex-basis: 23%;
         @media (min-width: $medium-screen) {
           flex-basis: 30%;
         }
@@ -228,10 +228,11 @@
           font-size: modular-scale(-1);
           font-weight: 500;
           margin-bottom: $small-spacing/2;
-
+          line-height: $heading-line-height;
           display: inline;
           @media (min-width: $medium-screen) {
             display: block;
+            line-height: $base-line-height;
           }
           &:last-child {
             margin-bottom: 0;
