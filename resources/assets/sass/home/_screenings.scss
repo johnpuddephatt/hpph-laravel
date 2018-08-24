@@ -31,6 +31,13 @@
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     height: 2 * $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
+    }
+
   }
   &::after {
     position: absolute;
@@ -38,7 +45,7 @@
     height: 1px;
     background-color: $light-gray;
     content: '';
-    bottom: 1px;
+    bottom: 0px;
     left: 0;
   }
 }
@@ -157,7 +164,18 @@
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
-
+  @media screen and (orientation: portrait) {
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    @media screen and (min-width: $medium-screen) {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
+    }
+  }
   &:last-child {
     border-bottom: $base-border;
   }
