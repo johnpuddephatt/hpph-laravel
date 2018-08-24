@@ -4,10 +4,7 @@
   padding: 0 .3em;
   font-weight: 500;
   text-transform: uppercase;
-  border: 1px solid $medium-gray;
-}
-
-.label{
+  border: $base-border;
   color: $base-font-color;
   &__dark-bg {
     color: white;

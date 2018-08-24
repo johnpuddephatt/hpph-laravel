@@ -164,8 +164,9 @@
   font-weight: 700;
   font-size: modular-scale(1);
   margin-bottom: 0;
-  margin-top: $small-spacing;
+  margin-top: $small-spacing/2;
   @media screen and (min-width: $medium-screen) {
+    margin-top: $small-spacing;
     font-size: modular-scale(2);
   }
   @media screen and (min-width: $large-screen) {

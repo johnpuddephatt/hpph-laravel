@@ -162,7 +162,10 @@
 .daily-screenings--entry {
   display: flex;
   -webkit-tap-highlight-color: $yellow;
-  padding: $base-spacing 0;
+  padding: $small-spacing 0;
+  @media screen and (min-width: $medium-screen) {
+    padding: $base-spacing 0;
+  }
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
@@ -220,26 +223,30 @@
 
 
 .daily-screenings--entry--date {
-  flex: 0 0 20%;
+  flex: 0 0 22.5%;
   font-family: $heading-font-family;
-  line-height: $heading-line-height;
+  line-height: .9;
   font-style: italic;
   font-weight: 400;
   padding-left: 0;
   padding-right: $small-spacing;
   font-size: modular-scale(2);
+  margin-top: $small-spacing/2;
   @media screen and (min-width: $medium-screen) {
+    margin-top: $small-spacing;
     padding-left: $small-spacing;
   }
   @media screen and (min-width: $large-screen) {
     padding-left: $base-spacing;
     font-size: modular-scale(3);
+    line-height: 1.2;
   }
 }
 
 .daily-screenings--entry--finish-time {
   font-size: modular-scale(-4);
   margin-top: 1.2 * $small-spacing;
+  line-height: $heading-font-family;
   font-family: $base-font-family;
   color: $medium-gray;
   font-style: normal;
@@ -251,8 +258,10 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  margin-top: $small-spacing/2;
   @media screen and (min-width: $medium-screen) {
     margin-right: $base-spacing;
+    margin-top: $small-spacing;
   }
   @media screen and (min-width: $large-screen) {
     margin-right: 2 * $base-spacing;
