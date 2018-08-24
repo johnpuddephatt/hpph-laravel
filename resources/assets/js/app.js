@@ -166,5 +166,6 @@ navTrigger.addEventListener('click',(e)=>{
   navTrigger.classList.toggle('open');
   navBar.classList.toggle('nav-open');
   document.documentElement.classList.toggle('locked');
+  body.classList.toggle('locked');
 })
 

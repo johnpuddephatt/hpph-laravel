@@ -11,10 +11,11 @@ html {
 
 html {
   width: 100%;
-  &.locked {
-    height: 100%;
-    overflow: hidden;
-  }
+}
+
+.locked {
+  height: 100%;
+  overflow: hidden;
 }
 
 html,body {
