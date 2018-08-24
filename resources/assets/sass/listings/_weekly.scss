@@ -152,9 +152,9 @@
 }
 
 .weekly-screenings--entry--image {
-  flex: 0 0 30%;
+  flex: 0 0 25%;
   @media screen and (min-width: $medium-screen) {
-    flex: 0 0 20%;
+    // flex: 0 0 20%;
   }
   img {
     display: block;
