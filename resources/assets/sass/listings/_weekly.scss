@@ -119,16 +119,17 @@
 .weekly-screenings--entry--date {
   flex: 0 0 20%;
   font-family: $heading-font-family;
-  line-height: .8;
+  line-height: .9;
   font-style: italic;
   font-weight: 400;
   text-transform: lowercase;
   padding-left: 0;
-  margin-top: $small-spacing;
-  line-height: $base-spacing;
-  font-size: modular-scale(1);
+  margin-top: $small-spacing/2;
+  font-size: modular-scale(2);
   @media screen and (min-width: $medium-screen) {
-    font-size: modular-scale(2);
+    margin-top: $small-spacing;
+
+    line-height: 1.2;
   }
   @media screen and (min-width: $large-screen) {
     padding-left: $small-spacing;
@@ -141,6 +142,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
   @media screen and (min-width: $medium-screen) {
     margin-right: 2 * $base-spacing;
   }
