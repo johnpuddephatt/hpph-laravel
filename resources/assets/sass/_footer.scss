@@ -3,7 +3,7 @@
   @media (orientation: portrait) and (max-width: $medium-screen) {
     display: block;
     position: fixed;
-    z-index: 999;
+    z-index: 9999;
     bottom: 0;
     left: 0;
     right: 0;
@@ -40,15 +40,19 @@
 
 
 .site-footer {
-  @media (orientation: portrait) and (max-width: $medium-screen) {
-    display: none;
+  @media (max-width: $medium-screen) {
+    transform: translateY(110%);
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 3 * $base-spacing;
     left: 0;
     right: 0;
+    z-index: 999;
+    background-color: $black;
+    transition: transform ease $base-duration;
     &.visible {
       display: block;
+      transform: translateY(0%);
     }
   }
 }
@@ -56,7 +60,9 @@
 .site-footer--primary {
   padding: 3 * $base-spacing 0;
   position: relative;
-  background-color: $black;
+  @media (min-width: $medium-screen) {
+    background-color: $black;
+  }
   color: white;
   > .container {
     flex: 0 0 auto;
@@ -134,7 +140,10 @@
 
 
 .site-footer--secondary {
-  background-color: $yellow;
+
+  @media (min-width: $medium-screen) {
+    background-color: $yellow;
+  }
   padding: $base-spacing 0;
   letter-spacing: 0.025em;
   .container {
@@ -143,7 +152,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    @media (min-width: $large-screen) {
+    @media (min-width: $medium-screen) {
       flex-wrap: nowrap;
     }
     li {
@@ -153,7 +162,10 @@
         margin-left: $small-spacing;
       }
       &.double {
-        flex-basis: 45%;
+        flex-basis: 100%;
+        @media (min-width: $medium-screen) {
+          flex-basis: 45%;
+        }
         p {
           font-size: modular-scale(-1);
           font-weight: 500;

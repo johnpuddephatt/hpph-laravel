@@ -114,7 +114,7 @@
 }
 
 .daily-screenings--screenings {
-  margin-bottom: 4 * $base-spacing;
+  margin-bottom: 2 * $base-spacing;
   .alert {
     @media screen and (orientation: portrait) {
       margin: $base-spacing $base-spacing;
@@ -153,13 +153,11 @@
 .daily-screenings--entry {
   display: flex;
   -webkit-tap-highlight-color: $yellow;
-  padding: $small-spacing 0;
+  padding: $base-spacing 0;
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
-  @media screen and (min-width: $large-screen) {
-    padding: $base-spacing 0;
-  }
+
   &:last-child {
     border-bottom: $base-border;
   }
@@ -199,7 +197,7 @@
 
 
 .daily-screenings--entry--date {
-  flex: 0 0 22.5%;
+  flex: 0 0 20%;
   font-family: $heading-font-family;
   line-height: 1.2;
   font-style: italic;

@@ -38,9 +38,9 @@
     height: calc(100vh - #{3 * $base-spacing});
   }
   // Target iOS to prevent judder as address bar hides/shows
-  @supports (-webkit-overflow-scrolling: touch) {
-    height: calc(178vw - #{3 * $base-spacing});
-  }
+  // @supports (-webkit-overflow-scrolling: touch) {
+  //   height: calc(178vw - #{3 * $base-spacing});
+  // }
 }
 
 .home-slider--slide {

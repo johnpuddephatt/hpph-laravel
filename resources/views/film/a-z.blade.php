@@ -34,7 +34,7 @@
                   @if (count($film->screenings))
                     {{ $film->getDateRange() }}
                   @else
-                    TBC
+                    {{ $film->custom_coming_soon ?? "Showtimes TBC" }}
                   @endif
 
                 </div>

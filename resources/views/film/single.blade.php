@@ -74,15 +74,14 @@
     <div class="single-listing--screenings">
       <h2 class="single-listing--screenings--header">Showtimes</h2>
       @if (count($film->screenings))
-
         @include('screening.selector')
-
-      {{-- @if($date_count > 1)
-        <button class="button__small single-listing--screenings--show-all">More screenings</button>
-      @endif --}}
-    @else
-      <div class="alert">{{ $film->custom_coming_soon ?? "Screenings for this film are yet to be scheduled." }}</div>
-    @endif
+      @else
+        <div class="alert">
+          <h3>{{ $film->custom_coming_soon ?? "Showtimes will be confirmed soon" }}</h3>
+          <p>Full listings are confirmed every Monday for the week beginning the following Friday.</p>
+          <p>To receive weekly listings as soon as they're confirmed, <a href="{{ getenv('MAILCHIMP')}}">sign up here.</a></p>
+        </div>
+      @endif
     </div>
   </div>
 

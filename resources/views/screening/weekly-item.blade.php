@@ -8,9 +8,7 @@
       @endif
     </h3>
     @if($screening->film->subtitle)<div class="weekly-screenings--entry--subtitle">{{ $screening->film->subtitle }}</div>@endif
-
     <div class="weekly-screenings--entry--description">{{ $screening->film->short_description }}</div>
-
     <div class="weekly-screenings--entry--footer">
       @foreach($screening->film->strands()->get() as $strand)
         @include ('film.strand')

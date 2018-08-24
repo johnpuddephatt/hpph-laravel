@@ -76,28 +76,18 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, exports, __webpack_require__) {
 
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// require('./bootstrap');
-
-// var Barba = require('barba.js');
-
 var smoothScroll = __webpack_require__(2);
-
 var simpleslider = __webpack_require__(3);
-// var imagesLoaded = require('imagesLoaded');
+
+/*
+** Homepage slideshow
+*/
 
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
 var body = document.querySelector('body');
-// newVisitor = !sessionStorage.getItem('oldVisitor');
 
 document.addEventListener('DOMContentLoaded', function () {
-
   if (slider) {
     var onChangeFn = function onChangeFn(prev, next) {
       slides[prev].classList.remove('in');
@@ -114,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var startSlider = function startSlider() {
       firstSlide.classList.remove('coming-in');
       body.classList.remove('slider-loading');
-
-      // imagesLoaded( slides, function( instance ) {
       simpleslider.getSlider({
         container: slider,
         duration: 2,
@@ -128,43 +116,29 @@ document.addEventListener('DOMContentLoaded', function () {
         onChange: onChangeFn,
         onChangeEnd: onChangeEndFn
       });
-      // });
     };
 
     var firstSlide = slider.querySelector('.home-slider--slide');
     var firstSlideImage = firstSlide.querySelector('.home-slider--image');
-
     var slides = slider.querySelectorAll('.home-slider--slide');
-
     body.classList.add('slider-loading');
     firstSlide.classList.add('coming-in');
-
     var firstSlideImageCheck = setTimeout(function () {
-      console.log('checking!');
       if (fadeOnloadImage.naturalWidth) {
         startSlider();
         clearTimeout(firstSlideImageCheck);
-        console.log('cleared!');
       }
     }, 200);
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-
-  disclaimerBox = document.querySelector('.disclaimer');
-  var disclaimerButton = document.querySelector('.disclaimer-close');
-  if (disclaimerButton && disclaimerBox) {
-    disclaimerButton.addEventListener('click', function () {
-      disclaimerButton.parentNode.parentNode.removeChild(disclaimerBox);
-    });
-  }
-});
+/*
+** Fade selected images on load
+*/
 
 var fadeOnloadImage = document.querySelector('.fade-image-onload');
 if (fadeOnloadImage) {
   fadeOnloadImage.classList.add('loading');
-
   fadeOnloadImage.onload = function () {
     fadeOnloadImage.classList.remove('loading');
   };
@@ -175,6 +149,10 @@ if (fadeOnloadImage) {
     }
   }, 200);
 }
+
+/*
+** Weekly navigation menu
+*/
 
 var weeklyNavigationMenuTrigger = document.querySelector('.weekly-screenings--navigation--trigger');
 var weeklyNavigationMenuTarget = document.querySelector('.weekly-screenings--week-picker');
@@ -191,42 +169,37 @@ if (weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
   });
 }
 
+/*
+** Collapsible key
+*/
+
 (function () {
-  // Get all the <h2> headings
   var keyTitle = document.querySelector('.single-listing--screenings--key--heading');
   var keyContent = document.querySelector('.single-listing--screenings--key--content');
-
   if (keyTitle && keyContent) {
-    // Give each <h2> a toggle button child
-    // with the SVG plus/minus icon
     keyTitle.innerHTML = keyTitle.textContent + '\n      <button class="button button__small button__text" aria-expanded="false">\n        Show key\n      </button>\n    ';
-
-    // Assign the button
     var btn = keyTitle.querySelector('button');
     keyContent.classList.add('accordion-enabled');
     keyContent.hidden = true;
 
     btn.onclick = function () {
-      console.log(btn);
-      // Cast the state as a boolean
       var expanded = btn.getAttribute('aria-expanded') === 'true' || false;
-
-      // Switch the state
       btn.setAttribute('aria-expanded', !expanded);
-      // Switch the content's visibility
       keyContent.hidden = expanded;
-      console.log(keyContent);
     };
   }
 })();
+
+/*
+** Select (or preselect) screenings
+*/
 
 var screeningTable = document.querySelector('.screenings-table');
 var screeningAnnouncer = document.querySelector('.screenings-table--announcer');
 
 if (screeningTable && screeningAnnouncer) {
   var selectScreening = function selectScreening(screeningTime, screeningDate, screeningURL) {
-
-    screeningAnnouncer.innerHTML = '<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>' + screeningDate + ' at ' + screeningTime + '<a class="button" href="{screeningURL}">Book now</a></p>';
+    screeningAnnouncer.innerHTML = '<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>' + screeningDate + ' at ' + screeningTime + '<a class="button" href="' + screeningURL + '">Book now</a></p>';
   };
 
   screeningTable.addEventListener('click', function (e) {
@@ -240,7 +213,6 @@ if (screeningTable && screeningAnnouncer) {
     var url = new URL(url_string);
     var screeningID = url.searchParams.get("screeningID");
     if (screeningID) {
-
       var screeningInput = document.querySelector('input#screening-' + screeningID);
       if (screeningInput) {
         screeningInput.checked = true;
@@ -249,6 +221,18 @@ if (screeningTable && screeningAnnouncer) {
     }
   });
 }
+
+/*
+** Open 'more' menu
+*/
+
+var navTrigger = document.getElementById('nav-trigger');
+var nav = document.querySelector('.site-footer');
+navTrigger.addEventListener('click', function (e) {
+  e.preventDefault();
+  nav.classList.toggle('visible');
+  body.classList.toggle('locked');
+});
 
 /***/ }),
 /* 2 */

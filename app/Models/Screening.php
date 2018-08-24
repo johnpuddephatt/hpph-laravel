@@ -48,6 +48,16 @@ class Screening extends Model
       return $this->belongsToMany('App\Models\Tag');
     }
 
+    public function getURL()
+    {
+      if (is_numeric($this->url)) {
+        return getenv('JACK_ROE') . '/' . $this->url;
+      }
+      else {
+        return $this->url;
+      }
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

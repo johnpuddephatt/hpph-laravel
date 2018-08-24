@@ -32,10 +32,10 @@
   .site-header--home-link {
     outline-offset: $small-spacing;
     margin-right: $base-spacing;
-    @media screen and (min-width: $large-screen) {
+    @media screen and (min-width: $xl-screen) {
       margin-right: 1.5 * $base-spacing;
     }
-    @media screen and (orientation: portrait) {
+    @media screen and (max-width: $medium-screen) {
       margin-left: auto;
       margin-right: auto;
     }
@@ -68,14 +68,13 @@
   }
   .hpph-logo {
     display: block;
-    width: 5 * $base-spacing;
+    width: 6 * $base-spacing;
     margin: 0;
     margin-bottom: -.75 * $small-spacing;
     height: auto;
-    @media screen and (orientation: portrait) {
-      width: 6 * $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      width: 5 * $base-spacing;
     }
-    
   }
 }
 
@@ -83,8 +82,9 @@
 
 .site-header--navigation {
   margin-right: auto;
-  @media screen and (orientation: portrait) {
-    display: none;
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
   }
   li {
     float: left;

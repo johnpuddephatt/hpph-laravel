@@ -47,23 +47,26 @@
 
 .screenings-table--announcer {
   background-color: $off-white;
-  padding: 1.5 * $small-spacing $small-spacing;
+  padding: $small-spacing;
   margin-left: -$small-spacing;
   margin-right: -$small-spacing;
   margin-top: -1px;
-  line-height: 1.5 * $base-spacing;
+  line-height: $base-spacing;
   font-size: modular-scale(-1);
   p {
     margin-bottom: 0;
-    color: $medium-gray;
+    font-size: modular-scale(1);
+
     &.info {
       text-align: center;
+      color: $medium-gray;
     }
   }
   .button {
     margin-left: $small-spacing;
     float: right;
-    line-height: 1.25 * $base-spacing;
+    line-height: 2 * $base-spacing;
+    margin-top: -$base-spacing;
   }
   i {
     font-family: $heading-font-family;
@@ -78,7 +81,7 @@
     line-height: 1;
     border: 1px solid $medium-gray;
     text-align: center;
-    font-size: modular-scale(3);
+    font-size: modular-scale(2);
     color: $medium-gray;
   }
 }

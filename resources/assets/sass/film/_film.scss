@@ -162,12 +162,13 @@
   @media (orientation: landscape) {
     margin-bottom: 0;
     order: initial;
-    margin-left: 2 * $base-spacing;
-    flex: 0 0 50%;
+    margin-left: 1.5 * $base-spacing;
+    flex: 0 1 50%;
   }
   @media (min-width: $large-screen) {
     flex: 0 0 40%;
     margin-left: 0;
+    margin-left: 2 * $base-spacing;
   }
 }
 

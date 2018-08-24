@@ -22,8 +22,12 @@ html,body {
 body {
   width: 100%;
   overflow-x: hidden;
-  @media (orientation: portrait) and (max-width: $medium-screen) {
+  @media (max-width: $medium-screen) {
     padding-bottom: 3 * $base-spacing;
+  }
+  &.locked {
+    height: 100%;
+    overflow: hidden;
   }
 }
 

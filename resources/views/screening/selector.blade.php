@@ -10,16 +10,7 @@
       @if ($current_date != $screening->date)
       </td>
       </tr>
-        {{-- @php $date_count++ @endphp
 
-        @if ( $date_count > 1 )
-          </td>
-          </tr>
-        @endif
-        @if ( $date_count == 2 )
-          </tbody>
-          <tbody class="hidden-rows shown">
-        @endif --}}
         <tr>
         <td>{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}</td><td>
         @php
@@ -27,7 +18,7 @@
         @endphp
       @endif
         <div class="screenings-table--screening">
-        <input type="radio" id="screening-{{$screening->id}}" name="screening" data-time="{{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}" data-date="{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}" data-url="{{$screening->url}}" />
+        <input type="radio" id="screening-{{$screening->id}}" name="screening" data-time="{{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}" data-date="{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}" data-url="{{$screening->getUrl()}}" />
 
           <label for="screening-{{$screening->id}}">
             {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}

@@ -142,7 +142,7 @@ class FilmCrudController extends CrudController
         $customComingSoonArray = [
           'name' => 'custom_coming_soon',
           'label' => 'Custom coming soon message',
-          'type' => 'textarea',
+          'type' => 'text',
           'tab' => 'Screenings',
           'hint' => 'Use this to override the default coming soon message, shown on films which have had no screenings added.'
         ];

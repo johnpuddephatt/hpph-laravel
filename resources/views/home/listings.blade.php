@@ -30,7 +30,7 @@
                   <div class="daily-screenings--entry--date">
                     {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
                     @if(is_numeric($screening->film->runtime))
-                      <div class="daily-screenings--entry--finish-time">Finishes {{ Carbon\Carbon::parse($screening->time)->addMinutes($screening->film->runtime + (is_numeric($screening->film->trailer_duration) ? $screening->film->trailer_duration : 20))->format('g.ia') }}</div>
+                      <div class="daily-screenings--entry--finish-time">Finish {{ Carbon\Carbon::parse($screening->time)->addMinutes($screening->film->runtime + (is_numeric($screening->film->trailer_duration) ? $screening->film->trailer_duration : 23))->format('g.ia') }}</div>
                     @endif
                   </div>
                   <div class="daily-screenings--entry--text">
