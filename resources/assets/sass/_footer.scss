@@ -1,5 +1,8 @@
 .site-footer--navigation {
   display: none;
+  .hpph-logo {
+    display: none;
+  }
   @media (orientation: portrait) and (max-width: $medium-screen) {
     display: block;
     position: fixed;
@@ -9,12 +12,13 @@
     right: 0;
     // height: 3.5 * $base-spacing;
     background-color: $base-font-color;
-    padding: $small-spacing/2 $small-spacing;
+    padding: $small-spacing/1.5 $small-spacing;
     color: white;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
     overflow: hidden;
+
   }
   svg {
     width: 1.5 * $base-spacing;
@@ -40,7 +44,13 @@
 
 
 .site-footer {
+  .hpph-logo {
+    display: none;
+  }
   @media (max-width: $medium-screen) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transform: translateY(110%);
     position: fixed;
     top: 0;
@@ -51,16 +61,25 @@
     background-color: $black;
     transition: transform ease $base-duration;
     &.visible {
-      display: block;
+      display: flex;
       transform: translateY(0%);
+    }
+    .hpph-logo {
+      width: 6 * $base-spacing;
+      height: auto;
+      display: block;
+      margin: $base-spacing auto;
+      .picture-house {
+        fill: white
+      }
     }
   }
 }
 
 .site-footer--primary {
-  padding: 3 * $base-spacing 0;
   position: relative;
   @media (min-width: $medium-screen) {
+    padding: 3 * $base-spacing 0;
     background-color: $black;
   }
   color: white;
@@ -154,28 +173,66 @@
     flex-wrap: wrap;
     @media (min-width: $medium-screen) {
       flex-wrap: nowrap;
+
     }
     li {
       flex: 0 1 20%;
+      @media (min-width: $medium-screen) {
+        flex: 0 1 20%;
+      }
       margin: 0;
       + li {
         margin-left: $small-spacing;
+        @media (min-width: $medium-screen) {
+          margin-left: $small-spacing;
+        }
+      }
+      &.spacer {
+        display: none;
+        @media (min-width: $medium-screen) {
+          display: block;
+        }
+      }
+      &.andahalf {
+        flex-basis: 30%;
       }
       &.double {
         flex-basis: 100%;
+        order: 999;
+        padding-top: $small-spacing;
+        padding-left: $base-spacing;
+        padding-right: $base-spacing;
+        text-align: center;
+        color: white;
+
         @media (min-width: $medium-screen) {
+          text-align: left;
+          color: $base-font-color;
+
+          padding-top: 0;
           flex-basis: 45%;
+          order: 0;
+          padding-left: 0;
+          padding-right: 0;
         }
         p {
           font-size: modular-scale(-1);
           font-weight: 500;
           margin-bottom: $small-spacing/2;
+
+          display: inline;
+          @media (min-width: $medium-screen) {
+            display: block;
+          }
           &:last-child {
             margin-bottom: 0;
             font-weight: 700;
           }
         }
       }
+    }
+    img {
+      filter: invert(100%);
     }
   }
 }

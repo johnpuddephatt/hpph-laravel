@@ -231,7 +231,7 @@ var nav = document.querySelector('.site-footer');
 navTrigger.addEventListener('click', function (e) {
   e.preventDefault();
   nav.classList.toggle('visible');
-  body.classList.toggle('locked');
+  document.documentElement.classList.toggle('locked');
 });
 
 /***/ }),

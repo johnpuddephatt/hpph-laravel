@@ -11,6 +11,10 @@ html {
 
 html {
   width: 100%;
+  &.locked {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 html,body {
@@ -24,10 +28,6 @@ body {
   overflow-x: hidden;
   @media (max-width: $medium-screen) {
     padding-bottom: 3 * $base-spacing;
-  }
-  &.locked {
-    height: 100%;
-    overflow: hidden;
   }
 }
 

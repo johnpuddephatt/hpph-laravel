@@ -162,6 +162,6 @@ var nav = document.querySelector('.site-footer');
 navTrigger.addEventListener('click',(e)=>{
   e.preventDefault();
   nav.classList.toggle('visible');
-  body.classList.toggle('locked');
+  document.documentElement.classList.toggle('locked');
 })
 
