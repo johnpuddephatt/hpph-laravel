@@ -7,7 +7,7 @@
 .daily-screenings--navigation {
   display: block;
   position: sticky;
-  top: -2px;
+  top: -1px;
   transform: translateZ(0);
   z-index: 99;
 }
@@ -21,7 +21,7 @@
   align-items: center;
   font-size: modular-scale(1);
   position: relative;
-  height: 3 * $base-spacing;
+  height: 2.5 * $base-spacing;
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(0);
   }
@@ -47,12 +47,14 @@
     content: '';
     bottom: 0px;
     left: 0;
+
   }
 }
 
 .daily-screenings--navigation--link {
   color: $medium-gray;
   font-weight: 500;
+  -webkit-font-smoothing: antialiased;
   font-size: modular-scale(-1);
   position: relative;
   margin-right: $base-spacing;
@@ -193,7 +195,10 @@
     outline-offset: 0px;
   }
   .label {
-    font-size: modular-scale(-2);
+    font-size: modular-scale(-1);
+    @media screen and (min-width: $medium-screen) {
+      font-size: modular-scale(-1);
+    }
   }
   // &::after {
   //   font-size: modular-scale(5);
@@ -217,15 +222,14 @@
 .daily-screenings--entry--date {
   flex: 0 0 20%;
   font-family: $heading-font-family;
-  line-height: 1.2;
+  line-height: $heading-line-height;
   font-style: italic;
   font-weight: 400;
   padding-left: 0;
   padding-right: $small-spacing;
-  font-size: modular-scale(1);
+  font-size: modular-scale(2);
   @media screen and (min-width: $medium-screen) {
     padding-left: $small-spacing;
-    font-size: modular-scale(2);
   }
   @media screen and (min-width: $large-screen) {
     padding-left: $base-spacing;
@@ -235,8 +239,9 @@
 
 .daily-screenings--entry--finish-time {
   font-size: modular-scale(-4);
-  margin-top: 1.5 * $small-spacing;
+  margin-top: 1.2 * $small-spacing;
   font-family: $base-font-family;
+  color: $medium-gray;
   font-style: normal;
   text-transform: none;
 }

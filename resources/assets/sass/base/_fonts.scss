@@ -1,31 +1,25 @@
-@include font-face("Avant Garde", "../fonts/ITCAvantGardeGothicLTBold", $file-formats: woff2 woff){
+@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBold", $file-formats: woff2 woff){
   font-style: normal;
   font-weight: 700;
 }
 
-@include font-face("Avant Garde", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
+@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
   font-style: normal;
   font-weight: 500;
 }
 
-// @include font-face("Avant Garde", "../fonts/ITCAvantGardeGothicLTMedium", $file-formats: woff2 woff){
-//   font-style: normal;
-//   font-weight: 500;
-// }
-
-@include font-face("Avant Garde", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
+@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
   font-style: normal;
   font-weight: 400;
 }
 
 
-
-@include font-face("Bodoni", "../fonts/Bodoni-Bold-BT", $file-formats: woff2 woff){
+@include font-face("HPPHB", "../fonts/Bodoni-Bold-BT", $file-formats: woff2 woff){
   font-style: normal;
   font-weight: 700;
 }
 
-@include font-face("Bodoni", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
+@include font-face("HPPHB", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
   font-style: italic;
   font-weight: 400;
 }

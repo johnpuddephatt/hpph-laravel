@@ -8,7 +8,7 @@
           @if($week == 1)
             <button class="weekly-screenings--navigation--trigger button__ghost">This week</button>
           @else
-            <button class="weekly-screenings--navigation--trigger button__ghost">{{ Carbon\Carbon::parse($week_commencing)->format('D jS F') }} &mdash; {{ Carbon\Carbon::parse($week_ending)->format('D d F') }}</button>
+            <button class="weekly-screenings--navigation--trigger button__ghost">{{ Carbon\Carbon::parse($week_commencing)->format('D jS M') }} &mdash; {{ Carbon\Carbon::parse($week_ending)->format('D d M') }}</button>
           @endif
 
         <nav class="weekly-screenings--week-picker">

@@ -39,23 +39,38 @@
   margin-bottom: 0;
   line-height: 2 * $base-spacing;
   border-top: $base-border;
-  border-bottom: $base-border;
   position: sticky;
   z-index: 98;
   top: 2.5 * $base-spacing;
   top: calc(2.5 * #{$base-spacing} - 1px);
-  padding: $small-spacing $small-spacing;
+  padding: 1.5 * $base-spacing $small-spacing $small-spacing ;
 
   @media screen and (orientation: portrait) {
-    top: calc(#{2 * $base-spacing}  - 1px );
-    margin-left: -$base-spacing;
-    margin-right: -$base-spacing;
-    padding-left: $base-spacing;
-    padding-right: $base-spacing;
+    top: calc(#{1 * $base-spacing}  - 1px );
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    @media screen and (min-width: $large-screen) {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
+    }
     z-index: 9;
   }
   &:first-child {
     border-top: none;
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $light-gray;
+    height: 1px;
   }
 
 }
@@ -67,8 +82,17 @@
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
-  @media screen and (min-width: $large-screen) {
-    // padding: $base-spacing 0;
+  @media screen and (orientation: portrait) {
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    @media screen and (min-width: $large-screen) {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
+    }
   }
   &:last-child {
     border-bottom: none;
@@ -89,22 +113,6 @@
   .label {
     font-size: modular-scale(-2);
   }
-  // &::after {
-  //   font-size: modular-scale(5);
-  //   align-self: center;
-  //   content: '»';
-  //   color: $light-gray;
-  //   line-height: 0;
-  //   opacity: .5;
-  //   margin-left: auto;
-  //   padding-right: $small-spacing;
-  //   @media screen and (min-width: $medium-screen) {
-  //     display: none;
-  //   }
-  //   @media screen and (orientation: portrait) {
-  //     padding-right: $base-spacing;
-  //   }
-  // }
 }
 
 
@@ -129,7 +137,7 @@
 }
 
 .weekly-screenings--entry--text {
-  margin-right: $base-spacing;
+  margin-right: $small-spacing;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -168,6 +176,8 @@
 .weekly-screenings--entry--subtitle {
   color: $yellow;
   font-weight: 500;
+  line-height: $heading-line-height;
+  margin-bottom: $small-spacing/2;
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(1);
   }
@@ -175,19 +185,7 @@
 
 .weekly-screenings--entry--title-inner {
   position: relative;
-  display: inline-block;
-  // &::after {
-  //   transition: opacity $base-duration $base-timing;
-  //   position: absolute;
-  //   opacity: 0;
-  //   content: '';
-  //   left: 0;
-  //   right: 0;
-  //   height: $small-spacing/2;
-  //   bottom: -$xl-border-width;
-  //   height: $xl-border-width;
-  //   background-color: $yellow;
-  // }
+  display: inline;
 }
 
 .weekly-screenings--entry--description {
@@ -228,8 +226,8 @@
   margin-top: 0;
   -webkit-font-smoothing: antialiased;
   @media screen and (orientation: portrait) {
-    margin-left: -$small-spacing;
-    margin-right: -$small-spacing;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 .weekly-screenings--footer-navigation--inner {
@@ -271,7 +269,7 @@
     font-size: modular-scale(4);
     font-style: normal;
     font-weight: 500;
-    vertical-align: middle;
+    vertical-align: sub;
     line-height:  2 * $base-spacing;
     display: inline-block;
     margin-right: $base-spacing/2;

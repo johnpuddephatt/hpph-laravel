@@ -50,7 +50,7 @@
     <ul class="container">
       <li class="double">
         <p>Hyde Park Picture House is part of Leeds Grand Theatre & Opera House Ltd.</p>
-        <p>Registered Charity No. 500408</p>
+        <p>Registered Charity No.500408</p>
         {{-- <img src="{{url('/images/logos/city-varieties.png')}}" /> --}}
         {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
       </li>

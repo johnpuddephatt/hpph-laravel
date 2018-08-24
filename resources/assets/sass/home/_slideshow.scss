@@ -97,11 +97,11 @@
   }
   position: absolute;
   z-index: 99;
-  bottom: $base-spacing;
+  bottom: 2 * $base-spacing;
   left: 0;
   width: 100%;
   .container {
-    padding-bottom: $base-spacing;
+
   }
 }
 

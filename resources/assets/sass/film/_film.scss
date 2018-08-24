@@ -46,9 +46,6 @@
   @media (orientation: landscape) {
     margin-right: auto;
   }
-  @media (min-width: $large-screen) {
-    flex: 0 0 45%;
-  }
 
   @media (orientation: portrait) {
     margin-left: -$small-spacing;
@@ -72,6 +69,7 @@
 
 .single-listing--title {
   font-size: modular-scale(6);
+  font-weight: 400;
   font-style: italic;
   font-family: $heading-font-family;
   letter-spacing: 0;
@@ -146,7 +144,7 @@
 
     &:first-child {
       padding-right: $base-spacing;
-      font-weight: 700;
+      font-weight: 500;
     }
     &:last-child {
       width: 100%;
@@ -186,5 +184,5 @@
 
 .single-listing--screenings--header {
   margin-bottom: $small-spacing;
-  font-size: modular-scale(2);
+  font-size: modular-scale(1);
 }

@@ -1,18 +1,19 @@
 .az-listings--listings {
   margin-top: $base-spacing;
+  @media screen and (orientation: portrait) {
+    margin-top: 0;
+  }
 }
 .az-listings--inner {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  overflow: hidden;
-  width: 100%;
   margin: 0 (-$small-spacing) $base-spacing;
   @media screen and (min-width: $large-screen) {
     margin: 0 (-$base-spacing) $base-spacing;
   }
   @media screen and (orientation: portrait) {
-    margin: 0 0 $small-spacing;
+    margin: 0;
     display: block;
   }
 }
@@ -23,6 +24,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: $base-spacing;
+  color: $base-font-color;
   @media screen and (min-width: $large-screen) {
     flex: 0 0 33.333%;
     padding: 0 $base-spacing;
@@ -30,12 +32,21 @@
   }
   @media screen and (orientation: portrait) {
     flex-direction: row;
-    padding: 0;
+    padding: $small-spacing 0;
+    border-bottom: $light-border;
     flex-wrap: wrap;
-    margin-bottom: $small-spacing;
+    margin-bottom: 0;
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    @media screen and (min-width: $medium-screen) {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
+    }
   }
-
-  color: $base-font-color;
   &:hover, &:focus {
     outline: none;
     color: $base-font-color;
@@ -46,7 +57,7 @@
 }
 
 .az-listings--entry--image {
-  margin-bottom: $base-spacing;
+  margin-bottom: $small-spacing;
   @media screen and (orientation: portrait) {
     flex: 0 0 25%;
     margin-bottom: 0;
@@ -78,15 +89,15 @@
   margin-bottom: 0;
   font-weight: 700;
   font-size: modular-scale(0);
+  margin-top: $small-spacing;
+
 }
 
 .az-listings--entry--subtitle {
   font-weight: 500;
   color: $yellow;
-  font-size: modular-scale(-2);
-  @media screen and (min-width: $medium-screen) {
-    font-size: modular-scale(-1);
-  }
+  line-height: $heading-line-height;
+  font-size: modular-scale(-1);
 }
 
 .az-listings--entry--description {
@@ -100,10 +111,11 @@
 
 .az-listings--entry--title--inner {
   position: relative;
-  display: inline-block;
+  display: inline;
 }
 
 .az-listings--entry--date {
+  margin-top: $small-spacing/2;
   margin-bottom: $small-spacing;
   font-weight: 500;
   font-size: modular-scale(-1);

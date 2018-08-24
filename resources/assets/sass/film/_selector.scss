@@ -13,7 +13,7 @@
     line-height: 1.5 * $base-spacing;
   }
   tbody td:first-child {
-    font-weight: 600;
+    font-weight: 500;
     vertical-align: top;
     padding-right: 1.5 * $base-spacing;
   }
@@ -48,6 +48,7 @@
 .screenings-table--announcer {
   background-color: $off-white;
   padding: $small-spacing;
+  border: $base-border;
   margin-left: -$small-spacing;
   margin-right: -$small-spacing;
   margin-top: -1px;
@@ -60,6 +61,7 @@
     &.info {
       text-align: center;
       color: $medium-gray;
+      font-size: modular-scale(0);
     }
   }
   .button {
@@ -76,10 +78,9 @@
     border-radius: 50%;
     display: inline-block;
     margin-right: $small-spacing/2;
-    vertical-align: middle;
     transform: scale(0.85);
-    line-height: 1;
-    border: 1px solid $medium-gray;
+    line-height: 1.1;
+    border: 2px solid $medium-gray;
     text-align: center;
     font-size: modular-scale(2);
     color: $medium-gray;

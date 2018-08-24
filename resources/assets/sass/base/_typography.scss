@@ -32,6 +32,7 @@ h4,
 h5,
 h6 {
   color: $black;
+  font-weight: 700;
   font-size: modular-scale(1);
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
@@ -93,7 +94,7 @@ sup {
   }
   font-style: italic;
   text-align: center;
-  margin: 3 * $base-spacing 0 $base-spacing;
+  margin: 2.5 * $base-spacing 0 1.5 * $base-spacing;
   letter-spacing: .025em;
   -webkit-font-smoothing: antialiased;
 }

@@ -3,7 +3,7 @@
   .hpph-logo {
     display: none;
   }
-  @media (orientation: portrait) and (max-width: $medium-screen) {
+  @media (max-width: $medium-screen) {
     display: block;
     position: fixed;
     z-index: 9999;
@@ -165,9 +165,8 @@
 
 
 .site-footer--secondary {
-
   @media (min-width: $medium-screen) {
-    background-color: $yellow;
+      background-color: $yellow;
   }
   padding: $base-spacing 0;
   letter-spacing: 0.025em;
@@ -191,6 +190,9 @@
         margin-left: $small-spacing/2;
         @media (min-width: $medium-screen) {
           margin-left: $small-spacing;
+        }
+        @media (min-width: $large-screen) {
+          margin-left: $base-spacing;
         }
       }
       &.spacer {
@@ -219,7 +221,7 @@
           color: $base-font-color;
 
           padding-top: 0;
-          flex-basis: 45%;
+          flex-basis: 60%;
           order: 0;
           padding-left: 0;
           padding-right: 0;

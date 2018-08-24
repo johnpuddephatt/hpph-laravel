@@ -172,12 +172,25 @@ navTrigger.addEventListener('click',(e)=>{
 
 
 /*
-** UA sniffing to prevent judder on Chrome iOS
+** UA sniffing to prevent judder due to navbar movement on iOS
 */
 
-if(navigator.userAgent.match('CriOS')) {
+var ua = window.navigator.userAgent;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var iOSChrome = iOS && webkit && ua.match(/CriOS/i);
+
+if(iOSChrome) {
   document.addEventListener('DOMContentLoaded', ()=>{
     var homeSlider = document.querySelector('.section--home-slider');
     homeSlider.style.height = homeSlider.clientHeight + 'px';
   });
 }
+if(iOSSafari) {
+  document.addEventListener('DOMContentLoaded', ()=>{
+    var homeSlider = document.querySelector('.section--home-slider');
+    homeSlider.style.height = document.documentElement.clientHeight - navBar.clientHeight + 1 + 'px';
+  });
+}
+
