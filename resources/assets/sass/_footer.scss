@@ -188,7 +188,7 @@
       }
       margin: 0;
       + li {
-        margin-left: $small-spacing;
+        margin-left: $small-spacing/2;
         @media (min-width: $medium-screen) {
           margin-left: $small-spacing;
         }
