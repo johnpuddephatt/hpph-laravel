@@ -50,11 +50,9 @@
                         @include('film.audio-description')
                       @endif
                       @if($screening->tags)
-                        <div class="daily-screenings--entry--labels">
-                          @foreach ($screening->tags as $tag)
-                            @include ('screening.tag')
-                          @endforeach
-                        </div>
+                        @foreach ($screening->tags as $tag)
+                          @include ('screening.tag')
+                        @endforeach
                       @endif
                     </div>
                   </div>

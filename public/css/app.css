@@ -2102,7 +2102,7 @@ body.film .site-header .hpph-logo .picture-house {
 }
 
 .daily-screenings--entry .label {
-  font-size: 0.83333333em;
+  font-size: 0.69444444em;
 }
 
 .daily-screenings--entry--date {
@@ -2114,6 +2114,7 @@ body.film .site-header .hpph-logo .picture-house {
   font-style: italic;
   font-weight: 400;
   padding-left: 0;
+  padding-right: 0.83rem;
   font-size: 1.2em;
 }
 
@@ -2655,7 +2656,7 @@ body.film .site-header .hpph-logo .picture-house {
 }
 
 .weekly-screenings--entry .label {
-  font-size: 0.83333333em;
+  font-size: 0.69444444em;
 }
 
 .weekly-screenings--entry--date {

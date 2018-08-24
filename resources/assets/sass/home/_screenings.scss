@@ -175,7 +175,7 @@
     outline-offset: 0px;
   }
   .label {
-    font-size: modular-scale(-1);
+    font-size: modular-scale(-2);
   }
   // &::after {
   //   font-size: modular-scale(5);
@@ -203,6 +203,7 @@
   font-style: italic;
   font-weight: 400;
   padding-left: 0;
+  padding-right: $small-spacing;
   font-size: modular-scale(1);
   @media screen and (min-width: $medium-screen) {
     padding-left: $small-spacing;
