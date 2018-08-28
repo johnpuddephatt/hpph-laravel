@@ -87,7 +87,7 @@
       width: 6 * $base-spacing;
       height: auto;
       display: block;
-      margin: $base-spacing auto;
+      margin: $base-spacing auto 0;
       .picture-house {
         fill: white
       }
@@ -150,7 +150,7 @@
   order: 99;
   text-align: center;
   margin-bottom: 0;
-  margin-top: $small-spacing;
+  margin-top: 0;
   @media screen and (min-width: $medium-screen) {
     flex: 0 0 30%;
     margin-top: 0;
@@ -198,6 +198,17 @@
   font-style: italic;
   margin-bottom: 0;
   li {
+    display: inline-block;
+    &:first-child {
+      display: block;
+    }
+    &:last-child {
+      margin-left: $small-spacing/2;
+    }
+    @media (min-width: $medium-screen) {
+      display: block;
+      margin-left: 0 !important;
+    }
   }
 }
 
@@ -224,16 +235,20 @@
 
 
 .site-footer--secondary {
-  padding: $base-spacing 0;
+  padding: $small-spacing 0;
   @media (min-width: $medium-screen) {
       background-color: $yellow;
       padding: $small-spacing 0;
   }
   letter-spacing: 0.025em;
-  svg * {
-    fill: white;
-    @media (min-width: $medium-screen) {
-      fill: $base-font-color;
+  svg  {
+    width: 100%;
+    display: block;
+    * {
+      fill: white;
+      @media (min-width: $medium-screen) {
+        fill: $base-font-color;
+      }
     }
   }
   .container {
@@ -248,12 +263,13 @@
     }
     li {
       flex: 0 1 16%;
+      position: relative;
       @media (min-width: $medium-screen) {
         flex: 0 1 18%;
       }
       margin: 0;
       + li {
-        margin-left: $small-spacing/2;
+        margin-left: $base-spacing/2;
         @media (min-width: $medium-screen) {
           margin-left: $small-spacing;
         }
@@ -261,6 +277,12 @@
           margin-left: 1.5 * $base-spacing;
         }
       }
+      @media (max-width: $medium-screen) {
+        &:nth-child(3) {
+          margin-left: 0;
+        }
+      }
+
       &.spacer {
         display: none;
         @media (min-width: $medium-screen) {

@@ -23,7 +23,7 @@
     width: $base-spacing;
     color: white;
     font-size: modular-scale(-1);
-    line-height: 1.75 * $base-spacing;
+    
     @media screen and (min-width: $medium-screen) {
       line-height: 1.5 * $base-spacing;
       width: auto;
