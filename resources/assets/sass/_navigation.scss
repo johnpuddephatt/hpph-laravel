@@ -32,13 +32,16 @@
   .site-header--home-link {
     outline-offset: $small-spacing;
     margin-right: $base-spacing;
+    width: 5 * $base-spacing;
     @media screen and (min-width: $xl-screen) {
       margin-right: 1.5 * $base-spacing;
     }
     @media screen and (max-width: $medium-screen) {
       margin-left: auto;
       margin-right: auto;
+      width: 6 * $base-spacing;
     }
+
   }
   body.home &,
   body.page &,
@@ -68,16 +71,11 @@
   }
   .hpph-logo {
     display: block;
-    width: 6 * $base-spacing;
-    /* Need to manually set height as IE won't auto height inline SVG */
-    height: 2.19 * $base-spacing;
+    width: 100%;
     margin: 0;
     margin-bottom: -.75 * $small-spacing;
-    height: auto;
-    @media screen and (min-width: $medium-screen) {
-      width: 5 * $base-spacing;
-      height: 1.83 * $base-spacing;
-    }
+
+
   }
 }
 
