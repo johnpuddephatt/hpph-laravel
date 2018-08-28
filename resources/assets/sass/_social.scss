@@ -1,39 +1,50 @@
-.header--social {
-  z-index: 9;
-  flex: 0 0 auto;
-  margin-top: $base-spacing;
-  @media screen and (min-width: $medium-screen) {
-    margin-top: auto;
-  }
+.site-footer--social {
+  flex: 0 0 15%;
   li {
     display: inline-block;
     margin-left: $small-spacing;
     &:first-child {
       margin-left: 0;
     }
+    span {
+      display: none;
+    }
     @media screen and (min-width: $medium-screen) {
+      display: block;
       margin-left: $small-spacing/3;
+      span {
+        display: inline;
+      }
     }
   }
   a {
     display: block;
     position: relative;
     width: $base-spacing;
-    height: $base-spacing;
+    color: white;
+    font-size: modular-scale(-1);
+    line-height: 1.75 * $base-spacing;
     @media screen and (min-width: $medium-screen) {
-      width: .75 * $base-spacing;
-      height: .75 * $base-spacing;
+      line-height: 1.5 * $base-spacing;
+      width: auto;
     }
     &:hover {
+      color: $yellow;
       svg * {
         fill: $yellow;
       }
     }
   }
   svg {
-    display: block;
-    height: 100%;
-    width: 100%;
+    display: inline-block;
+    width: $base-spacing;
+    height: $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      width: .75 * $base-spacing;
+      height: .75 * $base-spacing;
+      margin-right: $small-spacing;
+      margin-bottom: -$small-spacing/2;
+    }
     * {
       fill: white;
       transition: fill $base-duration;

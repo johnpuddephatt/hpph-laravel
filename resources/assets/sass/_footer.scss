@@ -50,9 +50,7 @@
 
 
 .site-footer {
-  * {
-    // outline: 1px dashed lightgray
-  }
+
   .hpph-logo {
     display: none;
   }
@@ -108,7 +106,7 @@
     display: block;
     text-align: left;
     margin-bottom: 0;
-    padding: 3 * $base-spacing 0;
+    padding: 2 * $base-spacing 0;
     background-color: $black;
   }
   color: white;
@@ -166,6 +164,13 @@
 .site-footer--menu {
   margin-top: auto;
   margin-bottom: auto;
+  flex: 0 0 30%;
+
+  @media (min-width: $medium-screen) {
+    column-count: 2;
+    column-gap: $base-spacing;
+    margin-top: 0;
+  }
 }
 
 
@@ -219,11 +224,18 @@
 
 
 .site-footer--secondary {
+  padding: $base-spacing 0;
   @media (min-width: $medium-screen) {
       background-color: $yellow;
+      padding: $small-spacing 0;
   }
-  padding: $base-spacing 0;
   letter-spacing: 0.025em;
+  svg * {
+    fill: white;
+    @media (min-width: $medium-screen) {
+      fill: $base-font-color;
+    }
+  }
   .container {
     display: flex;
     flex-direction: row;
@@ -237,7 +249,7 @@
     li {
       flex: 0 1 16%;
       @media (min-width: $medium-screen) {
-        flex: 0 1 21%;
+        flex: 0 1 18%;
       }
       margin: 0;
       + li {
@@ -246,7 +258,7 @@
           margin-left: $small-spacing;
         }
         @media (min-width: $large-screen) {
-          margin-left: $base-spacing;
+          margin-left: 1.5 * $base-spacing;
         }
       }
       &.spacer {
@@ -258,7 +270,7 @@
       &.andahalf {
         flex-basis: 23%;
         @media (min-width: $medium-screen) {
-          flex-basis: 30%;
+          flex-basis: 23%;
         }
       }
       &.double {
@@ -268,14 +280,14 @@
         padding-left: $base-spacing;
         padding-right: $base-spacing;
         text-align: center;
+        font-size: modular-scale(-1);
         color: white;
-
+        -webkit-font-smoothing: antialiased;
         @media (min-width: $medium-screen) {
           text-align: left;
           color: $base-font-color;
-
           padding-top: 0;
-          flex-basis: 60%;
+          flex-basis: 50%;
           order: 0;
           padding-left: 0;
           padding-right: 0;
@@ -283,7 +295,7 @@
         p {
           font-size: modular-scale(-1);
           font-weight: 500;
-          margin-bottom: $small-spacing/2;
+          margin-bottom: $small-spacing/4;
           line-height: $heading-line-height;
           display: inline;
           @media (min-width: $medium-screen) {
@@ -295,11 +307,6 @@
             font-weight: 700;
           }
         }
-      }
-    }
-    img {
-      @media (max-width: $medium-screen) {
-        filter: invert(100%);
       }
     }
   }

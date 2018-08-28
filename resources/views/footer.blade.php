@@ -32,7 +32,7 @@
         </ul>
       </div>
       <div class="site-footer--menu">
-        <h2 class="site-footer--header">Learn more</h2>
+        <h2 class="site-footer--header sr-only">Learn more</h2>
 
         <ul class="site-footer--menu-links">
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="#">Jobs &amp; volunteering</a></li>
@@ -43,7 +43,7 @@
         </ul>
       </div>
       <div class="site-footer--social">
-        <h2 class="site-footer--header">Social</h2>
+        <h2 class="site-footer--header sr-only">Social</h2>
         @include('social')
       </div>
     </div>
@@ -57,11 +57,12 @@
         {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
       </li>
       <li class="spacer"></li>
-      <li><img src="{{url('/images/logos/lottery-fund.png')}}" /></li>
-      <li><img src="{{url('/images/logos/leeds-city-council.png')}}" /></li>
-      <li><img src="{{url('/images/logos/bfi.png')}}" /></li>
-      <li><img src="{{url('/images/logos/garfield-weston.png')}}" /></li>
-      <li class="andahalf"><img src="{{url('/images/logos/europa-cinemas.png')}}" /></li>
+      <li>@include('logos.hlf_white')</li>
+      <li>@include('logos.leeds-city-council_white')</li>
+      <li>@include('logos.bfi_white')</li>
+      <li>@include('logos.gwf_white')</li>
+      <li class="andahalf">@include('logos.europa-cinemas_white')</li>
+
     </ul>
   </div>
 </footer>

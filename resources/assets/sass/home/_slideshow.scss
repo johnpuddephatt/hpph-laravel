@@ -2,16 +2,15 @@
   position: relative;
 }
 .section--home-hero--jump {
-    text-indent: -30px;
     position: absolute;
     left: 50%;
-    bottom: $small-spacing/2;
+    bottom: $base-spacing;
     cursor: pointer;
     transform: translate(-50%,50%) rotate(90deg);
     z-index: 9;
-    width: 3 * $base-spacing;
+    width: 1.5 * $base-spacing;
     height: 3 * $base-spacing;
-    line-height: 3 * $base-spacing;
+    line-height: 1.5;
     text-align: center;
     color: white;
     font-size: modular-scale(6);

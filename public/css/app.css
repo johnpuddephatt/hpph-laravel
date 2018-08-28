@@ -1046,7 +1046,7 @@ body.film .site-header .hpph-logo .picture-house {
     display: block;
     text-align: left;
     margin-bottom: 0;
-    padding: 4.98rem 0;
+    padding: 3.32rem 0;
     background-color: #000;
   }
 }
@@ -1139,6 +1139,19 @@ body.film .site-header .hpph-logo .picture-house {
 .site-footer--menu {
   margin-top: auto;
   margin-bottom: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+}
+
+@media (min-width: 600px) {
+  .site-footer--menu {
+    -webkit-column-count: 2;
+            column-count: 2;
+    -webkit-column-gap: 1.66rem;
+            column-gap: 1.66rem;
+    margin-top: 0;
+  }
 }
 
 .site-footer--strapline {
@@ -1205,6 +1218,17 @@ body.film .site-header .hpph-logo .picture-house {
 @media (min-width: 600px) {
   .site-footer--secondary {
     background-color: #FFDC48;
+    padding: 0.83rem 0;
+  }
+}
+
+.site-footer--secondary svg * {
+  fill: white;
+}
+
+@media (min-width: 600px) {
+  .site-footer--secondary svg * {
+    fill: #333;
   }
 }
 
@@ -1243,8 +1267,8 @@ body.film .site-header .hpph-logo .picture-house {
 @media (min-width: 600px) {
   .site-footer--secondary .container li {
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 21%;
-            flex: 0 1 21%;
+        -ms-flex: 0 1 18%;
+            flex: 0 1 18%;
   }
 }
 
@@ -1260,7 +1284,7 @@ body.film .site-header .hpph-logo .picture-house {
 
 @media (min-width: 900px) {
   .site-footer--secondary .container li + li {
-    margin-left: 1.66rem;
+    margin-left: 2.49rem;
   }
 }
 
@@ -1281,8 +1305,8 @@ body.film .site-header .hpph-logo .picture-house {
 
 @media (min-width: 600px) {
   .site-footer--secondary .container li.andahalf {
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
+    -ms-flex-preferred-size: 23%;
+        flex-basis: 23%;
   }
 }
 
@@ -1296,7 +1320,9 @@ body.film .site-header .hpph-logo .picture-house {
   padding-left: 1.66rem;
   padding-right: 1.66rem;
   text-align: center;
+  font-size: 0.83333333em;
   color: white;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (min-width: 600px) {
@@ -1304,8 +1330,8 @@ body.film .site-header .hpph-logo .picture-house {
     text-align: left;
     color: #333;
     padding-top: 0;
-    -ms-flex-preferred-size: 60%;
-        flex-basis: 60%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
             order: 0;
@@ -1317,7 +1343,7 @@ body.film .site-header .hpph-logo .picture-house {
 .site-footer--secondary .container li.double p {
   font-size: 0.83333333em;
   font-weight: 500;
-  margin-bottom: 0.415rem;
+  margin-bottom: 0.2075rem;
   line-height: 1.3;
   display: inline;
 }
@@ -1332,13 +1358,6 @@ body.film .site-header .hpph-logo .picture-house {
 .site-footer--secondary .container li.double p:last-child {
   margin-bottom: 0;
   font-weight: 700;
-}
-
-@media (max-width: 600px) {
-  .site-footer--secondary .container img {
-    -webkit-filter: invert(100%);
-            filter: invert(100%);
-  }
 }
 
 .label {
@@ -1422,60 +1441,76 @@ body.film .site-header .hpph-logo .picture-house {
   }
 }
 
-.header--social {
-  z-index: 9;
+.site-footer--social {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  margin-top: 1.66rem;
+      -ms-flex: 0 0 15%;
+          flex: 0 0 15%;
 }
 
-@media screen and (min-width: 600px) {
-  .header--social {
-    margin-top: auto;
-  }
-}
-
-.header--social li {
+.site-footer--social li {
   display: inline-block;
   margin-left: 0.83rem;
 }
 
-.header--social li:first-child {
+.site-footer--social li:first-child {
   margin-left: 0;
 }
 
+.site-footer--social li span {
+  display: none;
+}
+
 @media screen and (min-width: 600px) {
-  .header--social li {
+  .site-footer--social li {
+    display: block;
     margin-left: 0.27666667rem;
+  }
+
+  .site-footer--social li span {
+    display: inline;
   }
 }
 
-.header--social a {
+.site-footer--social a {
   display: block;
   position: relative;
+  width: 1.66rem;
+  color: white;
+  font-size: 0.83333333em;
+  line-height: 2.905rem;
+}
+
+@media screen and (min-width: 600px) {
+  .site-footer--social a {
+    line-height: 2.49rem;
+    width: auto;
+  }
+}
+
+.site-footer--social a:hover {
+  color: #FFDC48;
+}
+
+.site-footer--social a:hover svg * {
+  fill: #FFDC48;
+}
+
+.site-footer--social svg {
+  display: inline-block;
   width: 1.66rem;
   height: 1.66rem;
 }
 
 @media screen and (min-width: 600px) {
-  .header--social a {
+  .site-footer--social svg {
     width: 1.245rem;
     height: 1.245rem;
+    margin-right: 0.83rem;
+    margin-bottom: -0.415rem;
   }
 }
 
-.header--social a:hover svg * {
-  fill: #FFDC48;
-}
-
-.header--social svg {
-  display: block;
-  height: 100%;
-  width: 100%;
-}
-
-.header--social svg * {
+.site-footer--social svg * {
   fill: white;
   -webkit-transition: fill 200ms;
   transition: fill 200ms;
@@ -1909,17 +1944,16 @@ body.film .site-header .hpph-logo .picture-house {
 }
 
 .section--home-hero--jump {
-  text-indent: -30px;
   position: absolute;
   left: 50%;
-  bottom: 0.415rem;
+  bottom: 1.66rem;
   cursor: pointer;
   -webkit-transform: translate(-50%, 50%) rotate(90deg);
           transform: translate(-50%, 50%) rotate(90deg);
   z-index: 9;
-  width: 4.98rem;
+  width: 2.49rem;
   height: 4.98rem;
-  line-height: 4.98rem;
+  line-height: 1.5;
   text-align: center;
   color: white;
   font-size: 2.985984em;

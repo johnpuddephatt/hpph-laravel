@@ -16,14 +16,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const firstSlide = slider.querySelector('.home-slider--slide');
     const firstSlideImage = firstSlide.querySelector('.home-slider--image');
     const slides = slider.querySelectorAll('.home-slider--slide');
-    body.classList.add('slider-loading');
-    firstSlide.classList.add('coming-in');
-    var firstSlideImageCheck = setTimeout(()=>{
-      if(fadeOnloadImage.naturalWidth) {
-        startSlider();
-        clearTimeout(firstSlideImageCheck);
-      }
-    }, 200);
+    if( slides.length ) {
+
+      body.classList.add('slider-loading');
+      firstSlide.classList.add('coming-in');
+      var firstSlideImageCheck = setTimeout(()=>{
+        console.log('checking...');
+        if(firstSlideImage.naturalWidth) {
+
+          startSlider();
+          clearTimeout(firstSlideImageCheck);
+        }
+      }, 200);
+    }
     function onChangeFn(prev,next) {
       slides[prev].classList.remove('in');
       slides[prev].classList.add('out');

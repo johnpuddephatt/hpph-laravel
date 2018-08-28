@@ -121,14 +121,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var firstSlide = slider.querySelector('.home-slider--slide');
     var firstSlideImage = firstSlide.querySelector('.home-slider--image');
     var slides = slider.querySelectorAll('.home-slider--slide');
-    body.classList.add('slider-loading');
-    firstSlide.classList.add('coming-in');
-    var firstSlideImageCheck = setTimeout(function () {
-      if (fadeOnloadImage.naturalWidth) {
-        startSlider();
-        clearTimeout(firstSlideImageCheck);
-      }
-    }, 200);
+    if (slides.length) {
+
+      body.classList.add('slider-loading');
+      firstSlide.classList.add('coming-in');
+      var firstSlideImageCheck = setTimeout(function () {
+        console.log('checking...');
+        if (firstSlideImage.naturalWidth) {
+
+          startSlider();
+          clearTimeout(firstSlideImageCheck);
+        }
+      }, 200);
+    }
   }
 });
 
