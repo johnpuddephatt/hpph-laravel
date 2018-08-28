@@ -52,6 +52,8 @@
   margin-left: -$small-spacing;
   margin-right: -$small-spacing;
   margin-top: -1px;
+  position: relative;
+  z-index: 99;
   line-height: $base-spacing;
   font-size: modular-scale(-1);
   p {

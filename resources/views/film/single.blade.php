@@ -78,8 +78,10 @@
       @else
         <div class="alert">
           <h3>{{ $film->custom_coming_soon ?? "Showtimes will be confirmed soon" }}</h3>
-          <p>Full listings are confirmed every Monday for the week beginning the following Friday.</p>
-          <p>To receive weekly listings as soon as they're confirmed, <a href="{{ getenv('MAILCHIMP')}}">sign up here.</a></p>
+          @if(getenv('MAILCHIMP'))
+            <p>Full listings are confirmed every Monday for the week beginning the following Friday.</p>
+            <p>To receive weekly listings as soon as they're confirmed, <a href="{{ getenv('MAILCHIMP')}}">sign up here.</a></p>
+          @endif
         </div>
       @endif
     </div>
