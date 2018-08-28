@@ -42,7 +42,7 @@
   position: sticky;
   z-index: 98;
   top: 2.5 * $base-spacing;
-  top: calc(2.5 * #{$base-spacing} - 1px);
+  top: calc(1.5 * #{$base-spacing} - 1px);
   padding: 1.5 * $base-spacing $small-spacing $small-spacing ;
 
   @media screen and (orientation: portrait) {
@@ -153,9 +153,9 @@
 }
 
 .weekly-screenings--entry--image {
-  flex: 0 0 25%;
+  width: 27.5%;
   @media screen and (min-width: $medium-screen) {
-    // flex: 0 0 20%;
+    width: 25%;
   }
   img {
     display: block;

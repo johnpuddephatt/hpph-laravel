@@ -19,34 +19,34 @@
 }
 
 .az-listings--entry {
-  flex: 0 0 50%;
-  padding: 0 $small-spacing;
+  flex: 0 1 auto;
   display: flex;
-  flex-direction: column;
-  margin-bottom: $base-spacing;
   color: $base-font-color;
+  flex-direction: row;
+  padding: $small-spacing 0;
+  border-bottom: $light-border;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+
+  @media screen and (min-width: $medium-screen) {
+    width: 50%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-bottom: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: $base-spacing;
+  }
   @media screen and (min-width: $large-screen) {
-    flex: 0 0 33.333%;
+    width: 33.333%;
     padding: 0 $base-spacing;
     margin-bottom: 2 * $base-spacing;
   }
-  @media screen and (orientation: portrait) {
-    flex-direction: row;
-    padding: $small-spacing 0;
-    border-bottom: $light-border;
-    flex-wrap: wrap;
-    margin-bottom: 0;
-    margin-left: -$small-spacing;
-    margin-right: -$small-spacing;
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
-    @media screen and (min-width: $medium-screen) {
-      margin-left: -$base-spacing;
-      margin-right: -$base-spacing;
-      padding-left: $base-spacing;
-      padding-right: $base-spacing;
-    }
-  }
+
   &:hover, &:focus {
     outline: none;
     color: $base-font-color;
@@ -57,14 +57,19 @@
 }
 
 .az-listings--entry--image {
-  margin-bottom: $small-spacing;
-  @media screen and (orientation: portrait) {
-    flex: 0 0 25%;
-    margin-bottom: 0;
-    margin-right: $small-spacing;
+  width: 27.5%;
+  margin-bottom: 0;
+  margin-right: $small-spacing;
+  @media screen and (min-width: $medium-screen) {
+    margin-bottom: $small-spacing;
+    margin-right: 0;
+    width: 100%;
+
   }
   img {
     display: block;
+    width: 100%;
+    height: auto;
   }
 }
 
