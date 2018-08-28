@@ -30,9 +30,7 @@ html,body {
 body {
   width: 100%;
   overflow-x: hidden;
-  @media (max-width: $medium-screen) {
-    padding-bottom: 3.25 * $base-spacing;
-  }
+
   /* debugging */
   height: 100%;
   overflow-y: scroll;
@@ -46,6 +44,9 @@ body {
 
 .page-content {
   position: relative;
+  @media (max-width: $medium-screen) {
+    padding-bottom: 3.25 * $base-spacing;
+  }
 
 }
 

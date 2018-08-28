@@ -4,8 +4,10 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: $small-spacing;
-  @media(orientation: landscape) {
+  flex-wrap: wrap;
+  @media(min-width: $medium-screen) {
     grid-gap: $base-spacing;
+    flex-wrap: nowrap;
   }
   margin-bottom: 2 * $base-spacing;
   @extend %padded-box;
@@ -13,7 +15,23 @@
 
 .shop--link {
   display: block;
-  flex: 0 1 33.333%;
+  flex: 0 1 100%;
+  margin-top: $small-spacing;
+  @media(min-width: $medium-screen) {
+    flex: 0 1 33.333%;
+    margin-left: $base-spacing;
+    margin-top: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+    @media(min-width: $medium-screen) {
+      margin-left: 0;
+    }
+  }
+  @supports (display: grid) {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
   background-color: $black;
   padding: $base-spacing;
   text-align: center;
@@ -24,6 +42,12 @@
   overflow: hidden;
   &:hover .shop--image {
     transform: scale(1.1);
+  }
+  &::before {
+    padding-top: calc(25% - #{1.25 * $base-spacing});
+    content: '';
+    float: left;
+    display: block;
   }
   .inner {
     height: 100%;
@@ -52,9 +76,6 @@
       @media(orientation: landscape) {
         padding-top: 100%;
       }
-      content: '';
-      float: left;
-      display: block;
     }
   }
 }
@@ -86,6 +107,7 @@
 
 .shop--link--description {
   color: white;
+  margin-bottom: 0;
   font-family: $heading-font-family;
   font-style: italic;
   font-size: modular-scale(1);
