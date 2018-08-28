@@ -69,11 +69,14 @@
   .hpph-logo {
     display: block;
     width: 6 * $base-spacing;
+    /* Need to manually set height as IE won't auto height inline SVG */
+    height: 2.19 * $base-spacing;
     margin: 0;
     margin-bottom: -.75 * $small-spacing;
     height: auto;
     @media screen and (min-width: $medium-screen) {
       width: 5 * $base-spacing;
+      height: 1.83 * $base-spacing;
     }
   }
 }
