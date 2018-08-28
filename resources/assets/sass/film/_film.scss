@@ -159,7 +159,7 @@
   margin-bottom: $base-spacing;
   @media (orientation: landscape) {
     margin-bottom: 0;
-    order: initial;
+    order: 1;
     margin-left: 1.5 * $base-spacing;
     flex: 0 1 50%;
   }
