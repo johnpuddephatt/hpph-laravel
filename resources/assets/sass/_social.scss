@@ -1,19 +1,29 @@
 .header--social {
   z-index: 9;
-  height: $base-spacing;
-  @media screen and (orientation: portrait) {
-    height: .75 * $base-spacing;
-  }
   flex: 0 0 auto;
+  margin-top: $base-spacing;
+  @media screen and (min-width: $medium-screen) {
+    margin-top: auto;
+  }
   li {
     display: inline-block;
-    margin-left: $small-spacing/3;
+    margin-left: $small-spacing;
+    &:first-child {
+      margin-left: 0;
+    }
+    @media screen and (min-width: $medium-screen) {
+      margin-left: $small-spacing/3;
+    }
   }
   a {
     display: block;
     position: relative;
-    width: .75 * $base-spacing;
-    height: .75 * $base-spacing;
+    width: $base-spacing;
+    height: $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      width: .75 * $base-spacing;
+      height: .75 * $base-spacing;
+    }
     &:hover {
       svg * {
         fill: $yellow;

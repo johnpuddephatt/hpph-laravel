@@ -88,7 +88,7 @@
   }
   li {
     float: left;
-    margin-right: $small-spacing;
+    margin-right: $base-spacing;
     @media screen and (min-width: $large-screen) {
       margin-right: 1.5 * $base-spacing;
     }

@@ -1,10 +1,10 @@
 {
-    "/js/app.js": "/js/app.js?id=cf8e8d934e3cc41fb7fc",
-    "/css/app.css": "/css/app.css?id=1a612f79823484be25c7",
-    "/images/hpph-l.jpg": "/images/hpph-l.jpg?id=645b137d69d0eba9057d",
-    "/images/logo.svg": "/images/logo.svg?id=4a766fc2a35bb4c50dca",
-    "/images/opengraph.jpg": "/images/opengraph.jpg?id=71a4d7250cd22f07e771",
-    "/images/shop-membership.jpg": "/images/shop-membership.jpg?id=c2083d1d50e5a311100e",
-    "/images/shop-postcards.jpg": "/images/shop-postcards.jpg?id=c200924a40414e2c9ea6",
-    "/images/shop-vouchers.jpg": "/images/shop-vouchers.jpg?id=15fa275a41f400cbcc96"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/images/hpph-l.jpg": "/images/hpph-l.jpg",
+    "/images/logo.svg": "/images/logo.svg",
+    "/images/opengraph.jpg": "/images/opengraph.jpg",
+    "/images/shop-membership.jpg": "/images/shop-membership.jpg",
+    "/images/shop-postcards.jpg": "/images/shop-postcards.jpg",
+    "/images/shop-vouchers.jpg": "/images/shop-vouchers.jpg"
 }

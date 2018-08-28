@@ -16,13 +16,13 @@
     color: white;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
     overflow: hidden;
 
   }
   svg {
     width: 1.5 * $base-spacing;
     height: 1.5 * $base-spacing;
+
     // margin-bottom: $small-spacing/4;
   }
   .site-footer--navigation--link {
@@ -50,6 +50,9 @@
 
 
 .site-footer {
+  * {
+    // outline: 1px dashed lightgray
+  }
   .hpph-logo {
     display: none;
   }
@@ -68,7 +71,19 @@
     transition: transform ease $base-duration;
     &.visible {
       display: flex;
-      transform: translateY(0%);
+      transform: translateY(0em);
+      .site-footer--menu-link {
+        opacity: 1;
+        transform: translateY(0em);
+      }
+      .site-footer--menu-item {
+        @for $i from 1 through 12 {
+          &:nth-child(#{$i}) .site-footer--menu-link {
+            transition-delay: $i * $base-duration
+          }
+        }
+      }
+
     }
     .hpph-logo {
       width: 6 * $base-spacing;
@@ -84,22 +99,32 @@
 
 .site-footer--primary {
   position: relative;
+  margin-bottom: auto;
+  flex: 1 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   @media (min-width: $medium-screen) {
+    display: block;
+    text-align: left;
+    margin-bottom: 0;
     padding: 3 * $base-spacing 0;
     background-color: $black;
   }
   color: white;
   > .container {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    @media screen and (orientation: portrait) {
-      flex-wrap: wrap;
+    @media (min-width: $medium-screen) {
+      align-items: flex-start;
+      flex-direction: row;
     }
     > div + div {
-      margin-right: auto;
-      @media screen and (orientation: landscape) {
+      margin-right: 0;
+      @media screen and (min-width: $medium-screen) {
         margin-left: auto;
         margin-right: 2 * $base-spacing;
         &:last-child {
@@ -115,20 +140,32 @@
 .site-footer--header {
   color: white;
   line-height: 1.5 * $base-spacing;
+  display: none;
+  @media (min-width: $medium-screen) {
+    display: block;
+  }
+
 }
 
 .site-footer--contact {
-  flex: 0 0 30%;
-  margin-right: auto;
-  @media screen and (orientation: portrait) {
-    flex: 0 0 100%;
-    margin-bottom: 2 * $base-spacing;
-    // order: 3;
+  flex: 0 0 auto;
+  order: 99;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: $small-spacing;
+  @media screen and (min-width: $medium-screen) {
+    flex: 0 0 30%;
+    margin-top: 0;
+    order: 0;
+    text-align: left;
+    margin-right: auto;
   }
 }
 
-.site-footer--menu {
 
+.site-footer--menu {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 
@@ -144,6 +181,10 @@
     text-transform: none;
     font-size: modular-scale(-2);
   }
+  display: none;
+  @media (min-width: $medium-screen) {
+    display: block;
+  }
 }
 
 .site-footer--contact-info {
@@ -157,8 +198,21 @@
 
 .site-footer--menu-link {
   color: white;
-  line-height: 1.5 * $base-spacing;
-  font-size: modular-scale(-1);
+  display: block;
+  line-height: 1.75 * $base-spacing;
+  font-size: modular-scale(1);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity $base-duration*3 $base-timing, transform $base-duration*3 $base-timing;
+  transform: translateY(1em);
+
+  @media (min-width: $medium-screen) {
+    opacity: 1;
+    transform: translateY(0em);
+    font-weight: 400;
+    line-height: 1.5 * $base-spacing;
+    font-size: modular-scale(-1);
+  }
   text-transform: lowercase;
 }
 
