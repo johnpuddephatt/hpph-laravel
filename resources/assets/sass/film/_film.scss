@@ -29,7 +29,7 @@
 .single-listing--content {
   display: flex;
   flex-direction: column;
-  @media screen and (orientation: landscape) and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     flex-direction: row;
   }
 }
@@ -42,17 +42,19 @@
 }
 
 .single-listing--text {
-  flex: 0 0 50%;
-  @media (orientation: landscape) {
-    margin-right: auto;
+
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+
+  @media (min-width: $medium-screen) {
+    flex: 0 0 50%;
+    margin: 0;
+    padding: 0
   }
 
-  @media (orientation: portrait) {
-    margin-left: -$small-spacing;
-    margin-right: -$small-spacing;
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
-  }
+
 
 
 }
@@ -129,7 +131,7 @@
 
 
 .single-listing--text--footer {
-  border-top: $base-border;
+  border-top: $light-border;
   padding-top: 1.5 * $base-spacing;
   margin-top: 1.5 * $base-spacing;
   table {
@@ -156,17 +158,14 @@
 .single-listing--screenings {
   position: relative;
   order: -1;
-  margin-bottom: $base-spacing;
-  @media (orientation: landscape) {
-    margin-bottom: 0;
-    order: 1;
-    margin-left: 1.5 * $base-spacing;
-    flex: 0 1 50%;
-  }
+  margin: 0 (-$small-spacing) $base-spacing;
   @media (min-width: $large-screen) {
-    flex: 0 0 40%;
-    margin-left: 0;
+    margin: 0;
+    order: 1;
+    margin-top: (-3 * $base-spacing);
+    margin-top: calc(#{-3 * $base-spacing} + 1px);
     margin-left: 2 * $base-spacing;
+    flex: 0 1 40%;
   }
 }
 
