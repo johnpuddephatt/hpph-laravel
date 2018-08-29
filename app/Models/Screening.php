@@ -51,7 +51,7 @@ class Screening extends Model
     public function getURL()
     {
       if (is_numeric($this->url)) {
-        return getenv('JACK_ROE') . '/' . $this->url;
+        return getenv('JACK_ROE') . $this->url;
       }
       else {
         return $this->url;
