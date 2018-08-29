@@ -11,7 +11,7 @@
       'class' => "single-listing--header--img fade-image-onload",
       'height' => "450",
       'width' => "1280",
-      'sizes' => "100vw",
+      'sizes' => "(orientation: portrait) 178vw, 100vw",
       'modes' => "c_fill,g_auto"
     ])
   </div>
