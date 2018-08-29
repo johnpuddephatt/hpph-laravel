@@ -68,11 +68,11 @@ body {
 
 
 %padded-box {
-  padding-left: $small-spacing;
-  padding-right: $small-spacing;
-  @media screen and (orientation: portrait) {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  @media screen and (min-width: $medium-screen) {
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
   }
   @media screen and (min-width: $large-screen) {
     padding-left: 2 * $base-spacing;
