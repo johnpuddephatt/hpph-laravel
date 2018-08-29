@@ -22,6 +22,10 @@
   overflow: hidden;
 }
 
+.coming-out, .coming-in {
+  pointer-events: none;
+}
+
 .section--home-slider {
   height: 100vh;
   width: 100%;
