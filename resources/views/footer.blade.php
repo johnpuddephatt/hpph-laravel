@@ -19,7 +19,9 @@
 
 
 <footer class="site-footer">
-  @include('icons.logo-strapline')
+  <a href="{{url('/')}}">
+    @include('icons.logo-strapline')
+  </a>
   <div class="site-footer--primary">
     <div class="container container__narrow">
       <div class="site-footer--contact">

@@ -166,6 +166,7 @@
 
 .site-footer--menu {
   margin-bottom: auto;
+  margin-top: auto;
   flex: 0 0 auto;
   @media (min-width: $medium-screen) {
     margin-top: 0;
@@ -214,7 +215,7 @@
 .site-footer--menu-link {
   color: white;
   display: block;
-  line-height: 1 * $base-spacing;
+  line-height: 1.5 * $base-spacing;
   font-size: modular-scale(1);
   font-weight: 500;
   opacity: 0;
