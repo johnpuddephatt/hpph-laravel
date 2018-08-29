@@ -22,9 +22,7 @@
   overflow: hidden;
 }
 
-.coming-out, .coming-in {
-  pointer-events: none;
-}
+
 
 .section--home-slider {
   height: 100vh;
@@ -65,6 +63,9 @@
       transition: opacity 5 * $base-duration $base-timing;
       transform: translateY(0rem);
     }
+  }
+  &.out, &.coming-in {
+    pointer-events: none;
   }
 
   &::after {
