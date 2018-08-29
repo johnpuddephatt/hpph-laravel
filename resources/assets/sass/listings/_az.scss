@@ -153,6 +153,7 @@
   @media screen and (min-width: $medium-screen) {
     display: flex;
   }
+
   * + * {
     margin-left: $small-spacing/2;
   }

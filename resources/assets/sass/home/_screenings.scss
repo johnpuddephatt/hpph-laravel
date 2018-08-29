@@ -195,28 +195,6 @@
     outline: 1px solid $yellow;
     outline-offset: 0px;
   }
-  .label {
-    font-size: modular-scale(-1);
-    @media screen and (min-width: $medium-screen) {
-      font-size: modular-scale(-1);
-    }
-  }
-  // &::after {
-  //   font-size: modular-scale(5);
-  //   align-self: center;
-  //   content: '»';
-  //   color: $light-gray;
-  //   line-height: 0;
-  //   opacity: .5;
-  //   margin-left: auto;
-  //   padding-right: $small-spacing;
-  //   @media screen and (min-width: $medium-screen) {
-  //     display: none;
-  //   }
-  //   @media screen and (orientation: portrait) {
-  //     padding-right: $base-spacing;
-  //   }
-  // }
 }
 
 
@@ -310,8 +288,9 @@
 .daily-screenings--entry--description {
   font-size: modular-scale(-1);
   color: $medium-gray;
-  @media (orientation: portrait) {
-    display: none;
+  display: none;
+  @media (min-width: $medium-screen) {
+    display: block;
   }
 
 }

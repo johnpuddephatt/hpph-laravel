@@ -106,9 +106,6 @@
     outline: 1px solid $yellow;
     outline-offset: 0px;
   }
-  .label {
-    font-size: modular-scale(-2);
-  }
 }
 
 
@@ -124,7 +121,6 @@
   font-size: modular-scale(2);
   @media screen and (min-width: $medium-screen) {
     margin-top: $small-spacing;
-
     line-height: 1.2;
   }
   @media screen and (min-width: $large-screen) {

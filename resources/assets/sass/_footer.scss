@@ -66,10 +66,10 @@
     right: 0;
     z-index: 999;
     background-color: $black;
-    transition: transform ease $base-duration;
     &.visible {
       display: flex;
       transform: translateY(0em);
+      transition: transform ease $base-duration;
       .site-footer--menu-link {
         opacity: 1;
         transform: translateY(0em);
