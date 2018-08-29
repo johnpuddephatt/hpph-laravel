@@ -28,7 +28,7 @@
       line-height: 1.5 * $base-spacing;
       width: auto;
     }
-    &:hover {
+    &:hover, &:focus {
       color: $yellow;
       svg * {
         fill: $yellow;

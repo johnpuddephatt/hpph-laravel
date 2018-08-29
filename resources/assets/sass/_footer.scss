@@ -50,9 +50,12 @@
 
 
 .site-footer {
-
   .hpph-logo {
     display: none;
+  }
+  a:focus {
+    outline: none;
+    @extend %underline_simple;
   }
   @media (max-width: $medium-screen) {
     display: flex;
@@ -162,14 +165,17 @@
 
 
 .site-footer--menu {
-  margin-top: auto;
   margin-bottom: auto;
   flex: 0 0 auto;
+  @media (min-width: $medium-screen) {
+    margin-top: 0;
+  }
+}
 
+.site-footer--menu-links {
   @media (min-width: $medium-screen) {
     column-count: 2;
     column-gap: 2 * $base-spacing;
-    margin-top: 0;
   }
 }
 
@@ -204,16 +210,17 @@
   }
 }
 
+
 .site-footer--menu-link {
   color: white;
   display: block;
-  line-height: 1.75 * $base-spacing;
+  line-height: 1 * $base-spacing;
   font-size: modular-scale(1);
   font-weight: 500;
   opacity: 0;
   transition: opacity $base-duration*3 $base-timing, transform $base-duration*3 $base-timing;
   transform: translateY(1em);
-
+  text-transform: lowercase;
   @media (min-width: $medium-screen) {
     opacity: 1;
     transform: translateY(0em);
@@ -221,7 +228,6 @@
     line-height: 1.5 * $base-spacing;
     font-size: modular-scale(-1);
   }
-  text-transform: lowercase;
 }
 
 
