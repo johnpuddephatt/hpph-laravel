@@ -3,21 +3,24 @@
   .listings-navigation--inner {
     display: flex;
     position: relative;
-    height: 2.5 * $base-spacing;
+
     align-items: center;
     flex-direction: row;
     padding: $small-spacing;
-    @media (orientation: portrait) {
-      height: 2 * $base-spacing;
-      margin-left: -$small-spacing;
-      margin-right: -$small-spacing;
-      @media screen and (min-width: $medium-screen) {
-        margin-left: -$base-spacing;
-        margin-right: -$base-spacing;
-        padding-left: $base-spacing;
-        padding-right: $base-spacing;
-      }
+
+    height: 2 * $base-spacing;
+    margin-left: -$small-spacing;
+    margin-right: -$small-spacing;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-left: 0;
+      margin-right: 0;
     }
+    @media screen and (min-width: $large-screen) {
+      height: 2.5 * $base-spacing
+    }
+
+
     &::after {
       position: absolute;
       width: 100%;

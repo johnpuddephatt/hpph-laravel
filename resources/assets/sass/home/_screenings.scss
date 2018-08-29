@@ -79,9 +79,9 @@
 
   }
   &:first-child {
-    margin-left: $small-spacing;
-    @media screen and (orientation: portrait) {
-      margin-left: 0;
+    margin-left: 0;
+    @media screen and (min-width: $medium-screen) {
+      margin-left: $small-spacing;
     }
     @media screen and (min-width: $large-screen) {
       margin-left: $base-spacing;
@@ -123,28 +123,9 @@
 .daily-screenings--screenings {
   margin-bottom: 2 * $base-spacing;
   .alert {
-    @media screen and (orientation: portrait) {
+    @media screen and (max-width: $medium-screen) {
       margin: $base-spacing $base-spacing;
     }
-  }
-}
-
-.daily-screenings--navigation--arrow {
-  font-size: modular-scale(5);
-  font-weight: 500;
-  padding: $small-spacing;
-  @media screen and (orientation: portrait) {
-    padding: $base-spacing;
-  }
-  line-height: 0;
-  &.disabled {
-    color: $light-gray;
-    &:hover {
-      color: $light-gray;
-    }
-  }
-  &:hover {
-    color: $base-font-color;
   }
 }
 
@@ -160,25 +141,25 @@
 .daily-screenings--entry {
   display: flex;
   -webkit-tap-highlight-color: $yellow;
-  padding: $small-spacing 0;
-  @media screen and (min-width: $medium-screen) {
-    padding: $base-spacing 0;
-  }
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
-  @media screen and (orientation: portrait) {
-    margin-left: -$small-spacing;
-    margin-right: -$small-spacing;
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
-    @media screen and (min-width: $medium-screen) {
-      margin-left: -$base-spacing;
-      margin-right: -$base-spacing;
-      padding-left: $base-spacing;
-      padding-right: $base-spacing;
-    }
+
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
+  padding: $small-spacing;
+
+
+
+  @media screen and (min-width: $medium-screen) {
+    margin-left: 0;
+    margin-right: 0;
+    padding: $small-spacing 0;
   }
+  @media screen and (min-width: $large-screen) {
+    padding: $base-spacing 0;
+  }
+
   &:last-child {
     border-bottom: $base-border;
   }
