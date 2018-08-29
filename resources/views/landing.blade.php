@@ -1,4 +1,6 @@
-@push('body-classes','home')
+@if(count($slides))
+  @push('body-classes','home')
+@endif
 
 @extends('layouts.app')
 
