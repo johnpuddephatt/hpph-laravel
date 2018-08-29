@@ -48,7 +48,8 @@
         {!! $film->description !!}
       </div>
       @foreach($film->strands()->get() as $strand)
-        <div class="single-listing--strand-details" style="background-color: {{ $strand->color }}">
+        <div class="single-listing--strand-details
+          @if($strand->color && (hexdec(substr($strand->color,1,2)) + hexdec(substr($strand->color,3,2)) + hexdec(substr($strand->color,5,2))) < 300 ) dark-bg @endif" style="background-color: {{ $strand->color }}">
           <h3 class="single-listing--strand-heading">{{$strand->title}}</h3>
           {!! $strand->description !!}
         </div>

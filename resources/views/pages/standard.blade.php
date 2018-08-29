@@ -18,7 +18,7 @@
 
   <div class="container page-standard--container">
     <main class="page-standard--main @if(!count($sibling_pages)) no-aside @endif ">
-      <h1 class="page-standard--title">{{ $page->title }}!</h1>
+      <h1 class="page-standard--title">{{ $page->title }}</h1>
       {!! $page->content !!}
     </main>
     @if(count($sibling_pages))
@@ -26,8 +26,7 @@
         <h2 class="page-standard--aside--heading">{{ $parent_page->title }}</h2>
         <nav class="page-standard--aside--nav">
           @foreach ($sibling_pages as $sibling_page)
-
-          <a class="page-standard--aside--link @if(Request::is( $parent_page->slug . '/' . $sibling_page->slug ))current @endif" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}/">{{ $sibling_page->title }}</a>
+            <a class="page-standard--aside--link @if(Request::is( $parent_page->slug . '/' . $sibling_page->slug ))current @endif" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}/">{{ $sibling_page->title }}</a>
           @endforeach
         </nav>
       </aside>

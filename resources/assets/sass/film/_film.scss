@@ -119,6 +119,13 @@
   + .single-listing--season-details {
     margin-top: $small-spacing;
   }
+  &.dark-bg {
+    color: white;
+    .single-listing--strand-heading {
+      color: white;
+    }
+
+  }
 }
 
 .single-listing--strand-heading,
