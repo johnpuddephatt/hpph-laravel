@@ -18,7 +18,7 @@ class CreateSlidesTable extends Migration
             $table->timestamps();
             $table->string('title')->nullable();
             $table->integer('active')->default(1);
-            $table->integer('type');
+            $table->string('type');
             $table->integer('film_id')->nullable();
             $table->integer('lft')->nullable();
             $table->integer('rgt')->nullable();

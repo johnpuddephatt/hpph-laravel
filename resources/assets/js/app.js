@@ -17,15 +17,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const firstSlideImage = firstSlide.querySelector('.home-slider--image');
     const slides = slider.querySelectorAll('.home-slider--slide');
     if( slides.length ) {
-
       body.classList.add('slider-loading');
       firstSlide.classList.add('coming-in');
-      var firstSlideImageCheck = setTimeout(()=>{
-        console.log('checking...');
+      var firstSlideImageCheck = setInterval(()=>{
         if(firstSlideImage.naturalWidth) {
-
           startSlider();
-          clearTimeout(firstSlideImageCheck);
+          clearInterval(firstSlideImageCheck);
         }
       }, 200);
     }
