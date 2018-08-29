@@ -1,5 +1,5 @@
 .site-footer--social {
-  flex: 0 0 15%;
+  flex: 0 0 auto;
   li {
     display: inline-block;
     margin-left: $small-spacing;
@@ -23,7 +23,7 @@
     width: $base-spacing;
     color: white;
     font-size: modular-scale(-1);
-    
+
     @media screen and (min-width: $medium-screen) {
       line-height: 1.5 * $base-spacing;
       width: auto;

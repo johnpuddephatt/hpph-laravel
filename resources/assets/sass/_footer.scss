@@ -164,27 +164,19 @@
 .site-footer--menu {
   margin-top: auto;
   margin-bottom: auto;
-  flex: 0 0 30%;
+  flex: 0 0 auto;
 
   @media (min-width: $medium-screen) {
     column-count: 2;
-    column-gap: $base-spacing;
+    column-gap: 2 * $base-spacing;
     margin-top: 0;
   }
 }
 
 
 .site-footer--strapline {
-  font-family: $heading-font-family;
-  line-height: $tight-heading-line-height;
-  color: white;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-transform: uppercase;
-  font-size: modular-scale(3);
-  span {
-    text-transform: none;
-    font-size: modular-scale(-2);
+  img {
+    display: block;
   }
   display: none;
   @media (min-width: $medium-screen) {

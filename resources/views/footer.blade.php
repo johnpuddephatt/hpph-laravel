@@ -23,8 +23,9 @@
   <div class="site-footer--primary">
     <div class="container container__narrow">
       <div class="site-footer--contact">
-        <h2 class="site-footer--strapline">Your friendly, local, independent cinema.
-        <span>Est.1914</span></h2>
+        <h2 class="site-footer--strapline">
+          <img src="/images/friendly-local-independent.svg" />
+        </h2>
         <ul class="site-footer--contact-info">
           <li>73 Brudenell Rd, Leeds, LS6 1JD</li>
           <li>Tel: <a href="tel:0113 275 2045">0113 275 2045</a></li>

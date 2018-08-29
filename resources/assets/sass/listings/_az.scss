@@ -1,21 +1,22 @@
 .az-listings--listings {
-  margin-top: $base-spacing;
-  @media screen and (orientation: portrait) {
-    margin-top: 0;
+  margin-top: 0;
+  @media screen and (min-width: $medium-screen) {
+    margin-top: $base-spacing;
   }
 }
 .az-listings--inner {
-  display: flex;
+  margin: 0;
+  display: block;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 0 (-$small-spacing) $base-spacing;
+  @media screen and (min-width: $medium-screen) {
+    display: flex;
+    margin: 0 (-$small-spacing) $base-spacing;
+  }
   @media screen and (min-width: $large-screen) {
     margin: 0 (-$base-spacing) $base-spacing;
   }
-  @media screen and (orientation: portrait) {
-    margin: 0;
-    display: block;
-  }
+
 }
 
 .az-listings--entry {
@@ -74,21 +75,22 @@
   }
 }
 
-.az-listings--entry--header {
-  min-height: 2 * $heading-line-height * 1em;
-  font-size: modular-scale(1);
-  margin-bottom: 0;
-  margin-bottom: $small-spacing/2;
+.az-listings--entry--text {
+  flex: 1 1 0;
 
+}
+
+.az-listings--entry--header {
+
+  font-size: modular-scale(1);
+  min-height: initial;
+  margin-bottom: 0;
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(2);
     margin-bottom: $small-spacing;
+    min-height: 2 * $heading-line-height * 1em;
+  }
 
-  }
-  @media screen and (orientation: portrait) {
-    min-height: initial;
-    margin-bottom: 0;
-  }
 }
 
 .az-listings--entry--title {
@@ -112,8 +114,9 @@
 .az-listings--entry--description {
   font-size: modular-scale(-1);
   color: $medium-gray;
-  @media screen and (orientation: portrait) {
-    display: none;
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
   }
 }
 
@@ -124,8 +127,10 @@
 }
 
 .az-listings--entry--date {
-  margin-top: $small-spacing/2;
-  margin-bottom: $small-spacing;
+  @media screen and (min-width: $medium-screen) {
+    margin-bottom: $small-spacing;
+    margin-top: $small-spacing/2;
+  }
   font-weight: 500;
   font-size: modular-scale(-1);
   min-height: modular-scale(-1) * $base-line-height;
@@ -141,12 +146,12 @@
 .az-listings--entry--footer {
   margin-top: auto;
   padding-top: $small-spacing/2;
-  display: flex;
   flex-direction: row;
   align-items: center;
   font-size: modular-scale(-2);
-  @media (orientation: portrait) {
-    display: none;
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: flex;
   }
   * + * {
     margin-left: $small-spacing/2;

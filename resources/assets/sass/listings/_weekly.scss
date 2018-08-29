@@ -36,29 +36,25 @@
   font-size: modular-scale(1);
   background-color: #fff;
   color: $base-font-color;
-  margin-bottom: 0;
+
   line-height: 2 * $base-spacing;
   border-top: $base-border;
   position: sticky;
   z-index: 98;
-  top: 2.5 * $base-spacing;
-  top: calc(1.5 * #{$base-spacing} - 1px);
-  padding: 1.5 * $base-spacing $small-spacing $small-spacing ;
 
-  @media screen and (orientation: portrait) {
-    top: calc(#{1 * $base-spacing}  - 1px );
-    margin-left: -$small-spacing;
-    margin-right: -$small-spacing;
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
-    @media screen and (min-width: $large-screen) {
-      margin-left: -$base-spacing;
-      margin-right: -$base-spacing;
-      padding-left: $base-spacing;
-      padding-right: $base-spacing;
-    }
-    z-index: 9;
+  top: calc(#{1 * $base-spacing}  - 1px );
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+
+  @media screen and (min-width: $medium-screen) {
+    top: 2.5 * $base-spacing;
+    top: calc(1.5 * #{$base-spacing} - 1px);
+    margin: 0;
+    padding: 1.5 * $base-spacing $small-spacing $small-spacing ;
   }
+
   &:first-child {
     border-top: none;
   }
@@ -143,7 +139,7 @@
   flex-basis: 0;
   flex-direction: column;
   flex-grow: 1;
-
+  overflow: hidden;
   @media screen and (min-width: $medium-screen) {
     margin-right: 2 * $base-spacing;
   }
@@ -215,7 +211,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: modular-scale(-1);
+  white-space: nowrap;
+  font-size: modular-scale(-2);
   padding-bottom: $small-spacing/2;
   * + * {
     margin-left: $small-spacing/2;
