@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
       body.classList.remove('slider-loading');
       simpleslider.getSlider({
         container: slider,
-        duration: 2,
-        delay: 5,
+        duration: 1.5,
+        delay: 6,
         prop: 'opacity',
         unit: '',
         init: 0,
