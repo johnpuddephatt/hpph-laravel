@@ -12,7 +12,7 @@
       'height' => "450",
       'width' => "1280",
       'sizes' => "100vw",
-      'modes' => "c_fill,g_faces"
+      'modes' => "c_fill,g_auto"
     ])
   </div>
 
