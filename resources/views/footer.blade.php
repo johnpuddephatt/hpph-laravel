@@ -1,13 +1,13 @@
 <nav class="site-footer--navigation">
-  <a class="site-footer--navigation--link current" href="#">
+  <a class="site-footer--navigation--link @if(strlen($_SERVER['REQUEST_URI']) === 1 ) current @endif" href="/" >
     @include('icons.home')
     <div>Home</div>
   </a>
-  <a class="site-footer--navigation--link" href="/whats-on/">
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
-  <a class="site-footer--navigation--link" href="/visit/">
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
     <div>visit</div>
   </a>
