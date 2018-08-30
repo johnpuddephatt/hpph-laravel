@@ -36,6 +36,10 @@
       <style>
         .form-group { clear: both; }
         .ql-editor { position: relative; min-height: 15em; }
+        .ql-editor h2 {
+          margin-bottom: .75em;
+          margin-top: 1.5em;
+        }
         .ql-editor p { margin-bottom: .75em; }
         .ql-editor img { display: block; }
         .progress-container { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(50,50,50,.5); display: flex; align-items: center; flex-direction: row; padding: 3rem; }
