@@ -64,8 +64,8 @@
       <li class="spacer"></li>
       <li>@include('logos.hlf_white')</li>
       <li>@include('logos.leeds-city-council_white')</li>
-      <li>@include('logos.bfi_white')</li>
-      <li>@include('logos.gwf_white')</li>
+      <li>@include('logos.BFI_white')</li>
+      <li>@include('logos.GWF_white')</li>
       <li class="andahalf">@include('logos.europa-cinemas_white')</li>
 
     </ul>
