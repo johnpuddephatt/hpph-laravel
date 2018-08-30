@@ -170,6 +170,8 @@ return [
          */
          Backpack\MenuCRUD\MenuCRUDServiceProvider::class,
          Backpack\PageManager\PageManagerServiceProvider::class,
+         Cviebrock\EloquentSluggable\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
