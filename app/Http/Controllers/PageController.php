@@ -7,10 +7,9 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function index($slug1,$slug2 = '')
+    public function index($slug1,$slug2 = false)
     {
-
-        if(!$slug2) {
+        if($slug2 == false) {
           $page = Page::where([['slug',$slug1],['parent_id',null]])->first();
         }
         else {
