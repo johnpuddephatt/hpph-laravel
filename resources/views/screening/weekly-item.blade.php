@@ -1,5 +1,5 @@
 <a class="weekly-screenings--entry" href="/film/{{ $screening->film->slug }}?screeningID={{$screening->id}}">
-  <div class="weekly-screenings--entry--date">{{ Carbon\Carbon::parse($screening->time)->format('g.iA') }}</div>
+  <time class="weekly-screenings--entry--date" datetime="{{ Carbon\Carbon::parse($screening->date)->format('Y-m-d') }}T{{ Carbon\Carbon::parse($screening->time)->format('H:i') }}">{{ Carbon\Carbon::parse($screening->time)->format('g.iA') }}</time>
   <div class="weekly-screenings--entry--text">
     <h3 class="weekly-screenings--entry--title">
       <span class="weekly-screenings--entry--title-inner">{{ $screening->film->title }}</span>
