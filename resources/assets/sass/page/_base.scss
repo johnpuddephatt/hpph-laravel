@@ -84,7 +84,7 @@
   a {
     color: $base-font-color;
     border-left: $base-spacing/5 solid $off-white;
-
+    border-bottom: 1px solid transparent;
     &.current, &:hover {
       color: $action-color;
       border-left-color: $action-color;
