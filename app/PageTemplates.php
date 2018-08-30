@@ -51,7 +51,7 @@ trait PageTemplates
                         'type' => 'quill',
                         'placeholder' => trans('backpack::pagemanager.content_placeholder'),
                         'tab' => 'Content',
-                        'toolbar' => "[{ 'header': '2' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
+                        'toolbar' => "[{ 'header': '2' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }],[{ 'table': ['Insert table','Insert Row Above','Insert Row Below','Insert Column Left','Insert Column Right','Delete Row','Delete Column','Delete Table' ] }]",
                     ]);
         $this->crud->addField([
                         'name' => 'thumb',

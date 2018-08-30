@@ -112,6 +112,7 @@
 .daily-screenings--navigation--view-all {
   margin-left: auto;
   font-size: modular-scale(-1);
+  text-transform: lowercase;
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(0);
   }

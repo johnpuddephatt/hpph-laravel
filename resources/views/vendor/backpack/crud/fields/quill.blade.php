@@ -32,7 +32,7 @@
 <script>console.log('hello');</script>
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')
-      <link href="//cdn.quilljs.com/1.3.4/quill.snow.css" rel="stylesheet">
+      <link href="//cdn.quilljs.com/2.0.0-dev.2/quill.snow.css" rel="stylesheet">
       <style>
         .ql-editor { position: relative; min-height: 15em; }
         .ql-editor p { margin-bottom: .75em; }
@@ -44,9 +44,17 @@
 
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
-      <script src="//cdn.quilljs.com/1.3.4/quill.min.js"></script>
+
+      <script src="//cdn.quilljs.com/2.0.0-dev.2/quill.js"></script>
+      {{-- <script src="//cdn.quilljs.com/1.3.4/quill.min.js"></script> --}}
       <script>
-        const cloudName_{{ $field['name'] }} = 'letsdance';
+      // tables
+
+
+
+
+      // Image uploading
+        const cloudName_{{ $field['name'] }} = '{{ config('app.cloudinary')}}';
         const unsignedUploadPreset = 'hxep6y90';
 
         function dragenter() {
@@ -142,6 +150,11 @@
           quill.enable(true);
         }
       </script>
+
+
+
+
+
     @endpush
 
 @endif
@@ -163,6 +176,13 @@
         container: [{!! $field['toolbar'] !!}],
         handlers: {
           image: selectLocalImage,
+          table: function (value) {
+                if (value) {
+                    const cursorPosition = this.quill.getSelection().index;
+                    this.quill.insertText(cursorPosition, value);
+                    this.quill.setSelection(cursorPosition + value.length);
+                }
+            }
         }
       }
     },
@@ -195,6 +215,15 @@
    });
 
    editorContent_{{ $field['name'] }}.innerHTML = textarea_{{ $field['name'] }}.value;
+
+
+
+   // We need to manually supply the HTML content of our custom dropdown list
+
+     const tablePickerItems = Array.prototype.slice.call(document.querySelectorAll('.ql-table .ql-picker-item'));
+     tablePickerItems.forEach(item => item.textContent = item.dataset.value);
+     document.querySelector('.ql-table .ql-picker-label').innerHTML =
+     '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>';
 
 </script>
 @endpush
