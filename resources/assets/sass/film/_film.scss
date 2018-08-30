@@ -5,6 +5,7 @@
     height: 35vw;
   }
   width: 100%;
+  background-color: $base-font-color;
   position: relative;
   &::after {
     content: '';

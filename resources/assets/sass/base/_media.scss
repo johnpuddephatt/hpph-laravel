@@ -8,3 +8,12 @@ picture {
   max-width: 100%;
   height: auto;
 }
+
+.fade-image-onload {
+  transition: opacity 1s ease;
+  &.loading {
+    opacity: 0;
+    transition: opacity 0ms;
+  }
+}
+

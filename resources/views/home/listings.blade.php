@@ -63,7 +63,6 @@
                     @include('utils.cloudinary', [
                       'alt' => "Image for " . $screening->film->title,
                       'img' => url($screening->film->thumb),
-                      'class' => "fade-image-onload",
                       'height' => "180",
                       'width' => "320",
                       'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw"
