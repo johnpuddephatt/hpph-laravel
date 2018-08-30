@@ -31,6 +31,15 @@
           @endforeach
         </nav>
       @endif
+
+      <div class="alert">
+        <h3>Can't find what you're looking for?</h3>
+        <p>Then please do get in touch and we'll be happy to help.</p>
+        <ul>
+          <li>Tel: <a href="tel:0113 275 2045">0113 275 2045</a></li>
+          <li>Email: <a href="mailto:info@hydeparkpicturehouse.co.uk">info@hydeparkpicturehouse.co.uk</a></li>
+        </ul>
+      </div>
     </main>
     @if(count($sibling_pages))
       <aside class="page-standard--aside">

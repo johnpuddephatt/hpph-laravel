@@ -147,7 +147,8 @@
 .page-standard--grid-nav {
   display: flex;
   flex-wrap: wrap;
-  margin-top: $base-spacing;
+  margin-top: 1.5 * $base-spacing;
+  margin-bottom: 2 * $base-spacing;
   margin-left: -$small-spacing/2;
   margin-right: -$small-spacing/2;
 }

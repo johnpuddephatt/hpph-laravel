@@ -9,9 +9,12 @@
     padding: 2 * $base-spacing;
     background-color: $yellow;
   }
+  h3 {
+    margin-bottom: $small-spacing/2;
+  }
   a {
     color: $base-font-color;
-    font-weight: bolder;
+    font-weight: 500;
     text-decoration: underline;
   }
 }
