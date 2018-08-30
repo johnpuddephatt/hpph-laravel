@@ -12,7 +12,7 @@
       'height' => "640",
       'width' => "1280",
       'sizes' => "(orientation: portrait) 150vw, 100vw",
-      'modes' => "c_fill,g_auto"
+      'modes' => "c_fill,g_auto,f_auto"
     ])
   </div>
 
