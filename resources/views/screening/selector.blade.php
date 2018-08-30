@@ -35,7 +35,7 @@
             @include('film.audio-description')
           @endif
           @if($film->free)
-            <span class="label">Free</span>
+            <span class="label label--free">Free</span>
           @endif
         </div>
     @endforeach

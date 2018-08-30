@@ -54,6 +54,9 @@
                           @include ('screening.tag')
                         @endforeach
                       @endif
+                      @if($screening->film->free)
+                        <span class="label label--free">Free</span>
+                      @endif
                     </div>
                   </div>
                   <div class="daily-screenings--entry--image">

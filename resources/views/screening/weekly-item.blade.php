@@ -17,11 +17,12 @@
         @include('film.audio-description')
       @endif
       @if($screening->tags)
-        {{-- <div class="weekly-screenings--entry--labels"> --}}
-          @foreach ($screening->tags as $tag)
-            @include ('screening.tag')
-          @endforeach
-        {{-- </div> --}}
+        @foreach ($screening->tags as $tag)
+          @include ('screening.tag')
+        @endforeach
+      @endif
+      @if($screening->film->free)
+        <span class="label label--free">Free</span>
       @endif
     </div>
   </div>

@@ -50,6 +50,9 @@
                 @if($film->audio_description)
                   @include('film.audio-description')
                 @endif
+                @if($film->free)
+                  <span class="label label--free">Free</span>
+                @endif
               </div>
             </a>
           @endforeach
