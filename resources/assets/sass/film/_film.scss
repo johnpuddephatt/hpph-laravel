@@ -1,6 +1,7 @@
 .single-listing--image {
-  height: 56.25vw;
-  @media (orientation: landscape) {
+  //height: 56.25vw;
+  height: 75vw;
+  @media (min-width: $medium-screen) {
     height: 35vw;
   }
   width: 100%;
@@ -13,8 +14,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    // background-color: rgba(0,0,0,.25);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,0) 35%);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,0) 35%);
+    @media (min-width: $medium-screen) {
+      background-image: linear-gradient(to bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 25%);
+
+    }
   }
 }
 
