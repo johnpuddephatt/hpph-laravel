@@ -4,5 +4,5 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '{{ env('GOOGLE_ANALYTICS')}}');
+  gtag('config', '{{ config('app.google_analytics')}}' );
 </script>

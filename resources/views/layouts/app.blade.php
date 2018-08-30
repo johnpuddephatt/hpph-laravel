@@ -3,12 +3,12 @@
     <head>
       <meta charset="utf-8">
 
-      @if(env('GOOGLE_ANALYTICS'))
+      @if(config('app.google_analytics'))
         @include('analytics')
       @endif
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>{{ env('APP_NAME')}}</title>
+      <title>{{ config('app.name')}}</title>
       <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
     </head>
     <body class="@stack('body-classes')">

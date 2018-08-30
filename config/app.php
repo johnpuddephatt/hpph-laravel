@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Hyde Park Picture House'),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,6 +40,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', false),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -92,6 +93,23 @@ return [
     */
 
     'fallback_locale' => 'en',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom configuration bits and bobs
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'jack_roe' => env('JACK_ROE'),
+    'mailchimp' => env('MAILCHIMP'),
+    'twitter' => env('TWITTER_USERNAME'),
+    'facebook' => env('FACEBOOK_USERNAME'),
+    'instagram' => env('INSTAGRAM_USERNAME'),
+    'flickr' => env('FLICKR_USERNAME'),
+    'cloudinary' => env('CLOUDINARY'),
+    'analytics' => env('GOOGLE_ANALYTICS'),
 
     /*
     |--------------------------------------------------------------------------
