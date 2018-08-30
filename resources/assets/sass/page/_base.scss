@@ -147,13 +147,17 @@
 .page-standard--grid-nav {
   display: flex;
   flex-wrap: wrap;
+  margin-top: $base-spacing;
   margin-left: -$small-spacing/2;
   margin-right: -$small-spacing/2;
 }
 
 .page-standard--grid-nav--link {
   flex: 1 1 auto;
-  width: 40%;
+  width: 100%;
+  @media screen and (orientation: landscape) {
+    width: 40%;
+  }
   position: relative;
   margin: $small-spacing/2;
   padding: $small-spacing;
@@ -183,6 +187,7 @@
 
 .page-standard--grid-nav--title {
   position: relative;
+  text-align: center;
   z-index: 99;
   font-family: $heading-font-family;
   color: white;
