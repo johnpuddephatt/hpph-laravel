@@ -43,7 +43,7 @@
 </table>
 
 @if($paidScreeningCount)
-  <div class="screenings-table--announcer"><p class="info"><i>i</i>Select a screening above to purchase tickets</p></div>
+  <div class="screenings-table--announcer"><p class="info"><i>i</i>Select a screening above to book tickets</p></div>
 @endif
 
 

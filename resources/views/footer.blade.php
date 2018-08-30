@@ -38,11 +38,11 @@
         <h2 class="site-footer--header sr-only">Learn more</h2>
 
         <ul class="site-footer--menu-links">
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/jobs">Jobs &amp; volunteering</a></li>
+          {{-- <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/jobs">Jobs &amp; volunteering</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/accessibility">Accessibility</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/press">Press</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/terms">Terms &amp; conditions</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/privacy">Privacy policy</a></li>
+          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/privacy">Privacy policy</a></li> --}}
         </ul>
       </div>
       <div class="site-footer--social">

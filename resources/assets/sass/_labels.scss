@@ -6,10 +6,10 @@
   text-transform: uppercase;
   border: $base-border;
   color: $base-font-color;
+  -webkit-font-smoothing: antialiased;
   &__dark-bg {
     color: white;
-    -webkit-font-smoothing: antialiased;
-    border-color: $dark-gray;
+    
   }
   // &--tuesday-wonder {
   //   background-color: $tuesday-wonder;
