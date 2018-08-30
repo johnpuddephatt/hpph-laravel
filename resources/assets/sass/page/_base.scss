@@ -62,6 +62,9 @@
   table {
     table-layout: auto;
   }
+  .alert {
+    margin-top: 2 * $base-spacing;
+  }
 }
 
 .page-standard--title {
