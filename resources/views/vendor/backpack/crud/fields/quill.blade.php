@@ -34,11 +34,27 @@
     @push('crud_fields_styles')
       <link href="//cdn.quilljs.com/2.0.0-dev.2/quill.snow.css" rel="stylesheet">
       <style>
+        .form-group { clear: both; }
         .ql-editor { position: relative; min-height: 15em; }
         .ql-editor p { margin-bottom: .75em; }
         .ql-editor img { display: block; }
         .progress-container { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(50,50,50,.5); display: flex; align-items: center; flex-direction: row; padding: 3rem; }
         .progress-container .progress { width: 100%; margin-bottom: 0; }
+
+        .ql-table .ql-picker-label {
+          background: none;
+              border: none;
+              cursor: pointer;
+              display: inline-block;
+              float: left;
+              height: 24px;
+              padding: 3px 5px;
+              width: 48px;
+        }
+        .ql-table.ql-picker svg {
+          position: static !important;
+          margin: 0 !important;
+        }
       </style>
     @endpush
 
@@ -172,21 +188,56 @@
   var quill_{{ $field['name'] }} = new Quill(editor_{{ $field['name'] }}, {
     theme: 'snow',
     modules: {
+      table: true,
       toolbar: {
         container: [{!! $field['toolbar'] !!}],
         handlers: {
           image: selectLocalImage,
           table: function (value) {
                 if (value) {
-                    const cursorPosition = this.quill.getSelection().index;
-                    this.quill.insertText(cursorPosition, value);
-                    this.quill.setSelection(cursorPosition + value.length);
+                  switch(value) {
+                    case 'Insert table':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.insertTable(2, 2);
+                      break;
+                    case 'Insert Row Above':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.insertRowAbove();
+                      break;
+                    case 'Insert Row Below':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.insertRowBelow();
+                      break;
+                    case 'Insert Column Left':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.insertColumnLeft();
+                      break;
+                    case 'Insert Column Right':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.insertColumnRight();
+                      break;
+                    case 'Delete Row':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.deleteRow();
+                      break;
+                    case 'Delete Column':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.deleteColumn();
+                      break;
+                    case 'Delete Table':
+                      // do something;
+                      quilltable_{{ $field['name'] }}.deleteTable();
+                      break;
+
+                  }
                 }
             }
         }
       }
     },
   });
+
+  const quilltable_{{ $field['name'] }} = quill_{{ $field['name'] }}.getModule('table');
 
   function selectLocalImage() {
     const input_{{ $field['name'] }} = document.createElement('input');
@@ -210,11 +261,11 @@
   var editorContent_{{ $field['name'] }} = editor_{{ $field['name'] }}.querySelector('.ql-editor');
   var textarea_{{ $field['name'] }} = document.getElementById('quill-textarea-{{ $field['name'] }}');
 
-   document.forms[0].addEventListener('submit',function(){
-     textarea_{{ $field['name'] }}.value = editorContent_{{ $field['name'] }}.innerHTML;
-   });
+  document.forms[0].addEventListener('submit',function(){
+    textarea_{{ $field['name'] }}.value = editorContent_{{ $field['name'] }}.innerHTML;
+  });
 
-   editorContent_{{ $field['name'] }}.innerHTML = textarea_{{ $field['name'] }}.value;
+  editorContent_{{ $field['name'] }}.innerHTML = textarea_{{ $field['name'] }}.value;
 
 
 
@@ -223,8 +274,13 @@
      const tablePickerItems = Array.prototype.slice.call(document.querySelectorAll('.ql-table .ql-picker-item'));
      tablePickerItems.forEach(item => item.textContent = item.dataset.value);
      document.querySelector('.ql-table .ql-picker-label').innerHTML =
-     '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>';
-
+     '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>'
+     + document.querySelector('.ql-table .ql-picker-label').innerHTML;
+     const tableButton = document.querySelector('.ql-table.ql-picker');
+     // tableButton.classList.add('ql-color-picker');
+     tableButton.addEventListener('click',()=>{
+       console.log('clicked');
+     });
 </script>
 @endpush
 
