@@ -33,6 +33,11 @@
     font-size: modular-scale(-1);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
+    &.hide-on-desktop {
+      @media screen and (min-width: $medium-screen) {
+        display: none;
+      }
+    }
     &.current, &.open {
       color: $yellow;
       svg * {
