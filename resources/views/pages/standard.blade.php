@@ -9,9 +9,9 @@
       'alt' => "Image for " . $page->title,
       'img' => isset($page->thumb)? url($page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): '/images/page-header.jpg'),
       'class' => "page-standard--header--image fade-image-onload",
-      'height' => "450",
+      'height' => "640",
       'width' => "1280",
-      'sizes' => "100vw"
+      'sizes' => "(orientation: portrait) 150vw, 100vw",
     ])
 
   </div>
