@@ -27,12 +27,12 @@
           @foreach ($screenings as $screening)
             @if($screening->film)
                 <a class="daily-screenings--entry" href="/film/{{ $screening->film->slug }}?screeningID={{$screening->id}}" data-barba="slide">
-                  <time class="daily-screenings--entry--date" datetime="{{ Carbon\Carbon::parse($screening->date)->format('Y-m-d') }}T{{ Carbon\Carbon::parse($screening->time)->format('H:i') }}">
-                    {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
+                  <div class="daily-screenings--entry--date" >
+                  <time datetime="{{ Carbon\Carbon::parse($screening->date)->format('Y-m-d') }}T{{ Carbon\Carbon::parse($screening->time)->format('H:i') }}">{{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}</time>
                     @if(is_numeric($screening->film->runtime))
                       <div class="daily-screenings--entry--finish-time">Finish {{ Carbon\Carbon::parse($screening->time)->addMinutes($screening->film->runtime + (is_numeric($screening->film->trailer_duration) ? $screening->film->trailer_duration : 23))->format('g.ia') }}</div>
                     @endif
-                  </time>
+                  </div>
                   <div class="daily-screenings--entry--text">
                     <h3 class="daily-screenings--entry--title">
                       <span class="daily-screenings--entry--title-inner">{{ $screening->film->title }}</span>

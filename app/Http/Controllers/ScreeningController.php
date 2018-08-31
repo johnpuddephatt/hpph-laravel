@@ -27,8 +27,9 @@ class ScreeningController extends Controller
 
     if($week < 1 || $week > 8) abort(404);
 
-    $today_date = date("Y/m/d",time());
-    $today_time = date("H:i",time() - 1800);
+    $today = time() - 1800;
+    $today_date = date("Y/m/d",$today);
+    $today_time = date("H:i",$today);
 
     // First week; collect today screenings separately
     if($week == 1) {

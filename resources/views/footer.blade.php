@@ -25,12 +25,12 @@
   <div class="site-footer--primary">
     <div class="container container__narrow">
       <div class="site-footer--contact">
-        <h2 class="site-footer--strapline">
-          <img src="/images/friendly-local-independent.svg" />
-        </h2>
+        <div class="site-footer--strapline">
+          <img alt="Your friendly, local, independent cinema" src="/images/friendly-local-independent.svg" />
+        </div>
         <ul class="site-footer--contact-info">
           <li>73 Brudenell Rd, Leeds, LS6 1JD</li>
-          <li>Tel: <a href="tel:0113 275 2045">0113 275 2045</a></li>
+          <li>Tel: <a href="tel:01132752045">0113 275 2045</a></li>
           <li>Email: <a href="mailto:info@hydeparkpicturehouse.co.uk">info@hydeparkpicturehouse.co.uk</a></li>
         </ul>
       </div>

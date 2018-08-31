@@ -20,7 +20,7 @@
             <div class="home-slider--text">
               <div class="container">
                 <a class="home-slider--link" href="{{ url($slide->getUrl())}}">
-                  <div class="home-slider--heading"><span>{{ $slide->getHeading() }}</span></div>
+                  <h2 class="home-slider--heading"><span>{{ $slide->getHeading() }}</span></h2>
                   <div class="home-slider--subheading">{{ $slide->getSubheading()}}</div>
                 </a>
               </div>
