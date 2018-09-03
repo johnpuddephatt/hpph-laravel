@@ -63,6 +63,7 @@
     flex-direction: column;
     justify-content: space-between;
     transform: translateY(110%);
+    opacity: 0;
     position: fixed;
     top: 0;
     bottom: 3 * $base-spacing;
@@ -73,6 +74,7 @@
     &.visible {
       display: flex;
       transform: translateY(0em);
+      opacity: 1;
       transition: transform ease $base-duration;
       .site-footer--menu-link {
         opacity: 1;
