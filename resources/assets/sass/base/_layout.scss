@@ -11,8 +11,8 @@ html {
 
 html {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  // height: 100%;
+  // overflow-x: hidden;
 }
 
 .locked {
@@ -32,9 +32,9 @@ body {
   overflow-x: hidden;
 
   /* debugging */
-  height: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  // height: 100%;
+  // overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
 }
 
 #main:focus {
