@@ -176,10 +176,24 @@
 }
 
 .weekly-screenings--entry--subtitle {
-  color: $dark-gray;
   font-weight: 500;
+  font-family: $heading-font-family;
   line-height: $heading-line-height;
+  font-size: modular-scale(-1);
   margin-bottom: $small-spacing/2;
+  letter-spacing: $base-letter-spacing/2;
+  &:empty {
+    visibility: hidden;
+  }
+  &::before {
+    content: '';
+    width: $base-spacing/3;
+    height: $base-spacing/3;
+    background-color: $yellow;
+    display: inline-block;
+    margin-right: $small-spacing/3;
+  }
+
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(1);
   }

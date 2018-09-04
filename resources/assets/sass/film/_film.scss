@@ -58,10 +58,6 @@
     margin: 0;
     padding: 0
   }
-
-
-
-
 }
 
 .single-listing--heading > div {
@@ -84,9 +80,21 @@
 
 .single-listing--subtitle {
   font-size: modular-scale(1);
-  color: $yellow;
-  font-weight: 500;
   margin-top: $base-spacing/2;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  letter-spacing: $base-letter-spacing/2;
+  &:empty {
+    visibility: hidden;
+  }
+  &::before {
+    content: '';
+    width: $base-spacing/3;
+    height: $base-spacing/3;
+    background-color: $yellow;
+    display: inline-block;
+    margin-right: $small-spacing/3;
+  }
 }
 
 .single-listing--alt-language-title {

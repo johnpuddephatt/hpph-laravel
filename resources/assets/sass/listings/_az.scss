@@ -106,9 +106,21 @@
 
 .az-listings--entry--subtitle {
   font-weight: 500;
-  color: $dark-gray;
+  font-family: $heading-font-family;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
+  letter-spacing: $base-letter-spacing/2;
+  &:empty {
+    visibility: hidden;
+  }
+  &::before {
+    content: '';
+    width: $base-spacing/3;
+    height: $base-spacing/3;
+    background-color: $yellow;
+    display: inline-block;
+    margin-right: $small-spacing/3;
+  }
 }
 
 .az-listings--entry--description {
