@@ -167,6 +167,7 @@
     &:first-child {
       padding-right: $base-spacing;
       font-weight: 500;
+      white-space: nowrap;
     }
     &:last-child {
       width: 100%;
