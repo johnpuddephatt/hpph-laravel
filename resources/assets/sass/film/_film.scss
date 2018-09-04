@@ -83,6 +83,7 @@
   margin-top: $base-spacing/2;
   font-family: $heading-font-family;
   line-height: $heading-line-height;
+  font-style: italic;
   letter-spacing: $base-letter-spacing/2;
   &:empty {
     visibility: hidden;

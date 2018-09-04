@@ -109,6 +109,7 @@
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
+  font-style: italic;
   letter-spacing: $base-letter-spacing/2;
   &:empty {
     visibility: hidden;
