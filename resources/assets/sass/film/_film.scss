@@ -99,9 +99,9 @@
 }
 
 .single-listing--meta {
-  color: $medium-gray;
+  color: $dark-gray;
   @media (min-width: $large-screen) {
-    margin-top: $small-spacing/2;
+    // margin-top: $small-spacing/2;
   }
   font-size: modular-scale(-1);
   > * {

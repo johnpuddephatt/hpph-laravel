@@ -185,14 +185,20 @@ var iOSChrome = iOS && webkit && ua.match(/CriOS/i);
 
 if(iOSChrome) {
   document.addEventListener('DOMContentLoaded', ()=>{
+    document.documentElement.classList.add('iOSChrome');
     var homeSlider = document.querySelector('.section--home-slider');
-    homeSlider.style.height = homeSlider.clientHeight + 'px';
+    if(homeSlider) {
+      homeSlider.style.height = homeSlider.clientHeight + 'px';
+    }
   });
 }
 if(iOSSafari) {
   document.addEventListener('DOMContentLoaded', ()=>{
+    document.documentElement.classList.add('iOSSafari');
     var homeSlider = document.querySelector('.section--home-slider');
-    homeSlider.style.height = document.documentElement.clientHeight - navBar.clientHeight + 1 + 'px';
+    if(homeSlider) {
+      homeSlider.style.height = document.documentElement.clientHeight - navBar.clientHeight + 1 + 'px';
+    }
   });
 }
 

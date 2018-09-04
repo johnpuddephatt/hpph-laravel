@@ -106,14 +106,14 @@
 
 .az-listings--entry--subtitle {
   font-weight: 500;
-  color: $yellow;
+  color: $dark-gray;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
 }
 
 .az-listings--entry--description {
   font-size: modular-scale(-1);
-  color: $medium-gray;
+  color: $dark-gray;
   display: none;
   @media screen and (min-width: $medium-screen) {
     display: block;
@@ -140,7 +140,7 @@
   font-size: modular-scale(-4);
   display: inline-block;
   font-weight: 400;
-  color: $medium-gray;
+  color: $dark-gray;
 }
 
 .az-listings--entry--footer {

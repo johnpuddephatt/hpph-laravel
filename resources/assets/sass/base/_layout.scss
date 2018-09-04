@@ -11,8 +11,16 @@ html {
 
 html {
   width: 100%;
-  // height: 100%;
-  // overflow-x: hidden;
+  // Prevent bottom bar on iOS Safari interfering with menu
+  &.iOSSafari {
+    height: 100%;
+    overflow-x: hidden;
+    body {
+      height: 100%;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }
 
 .locked {
@@ -30,11 +38,6 @@ html,body {
 body {
   width: 100%;
   overflow-x: hidden;
-
-  /* debugging */
-  // height: 100%;
-  // overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
 }
 
 #main:focus {

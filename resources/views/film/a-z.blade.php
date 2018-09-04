@@ -20,9 +20,7 @@
               <div class="az-listings--entry--text">
                 <div class="az-listings--entry--header">
                   <h3 class="az-listings--entry--title">
-                    <span class="az-listings--entry--title--inner">
-                      {{ $film->title }}
-                    </span>
+                    <span class="az-listings--entry--title--inner">{{ $film->title }}</span>
                     @if($film->certificate)
                       <span class="az-listings--entry--certificate">({{ $film->certificate }})</span>
                     @endif

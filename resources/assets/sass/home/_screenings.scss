@@ -50,7 +50,7 @@
 }
 
 .daily-screenings--navigation--link {
-  color: $medium-gray;
+  color: $dark-gray;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   font-size: modular-scale(-1);
@@ -206,7 +206,7 @@
   margin-top: 1.2 * $small-spacing;
   line-height: $heading-font-family;
   font-family: $base-font-family;
-  color: $medium-gray;
+  color: $dark-gray;
   font-style: normal;
   text-transform: none;
 }
@@ -269,7 +269,7 @@
 
 .daily-screenings--entry--description {
   font-size: modular-scale(-1);
-  color: $medium-gray;
+  color: $dark-gray;
   display: none;
   @media (min-width: $medium-screen) {
     display: block;
@@ -281,7 +281,7 @@
   font-size: modular-scale(-5);
   display: inline-block;
   font-weight: 400;
-  color: $medium-gray;
+  color: $dark-gray;
 
 }
 

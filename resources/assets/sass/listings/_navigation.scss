@@ -42,11 +42,12 @@
     @media screen and (min-width: $medium-screen) {
       margin-right: $base-spacing;
     }
-    color: $medium-gray;
+    color: $dark-gray;
     font-weight: 500;
     font-size: modular-scale(0);
     -webkit-font-smoothing: antialiased;
     &.current {
+      font-weight: 700;
       @extend %underline;
     }
     &.current, &:hover {
