@@ -125,6 +125,8 @@
 
 .home-slider--heading {
   font-weight: 700;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
   font-size: modular-scale(5);
   line-height: $heading-line-height;
   color: white;
@@ -134,6 +136,8 @@
 
 
 .home-slider--subheading {
+  font-family: $heading-font-family;
+  font-size: modular-scale(2);
   &::after {
     content: '›';
     display: inline-block;

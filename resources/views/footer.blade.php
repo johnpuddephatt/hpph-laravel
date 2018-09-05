@@ -9,14 +9,13 @@
   </a>
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
-    <div>visit</div>
+    <div>Visit</div>
   </a>
   <a class="site-footer--navigation--link" href="#" id="nav-trigger">
     @include('icons.more')
     <div>More</div>
   </a>
 </nav>
-
 
 <footer class="site-footer">
   <a href="{{url('/')}}">
@@ -36,10 +35,10 @@
       </div>
       <div class="site-footer--menu">
         <h2 class="site-footer--header sr-only">Learn more</h2>
-
         <ul class="site-footer--menu-links">
           <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
-          <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://friendsofhpph.org/join/">Membership</a></li>
+          <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership/">Membership</a></li>
+          <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/contact/">Contact</a></li>
           {{--<li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/jobs">Jobs &amp; volunteering</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/accessibility">Accessibility</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/press">Press</a></li>
