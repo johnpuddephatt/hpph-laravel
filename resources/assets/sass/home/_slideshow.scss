@@ -138,6 +138,7 @@
 .home-slider--subheading {
   font-family: $heading-font-family;
   font-size: modular-scale(2);
+  font-style: italic;
   &::after {
     content: '›';
     display: inline-block;
