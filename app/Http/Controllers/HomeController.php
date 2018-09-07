@@ -19,8 +19,9 @@ class HomeController extends Controller
     $slides = Slide::where('active',true)->get();
 
     // Get screenings
-    $today_date = date("Y/m/d",time());
-    $today_time = date("H:i",time() - 1800);
+    $today = time() - (60 * 30);
+    $today_date = date("Y/m/d",$today);
+    $today_time = date("H:i",$today);
 
     $screenings_today = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film')->orderBy('date')->orderBy('time')->get();
 
