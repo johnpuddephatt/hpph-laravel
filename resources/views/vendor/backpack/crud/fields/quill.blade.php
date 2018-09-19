@@ -100,14 +100,12 @@
         }
 
         var handleFiles = function(files,editor) {
-          console.log(editor);
           for (var i = 0; i < files.length; i++) {
             saveToServer(files[i]); // call the function to upload the file
           }
         };
 
         function saveToServer(file,quill,editor) {
-          console.log(editor);
           quill.enable(false);
           var url = `https://api.cloudinary.com/v1_1/${cloudName_{{ $field['name'] }}}/upload`;
           var xhr = new XMLHttpRequest();
@@ -120,14 +118,12 @@
           var progressBar = `<div class="progress-container"><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated" id="progress"></div></div></div>`;
 
           editor.insertAdjacentHTML('beforeend',progressBar);
-          console.log(editor);
           document.getElementById('progress').style.width = 0;
 
           // Update progress (can be used to show progress indicator)
           xhr.upload.addEventListener("progress", function(e) {
             var progress = Math.round((e.loaded * 100.0) / e.total);
             document.getElementById('progress').style.width = progress + "%";
-            console.log(progress);
           });
 
           xhr.onreadystatechange = function(e) {
@@ -183,6 +179,8 @@
 @push('crud_fields_scripts')
 <script>
 
+  const tabletruth_{{ $field['name'] }} = {{ strpos($field['toolbar'],"['table']") ? 'true' : 'false' }};
+
   const editor_{{ $field['name'] }} = document.getElementById('quill-editor-{{ $field['name'] }}');
 
   editor_{{ $field['name'] }}.addEventListener("dragenter", dragenter, false);
@@ -192,7 +190,8 @@
   var quill_{{ $field['name'] }} = new Quill(editor_{{ $field['name'] }}, {
     theme: 'snow',
     modules: {
-      table: true,
+
+      table: tabletruth_{{ $field['name'] }},
       toolbar: {
         container: [{!! $field['toolbar'] !!}],
         handlers: {
@@ -255,9 +254,8 @@
       // file type is only image.
       if (/^image\//.test(file.type)) {
         saveToServer(file,quill_{{ $field['name'] }},editor_{{ $field['name'] }});
-        console.log(file);
       } else {
-        console.warn('You could only upload images.');
+        alert('You can only upload images.');
       }
     };
   }
@@ -274,17 +272,14 @@
 
 
    // We need to manually supply the HTML content of our custom dropdown list
-
-     const tablePickerItems = Array.prototype.slice.call(document.querySelectorAll('.ql-table .ql-picker-item'));
-     tablePickerItems.forEach(item => item.textContent = item.dataset.value);
-     document.querySelector('.ql-table .ql-picker-label').innerHTML =
-     '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>'
-     + document.querySelector('.ql-table .ql-picker-label').innerHTML;
-     const tableButton = document.querySelector('.ql-table.ql-picker');
-     // tableButton.classList.add('ql-color-picker');
-     tableButton.addEventListener('click',()=>{
-       console.log('clicked');
-     });
+  // if(tabletruth_{{ $field['name'] }}) {
+  //    const tablePickerItems_{{ $field['name'] }} = Array.prototype.slice.call(document.querySelectorAll('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-item'));
+  //    tablePickerItems_{{ $field['name'] }}.forEach(item => item.textContent = item.dataset.value);
+  //    document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-label').innerHTML =
+  //    '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>'
+  //    + document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-label').innerHTML;
+  //    const tableButton_{{ $field['name'] }} = document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table.ql-picker');
+  // }
 </script>
 @endpush
 
