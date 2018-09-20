@@ -25,10 +25,10 @@ class ScreeningRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'date' => 'required|date',
-            'time' => 'required'
-        ];
+      return [
+        'date' => 'required|date',
+        'time' => 'required'
+      ];
     }
 
     /**
