@@ -52,7 +52,9 @@ class Slide extends Model
     }
     elseif (lcfirst(class_basename($this->type)) == 'film') {
       $this_related_id = ($this['film_id']);
-      $related_item = $this->type::find($this_related_id);
+      $related_item = $this->type::where('id',$this_related_id)->with(['screenings' => function ($query) {
+        $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+      }])->first();
       return $related_item->getDateRange();
     }
     else {
