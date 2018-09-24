@@ -39,7 +39,7 @@
           <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
           <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership">Membership</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/contact">Contact</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/cinema-day">Cinema day</a></li>
+          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/cinema-day">National Lottery Cinema Day</a></li>
           {{--<li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/jobs">Jobs &amp; volunteering</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/accessibility">Accessibility</a></li>
           <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/press">Press</a></li>
