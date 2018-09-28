@@ -55,7 +55,12 @@ class Slide extends Model
       $related_item = $this->type::where('id',$this_related_id)->with(['screenings' => function ($query) {
         $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
       }])->first();
-      return $related_item->getDateRange();
+      if($related_item->screenings->count()) {
+        return $related_item->getDateRange();
+      }
+      else {
+        return 'Find out more';
+      }
     }
     else {
       return null;
