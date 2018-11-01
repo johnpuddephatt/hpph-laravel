@@ -40,8 +40,8 @@ class SlideCrudController extends CrudController
         $typeArray = [
           'name' => 'type',
           'label' => "Type",
-          'type' => 'select_from_array',
-          'options' => ['App\Models\Film' => 'Film', 'custom' => 'Custom'],
+          'type' => 'select_from_array_conditional',
+          'options' => ['App\Models\Film' => 'Film', 'App\Models\Strand' => 'Strand', 'App\Models\Season' => 'Season', 'custom' => 'Custom'],
           'allows_null' => false,
           'default' => 'film',
           'tab' => 'Link'
@@ -54,6 +54,26 @@ class SlideCrudController extends CrudController
           'entity' => 'film', // the method that defines the relationship in your Model
           'attribute' => 'title', // foreign key attribute that is shown to user
           'model' => "App\Models\Film", // foreign key model
+          'tab' => 'Link'
+        ];
+
+        $strandArray = [  // Select
+          'label' => "Strand",
+          'type' => 'select',
+          'name' => 'strand_id', // the db column for the foreign key
+          'entity' => 'strand', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Strand", // foreign key model
+          'tab' => 'Link'
+        ];
+
+        $seasonArray = [  // Select
+          'label' => "Season",
+          'type' => 'select',
+          'name' => 'season_id', // the db column for the foreign key
+          'entity' => 'season', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Season", // foreign key model
           'tab' => 'Link'
         ];
 
@@ -73,7 +93,7 @@ class SlideCrudController extends CrudController
         $customIntroArray = [
           'name' => 'separator',
           'type' => 'custom_html',
-          'value' => '<div class="well">Values set here will override those pulled in automatically through content linking</div>',
+          'value' => '<div class="well">Values set here will override those pulled in automatically through content linking.</div>',
           'tab' => 'Custom / Override'
         ];
 
@@ -84,6 +104,14 @@ class SlideCrudController extends CrudController
           'tab' => 'Custom / Override'
         ];
 
+        $preheadingArray = [
+          'name' => 'pretitle',
+          'label' => 'Pre-title',
+          'type' => 'text',
+          'tab' => 'Custom / Override',
+          'hint' => 'This is blank by default.',
+        ];
+
         $titleArray = [
           'name' => 'title',
           'label' => 'Title',
@@ -91,10 +119,11 @@ class SlideCrudController extends CrudController
         ];
 
         $subheadingArray = [
-          'name' => 'subtitle',
+          'name' => 'subheading',
           'label' => 'Subtitle',
           'type' => 'text',
-          'tab' => 'Custom / Override'
+          'tab' => 'Custom / Override',
+          'hint' => 'For films this defaults to showing the date range of future screenings.'
         ];
 
         $urlArray = [
@@ -115,7 +144,7 @@ class SlideCrudController extends CrudController
             'tab' => 'Custom / Override'
         ];
 
-        $this->crud->addFields([$typeArray,$filmArray,$activeArray,$customIntroArray,$headingArray,$subheadingArray,$urlArray,$thumbArray], 'both');
+        $this->crud->addFields([$typeArray,$filmArray,$seasonArray,$strandArray,$activeArray,$customIntroArray,$preheadingArray,$headingArray,$subheadingArray,$urlArray,$thumbArray], 'both');
         $this->crud->addColumns([$titleArray,$typeArray,$activeColArray]);
     }
 

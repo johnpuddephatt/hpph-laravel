@@ -34,11 +34,6 @@ class FilmCrudController extends CrudController
           $this->crud->addClause('hasFutureScreenings'); // apply the "hasFutureScreenings" eloquent scope
         });
 
-
-
-
-
-
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -53,6 +48,14 @@ class FilmCrudController extends CrudController
             'class' => 'form-control input-lg'
           ],
           'tab' => 'Overview'
+        ];
+
+        $slugArray = [
+          'name' => 'slug',
+          'label' => 'Film slug',
+          'type' => 'text',
+          'tab' => 'Overview',
+          'hint' => 'Leave blank to generate automatically. Changing this will break existing URLs.'
         ];
 
         $subtitleArray = [
@@ -128,6 +131,22 @@ class FilmCrudController extends CrudController
           'type' => 'text',
           'tab' => 'Details',
           'suffix' => 'minutes',
+        ];
+
+        $reviewsArray = [
+          'name' => 'reviews',
+          'label' => 'Reviews',
+          'type' => 'table',
+          'tab' => 'Overview',
+          'entity_singular' => 'review', // used on the "Add X" button
+          'columns' => [
+              'text' => 'Review',
+              'author' => 'Author',
+              'rating' => 'Rating (1-5)',
+              'url' => 'URL'
+          ],
+          'max' => 4, // maximum rows allowed in the table
+          'min' => 0, // minimum rows allowed in the table
         ];
 
         $trailerDurationArray = [
@@ -244,7 +263,7 @@ class FilmCrudController extends CrudController
           'tab' => 'Screenings'
         ];
 
-        $this->crud->addFields([$titleArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
         $this->crud->addColumns([$titleArray,$dateCol]);
 
@@ -260,7 +279,9 @@ class FilmCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
-        $request['slug'] = str_slug($request->title);
+        if(!$request->slug) {
+          $request['slug'] = str_slug($request->title);
+        }
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

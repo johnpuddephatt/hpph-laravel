@@ -158,11 +158,14 @@
   margin-bottom: 0;
   margin-top: 0;
   @media screen and (min-width: $medium-screen) {
-    flex: 0 0 30%;
+    flex: 0 1 50%;
     margin-top: 0;
     order: 0;
     text-align: left;
     margin-right: auto;
+  }
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 30%;
   }
 }
 
@@ -248,7 +251,7 @@
   padding: $small-spacing 0;
   @media (min-width: $medium-screen) {
       background-color: $yellow;
-      padding: $small-spacing 0;
+      padding: $small-spacing 0 $base-spacing;
   }
   letter-spacing: 0.025em;
   svg  {
@@ -325,7 +328,7 @@
           padding-right: 0;
         }
         p {
-          font-size: modular-scale(-1);
+          font-size: modular-scale(0);
           font-weight: 500;
           margin-bottom: $small-spacing/4;
           line-height: $heading-line-height;

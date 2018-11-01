@@ -32,7 +32,18 @@ class TagCrudController extends CrudController
           'name' => 'title',
           'label' => 'Tag',
           'type' => 'text',
+          'attributes' => [
+            'class' => 'form-control input-lg'
+          ],
         ];
+
+        $slugArray = [
+          'name' => 'slug',
+          'label' => 'Slug',
+          'type' => 'text',
+          'hint' => 'Leave blank to generate automatically. Changing this will break existing URLs.'
+        ];
+
         $abbreviationArray = [
           'name' => 'abbreviation',
           'label' => 'Abbreviation',
@@ -49,8 +60,8 @@ class TagCrudController extends CrudController
           'type' => 'color',
         ];
 
-        $this->crud->addFields([$titleArray,$abbreviationArray,$descriptionArray,$colorArray], 'both');
 
+        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$descriptionArray,$colorArray], 'both');
         $this->crud->addColumns([$titleArray,$abbreviationArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -124,6 +135,9 @@ class TagCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
+        if(!$request->slug) {
+          $request['slug'] = str_slug($request->title);
+        }
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
@@ -133,6 +147,7 @@ class TagCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
+        $request['slug'] = str_slug($request->title);
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

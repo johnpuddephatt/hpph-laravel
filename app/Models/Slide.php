@@ -9,11 +9,21 @@ class Slide extends Model
 {
   use CrudTrait;
   protected $table = 'slides';
-  protected $fillable = ['title','type','active','film_id','thumb','heading','subheading','url'];
+  protected $fillable = ['title','type','active','film_id','strand_id','season_id','thumb','pretitle','heading','subheading','url'];
 
   public function film()
   {
     return $this->belongsTo('App\Models\Film');
+  }
+
+  public function season()
+  {
+    return $this->belongsTo('App\Models\Season');
+  }
+
+  public function strand()
+  {
+    return $this->belongsTo('App\Models\Strand');
   }
 
   protected $casts = [
@@ -50,16 +60,22 @@ class Slide extends Model
     if($this->subheading) {
       return $this->subheading;
     }
-    elseif (lcfirst(class_basename($this->type)) == 'film') {
-      $this_related_id = ($this['film_id']);
-      $related_item = $this->type::where('id',$this_related_id)->with(['screenings' => function ($query) {
-        $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
-      }])->first();
-      if($related_item->screenings->count()) {
-        return $related_item->getDateRange();
+    elseif (class_exists($this->type)) {
+      $this_related_id = ($this[lcfirst(class_basename($this->type)) . '_id']);
+
+      if($this->type == 'App\Models\Film') {
+        $related_item = $this->type::where('id',$this_related_id)->hasFutureScreenings()->with(['screenings' => function ($query) {
+          $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time');
+        }])->first();
+        if($related_item) {
+          return $related_item->getDateRange();
+        } else {
+          return 'Find out more';
+        }
       }
       else {
-        return 'Find out more';
+        $related_item = $this->type::find($this_related_id);
+        return $related_item->short_description;
       }
     }
     else {
@@ -79,5 +95,34 @@ class Slide extends Model
       return '//www.placehold.it/640/360';
     }
   }
+
+
+  public function setThumbAttribute($value)
+    {
+      $attribute_name = "thumb";
+      $disk = "public";
+      $destination_path = "thumbnails";
+
+      // if the image was erased
+      if ($value==null) {
+          // delete the image from disk
+          \Storage::disk($disk)->delete($this->{$attribute_name});
+          // set null in the database column
+          $this->attributes[$attribute_name] = null;
+      }
+
+      // if a base64 was sent, store it in the db
+      if (starts_with($value, 'data:image'))
+      {
+          // 0. Make the image
+          $image = \Image::make($value);
+          // 1. Generate a filename.
+          $filename = md5($value.time()).'.jpg';
+          // 2. Store the image on disk.
+          \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+          // 3. Save the path to the database
+          $this->attributes[$attribute_name] = '/storage/'.$destination_path.'/'.$filename;
+      }
+    }
 
 }

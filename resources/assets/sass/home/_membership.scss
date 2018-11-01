@@ -1,0 +1,43 @@
+.section--home-membership {
+  padding: 4 * $base-spacing 0;
+  background-image: url(/images/home-membership.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  text-align: center;
+  color: white;
+  .container {
+    position: relative;
+    z-index: 99;
+    max-width: $medium-screen;
+  }
+  a {
+    color: inherit;
+  }
+  &::after {
+    content: '';
+    display: block;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+  }
+  .section-title {
+    font-size: modular-scale(5);
+    margin-bottom: $base-spacing;
+    &::after {
+      content: '';
+      width: 33%;
+      height: $xl-border-width;
+      background-color: white;
+      display: block;
+      margin: $base-spacing auto $base-spacing;
+    }
+  }
+  p {
+    font-size: modular-scale(0);
+  }
+}

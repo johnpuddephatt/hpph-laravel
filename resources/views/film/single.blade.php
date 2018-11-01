@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@section('title', $film->title)
+
 @section('content')
 
   <div class="single-listing--image">
@@ -18,9 +20,9 @@
 
   <div class="container single-listing--heading">
     <div class="single-listing--text">
-      @foreach($film->strands()->get() as $strand)
+      @foreach($film->strands as $strand)
         <div class="single-listing--strand">
-          @include('film.strand')
+          @include('labels.strand')
         </div>
       @endforeach
       <h1 class="single-listing--title">{{ $film->title }}</h1>
@@ -33,8 +35,6 @@
       </div>
       <div class="single-listing--strand">
         @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
-
-
       </div>
     </div>
 
@@ -47,19 +47,42 @@
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
       </div>
-      @foreach($film->strands()->get() as $strand)
-        <div class="single-listing--strand-details
+      @foreach($film->strands as $strand)
+        <a href="/strand/{{ $strand->slug}}" class="single-listing--strand-details
           @if($strand->color && (hexdec(substr($strand->color,1,2)) + hexdec(substr($strand->color,3,2)) + hexdec(substr($strand->color,5,2))) < 300 ) dark-bg @endif" style="background-color: {{ $strand->color }}">
           <h3 class="single-listing--strand-heading">{{$strand->title}}</h3>
-          {!! $strand->description !!}
-        </div>
+          <div>This is a {{ $strand->title }} screening – {!! $strand->short_description !!}</div>
+        </a>
       @endforeach
       @foreach($film->seasons()->get() as $season)
-        <div class="single-listing--season-details">
+        <a href="/season/{{ $season->slug}}" class="single-listing--season-details">
           <h3 class="single-listing--season-heading">{{$season->title}}</h3>
-          {!! $season->short_description !!}
-        </div>
+          <div>Showing as part of {{ $season->title }} — {!! $season->short_description !!}</div>
+        </a>
       @endforeach
+      <div class="single-listing--reviews">
+        @if($film->reviews)
+          @foreach($film->reviews as $review)
+            <div class="single-listing--reviews--review">
+            @if($review->url)<a href="{{ $review->url }}" _target="blank">@endif
+            @if($review->text)<div class="single-listing--reviews--review--text">“{{ $review->text }}”</div>@endif
+            @if($review->rating)
+              <div class="single-listing--reviews--review--rating">
+                @for ($i = 0; $i < $review->rating; $i++)
+                  &starf;
+                @endfor
+              </div>
+            @endif
+            @if($review->author)
+              <div class="single-listing--reviews--review--author">
+                {{ $review->author }}
+              </div>
+            @endif
+            @if($review->url)</a>@endif
+            </div>
+          @endforeach
+        @endif
+      </div>
       <div class="single-listing--text--footer">
         <table>
           @if( $film->language )<tr><td>Language:</td><td>{{ $film->language }}</td></tr>@endif
@@ -76,6 +99,10 @@
       <h2 class="single-listing--screenings--header">Showtimes</h2>
       @if (count($film->screenings))
         @include('screening.selector')
+      @elseif ($film->screenings_count)
+        <div class="alert">
+          All scheduled screenings have now passed.
+        </div>
       @else
         <div class="alert">
           <h3>{{ $film->custom_coming_soon ?? "Showtimes will be confirmed soon" }}</h3>

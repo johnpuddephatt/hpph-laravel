@@ -2,6 +2,7 @@
 var smoothScroll = require ('smoothScroll');
 var simpleslider = require('simple-slider');
 
+let {iframeResizer} = require('iframe-resizer');
 
 /*
 ** Homepage slideshow
@@ -131,7 +132,10 @@ const screeningAnnouncer = document.querySelector('.screenings-table--announcer'
 if(screeningTable && screeningAnnouncer) {
 
   function selectScreening(screeningTime,screeningDate,screeningURL) {
-    screeningAnnouncer.innerHTML = `<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>${screeningDate} at ${screeningTime}<a class="button" href="${screeningURL}">Book now</a></p>`;
+    screeningAnnouncer.innerHTML = `<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>${screeningDate} at ${screeningTime}<a class="button book-button" href="${screeningURL}">Book now</a></p>`;
+    var bookButton = document.querySelector('.book-button');
+    bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
+
   }
 
   screeningTable.addEventListener('click',(e)=>{
@@ -153,6 +157,28 @@ if(screeningTable && screeningAnnouncer) {
     }
   })
 }
+
+/*
+** TESTING embedding Jack Roe in pages
+**/
+
+
+function bookingFormEmbed(e) {
+  e.preventDefault();
+  var ifrm = document.createElement("iframe");
+   ifrm.setAttribute("src", e.target.getAttribute('href') + '&nodecorators=true&tapos_id=r3b5g0ehmp5aypbnksmmjkyn');
+   ifrm.style.width = "100%";
+   ifrm.setAttribute("id", "jack-roe-box-office");
+   ifrm.setAttribute("frameBorder",0);
+   var screeningsSection = document.querySelector('.single-listing--screenings');
+   screeningsSection.appendChild(ifrm);
+   screeningsSection.classList.add('embed-active');
+   iframeResizer({
+       log:true
+   });}
+
+
+
 
 
 /*

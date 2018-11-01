@@ -28,7 +28,46 @@ class SeasonCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        $titleArray = [
+          'name' => 'title',
+          'label' => 'Tag',
+          'type' => 'text',
+          'attributes' => [
+            'class' => 'form-control input-lg'
+          ],
+        ];
+
+        $slugArray = [
+          'name' => 'slug',
+          'label' => 'Slug',
+          'type' => 'text',
+          'hint' => 'Leave blank to generate automatically. Changing this will break existing URLs.'
+        ];
+
+        $shortDescriptionArray = [
+          'name' => 'short_description',
+          'label' => 'Short description',
+          'type' => 'textarea',
+        ];
+
+        $descriptionArray = [
+          'name' => 'description',
+          'label' => 'Description',
+          'type' => 'quill',
+          'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
+        ];
+
+        $thumbArray = [
+            'name' => 'thumb',
+            'label' => 'Thumbnail',
+            'type' => 'image',
+            'upload' => 'true',
+            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+            'crop' => true, // set to true to allow cropping, false to disable
+        ];
+
+        $this->crud->addFields([$titleArray,$slugArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
+        $this->crud->addColumns([$titleArray,$shortDescriptionArray]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -102,6 +141,9 @@ class SeasonCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
+        if(!$request->slug) {
+          $request['slug'] = str_slug($request->title);
+        }
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
@@ -111,6 +153,7 @@ class SeasonCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
+        $request['slug'] = str_slug($request->title);
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

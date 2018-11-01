@@ -65,6 +65,10 @@ body {
     padding-left: 1.5 * $base-spacing;
     padding-right: 1.5 * $base-spacing;
   }
+  @media screen and (min-width: $xxl-screen) {
+    max-width: $xxl-screen;
+  }
+
   margin-left: auto;
   margin-right: auto;
 }

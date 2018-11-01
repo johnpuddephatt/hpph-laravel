@@ -28,7 +28,7 @@
             {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
           </label>
           @foreach ($screening->tags as $tag)
-              @include ('screening.tag')
+              @include ('labels.tag')
               @php array_push($tag_array,$tag) @endphp
           @endforeach
           @if($film->audio_description)

@@ -58,6 +58,12 @@
     margin: 0;
     padding: 0
   }
+
+  &__centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 
 .single-listing--heading > div {
@@ -76,6 +82,13 @@
   font-style: italic;
   font-family: $heading-font-family;
   margin-bottom: 0;
+}
+
+.single-listing--description {
+  margin-top: $base-spacing;
+  >*:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .single-listing--subtitle {
@@ -125,20 +138,42 @@
 
 .single-listing--strand-details,
 .single-listing--season-details {
-  padding: $small-spacing;
+  display: block;
+  color: inherit;
+  padding: $small-spacing $base-spacing;
   margin-top: $base-spacing;
   font-size: modular-scale(-1);
   border: $base-border;
+  position: relative;
+
+  &::after {
+    content: '»';
+    display: block;
+    position: absolute;
+    right: 1.5 * $base-spacing;
+    font-size: modular-scale(5);
+    top: 50%;
+    transform: translateY(-55%);
+    line-height: 2 * $base-spacing;
+  }
   + .single-listing--strand-details,
   + .single-listing--season-details {
     margin-top: $small-spacing;
+  }
+  &:hover {
+    color: inherit;
+  }
+  > * {
+    max-width: 85%;
   }
   &.dark-bg {
     color: white;
     .single-listing--strand-heading {
       color: white;
     }
-
+    &::after {
+      color: white;
+    }
   }
 }
 
@@ -175,36 +210,4 @@
       line-height: $base-spacing;
     }
   }
-}
-
-.single-listing--screenings {
-  position: relative;
-  order: -1;
-  margin: 0 (-$small-spacing) $base-spacing;
-  @media (min-width: $large-screen) {
-    margin: 0;
-    order: 1;
-    margin-top: (-3 * $base-spacing);
-    margin-top: calc(#{-3 * $base-spacing} + 1px);
-    margin-left: 2 * $base-spacing;
-    flex: 0 1 40%;
-  }
-}
-
-.listings--screenings--book {
-  text-align: center;
-  display: inline-block;
-  + .listings--screenings--book {
-    margin-left: $small-spacing/2;
-    @media screen and (orientation: portrait) {
-      margin-left: $small-spacing/4
-    }
-  }
-}
-
-
-.single-listing--screenings--header {
-  margin-bottom: $small-spacing;
-  font-size: modular-scale(1);
-  padding: 0 $small-spacing;
 }

@@ -1,0 +1,34 @@
+.single-listing--reviews {
+  margin: $base-spacing (-$small-spacing) (-$base-spacing);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    color: $base-font-color;
+  }
+}
+
+.single-listing--reviews--review {
+  flex: 0 0 100%;
+  @media screen and (min-width: $medium-screen) {
+    flex: 0 0 50%;
+  }
+  padding: $base-spacing $small-spacing $base-spacing;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.single-listing--reviews--review--text {
+  font-size: modular-scale(-1);
+}
+
+.single-listing--reviews--review--rating {
+  color: $yellow;
+}
+
+.single-listing--reviews--review--author {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: modular-scale(-1);
+}

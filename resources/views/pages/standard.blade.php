@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@section('title', $page->title)
+
 @section('content')
   <div class="page-standard--header">
 

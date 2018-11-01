@@ -2,6 +2,7 @@
 $medium-screen: 600px;
 $large-screen: 900px;
 $xl-screen: 1200px;
+$xxl-screen: 1400px;
 
 // Typography
 $base-font-family: 'HPPHA', 'Century Gothic', Arial;
@@ -12,11 +13,11 @@ $heading-font-family: 'HPPHB', 'Times New Roman';
 $base-font-size: 1em;
 
 // Line height
-$base-line-height: 1.66;
+$base-line-height: 1.7;
 $heading-line-height: 1.3;
 $tight-heading-line-height: 1;
 
-$base-letter-spacing: .05em;
+$base-letter-spacing: .06em;
 
 // Other Sizes
 $base-border-radius: 3px;
@@ -29,6 +30,8 @@ $header-height-landscape: 3.5 * $base-spacing;
 
 // Colors
 $yellow: #FFDC48;
+
+$red: #7C4141;
 
 $tuesday-wonder: #3ebbd0;
 $byo-baby: #D18500;
@@ -61,7 +64,7 @@ $dark-border: 1px solid $base-font-color;
 $light-border: 1px solid $off-white;
 $thick-border: .15em solid $base-font-color;
 
-$xl-border-width: .2em;
+$xl-border-width: .2rem;
 
 // Shadow
 $base-shadow: #eee 0 0 10px 0px;

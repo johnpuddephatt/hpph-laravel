@@ -12,9 +12,9 @@ class FilmController extends Controller
 {
   public function single($slug) {
 
-    $film = Film::where('slug',$slug)->with(['screenings' => function ($query) {
+    $film = Film::where('slug',$slug)->withCount('screenings')->with(['screenings' => function ($query) {
       $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    }])->first();
+    }])->with('strands')->with('seasons')->first();
 
     if(!$film) abort(404);
     return view('film.single', compact('film'));
@@ -24,10 +24,10 @@ class FilmController extends Controller
 
     $films = Film::hasFutureScreenings()->with(['screenings' => function ($query) {
       $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->with('tags');
-    }])->get()->sortBy(function ($i) {
+    }])->with('strands')->with('seasons')->get()->sortBy(function ($i) {
       return trim(str_replace('The', '', ' ' . $i['title'] . ' '));
     });
 
-    return view('film.a-z', compact('films'));
+    return view('listings.a-z', compact('films'));
   }
 }

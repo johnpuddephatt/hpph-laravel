@@ -12,11 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/day-{day}', 'HomeController@index');
+Route::get('day-{day}', 'HomeController@index');
 
 Route::get('film/{slug}', 'FilmController@single');
 
-Route::redirect('/whats-on', '/whats-on/weekly', 301);
+Route::redirect('whats-on', '/whats-on/weekly', 301);
 Route::get('whats-on/a-z', 'FilmController@index');
 
 Route::get('whats-on/weekly', 'ScreeningController@weekly');
@@ -35,8 +35,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
   CRUD::resource('strand', 'StrandCrudController');
   CRUD::resource('season', 'SeasonCrudController');
   CRUD::resource('tag', 'TagCrudController');
+  CRUD::resource('menu', 'MenuCrudController');
 });
 
 // Route::post ( '/admin/addScreening', 'ScreeningController@addScreening' );
+Route::get('strand/{slug}', 'StrandController@single');
+Route::get('season/{slug}', 'SeasonController@single');
+Route::get('tag/{slug}', 'TagController@single');
+
 
 Route::get('{page}/{childpage?}', 'PageController@index');
+

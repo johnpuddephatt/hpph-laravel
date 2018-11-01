@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Database\Eloquent\Collection;
+
+
+use App\Models\Film;
+use App\Models\Screening;
+use App\Models\Tag;
+
+class TagController extends Controller
+{
+  public function single($slug) {
+
+    // Pseudo-tags: e.g. Audio description
+    $pseudoTagArray = ['audio-description'];
+    $collection = Tag::where('slug', $slug)->first();
+
+    if($collection) {
+      if(in_array($slug,$pseudoTagArray)) {
+        $films = Film::where(str_replace('-', '_', $slug),true)->with('screenings')->get();
+        $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
+        foreach ($films as $film) {
+          $screenings = $screenings->merge($film->screenings);
+        }
+      }
+      else {
+        $screenings = $collection->screenings()->get();
+      }
+      return view('film.collection', compact('collection','screenings'));
+    } else {
+      abort(404);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.single-listing--screenings {
+  position: relative;
+  order: -1;
+  margin: 0 (-$small-spacing) $base-spacing;
+  @media (min-width: $large-screen) {
+    margin: 0;
+    order: 1;
+    margin-top: (-3.25 * $base-spacing);
+    margin-top: calc(#{-3.25 * $base-spacing} + 1px);
+    margin-left: 2 * $base-spacing;
+    flex: 0 1 40%;
+  }
+  &.embed-active {
+    .single-listing--screenings--header,
+    .screenings-table,
+    .screenings-table--announcer,
+    .single-listing--screenings--key {
+      display: none;
+    }
+  }
+}
+
+.listings--screenings--book {
+  text-align: center;
+  display: inline-block;
+  + .listings--screenings--book {
+    margin-left: $small-spacing/2;
+    @media screen and (orientation: portrait) {
+      margin-left: $small-spacing/4
+    }
+  }
+}
+
+
+.single-listing--screenings--header {
+  font-weight: 500;
+  margin-bottom: $small-spacing;
+  padding: 0 $small-spacing;
+}

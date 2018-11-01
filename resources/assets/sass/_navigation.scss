@@ -41,7 +41,8 @@
       margin-right: auto;
     }
     body.film &,
-    body.page &
+    body.page &,
+    body.collection &
      {
       @media screen and (max-width: $medium-screen) {
         width: 4 * $base-spacing;
@@ -51,7 +52,8 @@
   }
   body.home &,
   body.page &,
-  body.film &
+  body.film &,
+  body.collection &
    {
     margin-bottom: -($header-height-landscape);
     // @media screen and (orientation: portrait) {

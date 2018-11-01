@@ -1,0 +1,120 @@
+.section--home-strands {
+  padding: 0 0 2 * $base-spacing;
+}
+
+.strand--grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$small-spacing/2);
+}
+
+.strand--item {
+  &::before {
+    content: '';
+    padding-top: 100%;
+    display: block;
+  }
+  flex: 0 0 100%;
+  @media screen and (min-width: $medium-screen) {
+    flex: 0 0 calc(50% - #{$small-spacing});
+  }
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 calc(25% - #{$small-spacing});
+  }
+  display: block;
+  margin: 0 $small-spacing/2 $small-spacing;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.3);
+  transition: background-color $base-timing $base-duration;
+  &:hover {
+    background-color: rgba(0,0,0,.7);
+    .strand--text {
+      transform: translateY(-50%);
+    }
+    .strand--description {
+      opacity: 1;
+    }
+  }
+}
+
+.strand--image {
+  position: absolute;
+  max-width: none;
+  z-index: -9;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+  object-fit: cover;
+  object-position: center;
+}
+
+.strand--text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  padding: $base-spacing 1.5 * $base-spacing;
+  transform: translateY((-2.25 * $base-spacing));
+  transition: transform $base-duration $base-timing;
+}
+
+.strand--title {
+  color: white;
+  font-size: modular-scale(4);
+  font-weight: 500;
+  margin-bottom: 0;
+  min-height: (2em * $heading-line-height);
+}
+
+.strand--description {
+  opacity: 0;
+  transition: opacity $base-duration $base-timing;
+  color: white;
+  font-size: modular-scale(-1);
+  margin-top: $small-spacing;
+  margin-bottom: 0;
+  &::before {
+    content: '';
+    display: block;
+    width: 4 * $base-spacing;
+    height: $xl-border-width;
+    background-color: white;
+    margin: $small-spacing auto;
+  }
+}
+
+.section-title-secondary {
+  font-family: $heading-font-family;
+  font-style: italic;
+  margin: 1.5 * $base-spacing 0 $base-spacing;
+  text-align: center;
+  font-size: modular-scale(5);
+  font-weight: 400;
+}
+
+.tag--grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $base-spacing (-$small-spacing/2) 0;
+}
+
+.tag--item {
+  background-color: $off-white;
+  color: $base-font-color;
+  font-weight: 500;
+  flex: 0 0 100%;
+  @media screen and (min-width: $medium-screen) {
+    flex: 0 0 calc(50% - #{$small-spacing});
+  }
+  @media screen and (min-width: $large-screen) {
+    flex: 0 0 calc(25% - #{$small-spacing});
+  }
+  display: block;
+  margin: 0 $small-spacing/2 $small-spacing;
+  text-align: center;
+  padding: $small-spacing;
+}

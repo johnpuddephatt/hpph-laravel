@@ -112,7 +112,7 @@
 .home-slider--link {
   float: left;
   padding-right: $base-spacing;
-  margin-bottom: $base-spacing;
+  margin-bottom: 0;
 }
 
 .home-slider--link * {
@@ -127,18 +127,25 @@
   font-weight: 700;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
-  font-size: modular-scale(5);
+  font-size: modular-scale(6);
   line-height: $heading-line-height;
   color: white;
   margin-bottom: 0;
 }
 
-
+.home-slider--preheading {
+  text-transform: uppercase;
+  letter-spacing: 3 * $base-letter-spacing;
+  font-size: modular-scale(-1);
+  margin-bottom: $small-spacing/2;
+}
 
 .home-slider--subheading {
   font-family: $heading-font-family;
   font-size: modular-scale(2);
   font-style: italic;
+  margin-top: 0;
+  border-
   &::after {
     content: '›';
     display: inline-block;

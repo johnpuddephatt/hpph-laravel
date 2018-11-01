@@ -36,15 +36,9 @@
       <div class="site-footer--menu">
         <h2 class="site-footer--header sr-only">Learn more</h2>
         <ul class="site-footer--menu-links">
-          <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
-          <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership">Membership</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/contact">Contact</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/cinema-day">National Lottery Cinema Day</a></li>
-          {{--<li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/jobs">Jobs &amp; volunteering</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/accessibility">Accessibility</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/press">Press</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/terms">Terms &amp; conditions</a></li>
-          <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="/privacy">Privacy policy</a></li> --}}
+          @foreach($footermenu as $page)
+            <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ $page->url}}">{{ $page->title }}</a></li>
+          @endforeach
         </ul>
       </div>
       <div class="site-footer--social">

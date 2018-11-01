@@ -1,0 +1,58 @@
+.section--home-newsletter {
+  padding: 4 * $base-spacing 0;
+  background-image: url(/images/home-newsletter.jpg);
+  background-size: cover;
+  background-position: center 30%;
+  position: relative;
+  text-align: left;
+  color: white;
+  .container {
+    position: relative;
+    z-index: 99;
+  }
+  .section--home-newsletter--text {
+    @extend %padded-box;
+    @media screen and (min-width: $medium-screen) {
+      width: 50%;
+      max-width: 35em;
+      padding-right: 0;
+    }
+  }
+  &::after {
+    content: '';
+    display: block;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+  }
+  .section-title {
+    margin-top: 0;
+    font-size: modular-scale(6);
+    text-align: left;
+    margin-bottom: $base-spacing;
+    font-family: $base-font-family;
+    line-height: 1.1;
+    font-weight: 700;
+    font-style: normal;
+    &::after {
+      content: '';
+      width: 33%;
+      height: $xl-border-width;
+      background-color: white;
+      display: block;
+      margin: $base-spacing 0 $base-spacing;
+    }
+  }
+  p {
+    font-size: modular-scale(2);
+    font-weight: 400;
+    line-height: $heading-line-height;
+    font-family: $heading-font-family;
+    margin-bottom: $base-spacing;
+  }
+
+}

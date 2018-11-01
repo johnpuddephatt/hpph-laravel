@@ -13,13 +13,16 @@ use App\Models\Tag;
 
 class ScreeningController extends Controller
 {
-  public function future() {
-    $screenings = Screening::where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
-    return view('home', compact('screenings'));
-  }
+  // public function future() {
+  //   $screenings = Screening::where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time')->get();
+  //   return view('home', compact('screenings'));
+  // }
 
   public function weekly($week = 1) {
 
+    $filter = Input::get('filter');
+
+    $day_in_seconds = 86400;
     // Check week value is in range
     if($week < 1 || $week > 8) abort(404);
 
@@ -30,18 +33,42 @@ class ScreeningController extends Controller
 
     // First week; collect today screenings separately
     if($week == 1) {
-      $week_commencing = date("Y/m/d",$today + 86400);
-      $screenings_today = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film')->orderBy('date')->orderBy('time')->get();
+      $week_commencing = date("Y/m/d",$today + $day_in_seconds);
+      $screenings_today_query = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film.strands')->orderBy('date')->orderBy('time');
     }
     // Other weeks
     else {
-      $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * 86400);
+      $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * $day_in_seconds);
     }
 
-    $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * 86400);
+    $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * $day_in_seconds);
 
-    $screenings = Screening::whereBetween('date',[$week_commencing,$week_ending])->with('film')->orderBy('date')->orderBy('time')->get();
-    return view('film.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today'));
+    $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])->with('film.strands')->orderBy('date')->orderBy('time');
+
+    // if($filter) {
+    //   $screenings_today_query = $screenings_today_query->whereHas('tags', function ($query) {
+    //     $query->where('slug', 'autism-friendly');
+    //   });
+    // }
+
+    if($filter) {
+      if($week == 1) {
+        $screenings_today_query = $screenings_today_query->whereHas('tags', function ($query) use ($filter) {
+          $query->where('slug', $filter);
+        });
+      }
+      $screenings_query = $screenings_query->whereHas('tags', function ($query) use ($filter) {
+        $query->where('slug', $filter);
+      });
+
+
+    }
+
+
+    $screenings = $screenings_query->get();
+    if($week == 1) $screenings_today = $screenings_today_query->get();
+
+    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today','filter'));
   }
 
   public function addScreening(Request $request) {

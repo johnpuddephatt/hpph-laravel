@@ -5,7 +5,7 @@
   <section class="section section--az-listings">
 
     <h2 class="section-title">What’s On</h2>
-    @include('film.navigation', ['type' => 'weekly'])
+    @include('listings.navigation', ['type' => 'weekly'])
 
     <div class="weekly-screenings--content">
 
@@ -45,7 +45,7 @@
 
 
     </div>
-    @include('film.navigation-footer')
+    @include('listings.navigation-footer')
 
 </section>
 @stop

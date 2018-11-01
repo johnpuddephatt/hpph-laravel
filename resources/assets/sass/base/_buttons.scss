@@ -60,4 +60,9 @@
     text-transform: none;
     padding: $base-spacing/3 $small-spacing/2;
   }
+
+  &__white {
+    border-color: white;
+    color: white;
+  }
 }

@@ -9,6 +9,9 @@ html {
   @media screen and (min-width: $xl-screen) {
     font-size: 0.9375em;
   }
+  @media screen and (min-width: $xxl-screen) {
+    font-size: 1em;
+  }
 }
 
 
@@ -88,6 +91,7 @@ sup {
 .section-title {
   font-family: $heading-font-family;
   font-weight: 400;
+  color: inherit;
   font-size: modular-scale(6);
   @media screen and (min-width: $large-screen) {
     font-size: modular-scale(7);
@@ -104,14 +108,14 @@ sup {
   // text-shadow: -2px -3px white, -2px 3px white, 2px -3px white, 2px 3px white;
   background-size: 1px 1.25em;
   box-shadow:
-    inset 0 0.05em white,
-    inset 0 -0.15em $yellow;
+    inset 0 0.05rem white,
+    inset 0 -0.2rem $yellow;
 }
 
 %underline_simple {
   background-size: 1px 1.25em;
   box-shadow:
-    inset 0 0.05em transparent,
-    inset 0 -0.15em $yellow;
+    inset 0 0.05rem transparent,
+    inset 0 -0.2rem $yellow;
 }
 
