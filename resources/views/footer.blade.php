@@ -38,7 +38,7 @@
         @if(isset($footermenu))
           <ul class="site-footer--menu-links">
             @foreach($footermenu as $page)
-              <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ $page->url}}">{{ $page->title }}</a></li>
+              <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ url($page->slug) }}">{{ $page->title }}</a></li>
             @endforeach
           </ul>
         @endif
