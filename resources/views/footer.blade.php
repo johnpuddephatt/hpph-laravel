@@ -35,11 +35,13 @@
       </div>
       <div class="site-footer--menu">
         <h2 class="site-footer--header sr-only">Learn more</h2>
-        <ul class="site-footer--menu-links">
-          @foreach($footermenu as $page)
-            <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ $page->url}}">{{ $page->title }}</a></li>
-          @endforeach
-        </ul>
+        @if($footermenu)
+          <ul class="site-footer--menu-links">
+            @foreach($footermenu as $page)
+              <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ $page->url}}">{{ $page->title }}</a></li>
+            @endforeach
+          </ul>
+        @endif
       </div>
       <div class="site-footer--social">
         <h2 class="site-footer--header sr-only">Social</h2>
