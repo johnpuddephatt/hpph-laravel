@@ -113,6 +113,8 @@ return [
     'cloudinary' => env('CLOUDINARY'),
     'analytics' => env('GOOGLE_ANALYTICS'),
 
+    'homepage_strands' => env('HOMEPAGE_STRANDS', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

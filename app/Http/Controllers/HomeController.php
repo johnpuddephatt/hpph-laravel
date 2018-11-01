@@ -54,8 +54,8 @@ class HomeController extends Controller
     /*
     ** STRANDS
     */
-
-    $strands = Strand::all();
+    $strand_ids = explode(',', config('app.homepage_strands'));
+    $strands = Strand::whereIn('id',$strand_ids)->get();
 
     return view('landing', compact('slides','screenings','day', 'screenings_today','strands'));
   }

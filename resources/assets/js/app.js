@@ -161,21 +161,21 @@ if(screeningTable && screeningAnnouncer) {
 /*
 ** TESTING embedding Jack Roe in pages
 **/
+// @todo: only do this for Jack Roe links. Other booking systems may not work well embedded, e.g. film city
 
-
-function bookingFormEmbed(e) {
-  e.preventDefault();
-  var ifrm = document.createElement("iframe");
-   ifrm.setAttribute("src", e.target.getAttribute('href') + '&nodecorators=true&tapos_id=r3b5g0ehmp5aypbnksmmjkyn');
-   ifrm.style.width = "100%";
-   ifrm.setAttribute("id", "jack-roe-box-office");
-   ifrm.setAttribute("frameBorder",0);
-   var screeningsSection = document.querySelector('.single-listing--screenings');
-   screeningsSection.appendChild(ifrm);
-   screeningsSection.classList.add('embed-active');
-   iframeResizer({
-       log:true
-   });}
+// function bookingFormEmbed(e) {
+//   e.preventDefault();
+//   var ifrm = document.createElement("iframe");
+//    ifrm.setAttribute("src", e.target.getAttribute('href') + '&nodecorators=true&tapos_id=r3b5g0ehmp5aypbnksmmjkyn');
+//    ifrm.style.width = "100%";
+//    ifrm.setAttribute("id", "jack-roe-box-office");
+//    ifrm.setAttribute("frameBorder",0);
+//    var screeningsSection = document.querySelector('.single-listing--screenings');
+//    screeningsSection.appendChild(ifrm);
+//    screeningsSection.classList.add('embed-active');
+//    iframeResizer({
+//        log:true
+//    });}
 
 
 
