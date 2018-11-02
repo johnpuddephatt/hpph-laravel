@@ -20,6 +20,7 @@ class SeasonController extends Controller
       $screenings = $screenings->merge($film->screenings);
     }
     // $children = $children->unique(); // remove the duplicates
+    $screenings = $screenings->orderBy('date')->orderBy('time');
     if($collection) {
       return view('film.collection', compact('collection','screenings'));
     }
