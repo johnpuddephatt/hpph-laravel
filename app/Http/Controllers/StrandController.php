@@ -22,7 +22,7 @@ class StrandController extends Controller
       $screenings = $screenings->merge($film->screenings);
     }
 
-    $screenings = $screenings->orderBy('date')->orderBy('time');
+    $screenings = $screenings->sortBy('date')->sortBy('time');
 
     // $children = $children->unique(); // remove the duplicates
 
