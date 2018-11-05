@@ -111,6 +111,8 @@ return [
     'instagram' => env('INSTAGRAM_USERNAME'),
     'flickr' => env('FLICKR_USERNAME'),
     'cloudinary' => env('CLOUDINARY'),
+    'cloudinary_upload_preset' => env('CLOUDINARY_UPLOAD_PRESET'),
+
     'analytics' => env('GOOGLE_ANALYTICS'),
 
     'homepage_strands' => env('HOMEPAGE_STRANDS', ''),
