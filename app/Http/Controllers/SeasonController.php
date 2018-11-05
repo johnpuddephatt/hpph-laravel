@@ -20,7 +20,7 @@ class SeasonController extends Controller
     $films = Film::whereHas('seasons', function($query) use($collection) {
       $query->where('season_id', $collection->id);
     })->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
+      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('time');
     }])->get();
 
     $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
@@ -28,7 +28,7 @@ class SeasonController extends Controller
       $screenings = $screenings->merge($film->screenings);
     }
     // $children = $children->unique(); // remove the duplicates
-    // $screenings = $screenings->sortBy('time')->sortBy('date');
+    $screenings = $screenings->sortBy('date');
     if($collection) {
       return view('film.collection', compact('collection','screenings'));
     }
