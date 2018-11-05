@@ -147,6 +147,7 @@
   margin-top: 0;
   &::after {
     content: '›';
+    font-style: normal;
     display: inline-block;
     vertical-align: sub;
     color: $yellow;

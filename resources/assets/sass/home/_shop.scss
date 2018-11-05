@@ -100,7 +100,7 @@
   font-style: italic;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
-  font-size: modular-scale(3);
+  font-size: modular-scale(4);
   color: white;
   margin: 0;
 }
@@ -108,10 +108,8 @@
 .shop--link--description {
   color: white;
   margin-bottom: 0;
-  font-family: $heading-font-family;
-  font-style: italic;
-  font-size: modular-scale(1);
-  font-weight: 400;
+  font-size: modular-scale(0);
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   &::before {
     content: '';

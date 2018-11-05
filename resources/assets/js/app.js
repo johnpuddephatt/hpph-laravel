@@ -246,11 +246,14 @@ window.onPlayerReady = function(event) {
       player.playVideo();
       trailerButton.innerText = 'Close trailer';
       trailerButton.blur();
+      trailerButton.classList.remove('play');
       playing = true;
     }
     else {
       player.stopVideo();
-      trailerButton.innerText = 'Play trailer';
+      trailerButton.innerText = 'Watch trailer ';
+      trailerButton.classList.add('play');
+      trailerButton.blur();
       playing = false;
     }
 

@@ -1,4 +1,5 @@
 .single-listing--trailer {
+  position: relative;
   &::after {
     content: '';
     background-color: rgba(0,0,0,.85);
@@ -24,7 +25,7 @@
     }
     .trailer-button {
       position: fixed;
-      bottom: $small-spacing;
+      bottom: $small-spacing/2;
       z-index: 9999;
     }
   }
@@ -41,13 +42,35 @@
 }
 
 .trailer-button {
+  color: white;
+  text-transform: lowercase;
+  font-weight: 700;
   position: absolute;
+  font-size: modular-scale(1);
   z-index: 9;
-  left: 50%;
-  bottom: $small-spacing;
-  transform: translateX(-50%);
+  right: $small-spacing;
+  padding: 0;
+  &:hover {
+    background-color: transparent;
+    @extend %underline_simple;
+  }
+  @media screen and (min-width: $medium-screen) {
+    right: $base-spacing;
+  }
+  @media screen and (min-width: $large-screen) {
+    right: 1.5 * $base-spacing;
+  }
+  bottom: $base-spacing;
   visibility: hidden;
   &.loaded {
     visibility: visible;
+  }
+  &.play::after {
+    margin-left: $small-spacing/2;
+    content: '▶';
+    display: inline-block;
+    color: $yellow;
+    font-size: modular-scale(1);
+    vertical-align: middle;
   }
 }
