@@ -21,20 +21,20 @@ class TagController extends Controller
     $pseudoTagArray = ['audio-description'];
     $collection = Tag::where('slug', $slug)->first();
 
+    if(in_array($slug,$pseudoTagArray)) {
+      $films = Film::where(str_replace('-', '_', $slug),true)->with('screenings')->get();
+      $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
+      foreach ($films as $film) {
+        $screenings = $screenings->merge($film->screenings);
+      }
+    }
+
     if($collection) {
-      if(in_array($slug,$pseudoTagArray)) {
-        $films = Film::where(str_replace('-', '_', $slug),true)->with('screenings')->get();
-        $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
-        foreach ($films as $film) {
-          $screenings = $screenings->merge($film->screenings);
-        }
-      }
-      else {
-        $screenings = $collection->screenings()->get();
-      }
+      $screenings = $collection->screenings()->get();
       $screenings = $screenings->sortBy('time')->sortBy('date');
       return view('film.collection', compact('collection','screenings'));
-    } else {
+    }
+    else {
       abort(404);
     }
   }

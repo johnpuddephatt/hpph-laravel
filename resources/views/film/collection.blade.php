@@ -35,7 +35,7 @@
         @endforeach
       @else
         <div class="alert">
-          There are no {{ $collection->title }} screenings currently scheduled.
+          There are no {{ strtolower($collection->title) }} screenings currently scheduled.
         </div>
       @endif
     </div>
