@@ -10,8 +10,10 @@
               'alt' => "Image for " . $strand->title,
               'img' => isset($strand->thumb)? url($strand->thumb) : '/images/page-header.jpg',
               'class' => "strand--image",
-              'height' => "600",
+              'height' => "400",
               'width' => "400",
+              'sizes' => "(min-width: 900px) 22.5vw, (min-width: 600px) 45vw, 100vw"
+
             ])
             <div class="strand--text">
               <h3 class="strand--title">{{$strand->title}}</h3>
