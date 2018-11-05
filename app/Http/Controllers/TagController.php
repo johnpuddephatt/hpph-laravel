@@ -17,6 +17,7 @@ class TagController extends Controller
 {
   public function single($slug) {
 
+    $collection = Tag::where('slug', $slug)->first();
     // Pseudo-tags: e.g. Audio description
     $pseudoTagArray = ['audio-description'];
 
@@ -28,16 +29,13 @@ class TagController extends Controller
       }
       return view('film.collection', compact('collection','screenings'));
     }
-    else {
-      $collection = Tag::where('slug', $slug)->first();
-      if($collection) {
+    elseif($collection) {
         $screenings = $collection->screenings()->get();
         $screenings = $screenings->sortBy('time')->sortBy('date');
         return view('film.collection', compact('collection','screenings'));
-      }
-      else {
-        abort(404);
-      }
+    }
+    else {
+      abort(404);
     }
   }
 }
