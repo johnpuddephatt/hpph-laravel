@@ -22,7 +22,7 @@ class TagController extends Controller
     $pseudoTagArray = ['audio-description'];
 
     if(in_array($slug,$pseudoTagArray)) {
-      $film_ids = Film::where(str_replace('-', '_', $slug),true)->pluck(id);
+      $film_ids = Film::where(str_replace('-', '_', $slug),true)->pluck('id');
       $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
       return view('film.collection', compact('collection','screenings'));
     }
