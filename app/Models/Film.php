@@ -21,11 +21,12 @@
       // protected $primaryKey = 'id';
       public $timestamps = true;
       // protected $guarded = ['id'];
-      protected $fillable = ['title','subtitle','slug','certificate','thumb','description','short_description','runtime','trailer_duration','custom_coming_soon','buy_url','director','starring','country','language','f_rating','year','association','format','tickets','alt_language_title','free','audio_description','reviews'];
+      protected $fillable = ['title','subtitle','slug','certificate','thumb','trailer','description','short_description','runtime','trailer_duration','custom_coming_soon','buy_url','director','starring','country','language','f_rating','year','association','format','tickets','alt_language_title','free','audio_description','reviews'];
       // protected $hidden = [];
       // protected $dates = [];
       protected $casts = [
         'reviews' => 'object',
+        'trailer' => 'object'
       ];
 
       /*

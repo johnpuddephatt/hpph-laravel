@@ -221,6 +221,14 @@ class FilmCrudController extends CrudController
             'tab' => 'Overview'
         ];
 
+        $trailerArray = [
+          'name' => 'trailer',
+          'type' => 'video',
+          'label' => 'Trailer',
+          'hint' => 'Link to YouTube or Vimeo',
+          'tab' => 'Overview'
+        ];
+
         $dateCol = [
           'name' => 'created_at',
           'label' => 'Date created',
@@ -263,7 +271,7 @@ class FilmCrudController extends CrudController
           'tab' => 'Screenings'
         ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
         $this->crud->addColumns([$titleArray,$dateCol]);
 

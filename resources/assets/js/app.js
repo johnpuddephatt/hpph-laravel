@@ -198,6 +198,73 @@ navTrigger.addEventListener('click',(e)=>{
 })
 
 
+/*
+** Trailer on film pages
+*/
+var trailerContainer = document.querySelector('.single-listing--trailer');
+var trailerIframe = document.querySelector('.single-listing--trailer--iframe');
+var trailerButton = document.querySelector('.trailer-button');
+if(trailerButton) {
+  var trailerID = trailerButton.dataset.iframe;
+}
+if(trailerID) {
+  // 1. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "//www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  if(window.innerHeight > window.innerWidth) {
+    trailerIframe.style.width = '100%';
+  }
+  else {
+    trailerIframe.style.width = '75%';
+  }
+  trailerIframe.style.height = (trailerIframe.clientWidth) * (9/16) + 'px';
+
+  // 2. This function creates an <iframe> (and YouTube player) after the API code downloads.
+  window.onYouTubeIframeAPIReady = function() {
+    console.log('api ready');
+    player = new YT.Player(trailerIframe, {
+      height: '390',
+      width: '640',
+      videoId: trailerID,
+      events: {
+        'onReady': onPlayerReady,
+      }
+    });
+  }
+
+}
+
+// 4. The API will call this function when the video player is ready.
+window.onPlayerReady = function(event) {
+  var playing = false;
+  trailerButton.addEventListener('click',()=>{
+    var trailerIframe = trailerContainer.querySelector('.single-listing--trailer--iframe');
+    trailerContainer.classList.toggle('lights-out');
+    if(!playing) {
+      player.playVideo();
+      trailerButton.innerText = 'Close trailer';
+      trailerButton.blur();
+      playing = true;
+    }
+    else {
+      player.stopVideo();
+      trailerButton.innerText = 'Play trailer';
+      playing = false;
+    }
+
+  });
+  trailerButton.classList.add('loaded');
+
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+
+
+
 
 /*
 ** UA sniffing to prevent judder due to navbar movement on iOS

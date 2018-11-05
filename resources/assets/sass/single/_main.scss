@@ -30,6 +30,12 @@
   object-position: center;
 }
 
+.single-listing--header--trailer {
+  position: absolute;
+  top: 3em;
+  left: 3em;
+}
+
 .single-listing--heading,
 .single-listing--content {
   display: flex;

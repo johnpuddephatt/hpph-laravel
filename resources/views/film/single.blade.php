@@ -16,7 +16,11 @@
       'sizes' => "(orientation: portrait) 150vw, 100vw",
       'modes' => "c_fill,g_auto,f_auto"
     ])
+    @if($film->trailer)
+        @include('film.trailer')
+    @endif
   </div>
+
 
   <div class="container single-listing--heading">
     <div class="single-listing--text">

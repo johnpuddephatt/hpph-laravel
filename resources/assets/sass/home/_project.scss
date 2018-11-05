@@ -67,7 +67,10 @@
   }
   .section--home-project--link {
     display: inline-block;
-    color: $red;
+    color: white;
+    @media screen and (min-width: $medium-screen) {
+      color: $red;
+    }
     margin-top: $base-spacing;
     font-size: modular-scale(1);
     font-weight: 700;
