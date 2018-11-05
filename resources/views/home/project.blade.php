@@ -1,5 +1,11 @@
 <section class="section section--home-project">
-  <img src="/images/home-project.jpg" class="section--home-project--image" alt="" />
+  @include('utils.cloudinary', [
+    'alt' => "",
+    'img' => "/images/home-project.jpg",
+    'class' => "section--home-project--image",
+    'height' => "250",
+    'width' => "750",
+  ])
   <div class="container">
     <div class="section section--home-project--text">
       <h2 class="section-title">The Picture House Project</h2>

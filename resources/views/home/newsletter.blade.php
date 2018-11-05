@@ -2,9 +2,9 @@
     @include('utils.cloudinary', [
       'alt' => "",
       'img' => "/images/home-newsletter.jpg",
-      'class' => "section--home-membership--image",
-      'height' => "750",
-      'width' => "300",
+      'class' => "section--home-newsletter--image",
+      'height' => "250",
+      'width' => "750",
     ])
     <div class="container container__narrow">
     <div class="section--home-newsletter--text">

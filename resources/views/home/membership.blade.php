@@ -3,8 +3,8 @@
     'alt' => "",
     'img' => "/images/home-membership.jpg",
     'class' => "section--home-membership--image",
-    'height' => "750",
-    'width' => "300",
+    'height' => "250",
+    'width' => "750",
   ])
   <div class="container">
     <a href="/membership">
