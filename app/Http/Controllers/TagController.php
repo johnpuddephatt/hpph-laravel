@@ -19,7 +19,6 @@ class TagController extends Controller
 
     // Pseudo-tags: e.g. Audio description
     $pseudoTagArray = ['audio-description'];
-    $collection = Tag::where('slug', $slug)->first();
 
     if(in_array($slug,$pseudoTagArray)) {
       $films = Film::where(str_replace('-', '_', $slug),true)->with('screenings')->get();
@@ -27,15 +26,18 @@ class TagController extends Controller
       foreach ($films as $film) {
         $screenings = $screenings->merge($film->screenings);
       }
-    }
-
-    if($collection) {
-      $screenings = $collection->screenings()->get();
-      $screenings = $screenings->sortBy('time')->sortBy('date');
       return view('film.collection', compact('collection','screenings'));
     }
     else {
-      abort(404);
+      $collection = Tag::where('slug', $slug)->first();
+      if($collection) {
+        $screenings = $collection->screenings()->get();
+        $screenings = $screenings->sortBy('time')->sortBy('date');
+        return view('film.collection', compact('collection','screenings'));
+      }
+      else {
+        abort(404);
+      }
     }
   }
 }
