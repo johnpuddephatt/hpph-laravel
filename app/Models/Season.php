@@ -64,6 +64,7 @@ class Season extends Model
     {
       return $this->belongsToMany('App\Models\Film');
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

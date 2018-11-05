@@ -15,20 +15,14 @@ use App\Models\Film;
 class SeasonController extends Controller
 {
   public function single($slug) {
-    $collection = Season::where('slug', $slug)->with('films.screenings')->first();
+    $collection = Season::where('slug', $slug)->first();
 
-    $films = Film::whereHas('seasons', function($query) use($collection) {
+    $film_ids = Film::whereHas('seasons', function($query) use($collection) {
       $query->where('season_id', $collection->id);
-    })->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('time');
-    }])->get();
+    })->pluck('id');
 
-    $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
-    foreach ($films as $film) {
-      $screenings = $screenings->merge($film->screenings);
-    }
-    // $children = $children->unique(); // remove the duplicates
-    $screenings = $screenings->sortBy('time')->sortBy('date');
+    $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
+
     if($collection) {
       return view('film.collection', compact('collection','screenings'));
     }

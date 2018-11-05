@@ -23,9 +23,9 @@ class Screening extends Model
     // protected $hidden = [];
     protected $dates = ['date'];
     protected $dateFormat = 'Y/m/d';
-    protected $casts = [
-      'date' => 'date',
-    ];
+    // protected $casts = [
+    //   'date' => 'date',
+    // ];
     /*
     |-----------------------------------------------------  ---------------------
     | FUNCTIONS

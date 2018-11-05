@@ -16,10 +16,7 @@ class StrandController extends Controller
 {
   public function single($slug) {
     $collection = Strand::where('slug', $slug)->with('films.screenings')->first();
-    // $films = Film::where('season',$collection->id)->with('screenings')->get();
-    // ->with(['screenings' => function ($query) {
-    //   $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    // }])
+
     $films = Film::whereHas('strands', function($query) use($collection) {
       $query->where('strand_id', $collection->id);
     })->with(['screenings' => function ($query) {
