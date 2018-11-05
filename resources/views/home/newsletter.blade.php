@@ -1,5 +1,12 @@
 <section class="section section--home-newsletter">
-  <div class="container container__narrow">
+    @include('utils.cloudinary', [
+      'alt' => "",
+      'img' => "/images/home-newsletter.jpg",
+      'class' => "section--home-membership--image",
+      'height' => "750",
+      'width' => "300",
+    ])
+    <div class="container container__narrow">
     <div class="section--home-newsletter--text">
       <h2 class="section-title">Never miss a screening</h2>
       <p>Sign up to our weekly listings newsletter to stay on top of our screenings.</p>

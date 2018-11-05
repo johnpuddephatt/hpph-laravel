@@ -4,6 +4,9 @@
   margin: $small-spacing 0;
   font-weight: 400;
   font-size: modular-scale(-1);
+  border: $base-border;
+  border-left: 2 * $xl-border-width solid $action-color;
+
   &__warning {
     text-align: center;
     padding: 2 * $base-spacing;

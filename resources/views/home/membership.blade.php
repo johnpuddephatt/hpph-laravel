@@ -1,4 +1,11 @@
 <section class="section section--home-membership">
+  @include('utils.cloudinary', [
+    'alt' => "",
+    'img' => "/images/home-membership.jpg",
+    'class' => "section--home-membership--image",
+    'height' => "750",
+    'width' => "300",
+  ])
   <div class="container">
     <a href="/membership">
       <h2 class="section-title">Become a Friend of the Hyde Park Picture House</h2>

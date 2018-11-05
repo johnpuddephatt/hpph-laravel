@@ -1,9 +1,7 @@
 .section--home-newsletter {
   padding: 4 * $base-spacing 0;
-  background-image: url(/images/home-newsletter.jpg);
-  background-size: cover;
-  background-position: center 30%;
   position: relative;
+  overflow: hidden;
   text-align: left;
   color: white;
   .container {
@@ -17,6 +15,16 @@
       max-width: 35em;
       padding-right: 0;
     }
+  }
+  &--image {
+    position: absolute;
+    max-width: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center center;
   }
   &::after {
     content: '';

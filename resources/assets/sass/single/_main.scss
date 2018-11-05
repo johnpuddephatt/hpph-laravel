@@ -144,6 +144,7 @@
   margin-top: $base-spacing;
   font-size: modular-scale(-1);
   border: $base-border;
+  border-color: transparentize($black,.85);
   position: relative;
 
   &::after {

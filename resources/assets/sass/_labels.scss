@@ -5,11 +5,12 @@
   font-weight: 500;
   text-transform: uppercase;
   border: $base-border;
+  border-color: transparentize($black,.85);
   color: $base-font-color;
   -webkit-font-smoothing: antialiased;
   &__dark-bg {
     color: white;
-    
+
   }
   // &--tuesday-wonder {
   //   background-color: $tuesday-wonder;

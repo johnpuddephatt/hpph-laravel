@@ -1,4 +1,5 @@
 <section class="section section--home-project">
+  <img src="/images/home-project.jpg" class="section--home-project--image" alt="" />
   <div class="container">
     <div class="section section--home-project--text">
       <h2 class="section-title">The Picture House Project</h2>
