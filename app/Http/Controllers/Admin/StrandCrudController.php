@@ -159,7 +159,6 @@ class StrandCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
-        $request['slug'] = str_slug($request->title);
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
