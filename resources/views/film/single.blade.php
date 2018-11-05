@@ -68,21 +68,21 @@
         @if($film->reviews)
           @foreach($film->reviews as $review)
             <div class="single-listing--reviews--review">
-            @if($review->url)<a href="{{ $review->url }}" _target="blank">@endif
-            @if($review->text)<div class="single-listing--reviews--review--text">“{{ $review->text }}”</div>@endif
-            @if($review->rating)
+            @if(!empty($review->url))<a href="{{ $review->url }}" _target="blank">@endif
+            @if(!empty($review->text))<div class="single-listing--reviews--review--text">“{{ $review->text }}”</div>@endif
+            @if(!empty($review->rating))
               <div class="single-listing--reviews--review--rating">
                 @for ($i = 0; $i < $review->rating; $i++)
                   &starf;
                 @endfor
               </div>
             @endif
-            @if($review->author)
+            @if(!empty($review->author))
               <div class="single-listing--reviews--review--author">
                 {{ $review->author }}
               </div>
             @endif
-            @if($review->url)</a>@endif
+            @if(!empty($review->url))</a>@endif
             </div>
           @endforeach
         @endif
