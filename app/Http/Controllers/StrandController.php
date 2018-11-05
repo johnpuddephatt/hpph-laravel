@@ -17,20 +17,11 @@ class StrandController extends Controller
   public function single($slug) {
     $collection = Strand::where('slug', $slug)->with('films.screenings')->first();
 
-    $films = Film::whereHas('strands', function($query) use($collection) {
+    $film_ids = Film::whereHas('strands', function($query) use($collection) {
       $query->where('strand_id', $collection->id);
-    })->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    }])->get();
+    })->pluck('id');
 
-    $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
-
-    foreach ($films as $film) {
-      $screenings = $screenings->merge($film->screenings);
-    }
-
-    $screenings = $screenings->sortBy('time')->sortBy('date');
-    // $children = $children->unique(); // remove the duplicates
+    $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
 
     if($collection) {
       return view('film.collection', compact('collection','screenings'));

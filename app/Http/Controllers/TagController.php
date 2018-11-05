@@ -32,8 +32,8 @@ class TagController extends Controller
       return view('film.collection', compact('collection','screenings'));
     }
     elseif($collection) {
-        $screenings = $collection->screenings()->get();
-        $screenings = $screenings->sortBy('time')->sortBy('date');
+        $screenings = $collection->screenings()->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
+        $screenings = $screenings;
         return view('film.collection', compact('collection','screenings'));
     }
     else {
