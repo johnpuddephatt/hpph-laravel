@@ -22,13 +22,8 @@ class TagController extends Controller
     $pseudoTagArray = ['audio-description'];
 
     if(in_array($slug,$pseudoTagArray)) {
-      $films = Film::where(str_replace('-', '_', $slug),true)->with(['screenings' => function ($query) {
-        $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-      }])->get();
-      $screenings = new Collection; // Illuminate\Database\Eloquent\Collection
-      foreach ($films as $film) {
-        $screenings = $screenings->merge($film->screenings);
-      }
+      $film_ids = Film::where(str_replace('-', '_', $slug),true)->pluck(id);
+      $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
       return view('film.collection', compact('collection','screenings'));
     }
     elseif($collection) {
