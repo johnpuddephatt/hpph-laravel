@@ -75,7 +75,7 @@
 
       // Image uploading
         const cloudName_{{ $field['name'] }} = '{{ config('app.cloudinary')}}';
-        const unsignedUploadPreset = 'hxep6y90';
+        const unsignedUploadPreset = '{{ config('app.cloudinary_upload_preset')}}';
 
         function dragenter() {
           e.stopPropagation();
@@ -144,7 +144,7 @@
               var response = JSON.parse(xhr.responseText);
               alert(response.error.message);
               document.querySelector('.progress-container').remove();
-              editor.enable(true);
+              quill.enable(true);
             }
           };
 
