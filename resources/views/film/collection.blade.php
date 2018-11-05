@@ -31,6 +31,7 @@
     <div class="single-listing--related--inner">
       @if($screenings->count())
         @foreach ($screenings as $screening)
+          {{$screening->date}}
           @include('screening.weekly-item', ['show_date' => true])
         @endforeach
       @else

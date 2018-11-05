@@ -20,7 +20,7 @@ class ScreeningController extends Controller
 
   public function weekly($week = 1) {
 
-    $filter = Input::get('filter');
+    $tag_filter = Input::get('tag_filter');
 
     $day_in_seconds = 86400;
     // Check week value is in range
@@ -41,30 +41,23 @@ class ScreeningController extends Controller
       $week_commencing = date("Y/m/d",time() + (($week - 1) * 7) * $day_in_seconds);
     }
 
+    // For all weeks
     $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * $day_in_seconds);
-
     $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])->with('film.strands')->orderBy('date')->orderBy('time');
 
-    // if($filter) {
-    //   $screenings_today_query = $screenings_today_query->whereHas('tags', function ($query) {
-    //     $query->where('slug', 'autism-friendly');
-    //   });
-    // }
-
-    if($filter) {
+    // Apply the filter(s)
+    if($tag_filter) {
       if($week == 1) {
-        $screenings_today_query = $screenings_today_query->whereHas('tags', function ($query) use ($filter) {
-          $query->where('slug', $filter);
+        $screenings_today_query = $screenings_today_query->whereHas('tags', function ($query) use ($tag_filter) {
+          $query->where('slug', $tag_filter);
         });
       }
-      $screenings_query = $screenings_query->whereHas('tags', function ($query) use ($filter) {
-        $query->where('slug', $filter);
+      $screenings_query = $screenings_query->whereHas('tags', function ($query) use ($tag_filter) {
+        $query->where('slug', $tag_filter);
       });
-
-
     }
 
-
+    // Run the queries
     $screenings = $screenings_query->get();
     if($week == 1) $screenings_today = $screenings_today_query->get();
 
