@@ -188,10 +188,14 @@
 .single-listing--strand-heading,
 .single-listing--season-heading, {
   text-transform: uppercase;
-  margin-bottom: $small-spacing/4;
+  margin-bottom: $small-spacing;
   font-weight: 500;
 }
 
+.single-listing--strand-callout,
+.single-listing--season-callout {
+  margin-top: $small-spacing/2;
+}
 
 
 .single-listing--text--footer {

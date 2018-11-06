@@ -116,6 +116,7 @@ return [
     'analytics' => env('GOOGLE_ANALYTICS'),
 
     'homepage_strands' => env('HOMEPAGE_STRANDS', ''),
+    'homepage_tags' => env('HOMEPAGE_TAGS', ''),
 
     /*
     |--------------------------------------------------------------------------

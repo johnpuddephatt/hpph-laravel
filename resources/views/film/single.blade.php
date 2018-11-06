@@ -54,14 +54,16 @@
       @foreach($film->strands as $strand)
         <a href="/strand/{{ $strand->slug}}" class="single-listing--strand-details
           @if($strand->color && (hexdec(substr($strand->color,1,2)) + hexdec(substr($strand->color,3,2)) + hexdec(substr($strand->color,5,2))) < 300 ) dark-bg @endif" style="background-color: {{ $strand->color }}">
-          <h3 class="single-listing--strand-heading">{{$strand->title}}</h3>
-          <div>This is a {{ $strand->title }} screening – {!! $strand->short_description !!}</div>
+          <h3 class="single-listing--strand-heading">A {{$strand->title}} screening</h3>
+          <div>{!! $strand->short_description !!}</div>
+          <div class="single-listing--strand-callout"> View all {{ $strand->title}} screenings</div>
         </a>
       @endforeach
       @foreach($film->seasons()->get() as $season)
         <a href="/season/{{ $season->slug}}" class="single-listing--season-details">
-          <h3 class="single-listing--season-heading">{{$season->title}}</h3>
-          <div>Showing as part of {{ $season->title }} — {!! $season->short_description !!}</div>
+          <h3 class="single-listing--season-heading">Showing as part of {{$season->title}}</h3>
+          <div>{!! $season->short_description !!}</div>
+          <div class="single-listing--season-callout"> View all {{ $season->title}} screenings</div>
         </a>
       @endforeach
       <div class="single-listing--reviews">

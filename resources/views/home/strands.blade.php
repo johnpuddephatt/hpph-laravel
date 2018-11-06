@@ -24,10 +24,9 @@
       </div>
       <h3 class="section-title-secondary">Specialist Screenings</h3>
       <div class="tag--grid">
-        <a href="/tag/captioned/" class="tag--item">Captioned</a>
-        <a href="/tag/audio-description" class="tag--item">Audio described</a>
-        <a href="/tag/dementia-friendly" class="tag--item">Dementia friendly</a>
-        <a href="/tag/bring-your-own-baby " class="tag--item">Bring your own baby</a>
+        @foreach ($tags as $tag)
+          <a href="/tag/{{ $tag->slug }}/" class="tag--item">{{ $tag->title }}</a>
+        @endforeach
       </div>
     </div>
   </div>

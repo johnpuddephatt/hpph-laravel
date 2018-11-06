@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Models\Screening;
 use App\Models\Slide;
 use App\Models\Strand;
+use App\Models\Tag;
 
 class HomeController extends Controller
 {
@@ -57,7 +58,14 @@ class HomeController extends Controller
     $strand_ids = explode(',', config('app.homepage_strands'));
     $strands = Strand::whereIn('id',$strand_ids)->get();
 
-    return view('landing', compact('slides','screenings','day', 'screenings_today','strands'));
+
+    /*
+    ** TAGS
+    */
+    $tag_ids = explode(',', config('app.homepage_tags'));
+    $tags = Tag::whereIn('id',$tag_ids)->get();
+
+    return view('landing', compact('slides','screenings','day', 'screenings_today','strands','tags'));
   }
 
 }
