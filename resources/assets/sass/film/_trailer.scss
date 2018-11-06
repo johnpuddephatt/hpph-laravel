@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     opacity: 0;
-    z-index: 99;
+    z-index: 999;
     transition: opacity 5 * $base-duration;
   }
   &.lights-out {
@@ -19,14 +19,14 @@
     .single-listing--trailer--iframe {
       transform: translate(-50%,-50%);
       opacity: 1;
-      z-index: 999;
+      z-index: 9999;
       transition: opacity 5 * $base-duration 5 * $base-duration, transform 5 * $base-duration 5 * $base-duration;
 
     }
     .trailer-button {
       position: fixed;
       bottom: $small-spacing/2;
-      z-index: 9999;
+      z-index: 99999;
     }
   }
 }
@@ -50,6 +50,7 @@
   z-index: 9;
   right: $small-spacing;
   padding: 0;
+  text-shadow: 0 0 2em $black;
   &:hover {
     background-color: transparent;
     @extend %underline_simple;
@@ -67,7 +68,7 @@
   }
   &.play::after {
     margin-left: $small-spacing/2;
-    content: '▶';
+    content: '\25BA';
     display: inline-block;
     color: $yellow;
     font-size: modular-scale(1);

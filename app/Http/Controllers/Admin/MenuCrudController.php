@@ -42,7 +42,7 @@ class MenuCrudController extends CrudController
           'type' => 'menu',
           'attribute' => 'title',
           'entity_singular' => 'entry', // used on the "Add X" button
-          'max' => 4, // maximum rows allowed in the table
+          'max' => -1, // maximum rows allowed in the table
           'min' => 0, // minimum rows allowed in the table
         ];
 

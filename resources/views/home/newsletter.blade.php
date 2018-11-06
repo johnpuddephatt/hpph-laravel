@@ -1,7 +1,7 @@
 <section class="section section--home-newsletter">
     @include('utils.cloudinary', [
       'alt' => "",
-      'img' => "/images/home-newsletter.jpg",
+      'img' => "/images/home-newsletter-2.jpg",
       'class' => "section--home-newsletter--image",
       'height' => "250",
       'width' => "750",
