@@ -49,10 +49,16 @@ class TagCrudController extends CrudController
           'label' => 'Abbreviation',
           'type' => 'text',
         ];
+        $shortDescriptionArray = [
+          'name' => 'short_description',
+          'label' => 'Short description',
+          'type' => 'textarea',
+        ];
         $descriptionArray = [
           'name' => 'description',
           'label' => 'Description',
-          'type' => 'textarea',
+          'type' => 'quill',
+          'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
         ];
         $colorArray = [
           'name' => 'color',
@@ -61,8 +67,8 @@ class TagCrudController extends CrudController
         ];
 
 
-        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$descriptionArray,$colorArray], 'both');
-        $this->crud->addColumns([$titleArray,$abbreviationArray]);
+        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$shortDescriptionArray,$descriptionArray,$colorArray], 'both');
+        $this->crud->addColumns([$titleArray,$abbreviationArray,$shortDescriptionArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

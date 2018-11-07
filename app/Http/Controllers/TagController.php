@@ -19,10 +19,11 @@ class TagController extends Controller
 
     $collection = Tag::where('slug', $slug)->first();
     // Pseudo-tags: e.g. Audio description
-    $pseudoTagArray = ['audio-description'];
+    // URL => film column name
+    $pseudoTagArray = ['AD' => 'audio_description'];
 
-    if(in_array($slug,$pseudoTagArray)) {
-      $film_ids = Film::where(str_replace('-', '_', $slug),true)->pluck('id');
+    if(array_key_exists($slug,$pseudoTagArray)) {
+      $film_ids = Film::where($pseudoTagArray[$slug],true)->pluck('id');
       $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
       return view('film.collection', compact('collection','screenings'));
     }

@@ -25,7 +25,7 @@
           </td>
           <td>
             <h4 class="single-listing--screenings--key--title">{{$tag->title}}</h4>
-            <p class="single-listing--screenings--key--description">{{ $tag->description}}</p>
+            <p class="single-listing--screenings--key--description">{{ $tag->short_description}}</p>
           </td>
         </tr>
       @endforeach

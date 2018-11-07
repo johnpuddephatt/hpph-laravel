@@ -35,7 +35,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.25);
   }
   .section-title {
     margin-top: 0;
@@ -63,5 +63,7 @@
     font-family: $heading-font-family;
     margin-bottom: $base-spacing;
   }
-
+  .button {
+    text-transform: lowercase;
+  }
 }
