@@ -66,8 +66,17 @@ class TagCrudController extends CrudController
           'type' => 'color',
         ];
 
+        $thumbArray = [
+            'name' => 'thumb',
+            'label' => 'Thumbnail',
+            'type' => 'image',
+            'upload' => 'true',
+            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+            'crop' => true, // set to true to allow cropping, false to disable
+        ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$shortDescriptionArray,$descriptionArray,$colorArray], 'both');
+
+        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
         $this->crud->addColumns([$titleArray,$abbreviationArray,$shortDescriptionArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
