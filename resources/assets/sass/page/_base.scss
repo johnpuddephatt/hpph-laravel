@@ -4,6 +4,7 @@
   @media (orientation: landscape) {
     height: 35vw;
   }
+  background-color: $base-font-color;
   width: 100%;
   position: relative;
   &::after {
