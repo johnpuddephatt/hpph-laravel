@@ -9,7 +9,6 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{{ config('app.name') }} — @yield('title', config('app.description'))</title>
-      <meta name="description">@yield('description', config('app.description'))</meta>
       <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
     </head>
     <body class="@stack('body-classes')">
