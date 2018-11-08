@@ -162,6 +162,8 @@
 }
 
 .weekly-screenings--entry--image {
+  background-color: $light-gray;
+  margin-bottom: auto;
   width: 27.5%;
   @media screen and (min-width: $medium-screen) {
     width: 25%;

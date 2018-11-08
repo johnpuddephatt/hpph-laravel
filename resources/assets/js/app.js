@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       simpleslider.getSlider({
         container: slider,
         duration: 1.5,
-        delay: 6,
+        delay: 7.5,
         prop: 'opacity',
         unit: '',
         init: 0,

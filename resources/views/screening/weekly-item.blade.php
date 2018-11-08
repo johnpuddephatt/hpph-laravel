@@ -33,11 +33,12 @@
   </div>
   <div class="weekly-screenings--entry--image">
     @include('utils.cloudinary', [
-      'alt' => "Image for" . $screening->film->title,
+      'alt' => "Image for " . $screening->film->title,
       'img' => url($screening->film->thumb),
       'width' => "320",
       'height' => "180",
-      'sizes' => "25vw"
+      'sizes' => "25vw",
+      'class' => 'fade-image-onload'
     ])
   </div>
 </a>

@@ -39,8 +39,9 @@
 .film-card--image {
   flex: 0 0 auto;
   width: 27.5%;
-  margin-bottom: 0;
+  margin-bottom: auto;
   margin-right: $small-spacing;
+  background-color: $light-gray;
   @media screen and (min-width: $medium-screen) {
     margin-bottom: $small-spacing;
     margin-right: 0;
