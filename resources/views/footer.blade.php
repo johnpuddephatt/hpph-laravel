@@ -19,6 +19,7 @@
 
 <footer class="site-footer">
   <a href="{{url('/')}}">
+    <span class="sr-only">Your friendly, local, independent cinema</span>
     @include('icons.logo-strapline')
   </a>
   <div class="site-footer--primary">
