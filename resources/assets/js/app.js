@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       firstSlide.classList.add('coming-in');
       var firstSlideImageCheck = setInterval(()=>{
         if(firstSlideImage.naturalWidth) {
+          body.classList.remove('slider-loading');
           startSlider();
           clearInterval(firstSlideImageCheck);
         }
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     function startSlider() {
       firstSlide.classList.remove('coming-in');
-      body.classList.remove('slider-loading');
       simpleslider.getSlider({
         container: slider,
         duration: 1.5,
@@ -72,7 +72,7 @@ if(fadeOnloadImage) {
       fadeOnloadImage.classList.remove('loading');
       clearTimeout(fadeOnloadImageCheck);
     }
-  }, 200);
+  }, 100);
 }
 
 
