@@ -25,16 +25,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
           startSlider();
           clearInterval(firstSlideImageCheck);
         }
-      }, 200);
+      }, 50);
     }
     function onChangeFn(prev,next) {
-      slides[prev].classList.remove('in');
+      // slides[prev].classList.remove('in');
       slides[prev].classList.add('out');
       slides[next].classList.add('coming-in');
     }
     function onChangeEndFn(prev,next) {
       slides[prev].classList.remove('coming-in');
-      slides[prev].classList.add('in');
+      // slides[prev].classList.add('in');
       slides[next].classList.remove('out');
     }
     function startSlider() {
