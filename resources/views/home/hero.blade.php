@@ -1,4 +1,5 @@
 @if(count($slides))
+  <script>document.getElementsByTagName("BODY")[0].classList.add('slider-loading');</script>
   <section class="section section--home-hero">
     {{-- <div class="home-slider--loading container">
       <h2 class="loading-text"><span>Your</span><span>friendly</span><span>local</span><span>independent</span><span>cinema</span></h2>

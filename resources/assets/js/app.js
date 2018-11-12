@@ -10,7 +10,7 @@ let {iframeResizer} = require('iframe-resizer');
 
 var slider = document.querySelector('.section--home-slider');
 var loadingText = document.querySelector('.loading-text');
-var body = document.querySelector('body');
+var body = document.getElementsByTagName("BODY")[0];
 
 document.addEventListener('DOMContentLoaded', ()=>{
   if(slider) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const firstSlideImage = firstSlide.querySelector('.home-slider--image');
     const slides = slider.querySelectorAll('.home-slider--slide');
     if( slides.length ) {
-      body.classList.add('slider-loading');
+      // body.classList.add('slider-loading');
       firstSlide.classList.add('coming-in');
       var firstSlideImageCheck = setInterval(()=>{
         if(firstSlideImage.naturalWidth) {
