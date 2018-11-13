@@ -2,7 +2,9 @@
 
 @extends('layouts.app')
 
+{{-- HEAD information --}}
 @section('title', $film->title)
+@section('canonical', url('/film/' . $film->slug))
 
 @section('content')
 
