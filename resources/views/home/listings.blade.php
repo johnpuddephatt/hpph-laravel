@@ -60,9 +60,9 @@
                     </div>
                   </div>
                   <div class="daily-screenings--entry--image">
-                    @include('utils.cloudinary', [
+                    @include('utils.intervention', [
                       'alt' => "Image for " . $screening->film->title,
-                      'img' => url($screening->film->thumb),
+                      'img' => $screening->film->thumb,
                       'height' => "180",
                       'width' => "320",
                       'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw"

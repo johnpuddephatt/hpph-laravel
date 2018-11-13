@@ -1,5 +1,5 @@
 @php
-$breakpoints = [90,120,150,180,240,360,480,640,720,960,1080,1280,1440,1600]
+$breakpoints = isset($breakpoints) ? $breakpoints : [90,120,150,180,240,360,480,640,720,960,1080,1280,1440,1600]
 @endphp
 
 @if (config('app.env') != 'local')

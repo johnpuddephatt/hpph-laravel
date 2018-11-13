@@ -32,9 +32,9 @@
     </div>
   </div>
   <div class="weekly-screenings--entry--image">
-    @include('utils.cloudinary', [
+    @include('utils.intervention', [
       'alt' => "Image for " . $screening->film->title,
-      'img' => url($screening->film->thumb),
+      'img' => $screening->film->thumb,
       'width' => "320",
       'height' => "180",
       'sizes' => "25vw",

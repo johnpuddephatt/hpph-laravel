@@ -46,3 +46,6 @@ Route::get('tag/{slug}', 'TagController@single');
 
 Route::get('{page}/{childpage?}', 'PageController@index');
 
+
+Route::get('/imager/{config}/{image}', 'ImageController@default')->where('image', '[A-Za-z0-9\/\.\-\_]+');;
+

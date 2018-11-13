@@ -10,12 +10,13 @@
           <div class="home-slider--slide">
             <!-- Use a 16:9 image, 100w when portrait, (16/9%)w when portrait?? -->
             <!-- Check this in practice on iPhone – image size could be big! -->
-            @include('utils.cloudinary', [
+            @include('utils.intervention', [
               'alt' => "Image for " . $slide->getHeading(),
-              'img' => url($slide->getThumb()),
+              'img' => $slide->getThumb(),
               'class' => "home-slider--image",
               'height' => "720",
               'width' => "1280",
+              'quality' => "85",
               'sizes' => "(orientation: portrait) 220vw, 100vw",
             ])
             <div class="home-slider--text">

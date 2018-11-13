@@ -6,9 +6,9 @@
 
         @foreach ($strands as $strand)
           <a class="strand--item" href="/strand/{{ $strand->slug }}">
-            @include('utils.cloudinary', [
+            @include('utils.intervention', [
               'alt' => "Image for " . $strand->title,
-              'img' => isset($strand->thumb)? url($strand->thumb) : '/images/page-header.jpg',
+              'img' => isset($strand->thumb)? $strand->thumb : '/images/page-header.jpg',
               'class' => "strand--image",
               'height' => "400",
               'width' => "400",

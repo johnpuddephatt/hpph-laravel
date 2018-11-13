@@ -1,5 +1,5 @@
 <section class="section section--home-newsletter">
-    @include('utils.cloudinary', [
+    @include('utils.intervention', [
       'alt' => "",
       'img' => "/images/home-newsletter-2.jpg",
       'class' => "section--home-newsletter--image",

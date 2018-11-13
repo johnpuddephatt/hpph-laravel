@@ -7,9 +7,9 @@
 @section('content')
   <div class="page-standard--header">
 
-    @include('utils.cloudinary', [
+    @include('utils.intervention', [
       'alt' => "Image for " . $page->title,
-      'img' => isset($page->thumb)? url($page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): '/images/page-header.jpg'),
+      'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: '/images/page-header.jpg'),
       'class' => "page-standard--header--image fade-image-onload",
       'height' => "640",
       'width' => "1280",
