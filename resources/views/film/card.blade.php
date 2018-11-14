@@ -1,7 +1,7 @@
 <a class="film-card" href="/film/{{ $film->slug }}">
 
   <div class="film-card--image">
-    @include('utils.intervention', [ 'alt' => "Image for " . $film->title, 'img' => $film->thumb, 'width' => "480", 'height' => "270", 'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw", 'class' => 'fade-image-onload' ])
+    @include('utils.cloudinary', [ 'alt' => "Image for " . $film->title, 'img' => $film->thumb, 'width' => "480", 'height' => "270", 'sizes' => "(min-width: 900px) 30vw, (min-width: 600px) 50vw, 25vw", 'class' => 'fade-image-onload' ])
   </div>
   <div class="film-card--text">
     <div class="film-card--header">

@@ -60,7 +60,7 @@
                     </div>
                   </div>
                   <div class="daily-screenings--entry--image">
-                    @include('utils.intervention', [
+                    @include('utils.cloudinary', [
                       'alt' => "Image for " . $screening->film->title,
                       'img' => $screening->film->thumb,
                       'height' => "180",

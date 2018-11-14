@@ -9,7 +9,7 @@
 @section('content')
 
   <div class="single-listing--image">
-    @include('utils.intervention', [
+    @include('utils.cloudinary', [
       'alt' => "Image for" . $film->title,
       'img' => $film->thumb,
       'class' => "single-listing--header--img fade-image-onload",

@@ -3,7 +3,7 @@
     <h2 class="section-title">Shop</h2>
       <div class="shop--grid">
         <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/products">
-          @include('utils.intervention', [
+          @include('utils.cloudinary', [
             'alt' => "Photograph of cinema postcards",
             'img' => "/images/shop-postcards.jpg",
             'class' => "shop--image",
@@ -16,7 +16,7 @@
           </div>
         </a>
         <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/product/gift-voucher-5">
-          @include('utils.intervention', [
+          @include('utils.cloudinary', [
             'alt' => "Photograph of cinema vouchers",
             'img' => "/images/shop-vouchers.jpg",
             'class' => "shop--image",
@@ -28,7 +28,7 @@
           </div>
         </a>
         <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/product/membership">
-          @include('utils.intervention', [
+          @include('utils.cloudinary', [
             'alt' => "Photograph of membership card",
             'img' => "/images/shop-membership.jpg",
             'class' => "shop--image",

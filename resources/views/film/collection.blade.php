@@ -7,7 +7,7 @@
 @section('content')
 
   <div class="single-listing--image">
-    @include('utils.intervention', [
+    @include('utils.cloudinary', [
       'alt' => "Image for" . $collection->title,
       'img' => isset($collection->thumb) ? url($collection->thumb) : url('/images/page-header.jpg'),
       'class' => "single-listing--header--img fade-image-onload",
