@@ -25,7 +25,7 @@ class ImageController extends Controller
     // Format
     $config['f'] = pathinfo($image, PATHINFO_EXTENSION);
     if ( !in_array($config['f'], array('jpg','jpeg','png','webp'), true ) ) abort('404');
-    if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) $config['f'] = 'webp';
+    // if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) $config['f'] = 'webp';
 
     // Gravity
     $config['g'] = isset($config['g']) ? $config['g'] : null;
