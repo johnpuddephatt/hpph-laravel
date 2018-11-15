@@ -5,6 +5,7 @@
     'class' => "section--home-membership--image",
     'height' => "250",
     'width' => "750",
+    'quality' => "50"
   ])
   <div class="container">
     <a href="/membership">
