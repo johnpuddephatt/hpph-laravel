@@ -16,7 +16,7 @@
               'class' => "home-slider--image",
               'height' => "720",
               'width' => "1280",
-              'quality' => "85",
+              'quality' => "70",
               'sizes' => "(orientation: portrait) 220vw, 100vw",
             ])
             <div class="home-slider--text">
