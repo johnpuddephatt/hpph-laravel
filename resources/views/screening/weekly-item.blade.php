@@ -36,6 +36,7 @@
       'alt' => "Image for " . $screening->film->title,
       'img' => $screening->film->thumb,
       'width' => "320",
+      'quality' => "65",
       'height' => "180",
       'sizes' => "25vw",
       'class' => 'fade-image-onload'
