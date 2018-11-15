@@ -12,6 +12,7 @@
               'class' => "strand--image",
               'height' => "400",
               'width' => "400",
+              'quality' => "50",
               'sizes' => "(min-width: 900px) 22.5vw, (min-width: 600px) 45vw, 100vw"
             ])
             <div class="strand--text">

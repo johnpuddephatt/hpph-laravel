@@ -23,7 +23,7 @@
   margin: 0 0 $small-spacing;
   @media screen and (min-width: $medium-screen) {
     margin: 0 $small-spacing/2 $small-spacing;
-    flex: 0 0 calc(50% - #{$small-spacing});
+    flex: 1 0 40%;
     &:hover {
       background-color: rgba(0,0,0,.7);
       .strand--text {
@@ -35,7 +35,7 @@
     }
   }
   @media screen and (min-width: $large-screen) {
-    flex: 0 0 calc(25% - #{$small-spacing});
+    flex: 1 0 21%;
   }
   display: block;
   text-align: center;
@@ -133,10 +133,10 @@
   color: $base-font-color;
   font-weight: 500;
   @media screen and (min-width: $medium-screen) {
-    flex: 0 0 calc(50% - #{$small-spacing});
+    flex: 1 0 40%;
   }
   @media screen and (min-width: $large-screen) {
-    flex: 0 0 calc(25% - #{$small-spacing});
+    flex: 1 0 21%;
   }
   display: block;
   margin: 0 $small-spacing/2 $small-spacing;

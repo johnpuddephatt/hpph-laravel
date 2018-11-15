@@ -5,6 +5,7 @@
       'class' => "section--home-newsletter--image",
       'height' => "250",
       'width' => "750",
+      'quality' => "50",
       'modes' => 'c_fill,g_center,f_auto'
     ])
     <div class="container container__narrow">

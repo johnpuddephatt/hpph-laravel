@@ -9,6 +9,7 @@
             'class' => "shop--image",
             'height' => "500",
             'width' => "500",
+            'quality' => "50"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Merchandise</h3>
@@ -22,6 +23,7 @@
             'class' => "shop--image",
             'height' => "250",
             'width' => "500",
+            'quality' => "50"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Gift Vouchers</h3>
@@ -34,6 +36,7 @@
             'class' => "shop--image",
             'height' => "250",
             'width' => "500",
+            'quality' => "50"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Gift Membership</h3>
