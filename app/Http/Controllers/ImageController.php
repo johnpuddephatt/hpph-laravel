@@ -46,42 +46,18 @@ class ImageController extends Controller
       $image->make($src)->fit($config['w'], $config['h'], null, $config['g'])->encode($config['f'], $config['q']);
     }, 10, false);
 
-    // $img = Image::cache(function($image) use ($src,$config) {
-    //
-    //   $image->make($src);
-    //
-    //   // Resize or crop
-    //   if(isset($config['w']) && isset($config['h'])) {
-    //     $image->fit($config['w'], $config['h'],null,$config['g']);
-    //   }
-    //   elseif (isset($config['w'])) {
-    //     $image->widen($config['w']);
-    //   }
-    //   elseif (isset($config['h'])) {
-    //     $image->heighten($config['h']);
-    //   }
-    //
-    //   // Size and format
-    //   if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) {
-    //     $image->encode('webp', $config['q']);
-    //     echo 'hello';
-    //     return $image;
-    //   }
-    //   else {
-    //     $image->encode($config['f'], $config['q']);
-    //     return $image;
-    //     // return $image;
-    //   }
-    // });
 
-    if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) {
-      return Response::make($img, 200, array('Content-Type' => 'image/webp'));
-    }
-    elseif($config['f'] == 'jpg' || $config['f'] == 'jpeg' ) {
+    // if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) {
+    //   return Response::make($img, 200, array('Content-Type' => 'image/webp'));
+    // }
+    if($config['f'] == 'jpg' || $config['f'] == 'jpeg' ) {
       return Response::make($img, 200, array('Content-Type' => 'image/jpeg'));
     }
     elseif($config['f'] == 'png') {
       return Response::make($img, 200, array('Content-Type' => 'image/png'));
+    }
+    else {
+      return abort('404');
     }
 
   }
