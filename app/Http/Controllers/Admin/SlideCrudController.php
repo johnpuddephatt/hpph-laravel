@@ -43,7 +43,7 @@ class SlideCrudController extends CrudController
           'type' => 'select_from_array_conditional',
           'options' => ['App\Models\Film' => 'Film', 'App\Models\Strand' => 'Strand', 'App\Models\Season' => 'Season', 'custom' => 'Custom'],
           'allows_null' => false,
-          'default' => 'film',
+          // 'default' => 'App\Models\Strand',
           'tab' => 'Link'
         ];
 
@@ -87,7 +87,9 @@ class SlideCrudController extends CrudController
         $activeColArray = [
           'name' => 'active',
           'label' => 'Active?',
-          'type' => 'check'
+          'type' => 'toggle',
+          'route' => '/toggleactive'
+
         ];
 
         $customIntroArray = [

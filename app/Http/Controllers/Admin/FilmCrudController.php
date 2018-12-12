@@ -22,7 +22,12 @@ class FilmCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/film');
         $this->crud->setEntityNameStrings('film', 'films');
 
-        $this->crud->setDefaultPageLength(100); // number of rows shown in table view
+        // $this->crud->setDefaultPageLength(0); // number of rows shown in table view
+
+        $this->crud->enableExportButtons();
+
+        // $this->crud->enableBulkActions();
+        // $this->crud->addBulkDeleteButton();
 
         $this->crud->addFilter([
           'type' => 'simple',
@@ -47,7 +52,15 @@ class FilmCrudController extends CrudController
           'attributes' => [
             'class' => 'form-control input-lg'
           ],
-          'tab' => 'Overview'
+          'tab' => 'Overview',
+          'searchLogic' => function ($query, $column, $searchTerm) {
+            $terms = explode(',',$searchTerm);
+            foreach ($terms as $term) {
+              if($term != null) {
+                $query->orWhere('title', 'like', '%'.trim($term).'%');
+              }
+            }
+          }
         ];
 
         $slugArray = [
@@ -271,17 +284,23 @@ class FilmCrudController extends CrudController
           'tab' => 'Screenings'
         ];
 
+        $screeningsCol  = [
+          'name' => 'screenings_count',
+          'label' => 'Screenings',
+          'orderable' => false,
+          'type' => 'closure',
+          'function' => function($entry) {
+            return $entry->screenings->pluck('id');
+          }
+        ];
+
         $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
-        $this->crud->addColumns([$titleArray,$dateCol]);
+        $this->crud->addColumns([$titleArray,$dateCol,$screeningsCol]);
 
         if (!$this->request->has('order')) {
           $this->crud->orderBy('title');
         }
-
-
-
-
     }
 
     public function store(StoreRequest $request)
@@ -305,4 +324,7 @@ class FilmCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
 }
+
+

@@ -1,0 +1,123 @@
+.shop--grid {
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: $small-spacing;
+  flex-wrap: wrap;
+  @media(min-width: $medium-screen) {
+    grid-gap: $base-spacing;
+    flex-wrap: nowrap;
+  }
+  margin-bottom: 2 * $base-spacing;
+  @extend %padded-box;
+}
+
+.shop--link {
+  display: block;
+  flex: 0 1 100%;
+  margin-top: $small-spacing;
+  @media(min-width: $medium-screen) {
+    flex: 0 1 33.333%;
+    margin-left: $base-spacing;
+    margin-top: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+    @media(min-width: $medium-screen) {
+      margin-left: 0;
+    }
+  }
+  @supports (display: grid) {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+  background-color: $black;
+  padding: $base-spacing;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  &:hover .shop--image {
+    transform: scale(1.1);
+  }
+  &::before {
+    padding-top: calc(25% - #{1.25 * $base-spacing});
+    content: '';
+    float: left;
+    display: block;
+  }
+  .inner {
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &:first-child {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    @media(orientation: landscape) {
+      grid-row-start: 1;
+      grid-row-end: span 2;
+      grid-column-end: span 1;
+    }
+    position: relative;
+    display: block;
+    &::before {
+      padding-top: calc(50% - #{1.25 * $base-spacing});
+      @media(orientation: landscape) {
+        padding-top: 100%;
+      }
+    }
+  }
+}
+
+.shop--image {
+  position: absolute;
+  opacity: .6;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  transition: ease-out .5s;
+
+}
+
+.shop--link--title {
+  font-family: $heading-font-family;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: modular-scale(4);
+  color: white;
+  margin: 0;
+}
+
+.shop--link--description {
+  color: white;
+  margin-bottom: 0;
+  font-size: modular-scale(0);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  &::before {
+    content: '';
+    display: block;
+    width: 4 * $base-spacing;
+    height: $xl-border-width;
+    background-color: white;
+    margin: $small-spacing auto;
+  }
+}
+

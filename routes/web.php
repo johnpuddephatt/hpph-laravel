@@ -36,6 +36,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
   CRUD::resource('season', 'SeasonCrudController');
   CRUD::resource('tag', 'TagCrudController');
   CRUD::resource('menu', 'MenuCrudController');
+
+  Route::post ( 'slide/{id}/{state}', '\App\Http\Controllers\SlideController@toggleActive' );
+
 });
 
 // Route::post ( '/admin/addScreening', 'ScreeningController@addScreening' );

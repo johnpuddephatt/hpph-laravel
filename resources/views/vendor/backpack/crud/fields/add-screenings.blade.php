@@ -38,8 +38,7 @@
       </tr>
     </thead>
     <tbody>
-
-      @foreach (App\Models\Screening::where('film_id',$crud->entry->id)->orderBy('date', 'ASC')->get() as $screening)
+      @foreach ($crud->entry->screenings->sortBy('time')->sortBy('date') as $screening)
         <tr data-id="{{$screening->id}}">
           <td>{{ Carbon\Carbon::parse($screening->date)->format('d/m/Y') }}</td>
           <td>{{$screening->time}}</td>
