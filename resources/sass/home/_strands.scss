@@ -90,6 +90,7 @@
   display: none;
   font-family: $heading-font-family;
   font-style: italic;
+  -webkit-font-smoothing: antialiased;
   opacity: 0;
   transition: opacity $base-duration $base-timing;
   color: white;

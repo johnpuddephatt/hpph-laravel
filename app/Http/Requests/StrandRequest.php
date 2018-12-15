@@ -15,7 +15,7 @@ class StrandRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return \Auth::check();
+      return backpack_auth()->check();
     }
 
     /**

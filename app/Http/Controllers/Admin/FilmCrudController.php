@@ -284,19 +284,19 @@ class FilmCrudController extends CrudController
           'tab' => 'Screenings'
         ];
 
-        $screeningsCol  = [
-          'name' => 'screenings_count',
-          'label' => 'Screenings',
-          'orderable' => false,
-          'type' => 'closure',
-          'function' => function($entry) {
-            return $entry->screenings->pluck('id');
-          }
-        ];
+        // $screeningsCol  = [
+        //   'name' => 'screenings_count',
+        //   'label' => 'Screenings',
+        //   'orderable' => false,
+        //   'type' => 'closure',
+        //   'function' => function($entry) {
+        //     return $entry->screenings->count();
+        //   }
+        // ];
 
         $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
-        $this->crud->addColumns([$titleArray,$dateCol,$screeningsCol]);
+        $this->crud->addColumns([$titleArray,$dateCol]);
 
         if (!$this->request->has('order')) {
           $this->crud->orderBy('title');
