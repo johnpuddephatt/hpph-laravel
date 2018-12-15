@@ -5,23 +5,22 @@
   text-align: center;
   color: white;
   @media screen and (min-width: $medium-screen) {
-    color: white;
+    color: $red;
     text-align: left;
   }
   &::after {
     content: '';
     display: block;
-    // @media screen and (min-width: $medium-screen) {
-    //   display: none;
-    // }
+    @media screen and (min-width: $medium-screen) {
+      display: none;
+    }
     z-index: 9;
     position: absolute;
     top: 0;
     left: 0;
-    bottom: -1em;
+    bottom: 0;
     right: 0;
-    // background-color: rgba(0,0,0,0.4);
-    background-image: linear-gradient(to right, rgba(0,0,0,.4) 35%, rgba(0,0,0,0) 80%);
+    background-color: rgba(0,0,0,0.4);
   }
   .container {
     position: relative;
@@ -35,50 +34,46 @@
     top: 0;
     left: 0;
     object-fit: cover;
-    object-position: center right;
+    object-position: center center;
   }
   .section--home-project--text {
     @extend %padded-box;
     @media screen and (min-width: $medium-screen) {
-      width: 66%;
+      width: 60%;
       padding-right: 0;
     }
   }
   .section-title {
     margin-top: 0;
     font-size: modular-scale(6);
-    text-align: left;
-    margin-bottom: $base-spacing;
-    font-family: $base-font-family;
-    line-height: 1.1;
-    font-weight: 700;
-    font-style: normal;
-    &::after {
-      content: '';
-      width: 33%;
-      height: $xl-border-width;
-      background-color: white;
-      display: block;
-      margin: $base-spacing 0 $base-spacing;
-    }
+    text-align: inherit;
+    margin-bottom: $small-spacing;
+    // &::after {
+    //   content: '';
+    //   width: 33%;
+    //   height: $xl-border-width;
+    //   background-color: white;
+    //   display: block;
+    //   margin: $base-spacing auto $base-spacing;
+    //   @media screen and (min-width: $medium-screen) {
+    //     margin: $base-spacing 0 $base-spacing;
+    //     background-color: $red;
+    //   }
+    // }
   }
   p {
-    font-size: modular-scale(2);
-    font-weight: 400;
-    font-style: italic;
-    line-height: $heading-line-height;
-    font-family: $heading-font-family;
-    margin-bottom: $base-spacing;
-    -webkit-font-smoothing: antialiased;
+    font-size: modular-scale(0);
+    margin-bottom: 0;
   }
   .section--home-project--link {
     display: inline-block;
     color: white;
     @media screen and (min-width: $medium-screen) {
-      color: white;
+      color: $red;
     }
+    margin-top: $base-spacing;
     font-size: modular-scale(1);
-    font-weight: 500;
+    font-weight: 700;
   }
 
 }
