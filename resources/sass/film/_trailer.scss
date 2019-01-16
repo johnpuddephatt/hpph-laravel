@@ -7,7 +7,7 @@
     left: 0;
     right: 0;
     opacity: 0;
-    z-index: 9999;
+    z-index: 99999;
     transition: opacity 5 * $base-duration;
   }
   &.lights-out {
@@ -18,7 +18,7 @@
     .single-listing--trailer--iframe {
       transform: translate(-50%,-50%);
       opacity: 1;
-      z-index: 99999;
+      z-index: 999999;
       transition: opacity 5 * $base-duration 5 * $base-duration, transform 5 * $base-duration 5 * $base-duration;
 
     }
