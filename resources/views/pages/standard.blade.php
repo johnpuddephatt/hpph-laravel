@@ -31,7 +31,7 @@
               {{-- <img src="{{ isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')) }}" class="page-standard--grid-nav--image"/> --}}
               @include('utils.intervention', [
                 'alt' => "Image for " . $sibling_page->title,
-                'img' => isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')),
+                'img' => isset($sibling_page->thumb)? $sibling_page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: '/images/page-header.jpg'),
                 'class' => "page-standard--grid-nav--image",
                 'height' => "300",
                 'width' => "540",
