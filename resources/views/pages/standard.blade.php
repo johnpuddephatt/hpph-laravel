@@ -9,7 +9,7 @@
 
     @include('utils.cloudinary', [
       'alt' => "Image for " . $page->title,
-      'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: '/images/page-header.jpg'),
+      'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: url('/images/page-header.jpg')),
       'class' => "page-standard--header--image fade-image-onload",
       'height' => "640",
       'width' => "1280",
@@ -28,7 +28,15 @@
             <a class="page-standard--grid-nav--link" href="/{{ $parent_page->slug }}/{{ $sibling_page->slug }}/">
               <h3 class="page-standard--grid-nav--title">{{ $sibling_page->title }}</h3>
 
-              <img src="{{ isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): '/images/page-header.jpg') }}" class="page-standard--grid-nav--image"/>
+              {{-- <img src="{{ isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')) }}" class="page-standard--grid-nav--image"/> --}}
+              @include('utils.cloudinary', [
+                'alt' => "Image for " . $sibling_page->title,
+                'img' => isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')),
+                'class' => "page-standard--grid-nav--image",
+                'height' => "300",
+                'width' => "540",
+                'sizes' => "(orientation: portrait) 100vw, 40vw",
+              ])
             </a>
           @endforeach
         </nav>
