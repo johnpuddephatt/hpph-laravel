@@ -7,7 +7,7 @@
 @section('content')
   <div class="page-standard--header">
 
-    @include('utils.cloudinary', [
+    @include('utils.intervention', [
       'alt' => "Image for " . $page->title,
       'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: url('/images/page-header.jpg')),
       'class' => "page-standard--header--image fade-image-onload",
@@ -29,7 +29,7 @@
               <h3 class="page-standard--grid-nav--title">{{ $sibling_page->title }}</h3>
 
               {{-- <img src="{{ isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')) }}" class="page-standard--grid-nav--image"/> --}}
-              @include('utils.cloudinary', [
+              @include('utils.intervention', [
                 'alt' => "Image for " . $sibling_page->title,
                 'img' => isset($sibling_page->thumb)? url($sibling_page->thumb) : (isset($parent_page->thumb)? url($parent_page->thumb): url('/images/page-header.jpg')),
                 'class' => "page-standard--grid-nav--image",
