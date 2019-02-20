@@ -11,7 +11,8 @@
             <a href="/#daily-screenings" class="daily-screenings--navigation--link">Today</a>
           @endif
           @for ($i = 2; $i < 6; $i++)
-            @php $loop_date = date("D jS",time() + ($i - 1) * 86400) @endphp
+
+            @php $loop_date = date("D jS",$today + ($i - 1) * 86400) @endphp
             @if($i == $day)
               <span class="daily-screenings--navigation--link current">{!! $loop_date !!}</span>
             @else

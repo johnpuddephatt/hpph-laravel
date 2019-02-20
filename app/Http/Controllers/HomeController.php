@@ -43,12 +43,12 @@ class HomeController extends Controller
     // On day one but there are no screenings; skip day.
     elseif($day == 1) {
       $day++;
-      $current_date = date("Y/m/d",time() + ($day - 1) * $day_in_seconds);
+      $current_date = date("Y/m/d",$today + ($day - 1) * $day_in_seconds);
       $screenings = Screening::where('date',$current_date)->with('film.strands')->orderBy('date')->orderBy('time')->get();
     }
     // Not on first day
     else {
-      $current_date = date("Y/m/d",time() + ($day - 1) * $day_in_seconds);
+      $current_date = date("Y/m/d",$today + ($day - 1) * $day_in_seconds);
       $screenings = Screening::where('date',$current_date)->with('film.strands')->orderBy('date')->orderBy('time')->get();
     }
 
@@ -65,7 +65,7 @@ class HomeController extends Controller
     $tag_ids = explode(',', config('app.homepage_tags'));
     $tags = Tag::whereIn('id',$tag_ids)->get();
 
-    return view('landing', compact('slides','screenings','day', 'screenings_today','strands','tags'));
+    return view('landing', compact('slides','screenings','day', 'today', 'screenings_today','strands','tags'));
   }
 
 }

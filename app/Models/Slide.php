@@ -30,13 +30,18 @@ class Slide extends Model
     'active' => 'boolean',
   ];
 
+  public function getRelatedItem($type, $id) {
+    return $type::find($id);
+  }
+
   public function getHeading() {
     if($this->heading) {
       return $this->heading;
     }
     elseif (class_exists($this->type)) {
       $this_related_id = ($this[lcfirst(class_basename($this->type)) . '_id']);
-      $related_item = $this->type::find($this_related_id);
+      // $related_item = $this->type::find($this_related_id);
+      $related_item = $this->getRelatedItem($this->type, $this_related_id);
       return $related_item->title;
     }
     else {
@@ -49,7 +54,9 @@ class Slide extends Model
     }
     elseif (class_exists($this->type)) {
       $this_related_id = ($this[lcfirst(class_basename($this->type)) . '_id']);
-      $related_item = $this->type::find($this_related_id);
+      // $related_item = $this->type::find($this_related_id);
+      $related_item = $this->getRelatedItem($this->type, $this_related_id);
+
       return lcfirst(class_basename($this->type)) . '/' . $related_item->slug;
     }
     else {
