@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Hyde Park Picture House'),
-    'description' => env('APP_DESCRIPTION', 'Leeds’ independent cinema'),
+    'description' => env('APP_DESCRIPTION', 'the home of independent cinema in Leeds'),
 
 
     /*

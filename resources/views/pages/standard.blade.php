@@ -9,7 +9,7 @@
 
     @include('utils.intervention', [
       'alt' => "Image for " . $page->title,
-      'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb: url('/images/page-header.jpg')),
+      'img' => isset($page->thumb)? $page->thumb : (isset($parent_page->thumb)? $parent_page->thumb : '/images/page-header.jpg'),
       'class' => "page-standard--header--image fade-image-onload",
       'height' => "640",
       'width' => "1280",
@@ -35,7 +35,7 @@
                 'class' => "page-standard--grid-nav--image",
                 'height' => "300",
                 'width' => "540",
-                'sizes' => "(orientation: portrait) 100vw, 40vw",
+                'sizes' => "(orientation: portrait) 100vw, 20vw",
               ])
             </a>
           @endforeach

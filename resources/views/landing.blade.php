@@ -1,4 +1,4 @@
-@if(count($slides))
+@if(count($home_slides))
   @push('body-classes','home')
 @endif
 

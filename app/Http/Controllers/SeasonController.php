@@ -15,7 +15,7 @@ use App\Models\Film;
 class SeasonController extends Controller
 {
   public function single($slug) {
-    $collection = Season::where('slug', $slug)->first();
+    $collection = Season::where('slug', $slug)->firstOrFail();
 
     $film_ids = Film::whereHas('seasons', function($query) use($collection) {
       $query->where('season_id', $collection->id);

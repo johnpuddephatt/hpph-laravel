@@ -1,9 +1,11 @@
 .site-footer--navigation {
   display: none;
+  margin-top: $base-spacing;
   .hpph-logo {
     display: none;
   }
   @media (max-width: $medium-screen) {
+    margin-top: 0;
     display: block;
     position: fixed;
     z-index: 9999;

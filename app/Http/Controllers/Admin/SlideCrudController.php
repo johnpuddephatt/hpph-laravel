@@ -157,8 +157,17 @@ class SlideCrudController extends CrudController
       $redirect_location = parent::storeCrud($request);
       // your additional operations after save here
       // use $this->data['entry'] or $this->crud->entry
-      $this->crud->entry->title = $this->crud->entry->getHeading();
+      if (class_exists($this->crud->entry->type)) {
+        $this_related_id = ($this->crud->entry[lcfirst(class_basename($this->crud->entry->type)) . '_id']);
+        $related_item = $this->crud->entry->type::find($this_related_id);
+        if(!$this->crud->entry->heading) {
+          $this->crud->entry->heading = $related_item->title;
+        }
+      }
+
       $this->crud->entry->save();
+      
+      \Cache::forget('homeSlides');
 
       return $redirect_location;
     }
@@ -169,8 +178,17 @@ class SlideCrudController extends CrudController
       $redirect_location = parent::updateCrud($request);
       // your additional operations after save here
       // use $this->data['entry'] or $this->crud->entry
-      $this->crud->entry->title = $this->crud->entry->getHeading();
+      if (class_exists($this->crud->entry->type)) {
+        $this_related_id = ($this->crud->entry[lcfirst(class_basename($this->crud->entry->type)) . '_id']);
+        $related_item = $this->crud->entry->type::find($this_related_id);
+        if(!$this->crud->entry->heading) {
+          $this->crud->entry->heading = $related_item->title;
+        }
+      }
       $this->crud->entry->save();
+
+      \Cache::forget('homeSlides');
+
       return $redirect_location;
     }
 }

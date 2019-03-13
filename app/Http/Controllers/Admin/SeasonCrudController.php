@@ -147,6 +147,7 @@ class SeasonCrudController extends CrudController
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+        \Cache::forget('homeSlides');
         return $redirect_location;
     }
 
@@ -156,6 +157,7 @@ class SeasonCrudController extends CrudController
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+        \Cache::forget('homeSlides');
         return $redirect_location;
     }
 }

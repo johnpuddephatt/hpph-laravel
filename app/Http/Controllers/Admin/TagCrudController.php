@@ -164,6 +164,8 @@ class TagCrudController extends CrudController
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
+        \Cache::forget('homeTags');
+        \Cache::forget('homeSlides');
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }

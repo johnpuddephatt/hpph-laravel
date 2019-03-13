@@ -4,7 +4,7 @@
       <h2 class="section-title">Discover</h2>
       <div class="strand--grid">
 
-        @foreach ($strands as $strand)
+        @foreach ($home_strands as $strand)
           <a class="strand--item" href="/strand/{{ $strand->slug }}">
             @include('utils.intervention', [
               'alt' => "Image for " . $strand->title,
@@ -25,7 +25,7 @@
       </div>
       <h3 class="section-title-secondary">Specialist Screenings</h3>
       <div class="tag--grid">
-        @foreach ($tags as $tag)
+        @foreach ($home_tags as $tag)
           <a href="/tag/{{ $tag->slug }}/" class="tag--item">{{ $tag->title }}</a>
         @endforeach
       </div>

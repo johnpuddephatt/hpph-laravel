@@ -16,7 +16,9 @@ return [
          * --only-files
          * --disable-notifications
          */
-        'backpack_flags' => ["--disable-notifications"],
+        'backpack_flags' => [
+          '--disable-notifications' => true
+        ],
 
         /*
          * The name of this application. You can use this name to monitor

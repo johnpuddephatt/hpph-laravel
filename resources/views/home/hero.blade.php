@@ -1,4 +1,4 @@
-@if(count($slides))
+@if(count($home_slides))
   <script>document.getElementsByTagName("BODY")[0].classList.add('slider-loading');</script>
   <section class="section section--home-hero">
     {{-- <div class="home-slider--loading container">
@@ -6,13 +6,11 @@
     </div> --}}
     <div class="section section--home-slider">
 
-        @foreach ($slides as $slide)
+        @foreach ($home_slides as $slide)
           <div class="home-slider--slide">
-            <!-- Use a 16:9 image, 100w when portrait, (16/9%)w when portrait?? -->
-            <!-- Check this in practice on iPhone – image size could be big! -->
             @include('utils.cloudinary', [
-              'alt' => "Image for " . $slide->getHeading(),
-              'img' => $slide->getThumb(),
+              'alt' => "Image for " . $slide->title,
+              'img' => $slide->related_thumb ? $slide->related_thumb : $slide->thumb,
               'class' => "home-slider--image",
               'height' => "720",
               'width' => "1280",
@@ -20,11 +18,12 @@
               'sizes' => "(orientation: portrait) 220vw, 100vw",
             ])
             <div class="home-slider--text">
+
               <div class="container">
-                <a class="home-slider--link" href="{{ url($slide->getUrl())}}">
+                <a class="home-slider--link" href="{{ url($slide->url) }}">
                   @if($slide->pretitle)<div class="home-slider--preheading">{{ $slide->pretitle }}</div>@endif
-                  <h2 class="home-slider--heading"><span>{{ $slide->getHeading() }}</span></h2>
-                  <div class="home-slider--subheading">{{ $slide->getSubheading()}}</div>
+                  <h2 class="home-slider--heading"><span>{{ $slide->heading }}</span></h2>
+                  <div class="home-slider--subheading">{{ $slide->subheading }}</div>
                 </a>
               </div>
             </div>

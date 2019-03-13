@@ -88,6 +88,8 @@ class PageCrudController extends CrudController
     {
         $this->addDefaultPageFields(\Request::input('template'));
         $this->useTemplate(\Request::input('template'));
+        \Cache::forget('footerMenu');
+        \Cache::forget('homeSlides');
 
         return parent::storeCrud();
     }
@@ -113,6 +115,8 @@ class PageCrudController extends CrudController
     {
         $this->addDefaultPageFields(\Request::input('template'));
         $this->useTemplate(\Request::input('template'));
+        \Cache::forget('footerMenu');
+        \Cache::forget('homeSlides');
 
         return parent::updateCrud();
     }

@@ -138,6 +138,7 @@ class MenuCrudController extends CrudController
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
+        \Cache::forget('footerMenu');
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }

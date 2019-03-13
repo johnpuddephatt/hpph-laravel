@@ -15,7 +15,7 @@ use App\Models\Film;
 class StrandController extends Controller
 {
   public function single($slug) {
-    $collection = Strand::where('slug', $slug)->with('films.screenings')->first();
+    $collection = Strand::where('slug', $slug)->with('films.screenings')->firstOrFail();
 
     $film_ids = Film::whereHas('strands', function($query) use($collection) {
       $query->where('strand_id', $collection->id);

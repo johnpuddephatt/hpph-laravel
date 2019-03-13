@@ -17,13 +17,36 @@ class HomeController extends Controller
 {
   public function index($day = 1) {
 
+    $day_in_seconds = 86400;
+
     /*
     ** SLIDES
     */
 
-    $day_in_seconds = 86400;
     // Get slides
-    $slides = Slide::where('active',true)->orderBy('lft', 'ASC')->get();
+    $home_slides = \Cache::rememberForever('homeSlides', function () {
+
+      $slides = Slide::where('active',true)->orderBy('lft', 'ASC')->get();
+
+      foreach ($slides as $slide) {
+        if (class_exists($slide->type)) {
+          $this_related_id = ($slide[lcfirst(class_basename($slide->type)) . '_id']);
+          $related_item = $slide->type::find($this_related_id);
+          if($related_item) {
+            $slide->getHeading($related_item);
+            $slide->getUrl($related_item);
+            $slide->getSubheading($related_item);
+            $slide->relatedThumb($related_item);
+          }
+        }
+      }
+
+      return $slides;
+    });
+
+    /*
+    ** SCREENINGS
+    */
 
     // Get screenings
     $today = time() - (60 * 30);
@@ -55,17 +78,20 @@ class HomeController extends Controller
     /*
     ** STRANDS
     */
-    $strand_ids = explode(',', config('app.homepage_strands'));
-    $strands = Strand::whereIn('id',$strand_ids)->get();
-
+    $home_strands = \Cache::rememberForever('homeStrands', function () {
+      $strand_ids = explode(',', config('app.homepage_strands'));
+      return Strand::whereIn('id',$strand_ids)->get();
+    });
 
     /*
     ** TAGS
     */
-    $tag_ids = explode(',', config('app.homepage_tags'));
-    $tags = Tag::whereIn('id',$tag_ids)->get();
+    $home_tags = \Cache::rememberForever('homeTags', function () {
+      $tag_ids = explode(',', config('app.homepage_tags'));
+      return Tag::whereIn('id',$tag_ids)->get();
+    });
 
-    return view('landing', compact('slides','screenings','day', 'today', 'screenings_today','strands','tags'));
+    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags'));
   }
 
 }

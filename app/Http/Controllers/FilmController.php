@@ -14,9 +14,8 @@ class FilmController extends Controller
 
     $film = Film::where('slug',$slug)->withCount('screenings')->with(['screenings' => function ($query) {
       $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    }])->with('strands')->with('seasons')->first();
+    }])->with('strands')->with('seasons')->firstOrFail();
 
-    if(!$film) abort(404);
     return view('film.single', compact('film'));
   }
 
