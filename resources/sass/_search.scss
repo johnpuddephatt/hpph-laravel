@@ -72,6 +72,7 @@
 }
 
 .search-output {
+  margin-bottom: 2 * $base-spacing;
   height: 100%;
   padding-top: $base-spacing;
   color: $light-gray;
@@ -84,6 +85,11 @@
     &:hover {
       color: $yellow;
     }
+  }
+
+  li {
+    list-style-type: none;
+    margin: $base-spacing 0;
   }
 }
 

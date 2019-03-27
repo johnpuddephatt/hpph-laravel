@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
 
           $searchData = \Cache::remember('searchData', Carbon::tomorrow(), function () {
             // $data = Film::hasFutureScreenings()->get()->toJson();
-            $data = Film::hasFutureScreenings()->get()->map(function($item){
+            $data = Film::hasFutureScreenings()->orderBy('id','desc')->get()->map(function($item){
               return array('slug' => $item->slug, 'title' => $item->title, 'alt_language_title' => $item->alt_language_title);
             })->toJson();
             return $data;
