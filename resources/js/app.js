@@ -329,17 +329,22 @@ document.addEventListener('DOMContentLoaded',()=>{
       });
 
       var searchHTML = '';
-      for (const key of Object.keys(searchResults)) {
-        searchHTML += `
-          <li>
-            <a href="/film/${ searchResults[key].slug }">
-              <div class="search-result--title">${searchResults[key].title}</div>
-              <div class="search-result--alt-title">${searchResults[key].alt_language_title ? searchResults[key].alt_language_title : '' }</div>
-            </a>
-          </li>
-        `;
+      if(Object.keys(searchResults).length > 0) {
+        for (const key of Object.keys(searchResults)) {
+          searchHTML += `
+            <li>
+              <a href="/film/${ searchResults[key].slug }">
+                <div class="search-result--title">${searchResults[key].title}</div>
+                <div class="search-result--alt-title">${searchResults[key].alt_language_title ? searchResults[key].alt_language_title : '' }</div>
+              </a>
+            </li>
+          `;
+        }
+        searchOutput.innerHTML = searchHTML;
       }
-      searchOutput.innerHTML = searchHTML;
+      else {
+        searchOutput.innerHTML = '<em>No results found.</em>';
+      }
     }
     else {
       searchOutput.innerHTML = '';
