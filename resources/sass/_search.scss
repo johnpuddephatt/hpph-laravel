@@ -72,7 +72,8 @@
 }
 
 .search-output {
-  margin-bottom: 2 * $base-spacing;
+  padding-top: $base-spacing;
+  padding-bottom: 3 * $base-spacing;
   height: 100%;
   padding-top: $base-spacing;
   color: $light-gray;
@@ -89,7 +90,7 @@
 
   li {
     list-style-type: none;
-    margin: $base-spacing 0;
+    margin: 0 0 $base-spacing;
   }
 }
 
