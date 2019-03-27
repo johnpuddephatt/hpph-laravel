@@ -72,10 +72,9 @@
 }
 
 .search-output {
-  padding-top: $base-spacing;
+  padding-top: 2 * $base-spacing;
   padding-bottom: 3 * $base-spacing;
   height: 100%;
-  padding-top: $base-spacing;
   color: $light-gray;
   overflow: auto;
   padding-left: $small-spacing;
