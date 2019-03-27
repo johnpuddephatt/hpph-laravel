@@ -16,19 +16,6 @@
     opacity: 0;
     transition: opacity 0ms 0ms;
   }
-
-  // @media screen and (orientation: portrait) {
-  //   padding: $small-spacing 0;
-  //   height: $header-height-portrait;
-  //   position: fixed;
-  //   z-index: 9999;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   background-color: white;
-  //   border-bottom: $base-border;
-  //   // box-shadow: $base-shadow;
-  // }
   .site-header--home-link {
     outline-offset: $small-spacing;
     margin-right: $base-spacing;
@@ -82,8 +69,6 @@
     width: 100%;
     margin: 0;
     margin-bottom: -.75 * $small-spacing;
-
-
   }
 }
 
@@ -113,13 +98,21 @@
     line-height: 1.5 * $base-spacing;
     -webkit-font-smoothing: antialiased;
     &:hover {
-      color: $yellow;
+      color: $yellow !important;
     }
     &:focus {
       outline: none;
       @extend %underline_simple;
     }
   }
+}
+
+.site-header--right {
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
+  }
+  margin-left: auto;
 }
 
 .site-header--book-button {

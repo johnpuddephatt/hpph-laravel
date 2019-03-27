@@ -4,3 +4,7 @@
   <li><a href="http://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
   <li><a href="/membership">Membership</a></li>
 </ul>
+
+<ul class="site-header--right">
+  <li class="pull-right"><button class="search-button">@include('icons.search')Search</button></li>
+</ul>

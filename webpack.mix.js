@@ -18,6 +18,6 @@ mix.sass('resources/sass/admin.scss', 'public/css');
 mix.copy('resources/images/*', 'public/images');
 mix.browserSync('http://public.hpph-laravel.localhost/');
 
-if (mix.inProduction()) {
+// if (mix.inProduction()) {
   mix.version();
-}
+// }

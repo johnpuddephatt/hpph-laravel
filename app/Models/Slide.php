@@ -30,9 +30,12 @@ class Slide extends Model
     'active' => 'boolean',
   ];
 
-  public function getHeading($related_item) {
-    if(!$this->heading) {
-      $this->heading = $related_item->title;
+  public function getTitle($related_item) {
+    if($this->title) {
+      return $this->title;
+    }
+    else {
+      return $related_item->title;
     }
   }
   public function getUrl($related_item) {

@@ -1,0 +1,154 @@
+.search-container {
+  z-index: -9999;
+  background-color: $base-font-color;
+  position: fixed;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: z-index 0ms 0ms;
+  transform: translateY($base-spacing);
+  &.active {
+    pointer-events: all;
+    z-index: 9999;
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: opacity $base-duration, transform $base-duration, z-index $base-duration 0ms;
+  }
+}
+
+.search-input {
+  width: 100%;
+  font-size: modular-scale(2);
+  margin-bottom: 0;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-inner {
+  width: 100%;
+  max-width: 20 * $base-spacing;
+}
+
+.search-output-container {
+  height: 50vh;
+  @media screen and (orientation: portrait) {
+    height: 66vh;
+  }
+  width: 100%;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3 * $base-spacing;
+    background: linear-gradient(to bottom, $base-font-color, rgba(0,0,0,0));
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3 * $base-spacing;
+    background: linear-gradient(to top, $base-font-color, rgba(0,0,0,0));
+  }
+}
+
+.search-output {
+  height: 100%;
+  padding-top: $base-spacing;
+  overflow: auto;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  a {
+    color: white;
+    transition: color 2 * $base-duration;
+    &:hover {
+      color: $yellow;
+    }
+  }
+}
+
+.search-button {
+  position: relative;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-transform: none;
+  font-weight: 600;
+  &:hover {
+    background-color: transparent;
+    color: $yellow !important;
+    svg * {
+      stroke: $yellow;
+    }
+  }
+  &:focus {
+    outline: none;
+    @extend %underline_simple;
+  }
+
+  svg {
+    vertical-align: middle;
+    * {
+      stroke-width: 1.5;
+    }
+    // margin-top: .25 * $base-spacing;
+    width: .75 * $base-spacing;
+    height: .75 * $base-spacing;
+  }
+}
+
+.search-result--title {
+  font-size: modular-scale(1);
+  font-weight: 500;
+}
+
+.search-close {
+  float: right;
+  text-indent: -9999px;
+  position: relative;
+  height: 2 * $base-spacing;
+  width: 2 * $base-spacing;
+  background-color: transparent;
+  line-height: 1.4;
+  border: none;
+  &:focus, &:active {
+    &::after {
+      color: $yellow;
+    }
+    outline: none;
+  }
+  &:hover {
+    &::after {
+      color: $yellow;
+    }
+  }
+  &::after {
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '×';
+    color: white;
+    font-size: modular-scale(4);
+  }
+}

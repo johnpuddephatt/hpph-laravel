@@ -44,7 +44,18 @@ class AppServiceProvider extends ServiceProvider
               return $footerMenu;
             }
           });
+
           $view->with('footermenu', $footerMenu);
+
+          $searchData = \Cache::remember('searchData', Carbon::tomorrow(), function () {
+            // $data = Film::hasFutureScreenings()->get()->toJson();
+            $data = Film::all()->map(function($item){
+              return array('slug' => $item->slug, 'title' => $item->title, 'alt_language_title' => $item->alt_language_title);
+            })->toJson();
+            return $data;
+          });
+
+          $view->with('searchData', $searchData);
         });
 
         // $footerMenuEntries = Menu::where('title','Footer')->pluck('entries')->first();

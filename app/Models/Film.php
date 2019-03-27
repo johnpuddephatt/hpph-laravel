@@ -64,25 +64,30 @@
         }
 
       public function getDateRange() {
-        $this->start_date = Carbon::parse($this->screenings->first()->date)->format('D jS F');
-        $this->start_date_day = explode(' ', $this->start_date)[0];
-        $this->start_date_dayname = explode(' ', $this->start_date)[1];
-        $this->start_date_month = last(explode(' ', $this->start_date));
-        $this->end_date = Carbon::parse($this->screenings->last()->date)->format('D jS F');
-        $this->end_date_month = last(explode(' ', $this->end_date));
+        if(count($this->screenings)) {
+          $this->start_date = Carbon::parse($this->screenings->first()->date)->format('D jS F');
+          $this->start_date_day = explode(' ', $this->start_date)[0];
+          $this->start_date_dayname = explode(' ', $this->start_date)[1];
+          $this->start_date_month = last(explode(' ', $this->start_date));
+          $this->end_date = Carbon::parse($this->screenings->last()->date)->format('D jS F');
+          $this->end_date_month = last(explode(' ', $this->end_date));
 
-        $date_range = $this->start_date_day . ' ' . $this->start_date_dayname . ' ';
-        if ($this->start_date_month != $this->end_date_month || $this->start_date == $this->end_date ) {
-          $date_range .= $this->start_date_month;
+          $date_range = $this->start_date_day . ' ' . $this->start_date_dayname . ' ';
+          if ($this->start_date_month != $this->end_date_month || $this->start_date == $this->end_date ) {
+            $date_range .= $this->start_date_month;
+          }
+          if ($this->start_date != $this->end_date) {
+            $date_range .= ' – ';
+          }
+          if ($this->start_date != $this->end_date) {
+            $date_range .= $this->end_date;
+          }
+          if ($this->screenings->count() == 1) {
+            $date_range .= ', ' . Carbon::parse($this->screenings->first()->time)->format('g.ia');
+          }
         }
-        if ($this->start_date != $this->end_date) {
-          $date_range .= ' – ';
-        }
-        if ($this->start_date != $this->end_date) {
-          $date_range .= $this->end_date;
-        }
-        if ($this->screenings->count() == 1) {
-          $date_range .= ', ' . Carbon::parse($this->screenings->first()->time)->format('g.ia');
+        else {
+          $date_range = 'No screenings currently scheduled';
         }
 
         return $date_range;

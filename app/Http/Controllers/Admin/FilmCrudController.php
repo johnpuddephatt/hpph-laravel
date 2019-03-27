@@ -313,6 +313,7 @@ class FilmCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         \Cache::forget('homeSlides');
+        \Cache::forget('searchData');
 
         return $redirect_location;
     }
@@ -324,6 +325,7 @@ class FilmCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         \Cache::forget('homeSlides');
+        \Cache::forget('searchData');
         return $redirect_location;
     }
 

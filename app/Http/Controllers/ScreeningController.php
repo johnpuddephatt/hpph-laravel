@@ -61,7 +61,7 @@ class ScreeningController extends Controller
     $screenings = $screenings_query->get();
     if($week == 1) $screenings_today = $screenings_today_query->get();
 
-    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today','filter'));
+    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today'));
   }
 
   public function addScreening(Request $request) {
@@ -104,10 +104,6 @@ class ScreeningController extends Controller
   public function deleteScreening(Request $request) {
     $screening = Screening::find( $request->id );
     $screening->tags()->detach();
-
-    foreach($screening->tags as $tag) {
-
-    }
     $screening->delete();
     return response()->json();
   }

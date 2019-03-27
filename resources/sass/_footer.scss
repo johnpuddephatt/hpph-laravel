@@ -1,6 +1,6 @@
 .site-footer--navigation {
   display: none;
-  margin-top: $base-spacing;
+  margin-top: $base-spacing;;
   .hpph-logo {
     display: none;
   }
@@ -14,12 +14,12 @@
     right: 0;
     // height: 3.5 * $base-spacing;
     background-color: $base-font-color;
+    border-top: .5px solid $dark-gray;
     padding: $small-spacing/1.5 $small-spacing;
     color: white;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-
   }
   svg {
     width: 1.5 * $base-spacing;
@@ -29,12 +29,16 @@
   }
   .site-footer--navigation--link {
     text-align: center;
-    flex: 0 0 25%;
+    flex: 0 0 20%;
     color: white;
     text-transform: uppercase;
     font-size: modular-scale(-1);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
+    background-color: transparent;
+    line-height: $base-line-height;
+    padding: 0;
+    border: 0;
 
     &.current, &.open {
       color: $yellow;
@@ -42,12 +46,29 @@
         stroke: $yellow;
       }
     }
+
+    // &.open {
+    //   color: $yellow;
+    //   svg * {
+    //     fill: $yellow;
+    //   }
+    // }
+
   }
   &.nav-open .site-footer--navigation--link.current {
     color: white;
     svg * {
       stroke: white;
     }
+  }
+}
+
+.navigation--search-open {
+  .current {
+    svg * {
+      stroke: white !important;
+    }
+    color: white !important
   }
 }
 

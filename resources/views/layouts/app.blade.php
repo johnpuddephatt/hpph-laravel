@@ -16,6 +16,7 @@
     <body class="@stack('body-classes')">
 
     @include('header')
+    @include('search')
 
     <main class="page-content" aria-label="Content" id="main" tabIndex="-1">
       @yield('content')

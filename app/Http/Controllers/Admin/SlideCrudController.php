@@ -117,7 +117,7 @@ class SlideCrudController extends CrudController
         $titleArray = [
           'name' => 'title',
           'label' => 'Title',
-          'type' => 'text',
+          'type' => 'clos',
         ];
 
         $subheadingArray = [
@@ -146,8 +146,29 @@ class SlideCrudController extends CrudController
             'tab' => 'Custom / Override'
         ];
 
+        $titleColumnArray = [
+          'name' => 'titlecolumn',
+          'label' => 'Title',
+          'type' => 'closure',
+          'function' => function($entry) {
+            if($entry->title) {
+              return $entry->title;
+            }
+            elseif(class_exists($entry->type)) {
+              $this_related_id = ($entry[lcfirst(class_basename($entry->type)) . '_id']);
+              $related_item = $entry->type::find($this_related_id);
+              if($related_item) {
+                return $entry->getTitle($related_item);
+              }
+            }
+            else {
+              return null;
+            }
+          }
+        ];
+
         $this->crud->addFields([$typeArray,$filmArray,$seasonArray,$strandArray,$activeArray,$customIntroArray,$preheadingArray,$headingArray,$subheadingArray,$urlArray,$thumbArray], 'both');
-        $this->crud->addColumns([$titleArray,$typeArray,$activeColArray]);
+        $this->crud->addColumns([$titleColumnArray,$typeArray,$activeColArray]);
     }
 
 
@@ -166,7 +187,7 @@ class SlideCrudController extends CrudController
       }
 
       $this->crud->entry->save();
-      
+
       \Cache::forget('homeSlides');
 
       return $redirect_location;

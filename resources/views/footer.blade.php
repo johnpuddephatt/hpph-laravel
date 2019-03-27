@@ -3,6 +3,10 @@
     @include('icons.home')
     <div>Home</div>
   </a>
+  <button class="site-footer--navigation--link site-footer--navigation--link__search">
+    @include('icons.search')
+    <div>Search</div>
+  </button>
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
     @include('icons.whats-on')
     <div>What’s On</div>
