@@ -114,12 +114,6 @@ class SlideCrudController extends CrudController
           'hint' => 'This is blank by default.',
         ];
 
-        $titleArray = [
-          'name' => 'title',
-          'label' => 'Title',
-          'type' => 'clos',
-        ];
-
         $subheadingArray = [
           'name' => 'subheading',
           'label' => 'Subtitle',
@@ -151,8 +145,8 @@ class SlideCrudController extends CrudController
           'label' => 'Title',
           'type' => 'closure',
           'function' => function($entry) {
-            if($entry->title) {
-              return $entry->title;
+            if($entry->heading) {
+              return $entry->heading;
             }
             elseif(class_exists($entry->type)) {
               $this_related_id = ($entry[lcfirst(class_basename($entry->type)) . '_id']);
