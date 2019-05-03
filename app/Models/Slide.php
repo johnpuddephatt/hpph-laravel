@@ -31,12 +31,7 @@ class Slide extends Model
   ];
 
   public function getTitle($related_item) {
-    if($this->title) {
-      return $this->title;
-    }
-    else {
-      return $related_item->title;
-    }
+      return $this->title ?? $related_item->title;
   }
   public function getUrl($related_item) {
     if(!$this->url) {
