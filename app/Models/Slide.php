@@ -11,6 +11,14 @@ class Slide extends Model
   protected $table = 'slides';
   protected $fillable = ['title','type','active','film_id','strand_id','season_id','thumb','pretitle','heading','subheading','url'];
 
+  protected static function boot()
+  {
+    parent::boot();
+    static::saved(function() {
+      \Cache::forget('homeSlides');
+    });
+  }
+
   public function film()
   {
     return $this->belongsTo('App\Models\Film');
@@ -33,7 +41,7 @@ class Slide extends Model
   public function getHeading($related_item) {
     return $related_item->title;
   }
-  
+
   public function getUrl($related_item) {
     if(!$this->url) {
       $this->url = lcfirst(class_basename($this->type)) . '/' . $related_item->slug;

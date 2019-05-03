@@ -181,9 +181,6 @@ class SlideCrudController extends CrudController
       }
 
       $this->crud->entry->save();
-
-      \Cache::forget('homeSlides');
-
       return $redirect_location;
     }
 
@@ -201,8 +198,6 @@ class SlideCrudController extends CrudController
         }
       }
       $this->crud->entry->save();
-
-      \Cache::forget('homeSlides');
 
       return $redirect_location;
     }
