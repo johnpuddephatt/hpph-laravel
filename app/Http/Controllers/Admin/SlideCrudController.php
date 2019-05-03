@@ -27,7 +27,7 @@ class SlideCrudController extends CrudController
         | REORDERING
         |--------------------------------------------------------------------------
         */
-        $this->crud->enableReorder('title', 1);
+        $this->crud->enableReorder('heading', 1);
         $this->crud->allowAccess('reorder');
         $this->crud->orderBy('lft');
 
