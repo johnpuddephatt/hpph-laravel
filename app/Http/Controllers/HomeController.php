@@ -33,7 +33,7 @@ class HomeController extends Controller
           $this_related_id = ($slide[lcfirst(class_basename($slide->type)) . '_id']);
           $related_item = $slide->type::find($this_related_id);
           if($related_item) {
-            $slide->title = $slide->getTitle($related_item);
+            $slide->title = $slide->title ?? $slide->getTitle($related_item);
             $slide->getUrl($related_item);
             $slide->getSubheading($related_item);
             $slide->relatedThumb($related_item);
