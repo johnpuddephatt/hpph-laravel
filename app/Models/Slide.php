@@ -30,9 +30,10 @@ class Slide extends Model
     'active' => 'boolean',
   ];
 
-  public function getTitle($related_item) {
+  public function getHeading($related_item) {
     return $related_item->title;
   }
+  
   public function getUrl($related_item) {
     if(!$this->url) {
       $this->url = lcfirst(class_basename($this->type)) . '/' . $related_item->slug;

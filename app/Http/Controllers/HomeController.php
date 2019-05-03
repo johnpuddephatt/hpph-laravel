@@ -27,20 +27,18 @@ class HomeController extends Controller
     $home_slides = \Cache::remember('homeSlides', Carbon::tomorrow(), function () {
 
       $slides = Slide::where('active',true)->orderBy('lft', 'ASC')->get();
-
       foreach ($slides as $slide) {
         if (class_exists($slide->type)) {
           $this_related_id = ($slide[lcfirst(class_basename($slide->type)) . '_id']);
           $related_item = $slide->type::find($this_related_id);
           if($related_item) {
-            $slide->title = $slide->title ?? $slide->getTitle($related_item);
+            $slide->heading = $slide->heading ?? $slide->getHeading($related_item);
             $slide->getUrl($related_item);
             $slide->getSubheading($related_item);
             $slide->relatedThumb($related_item);
           }
         }
       }
-
       return $slides;
     });
 
