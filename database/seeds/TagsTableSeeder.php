@@ -15,25 +15,30 @@ class TagsTableSeeder extends Seeder
         'title' => 'Captioned',
         'abbreviation' => 'C',
         'description' => 'Captioning converts the spoken word into text which provides people with hearing loss access to live performances. In captioning, the words appear on a screen at the same time as they are sung or spoken. Captions also include sound effects, offstage noises and character names.',
-        'color' => ''
+        'color' => '',
+        'slug' => 'captioned'
       ]);
       DB::table('tags')->insert([
         'title' => 'Bring Your Own Baby',
         'abbreviation' => 'BYOBABY',
         'description' => 'A chance for parents and carers with babies up to 12 months old to visit the cinema without leaving the little one at home. Featuring raised lighting, reduced volume and baby changing facilities.',
-        'color' => '#d18500'
+        'color' => '#d18500',
+        'slug' => 'byobaby'
       ]);
       DB::table('tags')->insert([
         'title' => 'Autism friendly',
         'abbreviation' => 'AF',
         'description' => 'A safe environment for those on the autism spectrum who wish to visit the cinema. During screenings audiences are able to move more freely around the cinema during the film.',
-        'color' => '#005b81'
+        'color' => '#005b81',
+        'slug' => 'autism-friendly'
+
       ]);
       DB::table('tags')->insert([
         'title' => 'Audio description',
         'abbreviation' => 'AD',
         'description' => 'Audio description provided',
-        'color' => '#0011ff'
+        'color' => '#0011ff',
+        'slug' => 'audio-description'
       ]);
     }
 }
