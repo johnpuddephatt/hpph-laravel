@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Backpack\PageManager\app\Models\Page;
+use App\Models\Strand;
+use App\Models\Tag;
+use App\Models\Season;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller
@@ -24,7 +27,28 @@ class PageController extends Controller
 
         if (!$page)
         {
+          $strand = Strand::where('slug','=',$slug1)->first();
+          $tag = Tag::where('slug','=',$slug1)->first();
+          $season = Season::where('slug','=',$slug1)->first();
+
+          if($strand) {
+            return redirect()->action(
+              'StrandController@single', ['slug' => $strand->slug]
+            );
+          }
+          elseif($tag) {
+            return redirect()->action(
+              'TagController@single', ['slug' => $tag->slug]
+            );
+          }
+          elseif($season) {
+            return redirect()->action(
+              'SeasonController@single', ['slug' => $season->slug]
+            );
+          }
+          else {
             abort(404);
+          }
         }
         else {
           $parent_page_id = isset($page->parent_id) ? $page->parent_id : $page->id;

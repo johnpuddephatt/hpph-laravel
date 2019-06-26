@@ -10,7 +10,7 @@
       @if($film->audio_description)
         <tr class="single-listing--screenings--key--item">
           <td>
-            @include('film.audio-description')
+            @include('labels.audio-description', ['is_link' => true])
           </td>
           <td>
             <h4 class="single-listing--screenings--key--title">Audio Description available</h4>

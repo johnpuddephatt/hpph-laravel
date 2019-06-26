@@ -30,18 +30,6 @@
   @media screen and (min-width: $medium-screen) {
     text-indent: 0;
   }
-  button {
-    line-height: $small-spacing;
-    display: none;
-    float: right;
-    text-indent: 0;
-    margin-top: $small-spacing/2;
-    border: $light-border;
-    text-transform: lowercase;
-    @media screen and (max-width: $medium-screen) {
-      display: block;
-    }
-  }
 }
 
 .single-listing--screenings--key--abbreviation {

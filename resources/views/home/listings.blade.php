@@ -48,7 +48,7 @@
                         @include('labels.strand')
                       @endforeach
                       @if($screening->film->audio_description)
-                        @include('film.audio-description')
+                        @include('labels.audio-description')
                       @endif
                       @if($screening->tags)
                         @foreach ($screening->tags as $tag)

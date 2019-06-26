@@ -30,7 +30,7 @@ class SeasonCrudController extends CrudController
 
         $titleArray = [
           'name' => 'title',
-          'label' => 'Tag',
+          'label' => 'Title',
           'type' => 'text',
           'attributes' => [
             'class' => 'form-control input-lg'

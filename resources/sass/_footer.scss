@@ -15,7 +15,7 @@
     // height: 3.5 * $base-spacing;
     background-color: $base-font-color;
     border-top: .5px solid $dark-gray;
-    padding: $small-spacing/1.5 $small-spacing;
+    padding: $small-spacing/1.5 $small-spacing/2;
     color: white;
     display: flex;
     align-items: flex-end;
@@ -34,6 +34,7 @@
     text-transform: uppercase;
     font-size: modular-scale(-1);
     font-weight: 700;
+    white-space: nowrap;
     -webkit-font-smoothing: antialiased;
     background-color: transparent;
     line-height: $base-line-height;

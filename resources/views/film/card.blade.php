@@ -30,7 +30,7 @@
       @include('labels.strand')
     @endforeach
     @if($film->audio_description)
-      @include('film.audio-description')
+      @include('labels.audio-description')
     @endif
     @if($film->free)
       <span class="label label--free">Free</span>

@@ -101,15 +101,15 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
 */
 
 (function() {
-  const keyTitle = document.querySelector('.single-listing--screenings--key--heading');
+  const screeningsTitle = document.querySelector('.single-listing--screenings--header');
   const keyContent = document.querySelector('.single-listing--screenings--key--content');
-  if(keyTitle && keyContent) {
-    keyTitle.innerHTML = `${keyTitle.textContent}
-      <button class="button button__small button__text" aria-expanded="false">
+  if(screeningsTitle && keyContent) {
+    screeningsTitle.innerHTML = `${screeningsTitle.textContent}
+      <button class="button button__text button__small" aria-expanded="false">
         Show key
       </button>
     `
-    let btn = keyTitle.querySelector('button')
+    let btn = screeningsTitle.querySelector('button')
     keyContent.classList.add('accordion-enabled')
     keyContent.hidden = true
 
@@ -117,6 +117,9 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
       let expanded = btn.getAttribute('aria-expanded') === 'true' || false
       btn.setAttribute('aria-expanded', !expanded)
       keyContent.hidden = expanded
+      btn.innerText = (btn.innerText == 'show key') ? 'hide key' : 'show key';
+      keyContent.scrollIntoView({behavior: "smooth", block: "center"});
+
     }
   }
 })()
@@ -204,15 +207,46 @@ navTrigger.addEventListener('click',(e)=>{
 var trailerContainer = document.querySelector('.single-listing--trailer');
 var trailerIframe = document.querySelector('.single-listing--trailer--iframe');
 var trailerButton = document.querySelector('.trailer-button');
+var vimeoPlayer;
 if(trailerButton) {
   var trailerID = trailerButton.dataset.iframe;
+  var trailerProvider = trailerButton.dataset.provider;
 }
 if(trailerID) {
-  // 1. This code loads the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  tag.src = "//www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  if(trailerProvider == 'youtube') {
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    window.onYouTubeIframeAPIReady = function() {
+
+      youtubePlayer = new YT.Player(trailerIframe, {
+        height: '390',
+        width: '640',
+        videoId: trailerID,
+        events: {
+          'onReady': onPlayerReady,
+        }
+      });
+    }
+  }
+
+  if(trailerProvider == 'vimeo') {
+    var tag = document.createElement('script');
+    tag.src = "//player.vimeo.com/api/player.js";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    tag.addEventListener('load', ()=>{
+      vimeoPlayer = new Vimeo.Player(trailerIframe, {
+        id: trailerID,
+      });
+      connectTrailerButton();
+      trailerButton.classList.add('loaded');
+    });
+
+  }
+
   if(window.innerHeight > window.innerWidth) {
     trailerIframe.style.width = '100%';
   }
@@ -221,36 +255,41 @@ if(trailerID) {
   }
   trailerIframe.style.height = (trailerIframe.clientWidth) * (9/16) + 'px';
 
-  // 2. This function creates an <iframe> (and YouTube player) after the API code downloads.
-  window.onYouTubeIframeAPIReady = function() {
-    console.log('api ready');
-    player = new YT.Player(trailerIframe, {
-      height: '390',
-      width: '640',
-      videoId: trailerID,
-      events: {
-        'onReady': onPlayerReady,
-      }
-    });
-  }
-
 }
 
 // 4. The API will call this function when the video player is ready.
 window.onPlayerReady = function(event) {
+  connectTrailerButton();
+  trailerButton.classList.add('loaded');
+};
+
+function connectTrailerButton() {
   var playing = false;
+
   trailerButton.addEventListener('click',()=>{
     var trailerIframe = trailerContainer.querySelector('.single-listing--trailer--iframe');
     trailerContainer.classList.toggle('lights-out');
     if(!playing) {
-      player.playVideo();
+      if(trailerProvider == 'youtube') {
+        youtubePlayer.playVideo();
+      }
+      if(trailerProvider == 'vimeo') {
+        vimeoPlayer.play();
+      }
+      document.body.classList.add('locked');
       trailerButton.innerText = 'Close trailer';
       trailerButton.blur();
       trailerButton.classList.remove('play');
       playing = true;
     }
     else {
-      player.stopVideo();
+      document.body.classList.remove('locked');
+      if(trailerProvider == 'youtube') {
+        youtubePlayer.stopVideo();
+      }
+      if(trailerProvider == 'vimeo') {
+        vimeoPlayer.pause();
+      }
       trailerButton.innerText = 'Watch trailer ';
       trailerButton.classList.add('play');
       trailerButton.blur();
@@ -258,8 +297,7 @@ window.onPlayerReady = function(event) {
     }
 
   });
-  trailerButton.classList.add('loaded');
-};
+}
 
 
 /*

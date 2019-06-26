@@ -29,5 +29,11 @@ class TagsTableSeeder extends Seeder
         'description' => 'A safe environment for those on the autism spectrum who wish to visit the cinema. During screenings audiences are able to move more freely around the cinema during the film.',
         'color' => '#005b81'
       ]);
+      DB::table('tags')->insert([
+        'title' => 'Audio description',
+        'abbreviation' => 'AD',
+        'description' => 'Audio description provided',
+        'color' => '#0011ff'
+      ]);
     }
 }

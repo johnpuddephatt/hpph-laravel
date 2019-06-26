@@ -28,7 +28,7 @@
     <div class="single-listing--text">
       @foreach($film->strands as $strand)
         <div class="single-listing--strand">
-          @include('labels.strand')
+          @include('labels.strand', ['is_link' => true])
         </div>
       @endforeach
       <h1 class="single-listing--title">{{ $film->title }}</h1>

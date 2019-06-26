@@ -152,6 +152,8 @@ class ScreeningCrudController extends CrudController
         parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+        \Cache::forget('homeSlides');
+        \Cache::forget('searchData');
         return $redirect_location;
         return redirect('/admin/film/' . $request->film_id . '/edit/#screenings');
     }
@@ -160,8 +162,11 @@ class ScreeningCrudController extends CrudController
     {
         // your additional operations before save here
         parent::updateCrud($request);
+
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+        \Cache::forget('homeSlides');
+        \Cache::forget('searchData');
         return redirect('/admin/film/' . $request->film_id . '/edit/#screenings');
     }
 }

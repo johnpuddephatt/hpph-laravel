@@ -46,9 +46,12 @@ Route::get('strand/{slug}', 'StrandController@single');
 Route::get('season/{slug}', 'SeasonController@single');
 Route::get('tag/{slug}', 'TagController@single');
 
-
-Route::get('{page}/{childpage?}', 'PageController@index');
-
+// Route::redirect('byob', 'tag/BYOB');
+// Route::redirect('ad', 'tag/AD');
+// Route::redirect('tw', 'strand/tuesday-wonder');
+// Route::redirect('cotn', 'strand/COTN');
+// Route::redirect('philosophy', 'strand/philosophy');
 
 Route::get('/imager/{config}/{image}', 'ImageController@default')->where('image', '[A-Za-z0-9\/\.\-\_]+');;
 
+Route::get('{page}/{childpage?}', 'PageController@index');

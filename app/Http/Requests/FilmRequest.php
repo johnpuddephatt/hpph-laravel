@@ -26,8 +26,9 @@ class FilmRequest extends FormRequest
     public function rules()
     {
         return [
-          'title' => 'required|max:255',
-          'thumb' => 'required'
+          'title' => 'unique:films|required|max:255',
+          'thumb' => 'required',
+          'slug' => 'unique:films'
         ];
     }
 
@@ -51,7 +52,8 @@ class FilmRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+          'title.unique' => 'Film titles must be unique. Perhaps you’re adding a film that’s already been added?',
+          'slug.unique' => 'The slug is used for the film’s URL so must be unique.'
         ];
     }
 }

@@ -36,4 +36,15 @@
   font-weight: 500;
   margin-bottom: $small-spacing;
   padding: 0 $small-spacing;
+  button {
+    line-height: $small-spacing;
+    display: none;
+    float: right;
+    text-indent: 0;
+    border: $light-border;
+    text-transform: lowercase;
+    @media screen and (max-width: $medium-screen) {
+      display: block;
+    }
+  }
 }

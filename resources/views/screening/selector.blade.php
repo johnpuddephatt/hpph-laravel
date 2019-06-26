@@ -28,11 +28,11 @@
             {{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}
           </label>
           @foreach ($screening->tags as $tag)
-              @include ('labels.tag')
+              @include ('labels.tag', ['is_link' => true])
               @php array_push($tag_array,$tag) @endphp
           @endforeach
           @if($film->audio_description)
-            @include('film.audio-description')
+            @include('labels.audio-description', ['is_link' => true])
           @endif
           @if($film->free)
             <span class="label label--free">Free</span>
