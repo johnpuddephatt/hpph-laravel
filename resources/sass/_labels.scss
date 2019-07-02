@@ -8,9 +8,11 @@
   border-color: transparentize($black,.85);
   color: $base-font-color;
   -webkit-font-smoothing: antialiased;
-  &__dark-bg {
+  &__dark-bg, &__dark-bg:hover {
     color: white;
-
+  }
+  &:hover {
+    color: $base-font-color;
   }
   // &--tuesday-wonder {
   //   background-color: $tuesday-wonder;

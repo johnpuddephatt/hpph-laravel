@@ -21,7 +21,7 @@
       @foreach($tag_collection as $tag)
         <tr class="single-listing--screenings--key--item">
           <td>
-            @include('labels.tag')
+            @include('labels.tag', ['is_link' => true])
           </td>
           <td>
             <h4 class="single-listing--screenings--key--title">{{$tag->title}}</h4>
