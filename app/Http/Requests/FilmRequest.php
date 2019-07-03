@@ -25,10 +25,11 @@ class FilmRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-          'title' => 'unique:films|required|max:255',
+          'title' => 'required|max:255|unique:films,title,' . $this->id,
           'thumb' => 'required',
-          'slug' => 'unique:films'
+          'slug' => 'unique:films,slug,'.$this->id
         ];
     }
 
