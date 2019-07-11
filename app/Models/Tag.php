@@ -21,7 +21,7 @@ class Tag extends Model
     // protected $guarded = ['id'];
     // protected $hidden = ['pivot','relations'];
 
-    protected $fillable = ['slug','title','thumb','abbreviation','description','short_description','color'];
+    protected $fillable = ['slug','title','thumb','order','abbreviation','description','short_description','color'];
     // protected $hidden = [];
     // protected $dates = [];
 

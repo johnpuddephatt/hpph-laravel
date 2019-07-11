@@ -24,7 +24,6 @@ Route::get('whats-on/weekly/week-{week}', 'ScreeningController@weekly');
 
 Route::redirect('subscribe', 'http://hydeparkpicturehouse.us4.list-manage.com/subscribe?u=8bc4f3836ccb9012c150eda87&id=9c4ddb7eb6', 301);
 
-
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
 {
   CRUD::resource('film', 'FilmCrudController');
@@ -38,19 +37,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
   CRUD::resource('menu', 'MenuCrudController');
 
   Route::post ( 'slide/{id}/{state}', '\App\Http\Controllers\SlideController@toggleActive' );
-
 });
 
-// Route::post ( '/admin/addScreening', 'ScreeningController@addScreening' );
-Route::get('strand/{slug}', 'StrandController@single');
-Route::get('season/{slug}', 'SeasonController@single');
-Route::get('tag/{slug}', 'TagController@single');
-
-// Route::redirect('byob', 'tag/BYOB');
-// Route::redirect('ad', 'tag/AD');
-// Route::redirect('tw', 'strand/tuesday-wonder');
-// Route::redirect('cotn', 'strand/COTN');
-// Route::redirect('philosophy', 'strand/philosophy');
+Route::get('{collection_type}/{slug}/{order?}', 'CollectionController@single')->where('collection_type', 'strand|season|tag');
 
 Route::get('/imager/{config}/{image}', 'ImageController@default')->where('image', '[A-Za-z0-9\/\.\-\_]+');;
 

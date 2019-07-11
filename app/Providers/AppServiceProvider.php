@@ -31,30 +31,29 @@ class AppServiceProvider extends ServiceProvider
 
       if (! $this->app->runningInConsole()) {
 
-        View::composer('*', function ($view) {
-          $footerMenu =  \Cache::rememberForever('footerMenu', function () {
-            $footerMenuEntries = Menu::where('title','Footer')->pluck('entries')->first();
-            if($footerMenuEntries) {
-              $footerMenuIds = array_column($footerMenuEntries, 'page');
-              $footerMenuIdsStr = implode(',', $footerMenuIds);
-              $footerMenu = \Backpack\PageManager\app\Models\Page::whereIn('id',$footerMenuIds)->get();
-              $footerMenu = $footerMenu->sortBy(function($model) use ($footerMenuIds) {
-                return array_search($model->id, $footerMenuIds);
-              });
-              return $footerMenu;
-            }
-          });
+        $footerMenu =  \Cache::rememberForever('footerMenu', function () {
+          $footerMenuEntries = Menu::where('title','Footer')->pluck('entries')->first();
+          if($footerMenuEntries) {
+            $footerMenuIds = array_column($footerMenuEntries, 'page');
+            $footerMenuIdsStr = implode(',', $footerMenuIds);
+            $footerMenu = \Backpack\PageManager\app\Models\Page::whereIn('id',$footerMenuIds)->get();
+            $footerMenu = $footerMenu->sortBy(function($model) use ($footerMenuIds) {
+              return array_search($model->id, $footerMenuIds);
+            });
+            return $footerMenu;
+          }
+        });
 
+        $searchData = \Cache::remember('searchData', Carbon::tomorrow(), function () {
+          // $data = Film::hasFutureScreenings()->get()->toJson();
+          $data = Film::hasFutureScreenings()->orderBy('id','desc')->get()->map(function($item){
+            return array('slug' => $item->slug, 'title' => $item->title, 'alt_language_title' => $item->alt_language_title);
+          })->toJson();
+          return $data;
+        });
+
+        View::composer('*', function ($view) use ($footerMenu, $searchData) {
           $view->with('footermenu', $footerMenu);
-
-          $searchData = \Cache::remember('searchData', Carbon::tomorrow(), function () {
-            // $data = Film::hasFutureScreenings()->get()->toJson();
-            $data = Film::hasFutureScreenings()->orderBy('id','desc')->get()->map(function($item){
-              return array('slug' => $item->slug, 'title' => $item->title, 'alt_language_title' => $item->alt_language_title);
-            })->toJson();
-            return $data;
-          });
-
           $view->with('searchData', $searchData);
         });
 

@@ -73,7 +73,7 @@
               @endif
           @endforeach
         @else
-          <div class="alert">No screenings currently scheduled for this day.</div>
+          <div class="alert alert__empty">No screenings currently scheduled for this day.</div>
         @endif
       </div>
 

@@ -19,7 +19,7 @@ class Season extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug','title','thumb','short_description','description'];
+    protected $fillable = ['slug','title','order','thumb','short_description','description'];
     // protected $hidden = [];
     // protected $dates = [];
 

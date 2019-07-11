@@ -19,7 +19,7 @@ class Strand extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug','title','color','thumb','description','short_description'];
+    protected $fillable = ['slug','title','order','color','thumb','description','short_description'];
     // protected $hidden = [];
     // protected $dates = [];
 

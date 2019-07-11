@@ -12,6 +12,13 @@
     padding: 2 * $base-spacing;
     background-color: $yellow;
   }
+  &__empty {
+    font-size: modular-scale(0);
+    border: none;
+    padding: 8 * $base-spacing $base-spacing;
+    text-align: center;
+    color: $medium-gray;
+  }
   h3 {
     margin-bottom: $small-spacing/2;
   }

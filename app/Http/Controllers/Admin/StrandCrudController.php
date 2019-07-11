@@ -44,6 +44,15 @@ class StrandCrudController extends CrudController
           'hint' => 'Leave blank to generate automatically. Changing this will break existing URLs.'
         ];
 
+        $orderArray = [
+          'name' => 'order',
+          'label' => 'Order',
+          'type' => 'select_from_array',
+          'options' => ['film' => 'Sort by film', 'screening' => 'Sort by screening'],
+          'allows_null' => false,
+          'hint' => 'Determines the default display order on this collection’s page'
+        ];
+
         $shortDescriptionArray = [
           'name' => 'short_description',
           'label' => 'Short description',
@@ -72,7 +81,7 @@ class StrandCrudController extends CrudController
             'crop' => true, // set to true to allow cropping, false to disable
         ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$orderArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
         $this->crud->addColumns([$titleArray,$shortDescriptionArray]);
 
         // ------ CRUD FIELDS

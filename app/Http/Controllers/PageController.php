@@ -27,23 +27,10 @@ class PageController extends Controller
 
         if (!$page)
         {
-          $strand = Strand::where('slug','=',$slug1)->first();
-          $tag = Tag::where('slug','=',$slug1)->first();
-          $season = Season::where('slug','=',$slug1)->first();
-
-          if($strand) {
+          $collection = Strand::where('slug','=',$slug1)->first() ?? Tag::where('slug','=',$slug1)->first() ?? Season::where('slug','=',$slug1)->first();
+          if($collection) {
             return redirect()->action(
-              'StrandController@single', ['slug' => $strand->slug]
-            );
-          }
-          elseif($tag) {
-            return redirect()->action(
-              'TagController@single', ['slug' => $tag->slug]
-            );
-          }
-          elseif($season) {
-            return redirect()->action(
-              'SeasonController@single', ['slug' => $season->slug]
+              'CollectionController@single', ['type' => strtolower(class_basename($collection)), 'slug' => $collection->slug]
             );
           }
           else {

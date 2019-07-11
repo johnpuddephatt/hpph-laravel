@@ -49,6 +49,16 @@ class TagCrudController extends CrudController
           'label' => 'Abbreviation',
           'type' => 'text',
         ];
+
+        $orderArray = [
+          'name' => 'order',
+          'label' => 'Order',
+          'type' => 'select_from_array',
+          'options' => ['film' => 'Sort by film', 'screening' => 'Sort by screening'],
+          'allows_null' => false,
+          'hint' => 'Determines the default display order on this collection’s page'
+        ];
+
         $shortDescriptionArray = [
           'name' => 'short_description',
           'label' => 'Short description',
@@ -76,7 +86,7 @@ class TagCrudController extends CrudController
         ];
 
 
-        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$abbreviationArray,$orderArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
         $this->crud->addColumns([$titleArray,$abbreviationArray,$shortDescriptionArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

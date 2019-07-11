@@ -27,12 +27,20 @@
 
   <div class="container single-listing--related">
     <div class="single-listing--related--inner">
-      @if($screenings->count())
+      @if(isset($screenings) && $screenings->count())
         @foreach ($screenings as $screening)
           @include('screening.weekly-item', ['show_date' => true])
         @endforeach
+      @elseif(isset($films) && $films->count())
+        <div class="az-listings--listings">
+          <div class="az-listings--inner">
+            @foreach ($films as $film)
+              @include('film.card')
+            @endforeach
+          </div>
+        </div>
       @else
-        <div class="alert">
+        <div class="alert alert--empty">
           There are no {{ strtolower($collection->title) }} screenings currently scheduled.
         </div>
       @endif
