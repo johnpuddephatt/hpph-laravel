@@ -20,7 +20,7 @@ class AddOrderFieldToCollections extends Migration
         $table->string('order')->default('screening');
       });
       Schema::table('seasons', function (Blueprint $table) {
-        $table->string('order')->default('screening');
+        $table->string('order')->default('film');
       });
 
     }
