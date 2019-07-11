@@ -41,7 +41,7 @@
         </div>
       @else
         <div class="alert alert__empty">
-          There are no {{ strtolower($collection->title) }} screenings currently scheduled.
+          There are no {{ $collection->title }} screenings currently scheduled.
         </div>
       @endif
     </div>
