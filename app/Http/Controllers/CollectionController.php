@@ -33,7 +33,7 @@ class CollectionController extends Controller
       }
 
       if($collection->order == 'film') {
-        $films = Film::whereIn('id',$film_ids)->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->get();
+        $films = Film::whereIn('id',$film_ids)->hasFutureScreenings()->get();
       }
 
     }
