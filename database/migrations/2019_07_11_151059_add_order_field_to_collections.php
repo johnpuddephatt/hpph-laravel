@@ -14,13 +14,13 @@ class AddOrderFieldToCollections extends Migration
     public function up()
     {
       Schema::table('tags', function (Blueprint $table) {
-        $table->text('order')->default('screening');
+        $table->string('order')->default('screening');
       });
       Schema::table('strands', function (Blueprint $table) {
-        $table->text('order')->default('screening');
+        $table->string('order')->default('screening');
       });
       Schema::table('seasons', function (Blueprint $table) {
-        $table->text('order')->default('screening');
+        $table->string('order')->default('screening');
       });
 
     }
