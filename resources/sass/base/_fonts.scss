@@ -1,15 +1,18 @@
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBold", $file-formats: woff2 woff){
   font-style: normal;
+  font-display: fallback;
   font-weight: 700;
 }
 
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
   font-style: normal;
+  font-display: fallback;
   font-weight: 500;
 }
 
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
   font-style: normal;
+  font-display: fallback;
   font-weight: 400;
 }
 
@@ -21,5 +24,6 @@
 
 @include font-face("HPPHB", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
   font-style: italic;
+  font-display: fallback;
   font-weight: 400;
 }
