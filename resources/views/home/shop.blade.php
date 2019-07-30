@@ -4,12 +4,13 @@
       <div class="shop--grid">
         <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/products">
           @include('utils.intervention', [
-            'alt' => "Photograph of cinema postcards",
+            'alt' => "Photograph of mug with colourful, abstract cinema illustration",
             'img' => "/images/shop-mug-studio.jpg",
             'class' => "shop--image",
             'height' => "500",
             'width' => "500",
-            'quality' => "50"
+            'quality' => "50",
+            'sizes' => "(min-width: 1400px) 537px, (min-width: 507px) 45vw, 100vw"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Merchandise</h3>
@@ -23,7 +24,8 @@
             'class' => "shop--image",
             'height' => "250",
             'width' => "500",
-            'quality' => "50"
+            'quality' => "50",
+            'sizes' => "(min-width: 1400px) 537px, (min-width: 507px) 45vw, 50vw"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Gift Vouchers</h3>
@@ -36,7 +38,8 @@
             'class' => "shop--image",
             'height' => "250",
             'width' => "500",
-            'quality' => "50"
+            'quality' => "50",
+            'sizes' => "(min-width: 1400px) 537px, (min-width: 507px) 45vw, 50vw"
           ])
           <div class="inner">
             <h3 class="shop--link--title">Gift Membership</h3>
