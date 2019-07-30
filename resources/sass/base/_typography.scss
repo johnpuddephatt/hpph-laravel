@@ -17,7 +17,7 @@ html {
 
 body {
   color: $base-font-color;
-  font-family: $base-font-family;
+  font-family: $base-font-family, 'Century Gothic', sans-serif;
   font-size: $base-font-size;
   line-height: $base-line-height;
   letter-spacing: $base-letter-spacing;
@@ -91,7 +91,7 @@ sup {
 }
 
 .section-title {
-  font-family: $heading-font-family;
+  font-family: $heading-font-family, 'Times New Roman', serif;
   font-weight: 400;
   color: inherit;
   font-size: modular-scale(6);
