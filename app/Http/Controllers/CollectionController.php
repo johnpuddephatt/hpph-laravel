@@ -33,7 +33,7 @@ class CollectionController extends Controller
       }
 
       if($collection->order == 'film') {
-        $films = Film::whereIn('id',$film_ids)->hasFutureScreenings()->get();
+        $films = Film::whereIn('id',$film_ids)->hasFutureScreenings()->with(['screenings','strands'])->orderBy('title')->get();
       }
 
     }
@@ -47,7 +47,7 @@ class CollectionController extends Controller
       }
 
       if($collection->order == 'film') {
-        $films = $collection->films()->with(['screenings','strands'])->get();
+        $films = $collection->films()->hasFutureScreenings()->with(['screenings','strands'])->orderBy('title')->get();
       }
       else {
         $film_ids = $collection->films()->pluck('film_id');
