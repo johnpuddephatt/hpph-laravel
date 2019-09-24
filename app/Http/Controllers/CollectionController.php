@@ -49,7 +49,7 @@ class CollectionController extends Controller
       if($collection->order == 'film') {
         $films = $collection->films()->with(['screenings','strands'])->get();
       }
-      elseif($collection->order == 'screening') {
+      else {
         $film_ids = $collection->films()->pluck('film_id');
         $screenings = Screening::whereIn('film_id',$film_ids)->where('date', '>=', date('Y/m/d'))->with(['film.strands','tags'])->orderBy('date')->orderBy('time')->get();
       }
