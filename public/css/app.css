@@ -4187,6 +4187,45 @@ body.collection .site-header .hpph-logo .picture-house {
   padding-left: 0.2125rem;
 }
 
+@media screen and (min-width: 900px) {
+  .collection--text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+  }
+}
+
+.collection--text .single-listing--title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+}
+
+.collection--text .single-listing--description {
+  display: none;
+  margin-top: 0.85rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+@media screen and (min-width: 600px) {
+  .collection--text .single-listing--description {
+    margin-left: 1.7rem;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+    -webkit-column-gap: 1.7rem;
+       -moz-column-gap: 1.7rem;
+            column-gap: 1.7rem;
+  }
+}
+
 .film-card {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;

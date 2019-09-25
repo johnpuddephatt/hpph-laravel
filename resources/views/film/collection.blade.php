@@ -19,7 +19,7 @@
   </div>
 
   <div class="container single-listing--heading">
-    <div class="single-listing--text single-listing--text__centered">
+    <div class="collection--text">
       <h1 class="single-listing--title">{{ $collection->title }}</h1>
       <div class="single-listing--description">{!! $collection->description !!}</div>
     </div>
