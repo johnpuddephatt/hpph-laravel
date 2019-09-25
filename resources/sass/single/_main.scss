@@ -118,9 +118,10 @@
 }
 
 .single-listing--alt-language-title {
-  font-size: modular-scale(3);
+  font-size: modular-scale(4);
+  font-family: $heading-font-family;
   -webkit-font-smoothing: antialiased;
-  color: $medium-gray;
+  color: $dark-gray;
   line-height: $heading-line-height;
   + .single-listing--meta {
     margin-top: $small-spacing;
@@ -139,6 +140,7 @@
 }
 
 .single-listing--strand {
+  font-size: modular-scale(-1);
   margin-bottom: $small-spacing/2;
 }
 
