@@ -1,0 +1,69 @@
+.section--home-move {
+  margin-top: 4 * $base-spacing;
+  margin-bottom: 4 * $base-spacing;
+  .section-title {
+    @media screen and (min-width: $medium-screen) {
+      text-align: left;
+    }
+    margin-bottom: $small-spacing;
+  }
+  .moving--band {
+    @media screen and (min-width: $medium-screen) {
+      background-color: $yellow;
+    }
+    padding: $base-spacing 0 $base-spacing;
+    .button {
+      font-size: modular-scale(-1);
+      display: block;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      @media screen and (min-width: $medium-screen) {
+        text-align: left;
+        flex-direction: row;
+      }
+    }
+  }
+  .moving--text {
+    flex: 0 0 47.5%;
+    margin-right: 2.5%;
+    a {
+      color: $black;
+      font-weight: 500;
+    }
+  }
+  .moving--image {
+    flex: 0 0 50%;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      background-color: $yellow;
+      left: -99999px;
+      right: -9999px;
+      top: 3 * $base-spacing;
+      bottom: -$base-spacing;
+      position: absolute;
+      z-index: -1;
+      @media screen and (min-width: $medium-screen) {
+        display: none;
+      }
+    }
+
+    img {
+      margin: $base-spacing auto 0;
+      width: 75%;
+      @media screen and (min-width: $medium-screen) {
+        width: 100%;
+        margin-top: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      display: block;
+    }
+  }
+}
