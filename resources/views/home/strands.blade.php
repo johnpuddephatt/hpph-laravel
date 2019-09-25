@@ -23,7 +23,7 @@
         @endforeach
 
       </div>
-      <h3 class="section-title-secondary">Specialist Screenings</h3>
+      <h3 class="section-title-secondary sr-only">Specialist Screenings</h3>
       <div class="tag--grid">
         @foreach ($home_tags as $tag)
           <a href="/tag/{{ $tag->slug }}/" class="tag--item">{{ $tag->title }}</a>
