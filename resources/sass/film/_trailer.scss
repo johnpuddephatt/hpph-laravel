@@ -1,7 +1,11 @@
 .single-listing--trailer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
   &::after {
     content: '';
-    background-color: rgba(0,0,0,.85);
+    background-color: rgba(0,0,0,.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -54,22 +58,13 @@
   text-transform: lowercase;
   font-weight: 700;
   position: absolute;
-  font-size: modular-scale(1);
   z-index: 9;
-  right: $small-spacing;
   padding: 0;
   text-shadow: 0 0 $small-spacing transparentize($black,0.5);
   &:hover {
     background-color: transparent;
     @extend %underline_simple;
   }
-  @media screen and (min-width: $medium-screen) {
-    right: $base-spacing;
-  }
-  @media screen and (min-width: $large-screen) {
-    right: 1.5 * $base-spacing;
-  }
-  bottom: $small-spacing;
   visibility: hidden;
   &.loaded {
     visibility: visible;

@@ -3405,20 +3405,35 @@ function connectTrailerButton() {
       trailerButton.classList.remove('play');
       playing = true;
     } else {
-      document.body.classList.remove('locked');
-      if (trailerProvider == 'youtube') {
-        youtubePlayer.stopVideo();
-      }
-      if (trailerProvider == 'vimeo') {
-        vimeoPlayer.pause();
-      }
-      trailerButton.innerText = 'Watch trailer ';
-      trailerButton.classList.add('play');
-      trailerButton.blur();
-      playing = false;
+      closeVideo();
     }
   });
 }
+
+function closeVideo() {
+  document.body.classList.remove('locked');
+  if (trailerProvider == 'youtube') {
+    youtubePlayer.stopVideo();
+  }
+  if (trailerProvider == 'vimeo') {
+    vimeoPlayer.pause();
+  }
+  trailerButton.innerText = 'Watch trailer ';
+  trailerButton.classList.add('play');
+  trailerButton.blur();
+  playing = false;
+}
+
+// Trigger trailer close when escape is pressed
+document.addEventListener('keyup', function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  var key = event.key || event.keyCode;
+  if (key === 'Escape' || key === 'Esc' || key === 27) {
+    closeVideo();
+  }
+});
 
 /*
 ** Search

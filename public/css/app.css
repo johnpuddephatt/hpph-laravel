@@ -4614,9 +4614,16 @@ body.collection .site-header .hpph-logo .picture-house {
   margin-bottom: 0;
 }
 
+.single-listing--trailer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .single-listing--trailer::after {
   content: '';
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -4676,29 +4683,14 @@ body.collection .site-header .hpph-logo .picture-house {
   text-transform: lowercase;
   font-weight: 700;
   position: absolute;
-  font-size: 1.2em;
   z-index: 9;
-  right: 0.85rem;
   padding: 0;
   text-shadow: 0 0 0.85rem rgba(0, 0, 0, 0.5);
-  bottom: 0.85rem;
   visibility: hidden;
 }
 
 .trailer-button:hover {
   background-color: transparent;
-}
-
-@media screen and (min-width: 600px) {
-  .trailer-button {
-    right: 1.7rem;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .trailer-button {
-    right: 2.55rem;
-  }
 }
 
 .trailer-button.loaded {
