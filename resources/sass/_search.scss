@@ -28,6 +28,9 @@
 
 .search-input {
   width: 100%;
+  font-weight: 500;
+  color: $dark-gray;
+  -webkit-font-smoothing: antialiased;
   font-size: modular-scale(2);
   margin-bottom: 0;
   padding-left: $small-spacing;
@@ -101,6 +104,8 @@
   color: white;
   text-transform: none;
   font-weight: 600;
+  padding-left: 0;
+  padding-right: 0;
   &:hover {
     background-color: transparent;
     color: $yellow !important;

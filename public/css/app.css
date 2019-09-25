@@ -966,6 +966,9 @@ body.collection .site-header .hpph-logo .picture-house {
 
 .search-input {
   width: 100%;
+  font-weight: 500;
+  color: #767372;
+  -webkit-font-smoothing: antialiased;
   font-size: 1.44em;
   margin-bottom: 0;
   padding-left: 0.85rem;
@@ -1050,6 +1053,8 @@ body.collection .site-header .hpph-logo .picture-house {
   color: white;
   text-transform: none;
   font-weight: 600;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .search-button:hover {
@@ -3590,8 +3595,8 @@ body.collection .site-header .hpph-logo .picture-house {
 @media screen and (min-width: 900px) {
   .tag--item {
     -webkit-box-flex: 1;
-        -ms-flex: 1 0 21%;
-            flex: 1 0 21%;
+        -ms-flex: 1 0 40%;
+            flex: 1 0 40%;
   }
 }
 
