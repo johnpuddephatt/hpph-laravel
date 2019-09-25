@@ -772,20 +772,22 @@ sup {
 
 .site-header .site-header--home-link {
   outline-offset: 0.85rem;
-  margin-right: 1.7rem;
-  width: 8.5rem;
+  width: 10.2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .site-header .site-header--home-link {
+    width: 8.5rem;
+    margin-right: 1.7rem;
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .site-header .site-header--home-link {
     margin-right: 2.55rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .site-header .site-header--home-link {
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -1134,7 +1136,7 @@ body.collection .site-header .hpph-logo .picture-house {
     left: 0;
     right: 0;
     background-color: #333;
-    border-top: 0.5px solid #767372;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.25);
     padding: 0.56666667rem 0.425rem;
     color: white;
     display: -webkit-box;
@@ -1340,7 +1342,7 @@ body.collection .site-header .hpph-logo .picture-house {
     display: block;
     text-align: left;
     margin-bottom: 0;
-    padding: 3.4rem 0;
+    padding: 3.4rem 0 1.7rem;
     background-color: #000;
   }
 }
@@ -1396,6 +1398,7 @@ body.collection .site-header .hpph-logo .picture-house {
   color: white;
   line-height: 2.55rem;
   display: none;
+  margin-bottom: 0;
 }
 
 @media (min-width: 600px) {
@@ -1414,13 +1417,16 @@ body.collection .site-header .hpph-logo .picture-house {
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
+  display: none;
 }
 
 @media screen and (min-width: 600px) {
   .site-footer--contact {
+    display: block;
     -webkit-box-flex: 0;
         -ms-flex: 0 1 50%;
             flex: 0 1 50%;
+    padding-right: 1.7rem;
     margin-top: 0;
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
@@ -1433,8 +1439,9 @@ body.collection .site-header .hpph-logo .picture-house {
 @media screen and (min-width: 900px) {
   .site-footer--contact {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 30%;
-            flex: 0 0 30%;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+    padding-right: 3.4rem;
   }
 }
 
@@ -1442,13 +1449,13 @@ body.collection .site-header .hpph-logo .picture-house {
   margin-bottom: auto;
   margin-top: auto;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
 }
 
 @media (min-width: 600px) {
   .site-footer--menu {
-    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -1480,18 +1487,20 @@ body.collection .site-header .hpph-logo .picture-house {
 @media (min-width: 600px) {
   .site-footer--strapline {
     display: block;
+    margin-bottom: 0.85rem;
   }
 }
 
 .site-footer--contact-info {
-  font-family: "HPPHB", "Times New Roman";
   letter-spacing: 0;
-  font-style: italic;
   margin-bottom: 0;
 }
 
 .site-footer--contact-info li {
   display: inline-block;
+  font-size: 0.83333333em;
+  line-height: 2.125rem;
+  letter-spacing: 0.025em;
 }
 
 .site-footer--contact-info li:first-child {
@@ -1509,10 +1518,20 @@ body.collection .site-header .hpph-logo .picture-house {
   }
 }
 
+.site-footer--contact-info a {
+  color: white;
+  opacity: 0.8;
+}
+
+.site-footer--contact-info a:hover {
+  opacity: 1;
+  color: #FFDC48;
+}
+
 .site-footer--menu-link {
   color: white;
   display: block;
-  line-height: 2.55rem;
+  line-height: 4.25rem;
   font-size: 1.2em;
   font-weight: 500;
   opacity: 0;
@@ -1527,24 +1546,32 @@ body.collection .site-header .hpph-logo .picture-house {
 
 @media (min-width: 600px) {
   .site-footer--menu-link {
-    opacity: 1;
+    opacity: 0.7;
     -webkit-transform: translateY(0em);
             transform: translateY(0em);
     font-weight: 400;
-    line-height: 2.55rem;
-    font-size: 0.83333333em;
+    line-height: 2.125rem;
+    font-size: 0.69444444em;
+  }
+
+  .site-footer--menu-link:hover {
+    opacity: 1;
+    color: #FFDC48;
   }
 }
 
 .site-footer--secondary {
   padding: 0.85rem 0;
+  display: none;
   letter-spacing: 0.025em;
 }
 
 @media (min-width: 600px) {
   .site-footer--secondary {
-    background-color: #FFDC48;
-    padding: 0.85rem 0 1.7rem;
+    display: block;
+    background-color: #000;
+    padding: 1.7rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -1555,12 +1582,7 @@ body.collection .site-header .hpph-logo .picture-house {
 
 .site-footer--secondary svg * {
   fill: white;
-}
-
-@media (min-width: 600px) {
-  .site-footer--secondary svg * {
-    fill: #333;
-  }
+  opacity: 0.7;
 }
 
 .site-footer--secondary .container {
@@ -1599,8 +1621,8 @@ body.collection .site-header .hpph-logo .picture-house {
 @media (min-width: 600px) {
   .site-footer--secondary .container li {
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 18%;
-            flex: 0 1 18%;
+        -ms-flex: 0 1 16%;
+            flex: 0 1 16%;
   }
 }
 
@@ -1616,7 +1638,7 @@ body.collection .site-header .hpph-logo .picture-house {
 
 @media (min-width: 900px) {
   .site-footer--secondary .container li + li {
-    margin-left: 2.55rem;
+    margin-left: 1.7rem;
   }
 }
 
@@ -1666,7 +1688,6 @@ body.collection .site-header .hpph-logo .picture-house {
 @media (min-width: 600px) {
   .site-footer--secondary .container li.double {
     text-align: left;
-    color: #333;
     padding-top: 0;
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
@@ -1680,7 +1701,7 @@ body.collection .site-header .hpph-logo .picture-house {
 
 .site-footer--secondary .container li.double p {
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 0.2125rem;
   line-height: 1.3;
   display: inline;
@@ -1695,7 +1716,7 @@ body.collection .site-header .hpph-logo .picture-house {
 
 .site-footer--secondary .container li.double p:last-child {
   margin-bottom: 0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .label {
@@ -1802,11 +1823,18 @@ body.collection .site-header .hpph-logo .picture-house {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+  margin-top: auto;
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .site-footer--social {
+    display: block;
+  }
 }
 
 .site-footer--social li {
   display: inline-block;
-  margin-left: 0.85rem;
 }
 
 .site-footer--social li:first-child {
@@ -1834,23 +1862,28 @@ body.collection .site-header .hpph-logo .picture-house {
   width: 1.7rem;
   color: white;
   font-size: 0.83333333em;
+  text-transform: lowercase;
 }
 
 @media screen and (min-width: 600px) {
   .site-footer--social a {
-    line-height: 2.55rem;
+    line-height: 2.125rem;
     width: auto;
+    opacity: 0.7;
+    font-size: 0.69444444em;
   }
 }
 
 .site-footer--social a:hover,
 .site-footer--social a:focus {
+  opacity: 1;
   color: #FFDC48;
 }
 
 .site-footer--social a:hover svg *,
 .site-footer--social a:focus svg * {
-  fill: #FFDC48;
+  opacity: 1;
+  color: #FFDC48;
 }
 
 .site-footer--social svg {
@@ -1863,7 +1896,7 @@ body.collection .site-header .hpph-logo .picture-house {
   .site-footer--social svg {
     width: 1.275rem;
     height: 1.275rem;
-    margin-right: 0.85rem;
+    margin-right: 0.425rem;
     margin-bottom: -0.425rem;
   }
 }
@@ -3069,6 +3102,13 @@ body.collection .site-header .hpph-logo .picture-house {
       -ms-flex: 0 0 47.5%;
           flex: 0 0 47.5%;
   margin-right: 2.5%;
+  padding: 0 1.5em;
+}
+
+@media screen and (min-width: 600px) {
+  .section--home-move .moving--text {
+    padding: 0;
+  }
 }
 
 .section--home-move .moving--text a {

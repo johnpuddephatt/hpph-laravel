@@ -30,6 +30,10 @@
   .moving--text {
     flex: 0 0 47.5%;
     margin-right: 2.5%;
+    padding: 0 1.5em;
+    @media screen and (min-width: $medium-screen) {
+      padding: 0;
+    }
     a {
       color: $black;
       font-weight: 500;

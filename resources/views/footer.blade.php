@@ -39,7 +39,7 @@
         </ul>
       </div>
       <div class="site-footer--menu">
-        <h2 class="site-footer--header sr-only">Learn more</h2>
+        <h2 class="site-footer--header">Learn more</h2>
         @if(isset($footermenu))
           <ul class="site-footer--menu-links">
             @foreach($footermenu as $page)
@@ -49,7 +49,7 @@
         @endif
       </div>
       <div class="site-footer--social">
-        <h2 class="site-footer--header sr-only">Social</h2>
+        <h2 class="site-footer--header">Social</h2>
         @include('social')
       </div>
     </div>
