@@ -23,7 +23,7 @@
   @media (min-width: $large-screen) {
     margin: 0;
     margin-left: 2 * $base-spacing;
-    padding-top: 4 * $base-spacing;
+    padding-top: 3.5 * $base-spacing;
     margin-bottom: 0;
     margin-left: auto;
     flex: 0 1 40%;
@@ -68,13 +68,37 @@
 .single-listing--screenings--header {
   font-weight: 500;
   margin-bottom: 1.5 * $base-spacing;
+  font-size: modular-scale(2);
   @media screen and (orientation: portrait) {
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     border-top: $base-border;
+    border-color: $medium-gray;
     height: 2.75 * $base-spacing;
-    font-size: modular-scale(0);
     line-height: 2.75 * $base-spacing;
+    position: relative;
+    cursor: pointer;
+    .single-listing--screenings.open & {
+      &::after {
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+    &:hover {
+      &::after {
+        color: $black;
+      }
+    }
+    &::after {
+      content: '»';
+      color: $medium-gray;
+      font-weight: 400;
+      font-size: modular-scale(3);
+      position: absolute;
+      right: $base-spacing;
+      top: 50%;
+      transition: transform $base-duration $base-timing;
+      transform: translateY(-50%) rotate(-90deg);
+    }
   }
 
   button {

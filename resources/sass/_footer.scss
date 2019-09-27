@@ -21,8 +21,10 @@
     overflow: hidden;
   }
   svg {
-    width: 1.5 * $base-spacing;
-    height: 1.5 * $base-spacing;
+    width: 1.25 * $base-spacing;
+    height: 1.25 * $base-spacing;
+    margin-top: .25 * $small-spacing;
+    margin-bottom: .25 * $small-spacing;
   }
   .site-footer--navigation--link {
     text-align: center;

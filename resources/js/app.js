@@ -156,7 +156,7 @@ if(screeningTable && screeningAnnouncer) {
     screeningExplainer.style.visibility = 'hidden';
     screeningAnnouncer.innerHTML = `<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>${screeningDate} at ${screeningTime}</p></div><a class="button button__ghost book-button" href="${screeningURL}">Book now »</a>`;
     var bookButton = document.querySelector('.book-button');
-    bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
+    // bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
     screeningWrapper.classList.add('active');
   }
 

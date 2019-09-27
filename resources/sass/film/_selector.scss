@@ -61,6 +61,7 @@
 
 .screenings-table--explainer {
   margin-top: -1.5 * $base-spacing;
+  color: $dark-gray;
   font-size: modular-scale(-1);
   @media screen and (orientation: portrait) {
     padding: 0 $small-spacing;
