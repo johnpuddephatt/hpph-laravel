@@ -12,7 +12,7 @@ class ScreeningsTableSeeder extends Seeder
     public function run()
     {
       $film_count = App\Models\Film::count();
-      $screening_count = 12;
+      $screening_count = 20;
 
       for ($i = 0; $i < $screening_count; $i++) {
 
