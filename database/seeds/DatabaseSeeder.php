@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
 
       $this->call(ScreeningTagTableSeeder::class);
       $this->call(FilmStrandTableSeeder::class);
+
+      $this->call(PagesTableSeeder::class);
     }
 }
