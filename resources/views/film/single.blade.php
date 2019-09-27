@@ -23,32 +23,29 @@
     @endif
   </div>
 
-
-  <div class="container single-listing--heading">
-    <div class="single-listing--text">
-      @foreach($film->strands as $strand)
-        <div class="single-listing--strand">
-          @include('labels.strand', ['is_link' => true])
-        </div>
-      @endforeach
-      <h1 class="single-listing--title">{{ $film->title }}</h1>
-      @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
-      <div class="single-listing--meta">
-  @if($film->country){{ $film->country }}, @endif
-  @if($film->year){{ $film->year }}, @endif
-  @if($film->runtime){{ $film->runtime . 'mins' }}, @endif
-  @if($film->certificate)Cert.{{ $film->certificate }}@endif
-      </div>
-      <div class="single-listing--strand">
-        @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
-      </div>
-    </div>
-
-  </div>
-
-
   <div class="container single-listing--content">
     <div class="single-listing--text">
+      <div class="single-listing--heading">
+        <div class="single-listing--text">
+          @foreach($film->strands as $strand)
+            <div class="single-listing--strand">
+              @include('labels.strand', ['is_link' => true])
+            </div>
+          @endforeach
+          <h1 class="single-listing--title">{{ $film->title }}</h1>
+          @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
+          <div class="single-listing--meta">
+      @if($film->country){{ $film->country }}, @endif
+      @if($film->year){{ $film->year }}, @endif
+      @if($film->runtime){{ $film->runtime . 'mins' }}, @endif
+      @if($film->certificate)Cert.{{ $film->certificate }}@endif
+          </div>
+          <div class="single-listing--strand">
+            @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
+          </div>
+        </div>
+
+      </div>
       <div class="single-listing--text--content">
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
@@ -107,10 +104,13 @@
     </div>
     <div class="single-listing--screenings">
       <h2 class="single-listing--screenings--header">Showtimes</h2>
+      @if($film->screenings->contains(function($key, $value) { return $key->url; }))
+        <p class="screenings-table--explainer">Select a screening below to book tickets</p>
+      @endif
       @if (count($film->screenings))
         @include('screening.selector')
       @elseif ($film->screenings_count)
-        <div class="alert">
+        <div class="alert alert__empty">
           All scheduled screenings have now passed.
         </div>
       @else
@@ -124,5 +124,11 @@
       @endif
     </div>
   </div>
+
+  @if($film->screenings->contains(function($key, $value) { return $key->url; }))
+    <div class="screenings-table--announcer--wrapper" role="status">
+      <div class="screenings-table--announcer container"></div>
+    </div>
+  @endif
 
 @stop

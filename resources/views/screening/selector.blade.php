@@ -2,12 +2,9 @@
   <tbody>
     @php
       $current_date = '';
-      $date_count = 0;
       $tag_array = [];
-      $paidScreeningCount = 0;
     @endphp
     @foreach ($film->screenings as $screening)
-
       @if ($current_date != $screening->date)
       </td>
       </tr>
@@ -21,7 +18,6 @@
         <div class="screenings-table--screening">
           @if ($screening->getUrl() )
             <input type="radio" id="screening-{{$screening->id}}" name="screening" data-time="{{ Carbon\Carbon::parse($screening->time)->format('g.ia') }}" data-date="{{ Carbon\Carbon::parse($screening->date)->format('D jS F')}}" data-url="{{$screening->getUrl()}}" />
-            @php $paidScreeningCount++ @endphp
           @endif
 
           <label for="screening-{{$screening->id}}">
@@ -41,10 +37,6 @@
     @endforeach
   </tbody>
 </table>
-
-@if($paidScreeningCount)
-  <div class="screenings-table--announcer"><p class="info"><i>i</i>Select a screening above to book tickets</p></div>
-@endif
 
 
 @if (count($tag_array) || $film->audio_description)

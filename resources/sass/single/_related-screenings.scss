@@ -1,14 +1,43 @@
 .single-listing--screenings {
   position: relative;
-  order: -1;
   margin: 0 (-$small-spacing) $base-spacing;
+  left: auto;
+  right: auto;
+  padding-bottom: 3.5 * $base-spacing;
+  @media screen and (orientation: portrait) {
+    background-color: #fff;
+    margin: 0;
+    position: fixed;
+    z-index: 999;
+    top: calc(100% - #{6 * $base-spacing});
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: top $base-duration $base-timing;
+    &.open {
+      top: 0;
+      overflow: auto;
+    }
+  }
   @media (min-width: $large-screen) {
     margin: 0;
-    order: 1;
-    margin-top: (-3.25 * $base-spacing);
-    margin-top: calc(#{-3.25 * $base-spacing} + 1px);
     margin-left: 2 * $base-spacing;
+    padding-top: 4 * $base-spacing;
+    margin-bottom: 0;
+    margin-left: auto;
     flex: 0 1 40%;
+    &::after {
+      background-color: $off-white;
+      content: '';
+      display: block;
+      z-index: -1;
+      position: absolute;
+      left: -2 * $base-spacing;
+      top: 0;
+      bottom: 0;
+      right: -9999px;
+    }
   }
   &.embed-active {
     .single-listing--screenings--header,
@@ -17,6 +46,10 @@
     .single-listing--screenings--key {
       display: none;
     }
+  }
+  .alert__empty {
+    border-top: $base-border;
+    border-bottom: $base-border;
   }
 }
 
@@ -34,8 +67,16 @@
 
 .single-listing--screenings--header {
   font-weight: 500;
-  margin-bottom: $small-spacing;
-  padding: 0 $small-spacing;
+  margin-bottom: 1.5 * $base-spacing;
+  @media screen and (orientation: portrait) {
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+    border-top: $base-border;
+    height: 2.75 * $base-spacing;
+    font-size: modular-scale(0);
+    line-height: 2.75 * $base-spacing;
+  }
+
   button {
     line-height: $small-spacing;
     display: none;

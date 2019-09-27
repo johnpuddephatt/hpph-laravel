@@ -1,8 +1,9 @@
 #{$all-buttons} {
   appearance: none;
+  position: relative;
   background-color: $action-color;
   border: 0;
-  border-radius: 0;
+  border-radius: 2px;
   border: 1px solid $medium-gray;
   color: $base-font-color;
   cursor: pointer;
@@ -22,14 +23,14 @@
   white-space: nowrap;
   &:hover,
   &:focus {
-    background-color: $base-font-color;
+    // background-color: $base-font-color;
     color: #fff;
   }
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
     &:hover {
-      background-color: $action-color;
+      // background-color: $action-color;
     }
   }
   &:focus {
@@ -42,6 +43,23 @@
 
 
 .button {
+  &::before {
+    content: "";
+    position: absolute;
+    background: $yellow;
+    left: -1px;
+    right: 101%;
+    top: 0;
+    z-index: -1;
+    bottom: -1px;
+    transition: right $base-duration $base-timing;
+  }
+  &:hover,
+  &:focus {
+    &::before {
+      right: 0;
+    }
+  }
   &__small {
     font-size: modular-scale(-1);
   }
@@ -51,7 +69,7 @@
     border: $thick-border;
     border-color: $yellow;
     &:hover {
-      background-color: $yellow;
+      // background-color: $yellow;
     }
   }
   &__text {
@@ -59,10 +77,18 @@
     border-color: transparent;
     text-transform: none;
     padding: $base-spacing/3 $small-spacing/2;
+    &::before {
+      content: none;
+      display: none;
+    }
   }
 
   &__white {
     border-color: white;
     color: white;
+    &:hover {
+      color: $base-font-color;
+      border-color: $yellow;
+    }
   }
 }

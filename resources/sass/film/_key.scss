@@ -1,15 +1,21 @@
 .single-listing--screenings--key {
-  padding: 0 $small-spacing;
+  padding: 1.5 * $base-spacing $small-spacing;
   @media screen and (min-width: $medium-screen) {
-    margin-top: 1.5 * $base-spacing;
+    padding: 0;
+    margin: 1.5 * $base-spacing 0;
   }
-
 }
+
+.single-listing--screenings--key--content {
+  table-layout: auto;
+}
+
 .single-listing--screenings--key--item {
   td {
     vertical-align: top;
     border-bottom: none;
     padding: 0;
+    padding-bottom: $small-spacing;
     &:first-child {
       line-height: 1;
       padding-right: $small-spacing;
@@ -26,10 +32,8 @@
 
 .single-listing--screenings--key--heading {
   font-size: modular-scale(0);
-  text-indent: -9999px;
-  @media screen and (min-width: $medium-screen) {
-    text-indent: 0;
-  }
+  font-weight: 500;
+  margin-bottom: $base-spacing;
 }
 
 .single-listing--screenings--key--abbreviation {
@@ -47,9 +51,9 @@
   font-weight: 500;
 }
 
-.single-listing--screenings--key--content.accordion-enabled {
-  table-layout: auto;
-  @media screen and (min-width: $medium-screen) {
-    display: table;
-  }
-}
+// .single-listing--screenings--key--content.accordion-enabled {
+//   table-layout: auto;
+//   @media screen and (min-width: $medium-screen) {
+//     display: table;
+//   }
+// }

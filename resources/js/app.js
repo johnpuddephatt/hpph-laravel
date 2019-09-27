@@ -100,29 +100,45 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
 ** Collapsible key
 */
 
-(function() {
-  const screeningsTitle = document.querySelector('.single-listing--screenings--header');
-  const keyContent = document.querySelector('.single-listing--screenings--key--content');
-  if(screeningsTitle && keyContent) {
-    screeningsTitle.innerHTML = `${screeningsTitle.textContent}
-      <button class="button button__text button__small" aria-expanded="false">
-        Show key
-      </button>
-    `
-    let btn = screeningsTitle.querySelector('button')
-    keyContent.classList.add('accordion-enabled')
-    keyContent.hidden = true
+// (function() {
+//   const screeningsTitle = document.querySelector('.single-listing--screenings--header');
+//   const keyContent = document.querySelector('.single-listing--screenings--key--content');
+//   if(screeningsTitle && keyContent) {
+//     screeningsTitle.innerHTML = `${screeningsTitle.textContent}
+//       <button class="button button__text button__small" aria-expanded="false">
+//         Show key
+//       </button>
+//     `
+//     let btn = screeningsTitle.querySelector('button')
+//     keyContent.classList.add('accordion-enabled')
+//     keyContent.hidden = true
+//
+//     btn.onclick = () => {
+//       let expanded = btn.getAttribute('aria-expanded') === 'true' || false
+//       btn.setAttribute('aria-expanded', !expanded)
+//       keyContent.hidden = expanded
+//       btn.innerText = (btn.innerText == 'show key') ? 'hide key' : 'show key';
+//       keyContent.scrollIntoView({behavior: "smooth", block: "center"});
+//
+//     }
+//   }
+// })()
 
-    btn.onclick = () => {
-      let expanded = btn.getAttribute('aria-expanded') === 'true' || false
-      btn.setAttribute('aria-expanded', !expanded)
-      keyContent.hidden = expanded
-      btn.innerText = (btn.innerText == 'show key') ? 'hide key' : 'show key';
-      keyContent.scrollIntoView({behavior: "smooth", block: "center"});
 
-    }
-  }
-})()
+/*
+** Slide up screenings on mobile
+*/
+const screeningsTitle = document.querySelector('.single-listing--screenings--header');
+const screeningsContainer = document.querySelector('.single-listing--screenings');
+
+if(screeningsTitle && screeningsContainer) {
+  screeningsTitle.addEventListener('click', ()=>{
+    screeningsContainer.classList.toggle('open');
+    document.documentElement.classList.toggle('locked');
+    body.classList.toggle('locked');
+  });
+}
+
 
 
 /*
@@ -131,14 +147,17 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
 
 const screeningTable = document.querySelector('.screenings-table');
 const screeningAnnouncer = document.querySelector('.screenings-table--announcer');
+const screeningExplainer = document.querySelector('.screenings-table--explainer');
+const screeningWrapper = document.querySelector('.screenings-table--announcer--wrapper');
 
 if(screeningTable && screeningAnnouncer) {
 
   function selectScreening(screeningTime,screeningDate,screeningURL) {
-    screeningAnnouncer.innerHTML = `<h3 class="screenings-table--announcer--heading">Selected showtime</h3><p>${screeningDate} at ${screeningTime}<a class="button book-button" href="${screeningURL}">Book now</a></p>`;
+    screeningExplainer.style.visibility = 'hidden';
+    screeningAnnouncer.innerHTML = `<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>${screeningDate} at ${screeningTime}</p></div><a class="button button__ghost book-button" href="${screeningURL}">Book now »</a>`;
     var bookButton = document.querySelector('.book-button');
     bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
-
+    screeningWrapper.classList.add('active');
   }
 
   screeningTable.addEventListener('click',(e)=>{
@@ -418,16 +437,16 @@ var webkit = !!ua.match(/WebKit/i);
 var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
 var iOSChrome = iOS && webkit && ua.match(/CriOS/i);
 
-if(iOSChrome) {
-  document.addEventListener('DOMContentLoaded', ()=>{
-    document.documentElement.classList.add('iOSChrome');
-    var homeSlider = document.querySelector('.section--home-slider');
-    if(homeSlider) {
-      homeSlider.style.height = homeSlider.clientHeight + 'px';
-    }
-  });
-}
-if(iOSSafari) {
+// if(iOSChrome) {
+//   document.addEventListener('DOMContentLoaded', ()=>{
+//     document.documentElement.classList.add('iOSChrome');
+//     var homeSlider = document.querySelector('.section--home-slider');
+//     if(homeSlider) {
+//       homeSlider.style.height = homeSlider.clientHeight + 'px';
+//     }
+//   });
+// }
+if(iOSSafari || iOSChrome) {
   document.addEventListener('DOMContentLoaded', ()=>{
     document.documentElement.classList.add('iOSSafari');
     var homeSlider = document.querySelector('.section--home-slider');

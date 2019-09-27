@@ -38,7 +38,7 @@
   color: $base-font-color;
 
   line-height: 2 * $base-spacing;
-  border-top: $base-border;
+  border-top: $light-border;
   position: sticky;
   z-index: 98;
   top: 2 * $base-spacing;
@@ -56,7 +56,8 @@
     padding: $small-spacing;
   }
   @media screen and (min-width: $large-screen) {
-    padding: 1.5 * $base-spacing $small-spacing $small-spacing ;
+    top: calc(0 * #{$base-spacing} - 1px);
+    padding: 2.5 * $base-spacing $small-spacing $small-spacing ;
   }
 
   &:first-child {

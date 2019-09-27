@@ -170,8 +170,6 @@
                       tags += `<span class="label label-info">${data.tags[i]}</span> `;
                     }
                   };
-
-                  console.log(data.tags);
                   var output = `
                   <tr data-id='${data.id}'>
                     <td>${formattedDate.getDate()}/${formattedDate.getMonth() + 1}/${formattedDate.getFullYear()}</td>

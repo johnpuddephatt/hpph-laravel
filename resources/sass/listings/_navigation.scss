@@ -17,7 +17,7 @@
       margin-right: 0;
     }
     @media screen and (min-width: $large-screen) {
-      height: 2.5 * $base-spacing
+      height: 2 * $base-spacing
     }
 
 
@@ -39,6 +39,7 @@
   a {
     display: inline-block;
     margin-right: $small-spacing;
+    line-height: $base-spacing;
     @media screen and (min-width: $medium-screen) {
       margin-right: $base-spacing;
     }
@@ -46,8 +47,10 @@
     font-weight: 500;
     font-size: modular-scale(0);
     -webkit-font-smoothing: antialiased;
+    padding: $small-spacing 0;
     &.current {
       font-weight: 700;
+      padding: $small-spacing;
       @extend %underline;
     }
     &.current, &:hover {
