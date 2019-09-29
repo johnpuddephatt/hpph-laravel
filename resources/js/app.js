@@ -130,20 +130,27 @@ if(weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
 */
 const screeningsTitle = document.querySelector('.single-listing--screenings--header');
 const screeningsContainer = document.querySelector('.single-listing--screenings');
-
-if(screeningsTitle && screeningsContainer) {
+const screeningsMobileButton = document.querySelector('.single-listing--mobile--screenings');
+if(screeningsMobileButton && screeningsContainer) {
+  screeningsMobileButton.addEventListener('click', ()=>{
+    toggleScreeningsMenu();
+  });
   screeningsTitle.addEventListener('click', ()=>{
-    screeningsContainer.classList.toggle('open');
-    document.documentElement.classList.toggle('locked');
-    body.classList.toggle('locked');
+    toggleScreeningsMenu();
   });
 }
 
+function toggleScreeningsMenu() {
+  screeningsContainer.classList.toggle('open');
+  document.documentElement.classList.toggle('locked');
+  body.classList.toggle('locked');
+}
 
 
 /*
 ** Select (or preselect) screenings
 */
+
 
 const screeningTable = document.querySelector('.screenings-table');
 const screeningAnnouncer = document.querySelector('.screenings-table--announcer');
@@ -154,10 +161,19 @@ if(screeningTable && screeningAnnouncer) {
 
   function selectScreening(screeningTime,screeningDate,screeningURL) {
     screeningExplainer.style.visibility = 'hidden';
-    screeningAnnouncer.innerHTML = `<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>${screeningDate} at ${screeningTime}</p></div><a class="button button__ghost book-button" href="${screeningURL}">Book now »</a>`;
+    screeningAnnouncer.innerHTML = `<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>${screeningDate} at ${screeningTime}</p></div><button class="button button__gray cancel-button">Cancel</button><a class="button button__yellow book-button" href="${screeningURL}">Book »</a>`;
     var bookButton = document.querySelector('.book-button');
+    var cancelButton = document.querySelector('.cancel-button');
+    cancelButton.addEventListener('click',(e)=>{ cancelSelectedScreening() });
     // bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
     screeningWrapper.classList.add('active');
+  }
+
+  function cancelSelectedScreening() {
+    screeningWrapper.classList.remove('active');
+    screeningTable.querySelector('input:checked').checked = false;
+    screeningExplainer.style.visibility = 'visible';
+
   }
 
   screeningTable.addEventListener('click',(e)=>{

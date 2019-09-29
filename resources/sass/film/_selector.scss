@@ -63,18 +63,25 @@
   margin-top: -1.5 * $base-spacing;
   color: $dark-gray;
   font-size: modular-scale(-1);
-  @media screen and (orientation: portrait) {
-    padding: 0 $small-spacing;
+  padding: 0 $small-spacing;
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
+    padding: 0;
   }
 }
 
 .screenings-table--announcer--wrapper {
   z-index: 99999;
   height: 3.5 * $base-spacing;
-  background-color: white;
-  border-top: $base-border;
+  background-color: $light-black;
+  color: white;
   padding-top: $small-spacing;
   padding-bottom: $small-spacing;
+  @media screen and (min-width: $medium-screen) {
+    padding-top: $small-spacing/2;
+    padding-bottom: $small-spacing/2;
+  }
   transition: transform $base-timing 2 * $base-duration $base-duration;
   transform: translateY(100%);
   margin-top: -3.5 * $base-spacing;
@@ -104,14 +111,21 @@
     justify-content: flex-end;
     height: auto;
   }
-  &--text * {
+  &--text {
+    margin-right: auto;
     @media screen and (min-width: $medium-screen) {
-      display: inline;
+      margin-right: 0;
+    }
+    * {
+      @media screen and (min-width: $medium-screen) {
+        display: inline;
+      }
     }
   }
   h3 {
     font-size: modular-scale(0);
     font-weight: 500;
+    color: white;
     margin-right: $small-spacing/2;
   }
   p {
@@ -119,6 +133,14 @@
   }
   .button {
     margin-left: $small-spacing;
+    line-height: 1.75 * $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      margin-left: $base-spacing;
+      line-height: 1.5 * $base-spacing;
+    }
+    + .button {
+      margin-left: $small-spacing;
+    }
   }
 }
 

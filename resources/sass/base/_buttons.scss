@@ -69,7 +69,7 @@
     border: $thick-border;
     border-color: $yellow;
     &:hover {
-      // background-color: $yellow;
+      color: $base-font-color;
     }
   }
   &__text {
@@ -89,6 +89,34 @@
     &:hover {
       color: $base-font-color;
       border-color: $yellow;
+    }
+  }
+
+  &__yellow {
+    background-color: $yellow;
+    border-color: $yellow;
+    color: $base-font-color;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: darken($yellow,20%);
+      color: $base-font-color;
+      border-color: darken($yellow,20%);
+    }
+  }
+
+  &__gray {
+    background-color: $light-gray;
+    border-color: $light-gray;
+    color: $base-font-color;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: darken($light-gray,20%);
+      color: $base-font-color;
+      border-color: darken($light-gray,20%);
     }
   }
 }

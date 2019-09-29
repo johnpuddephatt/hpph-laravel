@@ -44,7 +44,9 @@
             @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
           </div>
         </div>
-
+      </div>
+      <div class="single-listing--mobile--screenings">
+        Screenings
       </div>
       <div class="single-listing--text--content">
         <h2 class="sr-only">Film description</h2>
