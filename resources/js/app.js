@@ -467,7 +467,7 @@ if(iOSSafari || iOSChrome) {
     // document.documentElement.classList.add('iOSSafari');
     var homeSlider = document.querySelector('.section--home-slider');
     if(homeSlider) {
-      homeSlider.style.height = document.documentElement.clientHeight - navBar.clientHeight + 1 + 'px';
+      homeSlider.style.height = document.documentElement.clientHeight - (navBar.clientHeight/2) + 1 + 'px';
     }
   });
 }
