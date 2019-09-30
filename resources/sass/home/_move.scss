@@ -1,6 +1,7 @@
 .section--home-move {
   margin-top: 4 * $base-spacing;
   margin-bottom: 4 * $base-spacing;
+  overflow: hidden;
   .section-title {
     @media screen and (min-width: $medium-screen) {
       text-align: left;
