@@ -36,6 +36,14 @@
   @media (orientation: portrait) and (max-width: $medium-screen) {
     height: calc(100vh - #{3 * $base-spacing});
   }
+  &.ios {
+    .home-slider--slide {
+      padding-bottom: $footer-nav-height;
+    }
+    .section--home-hero--jump {
+      display: none;
+    }
+  }
   // Target iOS to prevent judder as address bar hides/shows
   // @supports (-webkit-overflow-scrolling: touch) {
   //   height: calc(178vw - #{3 * $base-spacing});
