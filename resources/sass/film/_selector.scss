@@ -139,7 +139,10 @@
       line-height: 1.5 * $base-spacing;
     }
     + .button {
-      margin-left: $small-spacing;
+      margin-left: $small-spacing/2;
+      @media screen and (min-width: $medium-screen) {
+        margin-left: $small-spacing;
+      }
     }
   }
 }
