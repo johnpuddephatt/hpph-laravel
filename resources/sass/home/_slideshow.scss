@@ -37,8 +37,8 @@
     height: calc(100vh - #{3 * $base-spacing});
   }
   &.ios {
-    .home-slider--slide {
-      padding-bottom: $footer-nav-height;
+    .home-slider--text {
+      bottom: ($footer-nav-height + $base-spacing);;
     }
     .section--home-hero--jump {
       display: none;
