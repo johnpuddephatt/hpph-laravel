@@ -15,14 +15,16 @@
     </head>
     <body class="@stack('body-classes')">
 
-    @include('header')
-    @include('search')
+      <div class="parallax">
+        @include('header')
+        @include('search')
 
-    <main class="page-content" aria-label="Content" id="main" tabIndex="-1">
-      @yield('content')
-    </main>
+        <main class="page-content" aria-label="Content" id="main" tabIndex="-1">
+          @yield('content')
+        </main>
 
-    @include('footer')
+        @include('footer')
+      </div>
 
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 

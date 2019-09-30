@@ -1,3 +1,10 @@
+.section--home-shop {
+  background-color: white;
+  padding: $base-spacing 0;
+  position: relative;
+  z-index: 9;
+}
+
 .shop--grid {
   display: flex;
   display: grid;

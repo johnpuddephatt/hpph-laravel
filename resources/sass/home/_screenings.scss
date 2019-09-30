@@ -1,3 +1,10 @@
+.section--home-listings {
+  background-color: white;
+  padding-bottom: $base-spacing;
+  position: relative;
+  z-index: 9;
+}
+
 .daily-screenings--header,
 .daily-screenings--navigation,
 .daily-screenings--screenings {
