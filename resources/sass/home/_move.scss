@@ -1,5 +1,7 @@
 .section--home-move {
-  margin-top: 4 * $base-spacing;
+  @media screen and (min-width: $medium-screen) {
+    margin-top: 4 * $base-spacing;
+  }
   margin-bottom: 4 * $base-spacing;
   overflow: hidden;
   .section-title {

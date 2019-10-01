@@ -15,7 +15,7 @@
     </head>
     <body class="@stack('body-classes')">
 
-      <div class="parallax">
+      <div class="wrapper">
         @include('header')
         @include('search')
 
