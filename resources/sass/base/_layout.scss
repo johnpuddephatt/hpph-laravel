@@ -11,16 +11,16 @@ html {
 
 html {
   width: 100%;
-  // Prevent bottom bar on iOS Safari interfering with menu
-  &.iOSSafari {
-    height: 100%;
-    overflow-x: hidden;
-    body {
-      height: 100%;
-      overflow-y: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
+  // // Prevent bottom bar on iOS Safari interfering with menu
+  // &.iOSSafari {
+  //   height: 100%;
+  //   overflow-x: hidden;
+  //   body {
+  //     height: 100%;
+  //     overflow-y: scroll;
+  //     -webkit-overflow-scrolling: touch;
+  //   }
+  // }
 }
 
 .locked {
