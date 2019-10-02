@@ -4,6 +4,14 @@
   // overflow: hidden;
   text-align: left;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vw;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
+    height: auto;
+  }
   .container {
     position: relative;
     z-index: 99;

@@ -15,7 +15,10 @@
     color: white;
     font-size: modular-scale(6);
     opacity: .75;
-    display: block;
+    display: none;
+    @media screen and (min-width: $medium-screen) {
+      display: block;
+    }
 }
 .slider-loading {
   height: 100%;

@@ -1,6 +1,7 @@
 .section--home-strands {
   background-color: white;
-  padding: $base-spacing 0 2 * $base-spacing;
+  position: relative;
+  padding: $small-spacing 0 2 * $base-spacing;
 }
 
 .strand--grid {

@@ -5,7 +5,13 @@
   overflow: hidden;
   text-align: center;
   color: white;
+  display: flex;
+  height: 100vw;
+  align-items: center;
+  justify-content: center;
   @media screen and (min-width: $medium-screen) {
+    display: block;
+    height: auto;
     color: $red;
     text-align: left;
   }
@@ -35,7 +41,7 @@
     top: 0;
     left: 0;
     object-fit: cover;
-    object-position: center center;
+    object-position: 75% center;
   }
   .section--home-project--text {
     @extend %padded-box;

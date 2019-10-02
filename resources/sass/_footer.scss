@@ -67,6 +67,8 @@
 }
 
 .site-footer {
+  position: relative;
+  z-index: 999;
   .hpph-logo {
     display: none;
   }
@@ -85,7 +87,6 @@
     bottom: 3 * $base-spacing;
     left: 0;
     right: 0;
-    z-index: 999;
     background-color: $black;
     &.visible {
       display: flex;

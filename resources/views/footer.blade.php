@@ -40,13 +40,17 @@
       </div>
       <div class="site-footer--menu">
         <h2 class="site-footer--header">Learn more</h2>
-        @if(isset($footermenu))
+
           <ul class="site-footer--menu-links">
-            @foreach($footermenu as $page)
-              <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ url($page->slug) }}">{{ $page->title }}</a></li>
-            @endforeach
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="http://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership">Membership</a></li>
+            @if(isset($footermenu))
+              @foreach($footermenu as $page)
+                <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ url($page->slug) }}">{{ $page->title }}</a></li>
+              @endforeach
+            @endif
           </ul>
-        @endif
+
       </div>
       <div class="site-footer--social">
         <h2 class="site-footer--header">Social</h2>

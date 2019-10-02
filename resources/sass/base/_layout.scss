@@ -70,6 +70,7 @@ body {
 
 .page-content {
   position: relative;
+  
   @media (max-width: $medium-screen) {
     padding-bottom: 3.25 * $base-spacing;
   }
