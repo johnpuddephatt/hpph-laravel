@@ -5,10 +5,9 @@
     width: 100%;
   }
   .single-listing--title {
-    flex: 1 1 30%;
+    flex: 1 0 30%;
   }
   .single-listing--description {
-    display: none;
     margin-top: $small-spacing;
     flex: 1 1 auto;
     @media screen and (min-width: $medium-screen) {
