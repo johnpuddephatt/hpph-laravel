@@ -74,10 +74,11 @@
 
 .strand--text {
   padding: 2 * $base-spacing 1.5 * $base-spacing;
+  position: relative;
+  z-index: 999;
   @media screen and (min-width: $medium-screen) {
     padding: $base-spacing 1.5 * $base-spacing;
     position: absolute;
-    z-index: 999;
     top: 50%;
     left: 0;
     width: 100%;
