@@ -23,6 +23,8 @@
   }
   &::after {
     position: absolute;
+    content: '';
+    display: block;
     top: 0;
     bottom: 0;
     left: 0;
