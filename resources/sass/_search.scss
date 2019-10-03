@@ -99,13 +99,19 @@
 .search-button {
   position: relative;
   z-index: 9999;
-  background-color: transparent;
-  border: none;
-  color: white;
-  text-transform: none;
-  font-weight: 600;
   padding-left: 0;
   padding-right: 0;
+  border: none;
+  border-radius: 0;
+  body.home &,
+  body.film &,
+  body.page &,
+  body.collection {
+    @extend .button__white;
+    svg * {
+      stroke: white;
+    }
+  }
   &:hover {
     background-color: transparent;
     color: $yellow !important;
@@ -122,6 +128,7 @@
     vertical-align: middle;
     * {
       stroke-width: 1.5;
+      stroke: $base-font-color;
     }
     // margin-top: .25 * $base-spacing;
     width: .75 * $base-spacing;

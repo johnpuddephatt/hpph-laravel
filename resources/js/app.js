@@ -405,10 +405,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       var searchValue = e.target.value.toLowerCase();
 
       var searchResults = window.searchData.filter(function(item){
-        if(item.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(searchValue)) {
+        if(item.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("’", "'").includes(searchValue.replace("’", "'"))) {
           return true;
         }
-        else if(item.alt_language_title && item.alt_language_title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(searchValue)) {
+        else if(item.alt_language_title && item.alt_language_title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("’", "'").includes(searchValue.replace("’", "'"))) {
           return true;
         }
         else {
