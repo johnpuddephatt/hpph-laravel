@@ -3,6 +3,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  height: $base-spacing;
   &::after {
     content: '';
     background-color: rgba(0,0,0,.9);
@@ -55,6 +56,7 @@
 
 .trailer-button {
   color: white;
+  float: right;
   text-transform: lowercase;
   font-weight: 700;
   position: absolute;

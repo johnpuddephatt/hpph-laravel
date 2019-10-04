@@ -304,7 +304,7 @@ function connectTrailerButton() {
   trailerButton.addEventListener('click',()=>{
     var trailerIframe = trailerContainer.querySelector('.single-listing--trailer--iframe');
     trailerContainer.classList.toggle('lights-out');
-    if(!playing) {
+    if(trailerButton.classList.contains('play')) {
       if(trailerProvider == 'youtube') {
         youtubePlayer.playVideo();
       }

@@ -116,7 +116,7 @@
     background-color: transparent;
     color: $yellow !important;
     svg * {
-      stroke: $yellow;
+      stroke: $yellow !important;
     }
   }
   &:focus {
