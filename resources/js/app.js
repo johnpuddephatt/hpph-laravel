@@ -303,8 +303,8 @@ function connectTrailerButton() {
 
   trailerButton.addEventListener('click',()=>{
     var trailerIframe = trailerContainer.querySelector('.single-listing--trailer--iframe');
-    trailerContainer.classList.toggle('lights-out');
     if(trailerButton.classList.contains('play')) {
+      trailerContainer.classList.add('lights-out');
       if(trailerProvider == 'youtube') {
         youtubePlayer.playVideo();
       }
@@ -325,6 +325,7 @@ function connectTrailerButton() {
 }
 
 function closeVideo() {
+  trailerContainer.classList.remove('lights-out');
   document.body.classList.remove('locked');
   if(trailerProvider == 'youtube') {
     youtubePlayer.stopVideo();
