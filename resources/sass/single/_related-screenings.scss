@@ -1,43 +1,46 @@
 .single-listing--screenings {
   position: relative;
-  margin: 0 (-$small-spacing) $base-spacing;
-  left: auto;
-  right: auto;
+  margin: 0;
   padding-bottom: 3.5 * $base-spacing;
-  @media screen and (orientation: portrait) {
-    background-color: #fff;
-    margin: 0;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 100%;
-    width: 100%;
+  &::after {
+    background-color: $off-white;
+    content: '';
+    display: block;
+    z-index: -1;
+    position: absolute;
+    left: -2 * $base-spacing;
+    top: -2 * $base-spacing;
     bottom: 0;
-    overflow: hidden;
-    transition: left $base-duration * 2 $base-timing;
-    &.open {
-      left: 0;
-      overflow: auto;
-    }
+    right: -9999px;
+  }
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden;
+  transition: left $base-duration * 2 $base-timing;
+  &.open {
+    left: 0;
+    overflow: auto;
   }
   @media (min-width: $large-screen) {
+    background-color: transparent;
+    z-index: initial;
+    overflow: visible;
+    position: relative;
+    top: initial;
+    left: initial;
+    bottom: initial;
     margin: 0;
     margin-left: 2 * $base-spacing;
     padding-top: 3.5 * $base-spacing;
     margin-bottom: 0;
     margin-left: auto;
     flex: 0 1 40%;
-    &::after {
-      background-color: $off-white;
-      content: '';
-      display: block;
-      z-index: -1;
-      position: absolute;
-      left: -2 * $base-spacing;
-      top: 0;
-      bottom: 0;
-      right: -9999px;
-    }
+
   }
   &.embed-active {
     .single-listing--screenings--header,
@@ -58,7 +61,7 @@
   display: inline-block;
   + .listings--screenings--book {
     margin-left: $small-spacing/2;
-    @media screen and (orientation: portrait) {
+    @media screen and (min-width: $large-screen) {
       margin-left: $small-spacing/4
     }
   }
@@ -69,7 +72,7 @@
   font-weight: 500;
   margin-bottom: 1.5 * $base-spacing;
   font-size: modular-scale(2);
-  @media screen and (orientation: portrait) {
+  @media screen and (max-width: $large-screen) {
     margin-bottom: 0;
     padding-left: $small-spacing;
     padding-right: $small-spacing;
@@ -109,14 +112,14 @@
     text-indent: 0;
     border: $light-border;
     text-transform: lowercase;
-    @media screen and (max-width: $medium-screen) {
+    @media screen and (max-width: $large-screen) {
       display: block;
     }
   }
 }
 
 .single-listing--mobile--screenings {
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     display: none;
   }
   font-size: modular-scale(1);
@@ -124,12 +127,18 @@
   font-weight: 500;
   margin-left: -$small-spacing;
   margin-right: -$small-spacing;
+  padding: $base-spacing $small-spacing;
+
+  @media screen and (min-width: $medium-screen) {
+    margin-left: -$base-spacing;
+    margin-right: -$base-spacing;
+    padding: $base-spacing;
+  }
   border-top: $base-border;
   border-bottom: $base-border;
   background-color: $off-white;
   margin-bottom: $base-spacing;
   margin-top: calc(#{-1.5 * $base-spacing} - 1px);
-  padding: $base-spacing $small-spacing;
   position: relative;
   transition: background-color $base-duration $base-timing;
   &:hover {

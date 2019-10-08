@@ -11,24 +11,19 @@
     padding-bottom: $base-spacing;
     line-height: $base-spacing;
     border-bottom: $base-border;
-    @media screen and (orientation: portrait) {
-      border-bottom: $light-border;
-    }
   }
   tbody td:first-child {
     font-weight: 500;
     vertical-align: top;
     padding-right: $base-spacing;
-    @media screen and (orientation: portrait) {
-      padding-left: $small-spacing;
+    padding-left: $small-spacing;
+    @media screen and (min-width: $large-screen) {
+      padding-left: 0;
     }
   }
   tbody td:last-child {
     width: 100%;
     padding-right: $small-spacing;
-    @media screen and (orientation: portrait) {
-      padding-right: $small-spacing;
-    }
   }
   label {
     margin-bottom: 0;
@@ -63,11 +58,9 @@
   margin-top: -1.5 * $base-spacing;
   color: $dark-gray;
   font-size: modular-scale(-1);
-  padding: 0 $small-spacing;
   display: none;
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     display: block;
-    padding: 0;
   }
 }
 
@@ -84,11 +77,13 @@
   right: 0;
   pointer-events: none;
   @media screen and (min-width: $medium-screen) {
+    height: auto;
+    position: sticky;
+  }
+  @media screen and (min-width: $large-screen) {
     z-index: 9;
     padding-top: $small-spacing/2;
     padding-bottom: $small-spacing/2;
-    position: sticky;
-    height: auto;
   }
   transition: transform $base-timing 2 * $base-duration $base-duration;
   transform: translateY(100%);

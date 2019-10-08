@@ -1,6 +1,6 @@
 .single-listing--screenings--key {
   padding: 1.5 * $base-spacing $small-spacing;
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     padding: 0;
     margin: 1.5 * $base-spacing 0;
   }
