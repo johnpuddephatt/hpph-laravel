@@ -72,7 +72,7 @@
       <li>@include('logos.BFI_white')</li>
       <li>@include('logos.GWF_white')</li>
       <li class="andahalf">@include('logos.europa-cinemas_white')</li>
-
+      <li class="andahalf">@include('logos.fundraising_regulator')</li>
     </ul>
   </div>
 </footer>
