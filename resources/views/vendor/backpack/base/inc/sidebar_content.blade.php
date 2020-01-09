@@ -11,6 +11,8 @@
     <li><a href="{{ backpack_url('strand') }}"><i class='fa fa-key'></i> <span>Strands</span></a></li>
     <li><a href="{{ backpack_url('season') }}"><i class='fa fa-clock-o'></i> <span>Seasons</span></a></li>
     <li><a href="{{ backpack_url('tag') }}"><i class='fa fa-tag'></i> <span>Tags</span></a></li>
+    <li><a href="{{ backpack_url('venue') }}"><i class='fa fa-map-marker'></i> <span>Venues</span></a></li>
+
   </ul>
 </li>
 

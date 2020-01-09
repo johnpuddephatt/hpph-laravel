@@ -104,6 +104,11 @@
         return $this->hasMany('App\Models\Screening');
       }
 
+      public function venue()
+      {
+        return $this->belongsTo('App\Models\Venue');
+      }
+
       public function strands()
       {
         return $this->belongsToMany('App\Models\Strand');

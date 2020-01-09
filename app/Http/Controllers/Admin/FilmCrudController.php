@@ -85,6 +85,16 @@ class FilmCrudController extends CrudController
           'tab' => 'Overview'
         ];
 
+        $venueArray = [
+          'label' => "Venue",
+          'type' => 'select2',
+          'name' => 'venue_id', // the method that defines the relationship in your Model
+          'entity' => 'venue', // the method that defines the relationship in your Model
+          'attribute' => 'title', // foreign key attribute that is shown to user
+          'model' => "App\Models\Venue", // foreign key model
+          'tab' => 'Overview'
+        ];
+
         $descriptionArray = [
           'name' => 'description',
           'label' => 'Description',
@@ -294,7 +304,7 @@ class FilmCrudController extends CrudController
         //   }
         // ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$venueArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
         $this->crud->addColumns([$titleArray,$dateCol]);
 

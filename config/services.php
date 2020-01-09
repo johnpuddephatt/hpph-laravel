@@ -13,6 +13,9 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'google_places' => [
+       'key' => 'AIzaSyAYnG_c1TwKnhEtogz83_BcWoXKLVb7eTQ'
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
