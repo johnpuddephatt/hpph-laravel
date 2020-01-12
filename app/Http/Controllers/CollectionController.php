@@ -14,6 +14,7 @@ use App\Models\Screening;
 use App\Models\Tag;
 use App\Models\Strand;
 use App\Models\Season;
+use App\Models\Venue;
 
 class CollectionController extends Controller
 {
@@ -38,13 +39,16 @@ class CollectionController extends Controller
 
     }
 
-    if($collection_type == 'strand' || $collection_type == 'season') {
+    elseif($collection_type == ('strand' || 'season')) {
       if($collection_type == 'strand') {
         $collection = Strand::where('slug', $slug)->with('films.screenings')->firstOrFail();
       }
       elseif($collection_type == 'season') {
         $collection = Season::where('slug', $slug)->with('films.screenings')->firstOrFail();
       }
+      // elseif($collection_type == 'venue') {
+      //   $collection = Venue::where('slug', $slug)->with('films.screenings')->firstOrFail();
+      // }
 
       if($collection->order == 'film') {
         $films = $collection->films()->hasFutureScreenings()->with(['screenings','strands'])->orderBy('title')->get();

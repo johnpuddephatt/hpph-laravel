@@ -11,6 +11,7 @@
           <span class="film-card--certificate">({{ $film->certificate }})</span>
         @endif
       </h3>
+      @if($film->venue)<div class="film-card--venue">At {{$film->venue->title}}</div>@endif
       <div class="film-card--subtitle">{{ $film->subtitle }}</div>
     </div>
     <div class="film-card--date">

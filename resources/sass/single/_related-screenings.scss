@@ -1,4 +1,4 @@
-.single-listing--screenings {
+.single-listing--sidebar {
   position: relative;
   margin: 0;
   padding-bottom: 3.5 * $base-spacing;
@@ -15,7 +15,7 @@
   }
   background-color: #fff;
   position: fixed;
-  z-index: 999;
+  z-index: 99999;
   top: 0;
   left: 100%;
   width: 100%;
@@ -68,7 +68,8 @@
 }
 
 
-.single-listing--screenings--header {
+.single-listing--screenings--header,
+.single-listing--venue--header {
   font-weight: 500;
   margin-bottom: 1.5 * $base-spacing;
   font-size: modular-scale(2);
@@ -81,6 +82,11 @@
     height: 2.75 * $base-spacing;
     line-height: 2.75 * $base-spacing;
     position: relative;
+  }
+}
+
+.single-listing--venue--header {
+  @media screen and (max-width: $large-screen) {
     cursor: pointer;
     .single-listing--screenings.open & {
       &::after {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Support\Str;
 
 class Venue extends Model
 {
@@ -21,15 +22,33 @@ class Venue extends Model
     // protected $guarded = ['id'];
     // protected $hidden = ['pivot','relations'];
 
-    protected $fillable = ['title','programme','address','image','order','foreground_color','background_color','description','short_description','access_info'];
+    protected $fillable = ['title','programme','address','image','order','description','access_info','refreshment_info'];
     // protected $hidden = [];
     // protected $dates = [];
 
+    protected $casts = [
+    'address' => 'object',
+    ];
+
+    /*
+    |--------------------------------
+    | EVENTS
+    |--------------------------------
+    */
+    protected static function boot()
+    {
+      parent::boot();
+
+      static::saving(function($model) {
+        $model->slug = str_slug($model->title);
+      });
+    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+
     public function setThumbAttribute($value)
       {
         $attribute_name = "image";

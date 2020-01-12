@@ -1,0 +1,18 @@
+.single-listing--venue--details {
+  margin-bottom: 2 * $base-spacing;
+  h3 {
+    margin-bottom: auto;
+    font-weight: 500;
+  }
+  details {
+    summary {
+      cursor: pointer;
+    }
+    h3 {
+      font-size: modular-scale(0);
+    }
+    &[open] {
+      margin-bottom: 3 * $base-spacing;
+    }
+  }
+}

@@ -73,6 +73,8 @@
     font-family: $heading-font-family;
     margin-bottom: $base-spacing;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: $base-letter-spacing/2;
+
   }
   .button {
     text-transform: lowercase;

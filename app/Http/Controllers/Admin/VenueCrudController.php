@@ -37,15 +37,6 @@ class VenueCrudController extends CrudController
           ],
         ];
 
-        $programmeArray = [
-          'name' => 'programme',
-          'label' => 'Programme',
-          'type' => 'text',
-          'attributes' => [
-            'placeholder' => 'e.g. New Indies'
-          ],
-        ];
-
         $addressFieldArray = [   // Address
             'name' => 'address',
             'label' => 'Address',
@@ -57,21 +48,6 @@ class VenueCrudController extends CrudController
             'store_as_json' => true,
         ];
 
-        $orderArray = [
-          'name' => 'order',
-          'label' => 'Order',
-          'type' => 'select_from_array',
-          'options' => ['film' => 'Sort by film', 'screening' => 'Sort by screening'],
-          'allows_null' => false,
-          'hint' => 'Determines the default display order on this collection’s page'
-        ];
-
-        $shortDescriptionArray = [
-          'name' => 'short_description',
-          'label' => 'Short description',
-          'type' => 'textarea',
-        ];
-
         $descriptionArray = [
           'name' => 'description',
           'label' => 'Description',
@@ -79,36 +55,20 @@ class VenueCrudController extends CrudController
           'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]"
         ];
 
-        $accessDescriptionArray = [
+        $accessInfoArray = [
           'name' => 'access_info',
           'label' => 'Access info',
           'type' => 'textarea',
         ];
 
-        $foregroundColorArray = [
-          'name' => 'foreground_color',
-          'label' => 'Foreground Colour',
-          'type' => 'color',
+        $refreshmentInfoArray = [
+          'name' => 'refreshment_info',
+          'label' => 'Refreshment info',
+          'type' => 'textarea',
         ];
 
-        $backgroundColorArray = [
-          'name' => 'background_color',
-          'label' => 'Background Colour',
-          'type' => 'color',
-        ];
-
-        $imageArray = [
-            'name' => 'image',
-            'label' => 'Image',
-            'type' => 'image',
-            'upload' => 'true',
-            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
-            'crop' => true, // set to true to allow cropping, false to disable
-        ];
-
-
-        $this->crud->addFields([$titleArray,$programmeArray,$addressFieldArray,$orderArray,$foregroundColorArray,$backgroundColorArray,$imageArray,$shortDescriptionArray,$descriptionArray,$accessDescriptionArray], 'both');
-        $this->crud->addColumns([$titleArray,$programmeArray,$shortDescriptionArray]);
+        $this->crud->addFields([$titleArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray], 'both');
+        $this->crud->addColumns([$titleArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

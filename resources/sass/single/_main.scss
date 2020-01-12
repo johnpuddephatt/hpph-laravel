@@ -123,6 +123,7 @@
 .single-listing--alt-language-title {
   font-size: modular-scale(4);
   font-family: $heading-font-family;
+  letter-spacing: $base-letter-spacing/2;
   font-style: italic;
   -webkit-font-smoothing: antialiased;
   color: $dark-gray;

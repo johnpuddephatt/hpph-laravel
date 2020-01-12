@@ -37,6 +37,15 @@ class StrandCrudController extends CrudController
           ],
         ];
 
+        $venueNameArray = [
+          'name' => 'venue_name',
+          'label' => 'Venue name',
+          'type' => 'text',
+          'attributes' => [
+            'placeholder' => 'e.g. 42 New Briggate'
+          ]
+        ];
+
         $slugArray = [
           'name' => 'slug',
           'label' => 'Slug',
@@ -70,6 +79,18 @@ class StrandCrudController extends CrudController
           'name' => 'color',
           'label' => 'Colour',
           'type' => 'color',
+          'wrapperAttributes' => [
+            'class' => 'col-md-6'
+          ],
+        ];
+
+        $secondaryColorArray = [
+          'name' => 'secondary_color',
+          'label' => 'Secondary colour',
+          'type' => 'color',
+          'wrapperAttributes' => [
+            'class' => 'col-md-6'
+          ],
         ];
 
         $thumbArray = [
@@ -81,8 +102,8 @@ class StrandCrudController extends CrudController
             'crop' => true, // set to true to allow cropping, false to disable
         ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$orderArray,$colorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
-        $this->crud->addColumns([$titleArray,$shortDescriptionArray]);
+        $this->crud->addFields([$titleArray,$slugArray,$venueNameArray,$orderArray,$colorArray,$secondaryColorArray,$thumbArray,$shortDescriptionArray,$descriptionArray], 'both');
+        $this->crud->addColumns([$titleArray,$venueNameArray,$shortDescriptionArray]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

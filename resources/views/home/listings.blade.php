@@ -41,6 +41,7 @@
                         <span class="daily-screenings--entry--certificate">({{ $screening->film->certificate }})</span>
                       @endif
                     </h3>
+                    @if($screening->film->venue)<div class="daily-screenings--entry--venue">At {{$screening->film->venue->title}}</div>@endif
                     <div class="daily-screenings--entry--description">{{ $screening->film->short_description }}</div>
 
                     <div class="daily-screenings--entry--footer">

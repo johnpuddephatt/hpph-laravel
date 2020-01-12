@@ -15,6 +15,8 @@
     </head>
     <body class="@stack('body-classes')">
 
+      @include('bookmark')
+      
       <div class="wrapper">
         @include('header')
         @include('search')

@@ -81,7 +81,13 @@
   @media screen and (min-width: $medium-screen) {
     margin-top: $small-spacing;
   }
+}
 
+.film-card--venue {
+  font-weight: 500;
+  font-size: modular-scale(-1);
+  color: $dark-gray;
+  margin-bottom: $small-spacing/2;
 }
 
 .film-card--subtitle {

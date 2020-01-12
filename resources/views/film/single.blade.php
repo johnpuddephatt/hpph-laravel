@@ -27,11 +27,6 @@
     <div class="single-listing--text">
       <div class="single-listing--heading">
         <div class="single-listing--text">
-          @foreach($film->strands as $strand)
-            <div class="single-listing--strand">
-              @include('labels.strand', ['is_link' => true])
-            </div>
-          @endforeach
           <h1 class="single-listing--title">{{ $film->title }}</h1>
           @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
           <div class="single-listing--meta">
@@ -40,13 +35,16 @@
       @if($film->runtime){{ $film->runtime . 'mins' }}, @endif
       @if($film->certificate)Cert.{{ $film->certificate }}@endif
           </div>
-          <div class="single-listing--strand">
-            @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
-          </div>
+          @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
+          @foreach($film->strands as $strand)
+            <div class="single-listing--strand">
+              @include('labels.strand', ['is_link' => true])
+            </div>
+          @endforeach
         </div>
       </div>
       <div class="single-listing--mobile--screenings">
-        Screenings
+        Ticket and venue info
       </div>
       <div class="single-listing--text--content">
         <h2 class="sr-only">Film description</h2>
@@ -104,7 +102,26 @@
         </table>
       </div>
     </div>
-    <div class="single-listing--screenings">
+
+
+    <div class="single-listing--sidebar">
+      @if($film->venue)
+        <h2 class="single-listing--venue--header">Venue information</h2>
+
+        <div class="single-listing--venue--details">
+          <h3>{{$film->venue->title}}</h3>
+          <p>{{$film->venue->address->value}} (<a href="https://maps.google.com/?q={{ urlencode($film->venue->address->value) }}" target="_blank">view on map</a>)</p>
+          <details>
+              <summary>Venue details</summary>
+              <h3>Access info</h3>
+              <p>{{ $film->venue->access_info }}
+              <h3>Refreshment info</h3>
+              <p>{{ $film->venue->refreshment_info }}
+          </details>
+        </div>
+      @endif
+
+
       <h2 class="single-listing--screenings--header">Showtimes</h2>
       @if($film->screenings->contains(function($key, $value) { return $key->url; }))
         <p class="screenings-table--explainer">Select a screening below to book tickets</p>

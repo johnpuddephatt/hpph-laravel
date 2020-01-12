@@ -215,6 +215,13 @@
   }
 }
 
+.weekly-screenings--entry--venue {
+  font-weight: 500;
+  font-size: modular-scale(1);
+  margin-bottom: $small-spacing/2;
+  color: $dark-gray;
+}
+
 .weekly-screenings--entry--title-inner {
   position: relative;
   display: inline;

@@ -1,0 +1,123 @@
+.bookmark--container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  .container {
+    position: relative;
+  }
+}
+
+.bookmark {
+  position: absolute;
+  right: -1px;
+  padding: 2 * $base-spacing $small-spacing 1 * $base-spacing;
+  width: 8 * $base-spacing;
+  transform-origin: 75% 0%;
+  transition: transform .5s 1s ease;
+  transform: translateY(-105%);
+
+  &.active {
+    transition: transform .5s 0s ease;
+    transform: translateY(0);
+
+    &.compact:not(:hover) {
+      transform: scale(0.5);
+
+      p {
+        opacity: 0;
+      }
+
+      &::before {
+        transform: translateY(-3em);
+      }
+
+      svg {
+        transform: scale(1.2);
+      }
+    }
+
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5 * $base-spacing;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $alabaster;
+    z-index: -1;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.18);
+  }
+
+
+  svg {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto $base-spacing;
+    transform-origin: center top;
+    transition: transform .5s ease;
+    #revolver {
+      animation: revolver 6s ease infinite;
+      transform-origin: center center;
+    }
+  }
+
+  p {
+    font-family: $heading-font-family;
+    text-align: center;
+    line-height: $heading-line-height;
+    font-size: modular-scale(-1);
+    text-shadow: $base-font-color 0 0 0.1px;
+    transition: opacity .25s;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: $base-font-color;
+      width: 55%;
+      margin: $small-spacing auto 0;
+    }
+  }
+
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   top: 0;
+  //   background-image: url(https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1540352095219-1PEK700EYRYUIZMCF15R/ke17ZwdGBToddI8pDm48kE8S_s2-Ez5WAzV14Ql2mi5Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzzZUQ2JJG0HfWW-asyctmg1e2urW_-EeMtYO7sEWvVN_CPLGlS-qI9BKIWG3vKjmM/mask-web.jpg?format=750w);
+  //   mix-blend-mode: lighten;
+  //   background-size: 40em;
+  //   opacity: 1;
+  //   pointer-events: none;
+  //   filter: invert(1);
+  // }
+}
+
+@keyframes enterBookmark {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes revolver {
+  25%,
+  50% {
+    transform: rotate(180deg);
+  }
+  75%,
+  100% {
+    transform: rotate(360deg);
+  }
+}

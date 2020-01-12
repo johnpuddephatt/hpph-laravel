@@ -17,18 +17,11 @@ class CreateVenuesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
-            $table->string('programme')->nullable();
-            $table->text('short_description')->nullable();
+            $table->text('slug')->nullable();
             $table->text('description')->nullable();
             $table->jsonb('address')->nullable();
             $table->text('access_info')->nullable();
-
-            $table->string('order')->default('screening');
-
-            $table->string('foreground_color')->nullable();
-            $table->string('background_color')->nullable();
-
-            $table->string('image')->nullable();
+            $table->text('refreshment_info')->nullable();
         });
     }
 
