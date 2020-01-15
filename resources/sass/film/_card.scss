@@ -85,17 +85,18 @@
 
 .film-card--venue {
   font-weight: 500;
-  font-size: modular-scale(-1);
-  color: $dark-gray;
+  font-size: modular-scale(0);
+  font-family: $heading-font-family;
+  font-style: italic;
   margin-bottom: $small-spacing/2;
+  color: $dark-gray;
+  line-height: $heading-line-height;
 }
 
 .film-card--subtitle {
   font-weight: 500;
-  font-family: $heading-font-family;
   line-height: $heading-line-height;
-  font-size: modular-scale(-1);
-  font-style: italic;
+  font-size: modular-scale(-3);
   letter-spacing: $base-letter-spacing/2;
   &:empty {
     display: none;

@@ -15,7 +15,7 @@ class AddVenueToFilms extends Migration
     {
       Schema::table('films', function (Blueprint $table) {
         // Venue
-        $table->bigInteger('venue_id')->unsigned()->nullable();
+        $table->unsignedInteger('venue_id')->nullable();
         $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
       });
     }

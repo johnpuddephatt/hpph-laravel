@@ -1,19 +1,41 @@
-.collection--text {
+.collection-wrapper {
+  &__OTR {
+    *, a {
+      color: inherit !important;
+      text-shadow: none !important;
+      box-shadow: none !important;
+      outline-color: none !important;
+    }
+    .weekly-screenings--entry, .film-card {
+      border-bottom: none;
+    }
+  }
+}
+
+.collection--header {
+  padding: 4 * $base-spacing 0 2 * $base-spacing;
   @media screen and (min-width: $large-screen) {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    align-items: flex-start;
   }
-  .single-listing--title {
-    flex: 1 0 30%;
-  }
-  .single-listing--description {
-    margin-top: $small-spacing;
-    flex: 1 1 auto;
-    @media screen and (min-width: $medium-screen) {
-      margin-left: $base-spacing;
-      columns: 2;
-      column-gap: $base-spacing;
+
+  svg {
+    flex: 1;
+    float: right;
+    width: 5 * $base-spacing;
+    height: 5 * $base-spacing;
+    margin-top: -2 * $base-spacing;
+    margin-left: $small-spacing;
+    @media screen and (min-width: $large-screen) {
+      float: none;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 2 * $base-spacing;
     }
   }
+}
+
+.collection--text {
+  flex: 0 0 77.5%;
 }

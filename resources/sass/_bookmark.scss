@@ -1,8 +1,12 @@
 .bookmark--container {
   position: fixed;
-  top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 999999;
+  top: 0;
+  // @media screen and (min-width: $medium-screen) {
+  //   top: 0;
+  //   bottom: auto;
+  // }
   width: 100%;
   .container {
     position: relative;
@@ -10,27 +14,65 @@
 }
 
 .bookmark {
+  overflow: auto;
+  padding: $small-spacing $base-spacing;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   position: absolute;
-  right: -1px;
-  padding: 2 * $base-spacing $small-spacing 1 * $base-spacing;
-  width: 8 * $base-spacing;
-  transform-origin: 75% 0%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: $alabaster;
   transition: transform .5s 1s ease;
   transform: translateY(-105%);
 
+  @media screen and (min-width: $medium-screen) {
+    background-color: transparent;
+    display: block;
+    padding: 2 * $base-spacing $small-spacing 1 * $base-spacing;
+    background-color: transparent;
+    text-align: center;
+    left: auto;
+    bottom: auto;
+    right: $small-spacing;
+    width: 8 * $base-spacing;
+    transform-origin: 75% 0%;
+    transition: transform .5s 1s ease;
+    transform: translateY(-105%);
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -5 * $base-spacing;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $alabaster;
+      z-index: -1;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.18);
+    }
+  }
+  @media screen and (min-width: $large-screen) {
+    right: -1px;
+  }
   &.active {
     transition: transform .5s 0s ease;
     transform: translateY(0);
 
     &.compact:not(:hover) {
-      transform: scale(0.5);
+      transform: translateY(-105%);
+      @media screen and (min-width: $medium-screen) {
+        transform: scale(0.5);
+      }
 
-      p {
+      p,
+      a {
         opacity: 0;
       }
 
       &::before {
-        transform: translateY(-3em);
+        transform: translateY(-5em);
       }
 
       svg {
@@ -40,48 +82,67 @@
 
   }
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -5 * $base-spacing;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $alabaster;
-    z-index: -1;
-    box-shadow: 0px 3px 6px rgba(0,0,0,0.18);
-  }
+
 
 
   svg {
-    width: 75%;
+    width: 4 * $base-spacing;
     height: auto;
     display: block;
-    margin: 0 auto $base-spacing;
+    margin-right: 1.5 * $small-spacing;
+    @media screen and (min-width: $medium-screen) {
+      margin: 0 auto $base-spacing;
+      float: none;
+      width: 75%;
+    }
+
     transform-origin: center top;
     transition: transform .5s ease;
+    stroke: $light-black;
+    stroke-width: 0;
     #revolver {
       animation: revolver 6s ease infinite;
       transform-origin: center center;
     }
   }
 
-  p {
+  h3 {
+    margin-bottom: $small-spacing/2;
+    @media screen and (min-width: $medium-screen) {
+      display: none;
+    }
+  }
+
+  p,
+  a {
+    display: block;
     font-family: $heading-font-family;
-    text-align: center;
     line-height: $heading-line-height;
+    color: $base-font-color;
     font-size: modular-scale(-1);
     text-shadow: $base-font-color 0 0 0.1px;
     transition: opacity .25s;
-
-    &::after {
-      content: '';
-      display: block;
-      height: 1px;
-      background-color: $base-font-color;
-      width: 55%;
-      margin: $small-spacing auto 0;
+  }
+  p {
+    margin-bottom: 0;
+    max-width: 20em;
+    &:last-child {
+      margin-top: $small-spacing/2;
+      @media screen and (min-width: $medium-screen) {
+        margin-top: $small-spacing;
+      }
+      &::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: $base-font-color;
+        width: 55%;
+        max-width: 12em;
+        margin: 0 0 $small-spacing/2;
+        @media screen and (min-width: $medium-screen) {
+          margin: 0 auto $small-spacing;
+        }
+      }
     }
   }
 

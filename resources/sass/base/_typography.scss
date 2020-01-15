@@ -26,6 +26,7 @@ body {
 ::selection {
   color: white;
   background-color: $yellow;
+  text-shadow: none !important;
 }
 
 h1,

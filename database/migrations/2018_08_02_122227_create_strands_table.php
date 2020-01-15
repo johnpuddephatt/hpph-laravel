@@ -20,6 +20,7 @@ class CreateStrandsTable extends Migration
             $table->string('color');
             $table->string('thumb')->nullable();
             $table->text('description')->nullable();
+            $table->string('order')->default('screening');
         });
     }
 

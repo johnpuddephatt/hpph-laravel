@@ -192,12 +192,9 @@
 
 .weekly-screenings--entry--subtitle {
   font-weight: 500;
-  font-family: $heading-font-family;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
-  font-style: italic;
   margin-bottom: $small-spacing/2;
-  letter-spacing: $base-letter-spacing/2;
   &:empty {
     visibility: hidden;
   }
@@ -211,13 +208,15 @@
   }
 
   @media screen and (min-width: $medium-screen) {
-    font-size: modular-scale(1);
+    font-size: modular-scale(0);
   }
 }
 
 .weekly-screenings--entry--venue {
   font-weight: 500;
-  font-size: modular-scale(1);
+  font-size: modular-scale(2);
+  font-family: $heading-font-family;
+  font-style: italic;
   margin-bottom: $small-spacing/2;
   color: $dark-gray;
 }
@@ -252,6 +251,7 @@
   align-items: center;
   white-space: nowrap;
   font-size: modular-scale(-2);
+  padding-top: $small-spacing;
   padding-bottom: $small-spacing/2;
   * + * {
     margin-left: $small-spacing/2;

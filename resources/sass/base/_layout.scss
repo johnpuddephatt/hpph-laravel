@@ -70,7 +70,7 @@ body {
 
 .page-content {
   position: relative;
-  
+
   @media (max-width: $medium-screen) {
     padding-bottom: 3.25 * $base-spacing;
   }
@@ -79,6 +79,9 @@ body {
 
 .container {
   max-width: $xl-screen;
+  &__narrow {
+    max-width: $large-screen;
+  }
   padding-left: $small-spacing;
   padding-right: $small-spacing;
   @media screen and (min-width: $medium-screen) {

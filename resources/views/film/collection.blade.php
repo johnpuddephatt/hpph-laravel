@@ -18,34 +18,42 @@
     ])
   </div>
 
-  <div class="container single-listing--heading">
-    <div class="collection--text">
-      <h1 class="single-listing--title">{{ $collection->title }}</h1>
-      <div class="single-listing--description">{!! $collection->description !!}</div>
-    </div>
-  </div>
+  <div @if($collection->venue_name && $collection->secondary_color && $collection->color) class="collection-wrapper__OTR" style="background-color: {{  $collection->secondary_color ?? 'inherit' }} !important; color:  {{  $collection->color ?? 'inherit' }} !important; fill:  {{  $collection->color ?? 'inherit' }}; stroke:  {{  $collection->color ?? 'inherit' }};" @endif >
+    <div class="container container__narrow">
+      <div class="collection--header">
+        @if($collection->venue_name && $collection->secondary_color && $collection->color)
+          @include('icons.on-the-road')
+        @endif
 
-  <div class="container single-listing--related">
-    <div class="single-listing--related--inner">
-      @if(isset($screenings) && $screenings->count())
-        @foreach ($screenings as $screening)
-          @include('screening.weekly-item', ['show_date' => true])
-        @endforeach
-      @elseif(isset($films) && $films->count())
-        <div class="az-listings--listings">
-          <div class="az-listings--inner">
-            @foreach ($films as $film)
-              @include('film.card')
+        <div class="collection--text">
+          <h1 class="single-listing--title">{{ $collection->title }}</h1>
+          @if($collection->venue_name)<p class="single-listing--venue">at {{ $collection->venue_name }}</p> @endif
+          <div class="single-listing--description">{!! $collection->description !!}</div>
+        </div>
+      </div>
+
+      <div class="single-listing--related">
+        <div class="single-listing--related--inner">
+          @if(isset($screenings) && $screenings->count())
+            @foreach ($screenings as $screening)
+              @include('screening.weekly-item', ['show_date' => true])
             @endforeach
-          </div>
+          @elseif(isset($films) && $films->count())
+            <div class="az-listings--listings">
+              <div class="az-listings--inner">
+                @foreach ($films as $film)
+                  @include('film.card')
+                @endforeach
+              </div>
+            </div>
+          @else
+            <div class="alert alert__empty">
+              There are no {{ $collection->title }} screenings currently scheduled.
+            </div>
+          @endif
         </div>
-      @else
-        <div class="alert alert__empty">
-          There are no {{ $collection->title }} screenings currently scheduled.
-        </div>
-      @endif
+      </div>
     </div>
   </div>
-
 
 @stop

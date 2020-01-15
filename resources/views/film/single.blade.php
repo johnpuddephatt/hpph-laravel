@@ -19,7 +19,7 @@
       'modes' => "c_fill,g_auto,f_auto"
     ])
     @if($film->trailer)
-        @include('film.trailer')
+        @include('film.single.trailer')
     @endif
   </div>
 
@@ -44,20 +44,17 @@
         </div>
       </div>
       <div class="single-listing--mobile--screenings">
-        Ticket and venue info
+        Showtimes and location
       </div>
       <div class="single-listing--text--content">
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
       </div>
-      @foreach($film->strands as $strand)
-        <a href="/strand/{{ $strand->slug}}" class="single-listing--strand-details
-          @if($strand->color && (hexdec(substr($strand->color,1,2)) + hexdec(substr($strand->color,3,2)) + hexdec(substr($strand->color,5,2))) < 300 ) dark-bg @endif" style="background-color: {{ $strand->color }}">
-          <h3 class="single-listing--strand-heading">A {{$strand->title}} screening</h3>
-          <div>{!! $strand->short_description !!}</div>
-          <div class="single-listing--strand-callout"> View all {{ $strand->title}} screenings</div>
-        </a>
-      @endforeach
+
+      @include('film.single.reviews')
+
+      @include('film.single.footer')
+
       @foreach($film->seasons()->get() as $season)
         <a href="/season/{{ $season->slug}}" class="single-listing--season-details">
           <h3 class="single-listing--season-heading">Showing as part of {{$season->title}}</h3>
@@ -65,82 +62,22 @@
           <div class="single-listing--season-callout"> View all {{ $season->title}} screenings</div>
         </a>
       @endforeach
-      <div class="single-listing--reviews">
-        @if($film->reviews)
-          @foreach($film->reviews as $review)
-            @if(!empty($review->rating))
-              <div class="single-listing--reviews--review">
-              @if(!empty($review->url))<a href="{{ $review->url }}" _target="blank">@endif
-              @if(!empty($review->text))<div class="single-listing--reviews--review--text">“{{ $review->text }}”</div>@endif
-              @if(!empty($review->rating))
-                <div class="single-listing--reviews--review--rating">
-                  @for ($i = 0; $i < $review->rating; $i++)
-                    &starf;
-                  @endfor
-                </div>
-              @endif
-              @if(!empty($review->author))
-                <div class="single-listing--reviews--review--author">
-                  {{ $review->author }}
-                </div>
-              @endif
-              @if(!empty($review->url))</a>@endif
-              </div>
-            @endif
-          @endforeach
-        @endif
-      </div>
-      <div class="single-listing--text--footer">
-        <table>
-          @if( $film->language )<tr><td>Language:</td><td>{{ $film->language }}</td></tr>@endif
-          @if( $film->director )<tr><td>Director:</td><td>{{ $film->director }}</td></tr>@endif
-          @if( $film->starring )<tr><td>Starring:</td><td>{{ $film->starring }}</td></tr>@endif
-          @if( $film->f_rating )<tr><td>F-Rating:</td><td>@if($film->f_rating == 3)Triple @else Single @endif</td></tr>@endif
-          @if( $film->association )<tr><td>Association:</td><td>{{ $film->association }}</td></tr>@endif
-          @if( $film->format )<tr><td>Format:</td><td>{{ $film->format }}</td></tr>@endif
-          @if( $film->tickets && $film->tickets !== '<p><br></p>')<tr><td>Tickets:</td><td>{!! $film->tickets !!}</td></tr>@endif
-        </table>
-      </div>
-    </div>
 
+      @foreach($film->strands as $strand)
+        @if($strand->venue_name && $strand->secondary_color && $strand->color)
+          @include('film.single.strand-details_OTR')
+        @else
+          @include('film.single.strand-details')
+        @endif
+      @endforeach
+    </div>
 
     <div class="single-listing--sidebar">
       @if($film->venue)
-        <h2 class="single-listing--venue--header">Venue information</h2>
-
-        <div class="single-listing--venue--details">
-          <h3>{{$film->venue->title}}</h3>
-          <p>{{$film->venue->address->value}} (<a href="https://maps.google.com/?q={{ urlencode($film->venue->address->value) }}" target="_blank">view on map</a>)</p>
-          <details>
-              <summary>Venue details</summary>
-              <h3>Access info</h3>
-              <p>{{ $film->venue->access_info }}
-              <h3>Refreshment info</h3>
-              <p>{{ $film->venue->refreshment_info }}
-          </details>
-        </div>
+        @include('film.single.venue-details')
       @endif
 
-
-      <h2 class="single-listing--screenings--header">Showtimes</h2>
-      @if($film->screenings->contains(function($key, $value) { return $key->url; }))
-        <p class="screenings-table--explainer">Select a screening below to book tickets</p>
-      @endif
-      @if (count($film->screenings))
-        @include('screening.selector')
-      @elseif ($film->screenings_count)
-        <div class="alert alert__empty">
-          All scheduled screenings have now passed.
-        </div>
-      @else
-        <div class="alert">
-          <h3>{{ $film->custom_coming_soon ?? "Showtimes to be confirmed" }}</h3>
-          <p>Please check back again soon for details of specific showtimes and to book tickets.</p>
-          @if(config('app.mailchimp'))
-            <p>Full listings are confirmed every Monday for the week beginning the following Friday. To receive our weekly listings emails, <a href="{{ config('app.mailchimp') }}">sign up here.</a></p>
-          @endif
-        </div>
-      @endif
+      @include('film.single.screening-details')
     </div>
   </div>
 

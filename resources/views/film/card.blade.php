@@ -11,30 +11,34 @@
           <span class="film-card--certificate">({{ $film->certificate }})</span>
         @endif
       </h3>
-      @if($film->venue)<div class="film-card--venue">At {{$film->venue->title}}</div>@endif
-      <div class="film-card--subtitle">{{ $film->subtitle }}</div>
+      @if(!isset($compact))
+        @if($film->venue)<div class="film-card--venue">At {{$film->venue->title}}</div>@endif
+        <div class="film-card--subtitle">{{ $film->subtitle }}</div>
+      @endif
     </div>
     <div class="film-card--date">
       @if (count($film->screenings)) {{ $film->getDateRange() }}
       @else {{ $film->custom_coming_soon ?? "Showtimes TBC" }}
       @endif
-
     </div>
 
-    @if($film->short_description)
+    @if(!isset($compact) && $film->short_description)
       <p class="film-card--description">{{ $film->short_description }}</p>
     @endif
   </div>
 
-  <div class="film-card--footer">
-    @foreach($film->strands as $strand)
-      @include('labels.strand')
-    @endforeach
-    @if($film->audio_description)
-      @include('labels.audio-description')
-    @endif
-    @if($film->free)
-      <span class="label label--free">Free</span>
-    @endif
-  </div>
+  @if(!isset($compact))
+    <div class="film-card--footer">
+      {{-- @foreach($film->strands as $strand)
+        @include('labels.strand')
+      @endforeach --}}
+      @if($film->audio_description)
+        @include('labels.audio-description')
+      @endif
+      @if($film->free)
+        <span class="label label--free">Free</span>
+      @endif
+    </div>
+  @endif
+
 </a>

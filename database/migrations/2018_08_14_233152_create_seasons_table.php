@@ -20,6 +20,7 @@ class CreateSeasonsTable extends Migration
           $table->string('thumb')->nullable();
           $table->text('short_description')->nullable();
           $table->text('description')->nullable();
+          $table->string('order')->default('film');
       });
     }
 

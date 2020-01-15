@@ -27,7 +27,7 @@
     @include('icons.logo-strapline')
   </a>
   <div class="site-footer--primary">
-    <div class="container container__narrow">
+    <div class="container">
       <div class="site-footer--contact">
         <div class="site-footer--strapline">
           <img alt="Your friendly, local, independent cinema" src="/images/friendly-local-independent.svg" />

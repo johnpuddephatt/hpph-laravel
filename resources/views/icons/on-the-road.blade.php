@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 89.4 89.4" enable-background="new 0 0 89.4 89.4" xml:space="preserve">
 	 <defs>
 		 <clipPath id="cut-off-top">
 			<rect x="0" y="45" width="89.4" height="45"></rect>
 		 </clipPath>
+
 	 </defs>
-<g id="Layer_1">
+
+<g id="Layer_1" stroke-width="0">
 	<path d="M44.7,79.9C25.1,79.9,9.2,64,9.2,44.4c0-0.2,0.2-0.4,0.4-0.4s0.4,0.2,0.4,0.4C10.1,63.5,25.6,79,44.7,79
 		s34.6-15.5,34.6-34.6c0-0.2,0.2-0.4,0.4-0.4s0.4,0.2,0.4,0.4C80.2,63.9,64.3,79.9,44.7,79.9z"/>
 	<path d="M28.3,75.8h-0.2c-0.2-0.1-0.3-0.4-0.2-0.6l11.1-24c0.1-0.2,0.4-0.3,0.6-0.2c0.2,0.1,0.3,0.4,0.2,0.6l-11.1,24
@@ -112,10 +111,10 @@
 	<path d="M44.3,69.8c-0.2,0-0.4-0.2-0.4-0.4V64c0-0.2,0.2-0.4,0.4-0.4s0.4,0.2,0.4,0.4v5.4C44.7,69.6,44.5,69.8,44.3,69.8z"/>
 	<path d="M44.3,79.9c-0.2,0-0.4-0.2-0.4-0.4v-7.1c0-0.2,0.2-0.4,0.4-0.4s0.4,0.2,0.4,0.4v7.1C44.7,79.7,44.5,79.9,44.3,79.9z"/>
 	<rect x="10.4" y="51.2" width="68.5" height="0.9"/>
-  <circle stroke="#222" stroke-width="1" fill="none" cx="44.7" cy="44.4" r="44"/>
+  <circle stroke-width="1" fill="none" cx="44.7" cy="44.4" r="44"/>
 
 </g>
-<g clip-path="url(#cut-off-top)">
+<g clip-path="url(#cut-off-top)" stroke-width="0">
 	<g id="revolver">
 		<circle fill="none" cx="44.5" cy="44.5" r="44.5"/>
 			<path id="text-path" fill="none" id="circle" class="long clock arc circle"
@@ -131,7 +130,7 @@
 			</text>
 		<text font-family="'HPPHC'" font-size="8">
 			<textPath  xlink:href="#text-path" startOffset="64%">
-				23 DAYS TO GO
+				{{$days_until_otr}} DAYS TO GO
 			</textPath>
 		</text>
 	</g>

@@ -14,7 +14,7 @@ return [
     |
     */
     'google_places' => [
-       'key' => 'AIzaSyAYnG_c1TwKnhEtogz83_BcWoXKLVb7eTQ'
+       'key' => env('GOOGLE_MAPS_KEY')
     ],
 
     'mailgun' => [

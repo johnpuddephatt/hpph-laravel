@@ -45,9 +45,9 @@
                     <div class="daily-screenings--entry--description">{{ $screening->film->short_description }}</div>
 
                     <div class="daily-screenings--entry--footer">
-                      @foreach($screening->film->strands as $strand)
+                      {{-- @foreach($screening->film->strands as $strand)
                         @include('labels.strand')
-                      @endforeach
+                      @endforeach --}}
                       @if($screening->film->audio_description)
                         @include('labels.audio-description')
                       @endif

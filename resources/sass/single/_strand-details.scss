@@ -1,0 +1,168 @@
+.single-listing--strand {
+  font-size: modular-scale(0);
+  margin-top: $base-spacing;
+  .label {
+    border: none;
+    padding: $small-spacing;
+    padding-right: 1.5 * $base-spacing;
+    position: relative;
+    &::after {
+      content: '\203A';
+      display: block;
+      color: inherit;
+      font-weight: 400;
+      font-size: modular-scale(4);
+      position: absolute;
+      right: $small-spacing;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.single-listing--strand {
+  &-details__OTR {
+    display: block;
+    position: relative;
+    margin-top: 2 * $base-spacing;
+    padding: 2 * $base-spacing 0 2 * $base-spacing;
+    &::before {
+      content: '';
+      z-index: -1;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -999px;
+      right: -999px;
+      bottom: -$small-spacing;
+      background-color: inherit;
+    }
+
+    svg {
+      display: block;
+      float: right;
+      width: 6 * $base-spacing;
+      height: 6 * $base-spacing;
+    }
+
+    .single-listing--strand-heading {
+      color: inherit;
+      margin-top: 3 * $base-spacing !important;
+      margin-bottom: 0;
+      font-size: modular-scale(6);
+      max-width: 25rem;
+      line-height: $heading-line-height;
+    }
+
+    .single-listing--strand-subtitle {
+      color: inherit;
+      font-size: modular-scale(3);
+      font-family: $heading-font-family;
+      font-style: italic;
+    }
+
+    .single-listing--strand-description {
+      margin-top: $base-spacing;
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}
+
+.single-listing--strand-details,
+.single-listing--season-details {
+  display: block;
+  color: inherit;
+  padding: $small-spacing $base-spacing;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  font-size: modular-scale(-1);
+  border: $base-border;
+  border-color: transparentize($black,.85);
+  position: relative;
+
+  &::after {
+    content: '»';
+    display: block;
+    position: absolute;
+    right: 1.5 * $base-spacing;
+    font-size: modular-scale(5);
+    top: 50%;
+    transform: translateY(-55%);
+    line-height: 2 * $base-spacing;
+  }
+  + .single-listing--strand-details,
+  + .single-listing--season-details {
+    margin-top: $small-spacing;
+  }
+  &:hover {
+    color: inherit;
+  }
+  > * {
+    max-width: 85%;
+  }
+  &.dark-bg {
+    color: white;
+    .single-listing--strand-heading {
+      color: white;
+    }
+    &::after {
+      color: white;
+    }
+  }
+
+
+  .single-listing--strand-heading,
+  .single-listing--season-heading, {
+    text-transform: uppercase;
+    margin-bottom: $small-spacing;
+    font-weight: 500;
+  }
+
+  .single-listing--strand-callout,
+  .single-listing--season-callout {
+    margin-top: $small-spacing/2;
+  }
+}
+
+.single-listing--strand--related {
+  margin-top: 2 * $base-spacing;
+  .film-card {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 0;
+    color: inherit;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: none;
+    &--image {
+      flex: 0 0 6 * $base-spacing;
+      margin-right: $base-spacing;
+      margin-bottom: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &--header {
+      min-height: auto;
+    }
+    &--title,
+    &--date,
+    &--certificate {
+      color: inherit;
+      margin-top: 0;
+      span {
+        text-shadow: none !important;
+        box-shadow: none !important;
+      }
+    }
+    + .film-card {
+      margin-top: $small-spacing;
+    }
+  }
+}

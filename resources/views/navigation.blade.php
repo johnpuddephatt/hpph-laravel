@@ -3,6 +3,8 @@
   <li><a href="/visit">Visit</a></li>
   <li><a href="http://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
   <li><a href="/membership">Membership</a></li>
+  <li><button class="button button__text search-button">@include('icons.search')Search</button></li>
+
 </ul>
 
 <ul class="site-header--right">

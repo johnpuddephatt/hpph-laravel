@@ -13,7 +13,6 @@
     bottom: 0;
     right: -9999px;
   }
-  background-color: #fff;
   position: fixed;
   z-index: 99999;
   top: 0;
@@ -23,8 +22,12 @@
   overflow: hidden;
   transition: left $base-duration * 2 $base-timing;
   &.open {
+    background-color: $off-white;
     left: 0;
     overflow: auto;
+    &::after {
+      content: none;
+    }
   }
   @media (min-width: $large-screen) {
     background-color: transparent;
@@ -86,6 +89,7 @@
 }
 
 .single-listing--venue--header {
+  margin-bottom: $base-spacing/2;
   @media screen and (max-width: $large-screen) {
     cursor: pointer;
     .single-listing--screenings.open & {

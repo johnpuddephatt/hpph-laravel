@@ -16,9 +16,9 @@
     @if($screening->film->subtitle)<div class="weekly-screenings--entry--subtitle">{{ $screening->film->subtitle }}</div>@endif
     <div class="weekly-screenings--entry--description">{{ $screening->film->short_description }}</div>
     <div class="weekly-screenings--entry--footer">
-      @foreach($screening->film->strands as $strand)
+      {{-- @foreach($screening->film->strands as $strand)
         @include ('labels.strand')
-      @endforeach
+      @endforeach --}}
       @if($screening->film->audio_description)
         @include('labels.audio-description')
       @endif
@@ -29,9 +29,6 @@
       @endif
       @if($screening->film->free)
         <span class="label label--free">Free</span>
-      @endif
-      @if($screening->film->venue)
-        VENUE
       @endif
     </div>
   </div>

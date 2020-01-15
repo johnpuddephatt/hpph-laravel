@@ -20,7 +20,7 @@ class CreateTagsTable extends Migration
           $table->string('abbreviation');
           $table->text('description')->nullable();
           $table->string('color')->nullable();
-
+          $table->string('order')->default('screening');
         });
     }
 

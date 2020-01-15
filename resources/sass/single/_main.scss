@@ -39,7 +39,9 @@
 .single-listing--content {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   @media screen and (min-width: $large-screen) {
+    overflow: visible;
     flex-direction: row;
   }
 }
@@ -56,7 +58,6 @@
   margin-right: -$small-spacing;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
-  padding-bottom: 3.5 * $base-spacing;
 
   @media (min-width: $medium-screen) {
     flex: 0 0 50%;
@@ -76,18 +77,19 @@
 }
 
 .single-listing--heading > div {
-  margin-top: $base-spacing;
+  margin-top: $small-spacing;
   @media screen and (min-width: $medium-screen) {
     margin-top: 2 * $base-spacing;
   }
   margin-bottom: 1.5 * $base-spacing;
-  padding-bottom: $base-spacing;
+  padding-bottom: 1.25 * $base-spacing;
   border-bottom: $light-border;
 }
 
 .single-listing--title {
   font-size: modular-scale(5);
   font-weight: 700;
+  color: inherit;
   // font-style: italic;
   // font-family: $heading-font-family;
   margin-bottom: 0;
@@ -101,11 +103,10 @@
 }
 
 .single-listing--subtitle {
-  font-size: modular-scale(1);
-  margin-top: $base-spacing/2;
-  font-family: $heading-font-family;
+  font-size: modular-scale(0);
+  margin-top: $small-spacing;
+  font-weight: 500;
   line-height: $heading-line-height;
-  font-style: italic;
   letter-spacing: $base-letter-spacing/2;
   &:empty {
     visibility: hidden;
@@ -118,6 +119,14 @@
     display: inline-block;
     margin-right: $small-spacing/3;
   }
+}
+
+.single-listing--venue {
+  font-weight: 500;
+  font-size: modular-scale(3);
+  font-family: $heading-font-family;
+  font-style: italic;
+  margin-bottom: $small-spacing/2;
 }
 
 .single-listing--alt-language-title {
@@ -143,66 +152,6 @@
     margin-right: $small-spacing/2;
   }
 }
-
-.single-listing--strand {
-  font-size: modular-scale(-1);
-  margin-bottom: $small-spacing/2;
-}
-
-.single-listing--strand-details,
-.single-listing--season-details {
-  display: block;
-  color: inherit;
-  padding: $small-spacing $base-spacing;
-  margin-top: $base-spacing;
-  font-size: modular-scale(-1);
-  border: $base-border;
-  border-color: transparentize($black,.85);
-  position: relative;
-
-  &::after {
-    content: '»';
-    display: block;
-    position: absolute;
-    right: 1.5 * $base-spacing;
-    font-size: modular-scale(5);
-    top: 50%;
-    transform: translateY(-55%);
-    line-height: 2 * $base-spacing;
-  }
-  + .single-listing--strand-details,
-  + .single-listing--season-details {
-    margin-top: $small-spacing;
-  }
-  &:hover {
-    color: inherit;
-  }
-  > * {
-    max-width: 85%;
-  }
-  &.dark-bg {
-    color: white;
-    .single-listing--strand-heading {
-      color: white;
-    }
-    &::after {
-      color: white;
-    }
-  }
-}
-
-.single-listing--strand-heading,
-.single-listing--season-heading, {
-  text-transform: uppercase;
-  margin-bottom: $small-spacing;
-  font-weight: 500;
-}
-
-.single-listing--strand-callout,
-.single-listing--season-callout {
-  margin-top: $small-spacing/2;
-}
-
 
 .single-listing--text--footer {
   border-top: $light-border;

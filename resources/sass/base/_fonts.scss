@@ -6,13 +6,13 @@
 
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
   font-style: normal;
-  font-display: fallback;
+  font-display: block;
   font-weight: 500;
 }
 
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
   font-style: normal;
-  font-display: fallback;
+  font-display: block;
   font-weight: 400;
 }
 
@@ -23,20 +23,20 @@
 
 @include font-face("HPPHB", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
   font-style: italic;
-  font-display: fallback;
+  font-display: block;
   font-weight: 400;
 }
 
 @include font-face("HPPHB", "../fonts/bodoni-72-book", $file-formats: woff2 woff){
   font-style: regular;
-  font-display: fallback;
+  font-display: block;
   font-weight: 400;
 }
 
 
 @include font-face("HPPHC", "../fonts/baloo-regular", $file-formats: woff2 woff){
   font-style: regular;
-  font-display: fallback;
+  font-display: block;
   font-weight: 400;
 }
 // @include font-face("HPPHB", "../fonts/bodoni-72-book-italic", $file-formats: woff2 woff){
