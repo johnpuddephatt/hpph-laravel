@@ -140,7 +140,7 @@
     margin-right: 0;
     border-bottom: none;
     &--image {
-      flex: 0 0 6 * $base-spacing;
+      flex: 0 0 8 * $base-spacing;
       margin-right: $base-spacing;
       margin-bottom: auto;
       img {
@@ -153,7 +153,8 @@
     }
     &--title,
     &--date,
-    &--certificate {
+    &--certificate,
+    &--venue {
       color: inherit;
       margin-top: 0;
       span {

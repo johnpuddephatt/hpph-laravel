@@ -12,7 +12,7 @@
         <span class="weekly-screenings--entry--certificate">({{ $screening->film->certificate }})</span>
       @endif
     </h3>
-    @if($screening->film->venue)<div class="weekly-screenings--entry--venue">At {{$screening->film->venue->title}}</div>@endif
+    @if($screening->film->venue)<div class="weekly-screenings--entry--venue">at {{$screening->film->venue->title}}</div>@endif
     @if($screening->film->subtitle)<div class="weekly-screenings--entry--subtitle">{{ $screening->film->subtitle }}</div>@endif
     <div class="weekly-screenings--entry--description">{{ $screening->film->short_description }}</div>
     <div class="weekly-screenings--entry--footer">

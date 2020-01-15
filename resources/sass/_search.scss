@@ -111,7 +111,7 @@
   body.home &,
   body.film &,
   body.page &,
-  body.collection {
+  body.collection & {
     @extend .button__white;
     svg * {
       stroke: white;

@@ -62,7 +62,7 @@
   @media (min-width: $medium-screen) {
     flex: 0 0 50%;
     margin: 0;
-    padding: 0 0 3.5 * $base-spacing;
+    padding: 0;
   }
   &--content {
     @media screen and (min-width: $large-screen) {
