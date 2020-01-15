@@ -8,7 +8,7 @@
       'quality' => "50",
       'modes' => 'c_fill,g_center,f_auto'
     ])
-    <div class="container container__narrow">
+    <div class="container">
     <div class="section--home-newsletter--text">
       <h2 class="section-title">Never miss a screening</h2>
       <p>Sign up to our weekly listings newsletter to stay on top of our screenings.</p>

@@ -1,5 +1,5 @@
 <section class="section section--home-strands">
-  <div class="container container__narrow">
+  <div class="container">
     <div class="section--home-newsletter--text">
       <h2 class="section-title">Discover</h2>
       <div class="strand--grid">
