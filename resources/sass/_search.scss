@@ -103,6 +103,11 @@
   padding-right: 0;
   border: none;
   border-radius: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1.5 * $base-spacing;
+  -webkit-font-smoothing: subpixel-antialiased;
+  letter-spacing: $base-letter-spacing;
   body.home &,
   body.film &,
   body.page &,
