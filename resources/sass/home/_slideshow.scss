@@ -37,7 +37,8 @@
     transition: none;
   }
   @media (orientation: portrait) and (max-width: $medium-screen) {
-    height: calc(100vh - #{3 * $base-spacing});
+    // height: calc(100vh - #{ $footer-nav-height });
+    height: calc(100vh - #{ $footer-nav-height + $bookmark-mobile-height });
   }
   &.ios {
     .home-slider--text {
