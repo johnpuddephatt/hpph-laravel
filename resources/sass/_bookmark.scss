@@ -128,7 +128,7 @@
     display: block;
     font-family: $heading-font-family;
     line-height: $heading-line-height;
-    color: $base-font-color;
+    color: #000;
     font-size: modular-scale(0);
     @media screen and (min-width: $medium-screen) {
       font-size: modular-scale(-1);
