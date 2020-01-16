@@ -51,7 +51,7 @@ class CollectionController extends Controller
       // }
 
       if($collection->order == 'film') {
-        $films = $collection->films()->hasFutureScreenings()->with(['screenings','strands'])->orderBy('title')->get();
+        $films = $collection->films()->hasFutureScreenings()->with(['screenings','strands','venue'])->orderBy('title')->get();
       }
       else {
         $film_ids = $collection->films()->pluck('film_id');
