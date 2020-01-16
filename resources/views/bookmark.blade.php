@@ -9,6 +9,6 @@
         <p>A year of exciting film screenings and live events, held across Leeds.</p>
         <p>Find out more</p>
       </div>
-    </div>
+    </a>
   </div>
 </div>

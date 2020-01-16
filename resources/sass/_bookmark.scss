@@ -1,13 +1,11 @@
 .bookmark--container {
-  position: fixed;
-  left: 0;
-  z-index: 9999;
-  top: 0;
-  // @media screen and (min-width: $medium-screen) {
-  //   top: 0;
-  //   bottom: auto;
-  // }
-  width: 100%;
+  @media screen and (min-width: $medium-screen) {
+    position: fixed;
+    left: 0;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+  }
   .container {
     position: relative;
   }
@@ -19,15 +17,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   background-color: $alabaster;
   transition: transform .5s 1s ease;
-  transform: translateY(-105%);
-
+  margin-left: -$small-spacing;
+  margin-right: -$small-spacing;
   @media screen and (min-width: $medium-screen) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
     background-color: transparent;
     display: block;
     padding: 2 * $base-spacing $small-spacing 1 * $base-spacing;
