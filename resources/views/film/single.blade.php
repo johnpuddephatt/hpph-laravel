@@ -26,22 +26,20 @@
   <div class="container single-listing--content">
     <div class="single-listing--text">
       <div class="single-listing--heading">
-        <div class="single-listing--text">
-          <h1 class="single-listing--title">{{ $film->title }}</h1>
-          @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
-          <div class="single-listing--meta">
-      @if($film->country){{ $film->country }}, @endif
-      @if($film->year){{ $film->year }}, @endif
-      @if($film->runtime){{ $film->runtime . 'mins' }}, @endif
-      @if($film->certificate)Cert.{{ $film->certificate }}@endif
-          </div>
-          @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
-          @foreach($film->strands as $strand)
-            <div class="single-listing--strand">
-              @include('labels.strand', ['is_link' => true])
-            </div>
-          @endforeach
+        <h1 class="single-listing--title">{{ $film->title }}</h1>
+        @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
+        <div class="single-listing--meta">
+    @if($film->country){{ $film->country }}, @endif
+    @if($film->year){{ $film->year }}, @endif
+    @if($film->runtime){{ $film->runtime . 'mins' }}, @endif
+    @if($film->certificate)Cert.{{ $film->certificate }}@endif
         </div>
+        @if($film->subtitle)<div class="single-listing--subtitle">{{ $film->subtitle }}</div>@endif
+        @foreach($film->strands as $strand)
+          <div class="single-listing--strand">
+            @include('labels.strand', ['is_link' => true])
+          </div>
+        @endforeach
       </div>
       <div class="single-listing--mobile--screenings">
         Showtimes and location

@@ -74,9 +74,12 @@
     margin-right: auto;
     text-align: center;
   }
+  > *:last-child {
+    padding-bottom: 5 * $base-spacing;
+  }
 }
 
-.single-listing--heading > div {
+.single-listing--heading {
   margin-top: $small-spacing;
   @media screen and (min-width: $medium-screen) {
     margin-top: 2 * $base-spacing;

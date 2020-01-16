@@ -262,6 +262,7 @@
   @media screen and (min-width: $medium-screen) {
     font-size: modular-scale(2);
   }
+  text-indent: 3px;
   font-family: $heading-font-family;
   font-style: italic;
   margin-bottom: $small-spacing/2;
