@@ -34,7 +34,7 @@ class ScreeningController extends Controller
     // First week; collect today screenings separately
     if($week == 1) {
       $week_commencing = date("Y/m/d",$today + $day_in_seconds);
-      $screenings_today_query = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film.strands')->orderBy('date')->orderBy('time');
+      $screenings_today_query = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with(['film.strands','film.venue','tags'])->orderBy('date')->orderBy('time');
     }
     // Other weeks
     else {
@@ -43,7 +43,7 @@ class ScreeningController extends Controller
 
     // For all weeks
     $week_ending = date("Y/m/d",time() + ((($week - 1) * 7) + 6) * $day_in_seconds);
-    $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])->with('film.strands')->orderBy('date')->orderBy('time');
+    $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])->with(['film.strands','film.venue','tags'])->orderBy('date')->orderBy('time');
 
     // Apply the filter(s)
     if($tag_filter) {

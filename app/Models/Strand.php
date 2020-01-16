@@ -55,6 +55,10 @@ class Strand extends Model
             $this->attributes[$attribute_name] = '/storage/'.$destination_path.'/'.$filename;
         }
       }
+
+    public function newestFilms() {
+      return $this->films()->hasFutureScreenings()->orderBy('created_at')->take(3)->get();
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

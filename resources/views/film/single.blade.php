@@ -53,7 +53,7 @@
 
       @include('film.single.footer')
 
-      @foreach($film->seasons()->get() as $season)
+      @foreach($film->seasons as $season)
         <a href="/season/{{ $season->slug}}" class="single-listing--season-details">
           <h3 class="single-listing--season-heading">Showing as part of {{$season->title}}</h3>
           <div>{!! $season->short_description !!}</div>

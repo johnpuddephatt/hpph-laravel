@@ -34,7 +34,7 @@ class CollectionController extends Controller
       }
 
       if($collection->order == 'film') {
-        $films = Film::whereIn('id',$film_ids)->hasFutureScreenings()->with(['screenings','strands'])->orderBy('title')->get();
+        $films = Film::whereIn('id',$film_ids)->hasFutureScreenings()->with(['screenings','strands','venue'])->orderBy('title')->get();
       }
 
     }

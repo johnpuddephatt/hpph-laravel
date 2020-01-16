@@ -9,6 +9,9 @@
     .weekly-screenings--entry, .film-card {
       border-bottom: none;
     }
+    img {
+      @extend .duotone;
+    }
   }
 }
 

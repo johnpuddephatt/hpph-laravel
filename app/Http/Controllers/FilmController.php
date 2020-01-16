@@ -14,7 +14,7 @@ class FilmController extends Controller
 
     $film = Film::where('slug',$slug)->withCount('screenings')->with(['screenings' => function ($query) {
       $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    }])->with('strands')->with('seasons')->firstOrFail();
+    }])->with(['strands', 'seasons', 'venue'])->firstOrFail();
 
     return view('film.single', compact('film'));
   }
@@ -23,7 +23,7 @@ class FilmController extends Controller
 
     $films = Film::hasFutureScreenings()->with(['screenings' => function ($query) {
       $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->with('tags');
-    }])->with('strands')->with('seasons')->get()->sortBy(function ($i) {
+    }])->with(['strands', 'seasons', 'venue'])->get()->sortBy(function ($i) {
       return trim(str_replace('The', '', ' ' . $i['title'] . ' '));
     });
 
