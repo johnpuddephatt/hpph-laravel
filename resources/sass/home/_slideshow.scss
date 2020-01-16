@@ -38,7 +38,7 @@
   }
   @media (orientation: portrait) and (max-width: $medium-screen) {
     // height: calc(100vh - #{ $footer-nav-height });
-    height: calc(100vh - #{ $footer-nav-height + $bookmark-mobile-height });
+    height: calc(100vh - #{ $footer-nav-height });
   }
   &.ios {
     .home-slider--text {

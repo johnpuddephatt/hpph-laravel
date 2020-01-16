@@ -1,5 +1,11 @@
 .bookmark--container {
+  body.home & {
+    display: none;
+  }
   @media screen and (min-width: $medium-screen) {
+    body.home & {
+      display: block;
+    }
     position: fixed;
     left: 0;
     z-index: 9999;
