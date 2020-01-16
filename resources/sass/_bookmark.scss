@@ -1,7 +1,14 @@
 .bookmark--container {
   body.home & {
     display: none;
+    &.home {
+      display: block;
+      @media screen and (min-width: $medium-screen) {
+        display: none;
+      }
+    }
   }
+
   @media screen and (min-width: $medium-screen) {
     body.home & {
       display: block;
