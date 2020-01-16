@@ -1,4 +1,4 @@
-<h2 class="single-listing--screenings--header">Showtimes</h2>
+<h2 class="single-listing--screenings--header @if(!$film->venue)is-closable @endif">Showtimes</h2>
 
 @if($film->screenings->contains(function($key, $value) { return $key->url; }))
   <p class="screenings-table--explainer">Select a screening below to book tickets</p>

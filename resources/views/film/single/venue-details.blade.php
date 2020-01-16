@@ -1,4 +1,4 @@
-<h2 class="single-listing--venue--header">Showing at</h2>
+<h2 class="single-listing--venue--header is-closable">Showing at</h2>
 <p class="single-listing--venue--title">{{$film->venue->title}}</p>
 
 <details class="single-listing--venue--details">
@@ -15,5 +15,5 @@
 
     <h3>Refreshment info</h3>
     <p>{{ $film->venue->refreshment_info }}</p>
-    
+
 </details>

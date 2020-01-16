@@ -86,34 +86,36 @@
     line-height: 2.75 * $base-spacing;
     position: relative;
   }
+  &.is-closable {
+    @media screen and (max-width: $large-screen) {
+      cursor: pointer;
+      .single-listing--screenings.open & {
+        &::after {
+          transform: translateY(-50%) rotate(90deg);
+        }
+      }
+      &:hover {
+        &::after {
+          color: $black;
+        }
+      }
+      &::after {
+        content: '×';
+        color: $medium-gray;
+        font-weight: 400;
+        font-size: modular-scale(3);
+        position: absolute;
+        right: $base-spacing;
+        top: 50%;
+        transition: transform $base-duration $base-timing;
+        transform: translateY(-50%) rotate(-90deg);
+      }
+    }
+  }
 }
 
 .single-listing--venue--header {
   margin-bottom: $base-spacing/2;
-  @media screen and (max-width: $large-screen) {
-    cursor: pointer;
-    .single-listing--screenings.open & {
-      &::after {
-        transform: translateY(-50%) rotate(90deg);
-      }
-    }
-    &:hover {
-      &::after {
-        color: $black;
-      }
-    }
-    &::after {
-      content: '×';
-      color: $medium-gray;
-      font-weight: 400;
-      font-size: modular-scale(3);
-      position: absolute;
-      right: $base-spacing;
-      top: 50%;
-      transition: transform $base-duration $base-timing;
-      transform: translateY(-50%) rotate(-90deg);
-    }
-  }
 
   button {
     line-height: $small-spacing;

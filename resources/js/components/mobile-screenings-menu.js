@@ -1,7 +1,7 @@
 /*
 ** Slide up screenings on mobile
 */
-const screeningsTitle = document.querySelector('.single-listing--venue--header');
+const screeningsTitle = (document.querySelector('.single-listing--venue--header') || document.querySelector('.single-listing--screenings--header'));
 const screeningsContainer = document.querySelector('.single-listing--sidebar');
 const screeningsMobileButton = document.querySelector('.single-listing--mobile--screenings');
 if(screeningsMobileButton && screeningsTitle) {
