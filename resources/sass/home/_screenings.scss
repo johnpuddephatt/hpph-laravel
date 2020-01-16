@@ -258,7 +258,10 @@
 
 .daily-screenings--entry--venue {
   font-weight: 500;
-  font-size: modular-scale(2);
+  line-height: $heading-line-height;
+  @media screen and (min-width: $medium-screen) {
+    font-size: modular-scale(2);
+  }
   font-family: $heading-font-family;
   font-style: italic;
   margin-bottom: $small-spacing/2;
