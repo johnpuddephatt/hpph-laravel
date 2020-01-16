@@ -27,7 +27,7 @@
   font-weight: 400;
 }
 
-@include font-face("HPPHB", "../fonts/bodoni-72-book", $file-formats: woff2 woff){
+@include font-face("HPPHB", "../fonts/Bodoni-Bold-BT", $file-formats: woff2 woff){
   font-style: regular;
   font-display: block;
   font-weight: 400;

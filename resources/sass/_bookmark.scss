@@ -128,12 +128,12 @@
     display: block;
     font-family: $heading-font-family;
     line-height: $heading-line-height;
-    color: #000;
+    color: $base-font-color;
     font-size: modular-scale(0);
+    -webkit-font-smoothing:  antialiased;
     @media screen and (min-width: $medium-screen) {
       font-size: modular-scale(-1);
     }
-    text-shadow: #000 0 0 0.1px;
     transition: opacity .25s;
   }
   p {
