@@ -130,10 +130,7 @@
     line-height: $heading-line-height;
     color: $base-font-color;
     font-size: modular-scale(0);
-    -webkit-font-smoothing:  antialiased;
-    @media screen and (min-width: $medium-screen) {
-      font-size: modular-scale(-1);
-    }
+    letter-spacing: $base-letter-spacing/2;
     transition: opacity .25s;
   }
   p {
