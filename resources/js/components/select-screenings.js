@@ -16,6 +16,8 @@ if(screeningTable && screeningAnnouncer) {
     var bookButton = document.querySelector('.book-button');
     var cancelButton = document.querySelector('.cancel-button');
     cancelButton.addEventListener('click',(e)=>{ cancelSelectedScreening() });
+    bookButton.addEventListener('click',(e)=>{ bookSelectedScreening(e) });
+
     // bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
     screeningWrapper.classList.add('active');
   }
@@ -46,3 +48,19 @@ if(screeningTable && screeningAnnouncer) {
     }
   })
 }
+
+
+function bookSelectedScreening(e) {
+ if(e.target.href.startsWith('https://tickets.hydeparkpicturehouse.co.uk/')) {
+   e.preventDefault();
+   let iframe = document.createElement('iframe');
+   // iframe.setAttribute('sandbox', 'allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-pointer-lock allow-modals allow-forms');
+   iframe.classList.add('spectrix-boxoffice');
+   iframe.src = e.target.href;
+
+   let sidebar = document.querySelector('.single-listing--sidebar');
+   sidebar.classList.add('has-spectrix-open');
+   sidebar.insertBefore(iframe, sidebar.childNodes[0]);
+
+ }
+};

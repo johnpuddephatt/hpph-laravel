@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
   CRUD::resource('venue', 'VenueCrudController');
 
 
-  Route::post ( 'slide/{id}/{state}', '\App\Http\Controllers\SlideController@toggleActive' );
+  Route::post ( 'slide/{slide}/{state}', '\App\Http\Controllers\SlideController@toggleActive' );
 });
 
 Route::get('{collection_type}/{slug}/{order?}', 'CollectionController@single')->where('collection_type', 'strand|season|tag');

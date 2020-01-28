@@ -26,8 +26,11 @@ class ScreeningRequest extends FormRequest
     public function rules()
     {
       return [
+        'film_id' => 'required',
         'date' => 'required|date',
-        'time' => 'required'
+        'time' => 'required',
+        'url' => 'nullable',
+        'tags' => 'nullable'
       ];
     }
 

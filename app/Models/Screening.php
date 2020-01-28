@@ -50,7 +50,10 @@ class Screening extends Model
 
     public function getURL()
     {
-      if (is_numeric($this->url)) {
+      if (strpos($this->url, 'S') === 0) {
+        return config('app.spectrix') . ltrim($this->url, 'S');
+      }
+      elseif (is_numeric($this->url)) {
         return config('app.jack_roe') . $this->url;
       }
       else {
@@ -63,7 +66,9 @@ class Screening extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
-
+    public function scopeLaterToday($query) {
+      return $query->where([['date','=',date("Y/m/d",$this->today)],['time','>',date("H:i",$this->today)]]);
+    }
     /*
     |--------------------------------------------------------------------------
     | ACCESORS

@@ -12,7 +12,7 @@
       <tr>
         <th>Date</th>
         <th>Time</th>
-        <th>Jack-Roe</th>
+        <th>Box office</th>
         <th>Tags</th>
         <th></th>
       </tr>

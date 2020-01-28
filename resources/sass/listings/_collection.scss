@@ -26,8 +26,8 @@
   svg {
     flex: 1;
     float: right;
-    width: 5 * $base-spacing;
-    height: 5 * $base-spacing;
+    width: 7.5 * $base-spacing;
+    height: auto;
     margin-top: -2 * $base-spacing;
     margin-left: $small-spacing;
     @media screen and (min-width: $large-screen) {

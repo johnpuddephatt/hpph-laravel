@@ -12,20 +12,34 @@ class FilmController extends Controller
 {
   public function single($slug) {
 
-    $film = Film::where('slug',$slug)->withCount('screenings')->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->with('tags')->orderBy('date')->orderBy('time');
-    }])->with(['strands', 'seasons', 'venue'])->firstOrFail();
+    $film = Film::where('slug',$slug)
+                ->withCount('screenings')
+                ->with(['screenings' => function ($query) {
+                  $query->where('date', '>=', date('Y/m/d'))
+                        ->with('tags')
+                        ->orderBy('date')
+                        ->orderBy('time');
+                }])
+                ->with(['strands', 'seasons', 'venue'])
+                ->firstOrFail();
 
     return view('film.single', compact('film'));
   }
 
   public function index() {
 
-    $films = Film::hasFutureScreenings()->with(['screenings' => function ($query) {
-      $query->where('date', '>=', date('Y/m/d'))->orderBy('date')->orderBy('time')->with('tags');
-    }])->with(['strands', 'seasons', 'venue'])->get()->sortBy(function ($i) {
-      return trim(str_replace('The', '', ' ' . $i['title'] . ' '));
-    });
+    $films = Film::hasFutureScreenings()
+              ->with(['screenings' => function ($query) {
+                $query->where('date', '>=', date('Y/m/d'))
+                      ->orderBy('date')
+                      ->orderBy('time')
+                      ->with('tags');
+              }])
+              ->with(['strands', 'seasons', 'venue'])
+              ->get()
+              ->sortBy(function ($film) {
+                return trim(str_replace('The', '', ' ' . $film['title'] . ' '));
+              });
 
     return view('listings.a-z', compact('films'));
   }

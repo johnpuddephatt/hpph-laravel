@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.sass', 'public/css');
 mix.sass('resources/sass/admin.scss', 'public/css');
+mix.sass('resources/sass/spectrix.sass', 'public/css');
 
 mix.copy('resources/images/*', 'public/images');
 mix.browserSync('http://public.hpph-laravel.localhost/');

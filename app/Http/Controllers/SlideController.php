@@ -13,18 +13,8 @@ use App\Models\Slide;
 
 class SlideController extends Controller
 {
-  public function toggleActive($id,$state) {
-    $slide = Slide::find($id);
-    if($state == 'activate') {
-      $slide->active = true;
+  public function toggleActive(Slide $slide, $state) {
+      $slide->active = ($state == 'activate' ? true : false);
       $slide->save();
-    }
-    elseif($state == 'deactivate') {
-      $slide->active = false;
-      $slide->save();
-    }
-    else {
-      abort();
-    }
   }
 }

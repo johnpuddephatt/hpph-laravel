@@ -56,8 +56,8 @@ class Strand extends Model
         }
       }
 
-    public function newestFilms() {
-      return $this->films()->hasFutureScreenings()->with(['screenings','strands','venue'])->orderBy('created_at')->take(3)->get();
+    public function newestFilms($film_id) {
+      return $this->films()->hasFutureScreenings()->where('film_id','!=',$film_id)->with(['screenings','strands','venue'])->orderBy('created_at')->take(3)->get();
     }
     /*
     |--------------------------------------------------------------------------

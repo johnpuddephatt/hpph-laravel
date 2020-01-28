@@ -7,7 +7,7 @@
 </div>
 
   <div class="single-listing--strand--related">
-    @foreach($strand->newestfilms() as $film)
+    @foreach($strand->newestfilms($film->id) as $film)
       @include('film.card', ['compact' => true])
     @endforeach
   </div>

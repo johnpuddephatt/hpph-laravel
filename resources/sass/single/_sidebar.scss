@@ -1,4 +1,11 @@
 .single-listing--sidebar {
+  &.has-spectrix-open {
+    .single-listing--venue,
+    .single-listing--screenings {
+      display: none;
+    }
+  }
+
   position: relative;
   margin: 0;
   padding-bottom: 3.5 * $base-spacing;
@@ -170,4 +177,11 @@
     transition: transform $base-duration $base-timing;
     transform: translateY(-50%);
   }
+}
+
+
+.spectrix-boxoffice {
+  border: none;
+  width: 100%;
+  min-height: 100vh;
 }

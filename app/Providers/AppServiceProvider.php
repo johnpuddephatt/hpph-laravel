@@ -31,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
 
       if (! $this->app->runningInConsole()) {
 
+        /**
+         * Footer
+         */
         $footerMenu =  \Cache::rememberForever('footerMenu', function () {
           $footerMenuEntries = Menu::where('title','Footer')->pluck('entries')->first();
           if($footerMenuEntries) {
@@ -44,10 +47,16 @@ class AppServiceProvider extends ServiceProvider
           }
         });
 
+        /**
+         * On the road
+         */
         $days_until_otr = \Cache::remember('daysUntilOtr', Carbon::tomorrow(), function () {
           return Carbon::now()->diffInDays(Carbon::createFromFormat('d/m/Y', '16/02/2020'));
         });
 
+        /**
+         * Search
+         */
         $searchData = \Cache::remember('searchData', Carbon::tomorrow(), function () {
           // $data = Film::hasFutureScreenings()->get()->toJson();
           $data = Film::hasFutureScreenings()->orderBy('id','desc')->get()->map(function($item){
@@ -61,22 +70,7 @@ class AppServiceProvider extends ServiceProvider
           $view->with('footermenu', $footerMenu);
           $view->with('searchData', $searchData);
         });
-
-        // $footerMenuEntries = Menu::where('title','Footer')->pluck('entries')->first();
-        // if($footerMenuEntries) {
-        //   $footerMenuIds = array_column($footerMenuEntries, 'page');
-        //   $footerMenuIdsStr = implode(',', $footerMenuIds);
-        //   $footerMenu = \Backpack\PageManager\app\Models\Page::whereIn('id',$footerMenuIds)->get();
-        //   $footerMenu = $footerMenu->sortBy(function($model) use ($footerMenuIds) {
-        //       return array_search($model->id, $footerMenuIds);
-        //   });
-        //
-        //   View::share('footermenu', $footerMenu);
-        // }
       }
-
-
-
     }
 
     /**

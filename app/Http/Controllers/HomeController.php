@@ -17,8 +17,8 @@ class HomeController extends Controller
 {
   public function index($day = 1) {
 
-    $day_in_seconds = 86400;
-
+    $today = $this->today;
+    
     /*
     ** SLIDES
     */
@@ -46,13 +46,12 @@ class HomeController extends Controller
     ** SCREENINGS
     */
 
-    // Get screenings
-    $today = time() - (60 * 30);
-    $today_date = date("Y/m/d",$today);
-    $today_time = date("H:i",$today);
-
     // For screenings today we only include those which are in the future
-    $screenings_today = Screening::where([['date','=',$today_date],['time','>',$today_time]])->with('film.strands')->orderBy('date')->orderBy('time')->get();
+    $screenings_today = Screening::laterToday()
+                        ->with('film.strands')
+                        ->orderBy('date')
+                        ->orderBy('time')
+                        ->get();
 
     // Out of range; abort.
     if($day < 1 || $day > 7) abort(404);
@@ -64,29 +63,37 @@ class HomeController extends Controller
     // On day one but there are no screenings; skip day.
     elseif($day == 1) {
       $day++;
-      $current_date = date("Y/m/d",$today + ($day - 1) * $day_in_seconds);
-      $screenings = Screening::where('date',$current_date)->with('film.strands')->orderBy('date')->orderBy('time')->get();
+      $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
+      $screenings = Screening::where('date',$current_date)
+                      ->with('film.strands')
+                      ->orderBy('date')
+                      ->orderBy('time')
+                      ->get();
     }
     // Not on first day
     else {
-      $current_date = date("Y/m/d",$today + ($day - 1) * $day_in_seconds);
-      $screenings = Screening::where('date',$current_date)->with('film.strands')->orderBy('date')->orderBy('time')->get();
+      $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
+      $screenings = Screening::where('date',$current_date)
+                              ->with('film.strands')
+                              ->orderBy('date')
+                              ->orderBy('time')
+                              ->get();
     }
 
     /*
     ** STRANDS
     */
     $home_strands = \Cache::rememberForever('homeStrands', function () {
-      $strand_ids = explode(',', config('app.homepage_strands'));
-      return Strand::whereIn('id',$strand_ids)->get();
+      return Strand::whereIn('id',config('app.homepage_strands'))
+                    ->get();
     });
 
     /*
     ** TAGS
     */
     $home_tags = \Cache::rememberForever('homeTags', function () {
-      $tag_ids = explode(',', config('app.homepage_tags'));
-      return Tag::whereIn('id',$tag_ids)->get();
+      // $tag_ids = explode(',', config('app.homepage_tags'));
+      return Tag::whereIn('id',config('app.homepage_tags'))->get();
     });
 
     return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags'));
