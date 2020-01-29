@@ -90,13 +90,17 @@ dd.Footer
     width: $base-spacing
     text-indent: -9999px
     position: relative
+    margin-bottom: auto
     &::after
       content: '*'
+      display: block
       color: $yellow
+      text-indent: 0
       text-align: center
       position: absolute
       left: 0
       top: 0
       bottom: 0
+      right: 0
   .Comment
     flex: 0 0 100%
