@@ -2,6 +2,8 @@
 @import 'base/base'
 @import 'neat/neat'
 
+html
+  font-size: .875em
 
 h1
   font-size: modular-scale(3)
@@ -29,9 +31,40 @@ h1
       flex: 0 0 20%
       margin-bottom: 0
 
+
+/*
+ * Basket
+ */
+
+// Ticket details link
 #ctl00_ContentPlaceHolder_ItemsPanel
-  .view-details
+  .ViewDetails
     display: none
 
+// Savings plus qty and total headings
+dt.header, dd.header, .savings
+  display: none
+
+// Grand total
+dt.footer
+  border-top: $base-border
+  padding-top: $small-spacing
+  margin-top: $small-spacing
+
+dd.footer
+  border-top: $base-border
+  padding-bottom: $small-spacing
+  margin-bottom: $small-spacing
+
+// Edit and delete buttons
+.ItemEditButton, .ItemDeleteButton
+  @extend .button__gray
+
+// Checkout button
 .CheckoutLink
   @extend .button
+  border: none
+
+// Spectrix logo footer
+.SpektrixFooterNormal
+  background-color: transparent
