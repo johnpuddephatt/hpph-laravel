@@ -8,7 +8,6 @@ require('./components/trailer-player');
 require('./components/search');
 require('./components/mobile-navigation');
 require('./components/bookmark');
-require('./components/box-office');
 
 var smoothScroll = require ('smoothScroll');
 

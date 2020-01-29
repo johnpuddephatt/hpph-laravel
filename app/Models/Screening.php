@@ -67,7 +67,8 @@ class Screening extends Model
     |--------------------------------------------------------------------------
     */
     public function scopeLaterToday($query) {
-      return $query->where([['date','=',date("Y/m/d",$this->today)],['time','>',date("H:i",$this->today)]]);
+      $today = time() - (60 * 30);
+      return $query->where([['date','=',date("Y/m/d",$today)],['time','>',date("H:i",$today)]]);
     }
     /*
     |--------------------------------------------------------------------------
