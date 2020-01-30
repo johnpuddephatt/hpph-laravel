@@ -50,7 +50,8 @@ dd.Footer
 
 // Buttons
 .Buttons
-  margin-top: $base-spacing
+  margin-top: $small-spacing
+  margin-bottom: $base-spacing
   text-align: right
   a
     color: $base-font-color
@@ -70,7 +71,7 @@ dd.Footer
   flex-direction: row
   align-items: center
   flex-wrap: wrap
-  padding: $base-spacing 0
+  padding: 1.5 * $small-spacing 0
   label
     flex: 1 0 30%
     margin-bottom: 0
@@ -124,3 +125,18 @@ dd.Footer
     .Button
       margin-left: $small-spacing
       @extend .button__gray
+
+
+.LoginForm
+  .Container
+    display: block
+    .right
+      display: none
+    .Input_Text
+      font-size: modular-scale(2)
+      line-height: 2
+      max-width: 400px
+.NewAccount
+  .Title, .Mobile
+    display: none
+
