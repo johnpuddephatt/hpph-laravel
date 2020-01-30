@@ -68,7 +68,7 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, .PreviousButton
     @extend .button__gray
 
 .CheckoutLink
@@ -167,7 +167,7 @@ dd.Footer
   label.left
     text-align: right
     padding-right: $base-spacing
-  .Title, .Mobile
+  .Title, .Mobile, .Line3, .Line4, .Line5
     display: none
   .DateOfBirth
     select
@@ -186,17 +186,18 @@ dd.Footer
     margin-top: 2 * $base-spacing
     margin-bottom: 1.5 * $base-spacing
 
-  li > span, li a span
+  li > span, li > a > span
     display: inline-block
     line-height: 2.5
     padding: 0 $small-spacing
-    margin-right: 2 * $base-spacing
+    margin-right: $base-spacing
     font-weight: 500
     color: $dark-gray
     &.Current
       @extend %underline
-      color: $base-font-color
-      font-weight: 700
+      span
+        color: $base-font-color
+        font-weight: 700
   a
     color: $base-font-color
 

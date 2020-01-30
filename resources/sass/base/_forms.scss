@@ -50,6 +50,7 @@ textarea {
   &:disabled {
     background-color: shade($base-background-color, 5%);
     cursor: not-allowed;
+    border-color: tint($base-font-color, 40%);
 
     &:hover {
       border: $base-border;
@@ -107,6 +108,9 @@ textarea {
     }
 }
 
+[type="radio"][disabled] + label:before {
+  border-color: tint($base-font-color, 40%);
+}
 
 
 [type="radio"]:not(:checked) + label:after {
