@@ -14,7 +14,7 @@ h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
 
-.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading
+.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading, .CheckoutWikiText
   display: none
 
 .Ticket_Types_Selection
@@ -72,6 +72,9 @@ dd.Footer
   // Edit and delete buttons
   .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, .PreviousButton
     @extend .button__gray
+  .DeclineButton
+    @extend .button__gray
+    @extend .button__big
   .ContinueButton, .CheckoutLink, .UpdateButton
     @extend .button__yellow
     @extend .button__big
