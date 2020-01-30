@@ -45,6 +45,10 @@
   flex: 0 1 70%;
   margin: 2 * $base-spacing 0;
   margin-right: 2 * $base-spacing;
+  width: 100%;
+  @media screen and (min-width: $medium-screen) {
+    width: auto;
+  }
   @media screen and (min-width: $large-screen) {
     margin-right: 6 * $base-spacing;
   }
