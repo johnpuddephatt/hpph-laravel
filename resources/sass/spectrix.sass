@@ -18,28 +18,8 @@ h1
 .Ticket_Types_Selection
   margin: 2 * $base-spacing 0
   border-top: $base-border
-  .Container
-    border-bottom: $base-border
-    label
-      flex: 1 1 60%
-    .Input_Text
-      flex: 0 0 20%
-    .price
-      flex: 0 0 20%
 
-/*
- * Basket
- */
 
-.PromoCode
-  border: $base-border
-  margin-top: $base-spacing
-  padding: $base-spacing
-  label.left
-    flex: 0 0 100%
-  .Button
-    margin-left: $small-spacing
-    @extend .button__gray
 
 // Ticket details link
 #ctl00_ContentPlaceHolder_ItemsPanel
@@ -76,9 +56,6 @@ dd.Footer
   background-color: transparent
 
 
-/*
- * Checkout
- */
 
 .Container
   display: flex
@@ -111,3 +88,24 @@ dd.Footer
       right: 0
   .Comment
     flex: 0 0 100%
+
+  // Ticket type selector
+  &.TicketType
+    border-bottom: $base-border
+    label
+      flex: 1 1 60%
+    .Input_Text
+      flex: 0 0 20%
+    .price
+      flex: 0 0 20%
+
+  // Promotional codes
+  &.PromoCode
+    border: $base-border
+    margin-top: $base-spacing
+    padding: $base-spacing
+    label.left
+      flex: 0 0 100%
+    .Button
+      margin-left: $small-spacing
+      @extend .button__gray
