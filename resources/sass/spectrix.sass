@@ -12,14 +12,12 @@ h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
 
-.InstanceCalendar, .SeatingAreaInstructions
+.InstanceCalendar, .SeatingAreaInstructions, .OptionalMessage
   display: none
 
 .Ticket_Types_Selection
   margin: 2 * $base-spacing 0
   border-top: $base-border
-
-
 
 // Ticket details link
 #ctl00_ContentPlaceHolder_ItemsPanel
@@ -58,6 +56,9 @@ dd.Footer
     color: $base-font-color
   a + a
     margin-left: $small-spacing
+  // 'continue browsing link'
+  #ctl00_ContentPlaceHolder_WhatsOnLink
+    display: none
 
 .CheckoutLink
   @extend .button
@@ -119,7 +120,7 @@ dd.Footer
       flex: 0 0 100%
       margin-bottom: $small-spacing
     .intputText
-      flex: 1 0 40%  
+      flex: 1 0 40%
     .Button
       margin-left: $small-spacing
       @extend .button__gray
