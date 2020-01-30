@@ -189,3 +189,24 @@ dd.Footer
     margin-right: 2 * $base-spacing
     &.Current
       @extend %underline
+
+.spx-section-container {
+    margin-bottom: $base-spacing
+    padding: $small-spacing $base-spacing $base-spacing
+    border: $base-border
+    border-color: $yellow
+    .spx-link-edit
+      float: right
+      @extend .button
+      @extend .button__gray
+    .spx-button-tertiary
+      @extend .button
+      @extend .button__gray
+    &.spx-state-read-only
+      border: $light-border
+      color: $medium-gray
+      .spx-heading-headline
+        color: $medium-gray
+
+
+
