@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/spectrix', function () { return null; }); // Used by Spectrix for iframe resizing
 Route::get('/', 'HomeController@index');
 Route::get('day-{day}', 'HomeController@index');
 
@@ -46,3 +47,5 @@ Route::get('{collection_type}/{slug}/{order?}', 'CollectionController@single')->
 Route::get('/imager/{config}/{image}', 'ImageController@default')->where('image', '[A-Za-z0-9\/\.\-\_]+');;
 
 Route::get('{page}/{childpage?}', 'PageController@index');
+
+
