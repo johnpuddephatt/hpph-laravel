@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/spectrix', function () { return null; }); // Used by Spectrix for iframe resizing
+Route::get('/spektrix', function () { return null; }); // Used by Spektrix for iframe resizing
 Route::get('/', 'HomeController@index');
 Route::get('day-{day}', 'HomeController@index');
 
