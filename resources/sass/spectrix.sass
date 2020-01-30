@@ -45,16 +45,23 @@ dd.Footer
 .ItemEditButton, .ItemDeleteButton
   @extend .button__gray
 
-// Checkout button
-.CheckoutLink
-  @extend .button
-  margin-top: $base-spacing
-  border: none
 
 // Spectrix logo footer
 .SpektrixFooterNormal
   background-color: transparent
 
+// Buttons
+.Buttons
+  margin-top: $base-spacing
+  text-align: right
+  a
+    color: $base-font-color
+  a + a
+    margin-left: $small-spacing
+
+.CheckoutLink
+  @extend .button
+  border: none
 
 
 .Container
