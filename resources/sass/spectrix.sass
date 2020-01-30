@@ -43,6 +43,11 @@ dd.Footer
 .ItemEditButton, .ItemDeleteButton
   @extend .button__gray
 
+// Validation errors
+#ValidationError
+  flex: 0 0 100%
+  text-align: right
+  color: red
 
 // Spectrix logo footer
 .SpektrixFooterNormal
@@ -133,7 +138,10 @@ dd.Footer
     .Button
       margin-left: $small-spacing
       @extend .button__gray
-
+  // Postcode
+  &.PostCode
+    margin-left: 30%
+    margin-top: $small-spacing
 
 // Login page
 .LoginLogout, .ForgotPassword
