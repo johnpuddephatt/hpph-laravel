@@ -78,6 +78,7 @@ dd.Footer
   input
     flex: 0 0 65%
     margin-bottom: 0
+    font-size: modular-scale(1)
   .input_Text
     flex: 1 1 80%
   .Button
@@ -142,8 +143,12 @@ dd.Footer
   #ctl00_ContentPlaceHolder_NewAccountLink
     @extend .button
     @extend .button__gray
+
 // Registration page
 .NewAccount
+  label.left
+    text-align: right
+    padding-right: $base-spacing
   .Title, .Mobile
     display: none
 
@@ -155,6 +160,7 @@ dd.Footer
     border-bottom: $base-border
     font-size: modular-scale(1)
     padding: 0 $small-spacing
+    margin-top: 2 * $base-spacing
     margin-bottom: 1.5 * $base-spacing
 
   li > span
