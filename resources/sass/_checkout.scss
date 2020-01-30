@@ -3,4 +3,8 @@
   width: 100%;
   min-height: 100vh;
   border: none;
+  padding: $base-spacing $small-spacing;
+  @media screen and (min-width: $medium-screen) {
+    padding: 0;
+  }
 }
