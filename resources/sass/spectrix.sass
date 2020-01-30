@@ -5,6 +5,9 @@
 html
   font-size: .875em
 
+body
+  max-width: 960px
+
 h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
@@ -15,26 +18,28 @@ h1
 .Ticket_Types_Selection
   margin: 2 * $base-spacing 0
   border-top: $base-border
-  > div
-    display: flex
-    flex-direction: row
-    align-items: center
-    padding: $small-spacing 0
+  .Container
     border-bottom: $base-border
     label
       flex: 1 1 60%
-      margin-bottom: 0
-    input
+    .Input_Text
       flex: 0 0 20%
-      margin-bottom: 0
-    span
+    .price
       flex: 0 0 20%
-      margin-bottom: 0
-
 
 /*
  * Basket
  */
+
+.promocode
+  border: $base-border
+  margin-top: $base-spacing
+  padding: $base-spacing
+  label.left
+    flex: 0 0 100%
+  .Button
+    margin-left: $small-spacing
+    @extend .button__gray
 
 // Ticket details link
 #ctl00_ContentPlaceHolder_ItemsPanel
@@ -80,11 +85,13 @@ dd.Footer
   flex-direction: row
   align-items: center
   flex-wrap: wrap
-  margin: $base-spacing 0
+  padding: $base-spacing 0
   label
-    flex: 0 0 30%
+    flex: 1 0 30%
+    margin-bottom: 0
   input
-    flex: 1 0 65%
+    flex: 0 0 65%
+    margin-bottom: 0
   .right
     flex: 1 1
     width: $base-spacing
