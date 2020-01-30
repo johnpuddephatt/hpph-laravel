@@ -63,6 +63,9 @@
   &__small {
     font-size: modular-scale(-1);
   }
+  &__big {
+    padding: $small-spacing/2 1.5 * $base-spacing;
+  }
   &__ghost {
     background-color: transparent;
     text-transform: none;
