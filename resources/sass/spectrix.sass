@@ -72,7 +72,7 @@ dd.Footer
   border: none
 
 
-.Container
+.Container, .spx-field-container
   display: flex
   flex-direction: row
   align-items: center
@@ -202,7 +202,7 @@ dd.Footer
     .spx-button-tertiary
       @extend .button
       @extend .button__gray
-    &.spx-state-read-only
+    &.spx-state-read-only, &.spx-state-empty
       border: $light-border
       color: $medium-gray
       .spx-heading-headline
