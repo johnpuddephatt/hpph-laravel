@@ -51,6 +51,10 @@ dd.Footer
 .SpektrixFooterNormal
   background-color: transparent
 
+// H3 headings on old checkout
+.Caption
+  margin-top: $base-spacing
+
 // Buttons
 .Buttons
   margin-top: $small-spacing
@@ -64,7 +68,7 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete1
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery
     @extend .button__gray
 
 .CheckoutLink
@@ -182,13 +186,19 @@ dd.Footer
     margin-top: 2 * $base-spacing
     margin-bottom: 1.5 * $base-spacing
 
-  li > span
+  li > span, li a span
     display: inline-block
     line-height: 2.5
     padding: 0 $small-spacing
     margin-right: 2 * $base-spacing
+    font-weight: 500
+    color: $dark-gray
     &.Current
       @extend %underline
+      color: $base-font-color
+      font-weight: 700
+  a
+    color: $base-font-color
 
 .spx-section-container
     margin-bottom: $base-spacing
