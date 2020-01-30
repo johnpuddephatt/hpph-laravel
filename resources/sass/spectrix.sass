@@ -130,7 +130,7 @@ dd.Footer
 
 
 // Login page
-.LoginLogout
+.LoginLogout, .ForgotPassword
   max-width: 400px
   .Container
     display: block
@@ -139,8 +139,27 @@ dd.Footer
     .Input_Text
       font-size: modular-scale(2)
       line-height: 2
+  .Account_Link .Link
+    @extend .button__gray
 // Registration page
 .NewAccount
   .Title, .Mobile
     display: none
 
+
+.Progress
+  ol
+    display: flex
+    flex-direction: row
+    border-bottom: $base-border
+    font-size: modular-scale(1)
+    padding: 0 $small-spacing
+    margin-bottom: 1.5 * $base-spacing
+
+  li > span
+    display: inline-block
+    line-height: 2.5
+    padding: 0 $small-spacing
+    margin-right: 2 * $base-spacing
+    &.Current
+      @extend %underline
