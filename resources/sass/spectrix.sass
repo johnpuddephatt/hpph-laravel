@@ -82,8 +82,10 @@ dd.Footer
     flex: 1 1 80%
   .Button
     flex: 1 1 20%
+    margin-right: $base-spacing
   .right
     flex: 1 1
+    margin-left: -$base-spacing
     width: $base-spacing
     text-indent: -9999px
     position: relative
@@ -127,7 +129,9 @@ dd.Footer
       @extend .button__gray
 
 
-.LoginForm
+// Login page
+.LoginLogout
+  max-width: 400px
   .Container
     display: block
     .right
@@ -135,7 +139,7 @@ dd.Footer
     .Input_Text
       font-size: modular-scale(2)
       line-height: 2
-      max-width: 400px
+// Registration page
 .NewAccount
   .Title, .Mobile
     display: none
