@@ -12,7 +12,7 @@ h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
 
-.InstanceCalendar, .SeatingAreaInstructions, .OptionalMessage
+.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage
   display: none
 
 .Ticket_Types_Selection
@@ -39,9 +39,7 @@ dd.Footer
   padding-bottom: $small-spacing
   margin-bottom: $small-spacing
 
-// Edit and delete buttons
-.ItemEditButton, .ItemDeleteButton
-  @extend .button__gray
+
 
 // Validation errors
 #ValidationError
@@ -65,6 +63,9 @@ dd.Footer
   // 'continue browsing link'
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
+  // Edit and delete buttons
+  .ItemEditButton, .ItemDeleteButton, .Delete
+    @extend .button__gray
 
 .CheckoutLink
   @extend .button
@@ -139,8 +140,9 @@ dd.Footer
       @extend .button__gray
   // Postcode
   &.PostCode
-    margin-left: 30%
-    margin-top: $small-spacing
+    .FindAddressButton
+      margin-left: 30%
+      margin-top: $small-spacing
 
 // Login page
 .LoginLogout, .ForgotPassword
