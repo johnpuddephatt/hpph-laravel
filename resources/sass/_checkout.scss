@@ -1,15 +1,7 @@
 .spectrix-boxoffice,
 .spectrix-checkout {
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0 (-$small-spacing) 0;
   border: none;
   box-sizing: content-box;
-}
-
-.spectrix-boxoffice {
-  padding: $base-spacing $small-spacing;
-    @media screen and (min-width: $medium-screen) {
-    padding: 0;
-  }
 }

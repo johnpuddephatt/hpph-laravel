@@ -59,6 +59,11 @@
     margin-left: auto;
     margin-right: auto;
   }
+  &__simple {
+    max-width: $medium-screen;
+    margin-left: auto;
+    margin-right: auto;
+  }
   h2 {
     font-size: modular-scale(2);
     margin-top: 2 * $base-spacing;
