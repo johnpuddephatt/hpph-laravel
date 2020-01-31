@@ -14,12 +14,25 @@ h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
 
-.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading, .CheckoutWikiText
+.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading, .CheckoutWikiText, .Event_Description, .Event_Detail
   display: none
 
 .Ticket_Types_Selection
   margin: 2 * $base-spacing 0
   border-top: $base-border
+
+// Event List iframe
+.MonthList
+  display: flex
+  flex-direction: row
+  li
+    margin-right: $small-spacing
+    a
+      color: $base-font-color
+      &.selected
+        font-weight: 700
+        @extend %underline
+
 
 // Ticket details link
 #ctl00_ContentPlaceHolder_ItemsPanel
@@ -228,6 +241,3 @@ dd.Footer
       color: $medium-gray
       .spx-heading-headline
         color: $medium-gray
-
-
-
