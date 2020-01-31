@@ -240,8 +240,9 @@ dd.Footer
     display: flex
     flex-direction: row
     border-bottom: $base-border
-    font-size: modular-scale(1)
     margin-bottom: 1.5 * $base-spacing
+    @media screen and (min-width: $medium-screen)
+      font-size: modular-scale(1)
 
   li > span, li > a > span
     display: inline-block
