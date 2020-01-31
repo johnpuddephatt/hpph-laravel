@@ -3,6 +3,10 @@
 @import 'neat/neat'
 @import 'notifications'
 
+html, body, body > form
+  height: 100%
+  position: relative
+
 html
   font-size: .875em
 
@@ -11,7 +15,7 @@ body
   overflow: hidden
   padding: $base-spacing $small-spacing
 
-.ChooseSeats
+.ChooseSeats, .Basket2
   height: 100%
   overflow-y: scroll
   padding: 0 $small-spacing
