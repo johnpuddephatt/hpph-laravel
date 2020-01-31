@@ -1,22 +1,6 @@
 {
-    "/js/app.js": "/js/app.js?id=d19037f53ae71c867983",
-    "/css/app.css": "/css/app.css?id=3fada4a9594f4c9e5420",
-    "/css/admin.css": "/css/admin.css?id=a04c4c60704fc39dba34",
-    "/css/spectrix.css": "/css/spectrix.css?id=105b87200f1e77698767",
-    "/images/friendly-local-independent.svg": "/images/friendly-local-independent.svg?id=2b4a016948a14fe1cd51",
-    "/images/home-membership.jpg": "/images/home-membership.jpg?id=03f249c39d5eeab3e820",
-    "/images/home-newsletter-2.jpg": "/images/home-newsletter-2.jpg?id=c72a2053777fe5c13936",
-    "/images/home-newsletter.jpg": "/images/home-newsletter.jpg?id=9b5c05cc29309fbe7afe",
-    "/images/home-project.jpg": "/images/home-project.jpg?id=4382aeaa5fc89b92d6cf",
-    "/images/hpph-l.jpg": "/images/hpph-l.jpg?id=0077c696ada547693397",
-    "/images/logo.svg": "/images/logo.svg?id=4a766fc2a35bb4c50dca",
-    "/images/moving.png": "/images/moving.png?id=87b2caea582df24d1abd",
-    "/images/opengraph.jpg": "/images/opengraph.jpg?id=a2bc03b5730eb1b1241a",
-    "/images/shop-gift-voucher-studio.jpg": "/images/shop-gift-voucher-studio.jpg?id=5806b08e0fc73acc0977",
-    "/images/shop-membership-card-studio.jpg": "/images/shop-membership-card-studio.jpg?id=a6a63ff515416f46dca6",
-    "/images/shop-membership.jpg": "/images/shop-membership.jpg?id=85f7e51786fb90bf3788",
-    "/images/shop-mug-studio.jpg": "/images/shop-mug-studio.jpg?id=b0b0313b9d314809647f",
-    "/images/shop-postcards.jpg": "/images/shop-postcards.jpg?id=c7c1039d03befe70aef4",
-    "/images/shop-print-studio.jpg": "/images/shop-print-studio.jpg?id=bfb668f18a5994afb7d1",
-    "/images/shop-vouchers.jpg": "/images/shop-vouchers.jpg?id=9b067c273592c462a59f"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/admin.css": "/css/admin.css",
+    "/css/spectrix.css": "/css/spectrix.css"
 }
