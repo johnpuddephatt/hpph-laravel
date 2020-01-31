@@ -25,10 +25,14 @@ h1
 .MonthList
   display: flex
   flex-direction: row
+  border-bottom: $base-border
+  margin-bottom: 2 * $base-spacing
   li
     margin-right: $small-spacing
     a
       color: $base-font-color
+      display: inline-block
+      padding: $small-spacing 0
       &.Selected
         font-weight: 700
         @extend %underline
