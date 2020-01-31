@@ -14,7 +14,7 @@ h1
   font-size: modular-scale(3)
   margin-bottom: $base-spacing
 
-.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading, .CheckoutWikiText, .Event_Description, .Event_Detail
+.InstanceCalendar, .SeatingAreaInstructions, .SeatingAreaOptionalInstructions, .OptionalMessage, .CheckoutHeading, .Event_Description, .Event_Detail, .YourPreferencesHeading
   display: none
 
 .Ticket_Types_Selection
@@ -42,6 +42,20 @@ h1
 #ctl00_ContentPlaceHolder_ItemsPanel
   .ViewDetails
     display: none
+
+.AreaName
+  display: none
+
+.ChooseSeatsHeading
+  // "we've got rid of our booking fees" message
+  h2
+    font-size: modular-scale(0)
+    font-weight: 500
+    margin-top: 0
+    margin-bottom: $base-spacing
+    @extend .alert
+
+
 
 // Savings plus qty and total headings
 dt.Header, dd.Header, .Savings
@@ -87,9 +101,9 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, .PreviousButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton
     @extend .button__gray
-  .DeclineButton
+  .DeclineButton, .PreviousButton
     @extend .button__gray
     @extend .button__big
   .FindAddressButton
@@ -97,11 +111,15 @@ dd.Footer
   .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton
     @extend .button__yellow
     @extend .button__big
+  #ctl00_ContentPlaceHolder_NewAccountLink
+    @extend .button__big
+    display: block
 
 .CheckoutLink
   @extend .button
-  border: none
 
+.CheckoutWikiText
+  @extend .alert
 
 .Container, .spx-field-container
   display: flex
@@ -219,7 +237,6 @@ dd.Footer
     display: inline-block
     line-height: 2.5
     padding: 0 $small-spacing
-    margin-right: $base-spacing
     font-weight: 500
     color: $dark-gray
     &.Current
