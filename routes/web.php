@@ -12,6 +12,8 @@
 */
 
 Route::get('/spektrix', function () { return null; }); // Used by Spektrix for iframe resizing
+Route::get('/16-25', function () { return redirect('/membership/16-25') });
+
 Route::get('/', 'HomeController@index');
 Route::get('day-{day}', 'HomeController@index');
 
