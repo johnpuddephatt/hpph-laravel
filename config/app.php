@@ -117,12 +117,8 @@ return [
 
     'analytics' => env('GOOGLE_ANALYTICS'),
 
-    'homepage_strands' =>  array(
-      env('HOMEPAGE_STRANDS', '')
-    ),
-    'homepage_tags' =>  array(
-      env('HOMEPAGE_TAGS', '')
-    ),
+    'homepage_strands' =>  explode(',', env('HOMEPAGE_STRANDS', '')),
+    'homepage_tags' => explode(',', env('HOMEPAGE_TAGS', '')),
 
 
     /*
