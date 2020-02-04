@@ -51,7 +51,7 @@ class Screening extends Model
     public function getURL()
     {
       if (strpos($this->url, 'S') === 0) {
-        return config('app.spectrix') . ltrim($this->url, 'S');
+        return config('app.spectrix') . ltrim($this->url, 'S') . '&resize=true';
       }
       elseif (is_numeric($this->url)) {
         return config('app.jack_roe') . $this->url;

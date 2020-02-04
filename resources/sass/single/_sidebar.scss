@@ -31,7 +31,7 @@
   &.open {
     background-color: $off-white;
     left: 0;
-    overflow: auto;
+    overflow-y: auto;
     &::after {
       content: none;
     }
