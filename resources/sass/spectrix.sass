@@ -143,6 +143,8 @@ dd.Footer
     flex: 0 0 65%
     margin-bottom: 0
     font-size: modular-scale(1)
+    &[type=checkbox]
+      flex: 0 0 1em
   select
     font-size: modular-scale(1)
     margin-bottom: 0
@@ -275,7 +277,7 @@ dd.Footer
       font-weight: 500
       margin-bottom: $base-spacing
     .spx-heading-sub-headline
-      margin: $small-spacing 0 0
+      margin: $base-spacing 0 0
     .spx-link-edit
       float: right
       @extend .button
@@ -295,7 +297,7 @@ dd.Footer
     &.spx-state-read-only, &.spx-state-empty
       border: $light-border
       color: $medium-gray
-      .spx-heading-headline
+      .spx-heading-headline, .spx-heading-sub-headline
         color: $medium-gray
     &.spx-state-empty
       padding: $small-spacing $base-spacing
