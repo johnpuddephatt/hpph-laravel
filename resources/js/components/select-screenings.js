@@ -56,7 +56,7 @@ if(screeningTable && screeningAnnouncer) {
      iframe.classList.add('spectrix-boxoffice');
      iframe.setAttribute('id','SpektrixIFrame');
      iframe.setAttribute('name','SpektrixIFrame');
-     iframe.setAttribute('onload', 'setTimeout(function(){ document.querySelector('#SpektrixIFrame').scrollIntoView() }, 100)');
+     iframe.setAttribute('onload', 'setTimeout(function(){ document.querySelector(\'#SpektrixIFrame\').scrollIntoView() }, 100)');
      iframe.src = e.target.href;
 
      let script = document.createElement('script');
