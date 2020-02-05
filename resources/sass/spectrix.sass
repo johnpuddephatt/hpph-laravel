@@ -302,6 +302,16 @@ dd.Footer
     &.spx-state-empty
       padding: $small-spacing $base-spacing
 
+
+.spx-validation-summary-errors
+  @extend .alert
+  margin-bottom: $base-spacing
+
+.spx-validation-message
+  margin-top: $small-spacing/2
+  display: block
+  color: $red
+
 .spx-subsection-container
     p
       margin-bottom: 0
@@ -312,10 +322,10 @@ dd.Footer
   font-weight: 700
   margin-bottom: $small-spacing/2
 
-
 .spx-subsection-container__checkout--start-checkout-forgotten-password
   display: flex
   align-items: center
   .spx-button-secondary__checkout--start-checkout-forgotten-password
     @extend .button__text
+      background-color: transparent !important
 
