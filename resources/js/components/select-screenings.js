@@ -63,6 +63,7 @@ if(screeningTable && screeningAnnouncer) {
 
      let sidebar = document.querySelector('.single-listing--sidebar');
      sidebar.classList.add('has-spectrix-open');
+     sidebar.classList.add('open');
      sidebar.insertBefore(iframe, sidebar.childNodes[0]);
      sidebar.insertBefore(script, sidebar.childNodes[0]);
 
