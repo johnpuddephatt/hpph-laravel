@@ -269,6 +269,10 @@ dd.Footer
     padding: $small-spacing $base-spacing $base-spacing
     border: $base-border
     border-color: $yellow
+    .spx-heading-headline
+      font-size: modular-scale(2)
+      font-weight: 500
+      margin-bottom: $base-spacing
     .spx-link-edit
       float: right
       @extend .button
@@ -290,6 +294,8 @@ dd.Footer
       color: $medium-gray
       .spx-heading-headline
         color: $medium-gray
+    &.spx-state-empty
+      padding: $small-spacing $base-spacing
 
 .spx-subsection-container
     display: flex
