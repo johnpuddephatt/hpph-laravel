@@ -57,6 +57,7 @@ if(screeningTable && screeningAnnouncer) {
      iframe.setAttribute('id','SpektrixIFrame');
      iframe.setAttribute('name','SpektrixIFrame');
      iframe.src = e.target.href;
+     iframe.setAttribute('onload', 'setTimeout(function(){ window.scrollTo(0,0);}, 100)');
 
      let script = document.createElement('script');
      script.src = 'https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js';
