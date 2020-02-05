@@ -265,6 +265,7 @@ dd.Footer
   text-align: left
 .spx-section-container
     margin-bottom: $base-spacing
+    overflow: hidden
     padding: $small-spacing $base-spacing $base-spacing
     border: $base-border
     border-color: $yellow
@@ -277,8 +278,11 @@ dd.Footer
       @extend .button__big
       @extend .button__yellow
       float: right
-      margin-top: $small-spacing
-    .spx-button-secondary, .spx-button-tertiary
+    .spx-button-secondary
+      @extend .button
+      @extend .button__big
+      @extend .button__gray
+    .spx-button-tertiary
       @extend .button
       @extend .button__gray
     &.spx-state-read-only, &.spx-state-empty
@@ -297,5 +301,5 @@ dd.Footer
 .spx-text-copy__checkout--start-checkout-login.spx-intent-distinguishable
   font-size: modular-scale(2)
   font-weight: 700
-  margin-bottom: $base-spacing
+  margin-bottom: 0
 
