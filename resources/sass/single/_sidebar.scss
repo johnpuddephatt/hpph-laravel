@@ -32,6 +32,7 @@
     background-color: $off-white;
     left: 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     &::after {
       content: none;
     }
