@@ -266,6 +266,7 @@ dd.Footer
 .spx-section-container
     margin-bottom: $base-spacing
     overflow: hidden
+    flex-wrap: wrap
     padding: $small-spacing $base-spacing $base-spacing
     border: $base-border
     border-color: $yellow
@@ -273,6 +274,8 @@ dd.Footer
       font-size: modular-scale(2)
       font-weight: 500
       margin-bottom: $base-spacing
+    .spx-heading-sub-headline
+      margin: $small-spacing 0 0
     .spx-link-edit
       float: right
       @extend .button
@@ -298,8 +301,6 @@ dd.Footer
       padding: $small-spacing $base-spacing
 
 .spx-subsection-container
-    display: flex
-    align-items: center
     p
       margin-bottom: 0
       margin-right: $small-spacing
