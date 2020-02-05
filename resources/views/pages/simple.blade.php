@@ -8,7 +8,6 @@
 
   <div class="container page-standard--container">
     <main class="page-standard--main page-standard--main__simple">
-      <h1 class="page-standard--title">{{ $page->title }}</h1>
       {!! $page->content !!}
     </main>
   </div>

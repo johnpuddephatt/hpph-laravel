@@ -259,6 +259,9 @@ dd.Footer
   a
     color: $base-font-color
 
+
+.spx-heading-title
+  @extend .page-standard--title
 .spx-section-container
     margin-bottom: $base-spacing
     padding: $small-spacing $base-spacing $base-spacing
@@ -268,7 +271,13 @@ dd.Footer
       float: right
       @extend .button
       @extend .button__gray
-    .spx-button-tertiary
+    .spx-button-primary
+      @extend .button
+      @extend .button__big
+      @extend .button__yellow
+      float: right
+      margin-top: $small-spacing
+    .spx-button-secondary, .spx-button-tertiary
       @extend .button
       @extend .button__gray
     &.spx-state-read-only, &.spx-state-empty
@@ -276,3 +285,16 @@ dd.Footer
       color: $medium-gray
       .spx-heading-headline
         color: $medium-gray
+
+.spx-subsection-container
+    display: flex
+    align-items: center
+    p
+      margin-bottom: 0
+      margin-right: $small-spacing
+
+.spx-text-copy__checkout--start-checkout-login.spx-intent-distinguishable
+  font-size: modular-scale(2)
+  font-weight: 700
+  margin-bottom: $base-spacing
+
