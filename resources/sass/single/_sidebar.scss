@@ -31,8 +31,8 @@
   &.open {
     background-color: $off-white;
     left: 0;
-    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overflow: auto;
     &::after {
       content: none;
     }
