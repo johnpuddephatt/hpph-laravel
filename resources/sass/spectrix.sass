@@ -269,7 +269,7 @@ dd.Footer
     margin-bottom: $base-spacing
     overflow: hidden
     flex-wrap: wrap
-    padding: $small-spacing $base-spacing $base-spacing
+    padding: $base-spacing
     border: $base-border
     border-color: $yellow
     .spx-heading-headline
@@ -310,5 +310,12 @@ dd.Footer
 .spx-text-copy__checkout--start-checkout-login.spx-intent-distinguishable
   font-size: modular-scale(2)
   font-weight: 700
-  margin-bottom: 0
+  margin-bottom: $small-spacing/2
+
+
+.spx-subsection-container__checkout--start-checkout-forgotten-password
+  display: flex
+  align-items: center
+.spx-button-secondary__checkout--start-checkout-forgotten-password
+  @extend .button__text
 
