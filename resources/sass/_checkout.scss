@@ -14,7 +14,7 @@
 
 .spectrix-boxoffice,
 .spectrix-checkout {
-  // min-height: 60vh;
+  height: 150vh; // fallback in case resizing script fails
   @media screen and (min-width: $medium-screen) {
     margin: 0 (-$small-spacing) 0;
   }
