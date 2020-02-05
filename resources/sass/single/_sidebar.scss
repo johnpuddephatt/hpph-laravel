@@ -29,12 +29,14 @@
   overflow: hidden;
   transition: left $base-duration * 2 $base-timing;
   &.open {
-    background-color: $off-white;
-    left: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
-    &::after {
-      content: none;
+    @media (max-width: $large-screen) {
+      background-color: $off-white;
+      left: 0;
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
+      &::after {
+        content: none;
+      }
     }
   }
   @media (min-width: $large-screen) {
