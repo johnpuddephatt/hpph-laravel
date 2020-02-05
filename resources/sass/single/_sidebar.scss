@@ -25,7 +25,7 @@
   top: 0;
   left: 100%;
   width: 100%;
-  bottom: 1px;
+  height: 100vh;
   overflow: hidden;
   transition: left $base-duration * 2 $base-timing;
   &.open {
