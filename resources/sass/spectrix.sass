@@ -5,12 +5,10 @@
 
 html
   font-size: .875em
-  height: 100%
-  overflow: auto
 
 body
   max-width: 960px
-  padding-bottom: 2 * $base-spacing
+  padding: $base-spacing 0 2 * $base-spacing
 
 .ChooseSeats, .Basket2
   padding: $base-spacing $small-spacing
@@ -137,7 +135,7 @@ dd.Footer
   flex-wrap: wrap
   padding: 1.5 * $small-spacing 0
   label
-    flex: 0 0 30%
+    flex: 1 0 30%
     margin-bottom: 0
   input
     flex: 0 0 65%
@@ -145,12 +143,17 @@ dd.Footer
     font-size: modular-scale(1)
     &[type=checkbox]
       flex: 0 0 1em
+    &.spx-input-text__checkout--donation
+      flex: 0 0 30%
+      margin-right: $small-spacing
   select
     font-size: modular-scale(1)
     margin-bottom: 0
     height: 2 * modular-scale(1)
   .Input_Text
     flex: 1 1 50%
+  button + button
+    margin-left: $small-spacing/2
   .Button
     flex: 1 1 20%
   .right
@@ -237,6 +240,9 @@ dd.Footer
     @extend .button__gray
 
 .Progress
+  display: none
+  @media screen and (min-width: $medium-screen)
+    display: block
   ol
     display: flex
     flex-direction: row
@@ -247,10 +253,11 @@ dd.Footer
 
   li > span, li > a > span
     display: inline-block
+    font-size: modular-scale(-1)
     line-height: 2.5
     padding: 0 $small-spacing
     @media screen and (min-width: $medium-screen)
-      padding: 0 1.5 * $small-spacing
+      padding: 0 1.25 * $small-spacing
     font-weight: 500
     color: $dark-gray
     &.Current
@@ -278,6 +285,9 @@ dd.Footer
       margin-bottom: $base-spacing
     .spx-heading-sub-headline
       margin: $base-spacing 0 0
+      font-weight: 500
+    .spx-list-item
+      padding: $small-spacing 0
     .spx-link-edit
       float: right
       @extend .button
@@ -327,5 +337,12 @@ dd.Footer
   align-items: center
   .spx-button-secondary__checkout--start-checkout-forgotten-password
     @extend .button__text
-      background-color: transparent !important
+    background-color: transparent !important
 
+
+.spx-input-text__checkout--credit
+  flex: 1 0 30%
+  margin-right: $small-spacing
+
+.spx-iframe__checkout--payment
+  min-height: 720px
