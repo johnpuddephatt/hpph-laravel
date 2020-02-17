@@ -42,9 +42,8 @@ textarea {
   }
 
   &:focus {
-    outline: .15rem solid transparentize($yellow,.5);
-    outline-offset: .15rem;
-    box-shadow: none;
+    border-color: $action-color;
+    box-shadow: $form-box-shadow-focus;
   }
 
   &:disabled {

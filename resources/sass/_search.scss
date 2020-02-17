@@ -35,6 +35,8 @@
   margin-bottom: 0;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
+  position: relative;
+  z-index: 9;
   &:focus {
     outline: none;
   }
