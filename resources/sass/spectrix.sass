@@ -110,14 +110,23 @@ dd.Footer
   .DeclineButton, .PreviousButton
     @extend .button__gray
     @extend .button__big
+    @media screen and (max-width: $medium-screen)
+      width: 100%
+      margin-top: $small-spacing
   .FindAddressButton
     @extend .button__yellow
   .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton, .spx-button-primary
     @extend .button__yellow
     @extend .button__big
+    @media screen and (max-width: $medium-screen)
+      width: 100%
+      margin-top: $small-spacing
   #ctl00_ContentPlaceHolder_NewAccountLink
     @extend .button__big
     display: block
+    @media screen and (max-width: $medium-screen)
+      width: 100%
+      margin-top: $small-spacing
 
 .CheckoutLink
   @extend .button
@@ -200,12 +209,16 @@ dd.Footer
       flex: 1 0 40%
     .Button
       margin-left: $small-spacing
+      font-size: modular-scale(0)
       @extend .button__gray
   // Postcode
   &.Postcode
     .FindAddressButton
       margin-left: 30%
       margin-top: $small-spacing
+  .spx-label-field__checkout--credit, .spx-input-text__checkout--credit
+    flex: 1 0 40%
+
 
 // Login page
 .LoginLogout, .ForgotPassword
@@ -276,9 +289,11 @@ dd.Footer
     margin-bottom: $base-spacing
     overflow: hidden
     flex-wrap: wrap
-    padding: $base-spacing
     border: $base-border
     border-color: $yellow
+    padding: $small-spacing
+    @media screen and (min-width: $medium-screen)
+      padding: $base-spacing
     .spx-heading-headline
       font-size: modular-scale(2)
       font-weight: 500
@@ -290,13 +305,18 @@ dd.Footer
       padding: $small-spacing 0
     .spx-link-edit
       float: right
+      margin-left: $small-spacing/2
       @extend .button
       @extend .button__gray
     .spx-button-primary
       @extend .button
       @extend .button__big
       @extend .button__yellow
-      float: right
+      @media screen and (min-width: $medium-screen)
+        float: right
+      @media screen and (max-width: $medium-screen)
+        width: 100%
+        margin-top: $small-spacing
     .spx-button-secondary
       @extend .button
       @extend .button__big
@@ -332,13 +352,17 @@ dd.Footer
   font-weight: 700
   margin-bottom: $small-spacing/2
 
+// 'Required' label on email address when starting checkout. Seems redundant.
+.spx-label-additional-context__checkout--start-checkout.spx-state-required
+  display: none
+
 .spx-subsection-container__checkout--start-checkout-forgotten-password
   display: flex
   align-items: center
   .spx-button-secondary__checkout--start-checkout-forgotten-password
     @extend .button__text
     background-color: transparent !important
-
+    border-color: transparent !important
 
 .spx-input-text__checkout--credit
   flex: 1 0 30%

@@ -1,5 +1,7 @@
 .bookmark--container {
-  body.home & {
+  body.home &,
+  body.checkout &,
+  body.checkout-test & {
     display: none;
     &.home {
       display: block;
