@@ -34,9 +34,8 @@
     }
   }
   &:focus {
-    outline: .15rem solid transparentize($yellow,.5);
-    outline-offset: .15rem;
-    box-shadow: none;
+    outline: none;
+    box-shadow: 0 0 0 0.125em adjust-color($action-color, $lightness: -5%, $alpha: -0.75);
   }
 
 }
