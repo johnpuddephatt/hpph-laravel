@@ -145,6 +145,7 @@ dd.Footer
   align-items: center
   flex-wrap: wrap
   padding: 1.5 * $small-spacing 0
+  position: relative
   label
     flex: 1 0 30%
     margin-bottom: 0
@@ -172,7 +173,6 @@ dd.Footer
     text-align: center
     width: 0
     text-indent: -9999px
-    position: relative
     &::after
       content: '*'
       display: block
@@ -181,8 +181,13 @@ dd.Footer
       text-align: center
       position: absolute
       width: $base-spacing
-      bottom: 0
-      right: 0
+      top: $small-spacing/4
+      right: $small-spacing/4
+  .Format
+    flex: 0 0 100%
+    text-align: right
+    font-size: modular-scale(-1)
+    color: $dark-gray
   .Comment
     flex: 0 0 100%
     text-align: right
@@ -223,7 +228,8 @@ dd.Footer
   .spx-button-tertiary__checkout--credit
     margin-left: auto
     margin-top: $small-spacing/2
-
+  .spx-subsection-summary-container__checkout--ticket-summary
+    max-width: 75%
 
 // Login page
 .LoginLogout, .ForgotPassword
@@ -370,6 +376,7 @@ dd.Footer
     @extend .button__text
     background-color: transparent !important
     border-color: transparent !important
+    width: auto !important
 
 .spx-iframe__checkout--payment, .FoxIFrameControl, .FoxIFrameControl iframe
   min-height: 720px
