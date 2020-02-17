@@ -1,4 +1,4 @@
-@push('body-classes','page')
+@push('body-classes','page page__' . $page->slug)
 
 @extends('layouts.app')
 

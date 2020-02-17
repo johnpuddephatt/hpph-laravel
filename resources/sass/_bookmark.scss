@@ -1,7 +1,7 @@
 .bookmark--container {
   body.home &,
-  body.checkout &,
-  body.checkout-test & {
+  body.page-simple__checkout &,
+  body.page-simple__checkout-test & {
     display: none;
     &.home {
       display: block;

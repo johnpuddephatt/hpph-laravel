@@ -121,12 +121,14 @@ dd.Footer
     @media screen and (max-width: $medium-screen)
       width: 100%
       margin-top: $small-spacing
+      margin-left: 0
   #ctl00_ContentPlaceHolder_NewAccountLink
     @extend .button__big
     display: block
     @media screen and (max-width: $medium-screen)
       width: 100%
       margin-top: $small-spacing
+      margin-left: 0
 
 .CheckoutLink
   @extend .button
@@ -218,6 +220,9 @@ dd.Footer
       margin-top: $small-spacing
   .spx-label-field__checkout--credit, .spx-input-text__checkout--credit
     flex: 1 0 40%
+  .spx-button-tertiary__checkout--credit
+    margin-left: auto
+    margin-top: $small-spacing/2
 
 
 // Login page
@@ -306,21 +311,24 @@ dd.Footer
     .spx-link-edit
       float: right
       margin-left: $small-spacing/2
+      margin-top: -2 * $base-spacing
       @extend .button
       @extend .button__gray
     .spx-button-primary
       @extend .button
       @extend .button__big
       @extend .button__yellow
-      @media screen and (min-width: $medium-screen)
-        float: right
       @media screen and (max-width: $medium-screen)
         width: 100%
         margin-top: $small-spacing
+        margin-bottom: $small-spacing
     .spx-button-secondary
       @extend .button
       @extend .button__big
       @extend .button__gray
+      @media screen and (max-width: $medium-screen)
+        width: 100%
+        margin-top: $small-spacing
     .spx-button-tertiary
       @extend .button
       @extend .button__gray
@@ -363,10 +371,6 @@ dd.Footer
     @extend .button__text
     background-color: transparent !important
     border-color: transparent !important
-
-.spx-input-text__checkout--credit
-  flex: 1 0 30%
-  margin-right: $small-spacing
 
 .spx-iframe__checkout--payment, .FoxIFrameControl, .FoxIFrameControl iframe
   min-height: 720px
