@@ -22,7 +22,7 @@ class Venue extends Model
     // protected $guarded = ['id'];
     // protected $hidden = ['pivot','relations'];
 
-    protected $fillable = ['title','programme','address','image','order','description','access_info','refreshment_info'];
+    protected $fillable = ['title','programme','address','image','order','description','access_info','refreshment_info', 'parking_info'];
     // protected $hidden = [];
     // protected $dates = [];
 

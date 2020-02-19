@@ -67,7 +67,13 @@ class VenueCrudController extends CrudController
           'type' => 'textarea',
         ];
 
-        $this->crud->addFields([$titleArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray], 'both');
+        $parkingInfoArray = [
+          'name' => 'parking_info',
+          'label' => 'Parking info',
+          'type' => 'textarea',
+        ];
+
+        $this->crud->addFields([$titleArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray, $parkingInfoArray], 'both');
         $this->crud->addColumns([$titleArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
