@@ -128,11 +128,11 @@
 					ON THE ROAD
 				</textPath>
 			</text>
-		<text font-family="'HPPHC'" font-size="8">
+		{{-- <text font-family="'HPPHC'" font-size="8">
 			<textPath  xlink:href="#text-path" startOffset="64%">
 				{{$days_until_otr}} DAYS TO GO
 			</textPath>
-		</text>
+		</text> --}}
 	</g>
 </g>
 </svg>

@@ -112,10 +112,10 @@
     transition: transform .5s ease;
     stroke: $light-black;
     stroke-width: 0;
-    #revolver {
-      animation: revolver 6s ease infinite;
-      transform-origin: center center;
-    }
+    // #revolver {
+    //   animation: revolver 6s ease infinite;
+    //   transform-origin: center center;
+    // }
   }
 
   h3 {
