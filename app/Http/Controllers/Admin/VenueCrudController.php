@@ -58,19 +58,22 @@ class VenueCrudController extends CrudController
         $accessInfoArray = [
           'name' => 'access_info',
           'label' => 'Access info',
-          'type' => 'textarea',
+          'type' => 'quill',
+          'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
         $refreshmentInfoArray = [
           'name' => 'refreshment_info',
           'label' => 'Refreshment info',
-          'type' => 'textarea',
+          'type' => 'quill',
+          'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
         $parkingInfoArray = [
           'name' => 'parking_info',
           'label' => 'Parking info',
-          'type' => 'textarea',
+          'type' => 'quill',
+          'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
         $this->crud->addFields([$titleArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray, $parkingInfoArray], 'both');
