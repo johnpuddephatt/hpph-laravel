@@ -13,17 +13,17 @@
 
       @if($film->venue->access_info)
         <h3>Access info</h3>
-        <p>{{ $film->venue->access_info }}</p>
+        <p>{!! $film->venue->access_info !!}</p>
       @endif
 
       @if($film->venue->refreshment_info)
         <h3>Refreshment info</h3>
-        <p>{{ $film->venue->refreshment_info }}</p>
+        <p>{!! $film->venue->refreshment_info !!}</p>
       @endif
 
       @if($film->venue->parking_info)
         <h3>Parking info</h3>
-        <p>{{ $film->venue->parking_info }}</p>
+        <p>{!! $film->venue->parking_info !!}</p>
       @endif
 
   </details>
