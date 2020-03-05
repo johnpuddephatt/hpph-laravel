@@ -8,7 +8,16 @@
 
         @foreach ($home_slides as $slide)
           <div class="home-slider--slide">
-            @include('utils.cloudinary', [
+            {{-- @include('utils.cloudinary', [
+              'alt' => "Image for " . $slide->title,
+              'img' => $slide->related_thumb ? $slide->related_thumb : $slide->thumb,
+              'class' => "home-slider--image",
+              'height' => "720",
+              'width' => "1280",
+              'quality' => "70",
+              'sizes' => "(orientation: portrait) 220vw, 100vw",
+            ]) --}}
+            @include('utils.intervention', [
               'alt' => "Image for " . $slide->title,
               'img' => $slide->related_thumb ? $slide->related_thumb : $slide->thumb,
               'class' => "home-slider--image",
