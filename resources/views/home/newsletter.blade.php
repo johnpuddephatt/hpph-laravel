@@ -1,7 +1,7 @@
 <section class="section section--home-newsletter">
     @include('utils.intervention', [
       'alt' => "",
-      'img' => "/images/home-newsletter-2.jpg",
+      'img' => "/storage/thumbnails/5f5f876b144bcd57944a20d53e6bd710.jpg",
       'class' => "section--home-newsletter--image",
       'height' => "250",
       'width' => "750",
