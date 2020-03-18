@@ -2,7 +2,7 @@
   padding: 4 * $base-spacing 0;
   position: relative;
   // overflow: hidden;
-  text-align: left;
+  text-align: right;
   color: white;
   display: flex;
   align-items: center;
@@ -21,7 +21,8 @@
     @media screen and (min-width: $medium-screen) {
       width: 50%;
       max-width: 35em;
-      padding-right: 0;
+      padding-left: 0;
+      margin-left: auto;
     }
   }
   &--image {
@@ -50,7 +51,7 @@
   .section-title {
     margin-top: 0;
     font-size: modular-scale(6);
-    text-align: left;
+    text-align: right;
     margin-bottom: $base-spacing;
     font-family: $base-font-family;
     line-height: 1.1;
@@ -63,6 +64,7 @@
       background-color: white;
       display: block;
       margin: $base-spacing 0 $base-spacing;
+      margin-left: auto;
     }
   }
   p {
