@@ -80,7 +80,7 @@ trait PageTemplates
                         'fake' => true,
                         'store_in' => 'extras',
                         'tab' => 'iFrame',
-                        'hint' => 'e.g. Attribute_Fund%20Type=Response'
+                        'hint' => 'e.g. Attribute_Fund Type=Response'
                     ]);
     }
 

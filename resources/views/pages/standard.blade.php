@@ -22,6 +22,12 @@
     <main class="page-standard--main @if(!count($sibling_pages)) no-aside @endif ">
       <h1 class="page-standard--title">{{ $page->title }}</h1>
       {!! $page->content !!}
+
+      @if($page->iframe)
+        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ $page->iframe }}.aspx?resize=true&amp;{{ urlencode($page->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ $page->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
+        <script type="text/javascript" src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js"></script>
+      @endif
+
       @if ($page->id == $parent_page->id && count($sibling_pages))
         <nav class="page-standard--grid-nav">
           @foreach ($sibling_pages as $sibling_page)

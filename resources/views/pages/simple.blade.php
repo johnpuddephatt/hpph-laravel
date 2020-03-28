@@ -9,6 +9,12 @@
   <div class="container page-standard--container">
     <main class="page-standard--main page-standard--main__simple">
       {!! $page->content !!}
+
+      @if($page->iframe)
+        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ $page->iframe }}.aspx?resize=true&amp;{{ urlencode($page->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ $page->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
+        <script type="text/javascript" src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js"></script>
+      @endif
+
     </main>
   </div>
 @stop
