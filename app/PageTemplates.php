@@ -71,7 +71,7 @@ trait PageTemplates
                         'tab' => 'iFrame',
                         'type' => 'select_from_array',
                         'options' => ['donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
-                        'allows_null' => false,
+                        'allows_null' => true,
                     ]);
         $this->crud->addField([
                         'name' => 'iframe_parameters',

@@ -1,12 +1,14 @@
-.spectrix-boxoffice,
-.spectrix-checkout,
-.spectrix-membership {
+.spectrix-iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-.spectrix-membership {
+.spectrix-donations,
+.spectrix-giftvouchers,
+.spectrix-membership,
+.spectrix-merchandise
+ {
   margin: 2 * $base-spacing 0;
   border-top: $base-border;
   border-bottom: $base-border;

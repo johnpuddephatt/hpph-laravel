@@ -10,10 +10,11 @@
     <main class="page-standard--main page-standard--main__simple">
       {!! $page->content !!}
 
-      @if($page->extras && $page->extras->iframe)
-        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ $page->extras->iframe }}.aspx?resize=true&amp;{{ urlencode($page->extras->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ $page->extras->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
+      @if(json_decode($page->extras)->iframe)
+        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ json_decode($page->extras)->iframe }}.aspx?resize=true&amp;{{ urlencode(json_decode($page->extras)->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ json_decode($page->extras)->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
         <script type="text/javascript" src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js"></script>
       @endif
+      
     </main>
   </div>
 @stop
