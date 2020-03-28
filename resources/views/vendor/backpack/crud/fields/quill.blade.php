@@ -66,7 +66,7 @@
     @push('crud_fields_scripts')
 
       <script src="//cdn.quilljs.com/2.0.0-dev.2/quill.js"></script>
-      {{-- <script src="//cdn.quilljs.com/1.3.4/quill.min.js"></script> --}}
+      {{-- <script src="//cdn.quilljs.com/1.3.7/quill.min.js"></script> --}}
       <script>
       // tables
 
@@ -179,6 +179,13 @@
 @push('crud_fields_scripts')
 <script>
 
+  let BlockEmbed = Quill.import('blots/block/embed');
+
+  class DividerBlot extends BlockEmbed { }
+  DividerBlot.blotName = 'divider';
+  DividerBlot.tagName = 'hr';
+  Quill.register(DividerBlot);
+
   const tabletruth_{{ $field['name'] }} = {{ strpos($field['toolbar'],"['table']") ? 'true' : 'false' }};
 
   const editor_{{ $field['name'] }} = document.getElementById('quill-editor-{{ $field['name'] }}');
@@ -196,6 +203,9 @@
         container: [{!! $field['toolbar'] !!}],
         handlers: {
           image: selectLocalImage,
+          divider: function(value) {
+            this.quill.format('divider', true);
+          },
           table: function (value) {
                 if (value) {
                   switch(value) {

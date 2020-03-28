@@ -51,7 +51,7 @@ trait PageTemplates
                         'type' => 'quill',
                         'placeholder' => trans('backpack::pagemanager.content_placeholder'),
                         'tab' => 'Content',
-                        'toolbar' => "[{ 'header': '2' }],['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }],[{ 'table': ['Insert table','Insert Row Above','Insert Row Below','Insert Column Left','Insert Column Right','Delete Row','Delete Column','Delete Table' ] }]",
+                        'toolbar' => "  [{ 'header': [2, 3, false] }],['bold', 'italic'],['divider'],['image','link','video'],[{ 'list': 'bullet' }],[{ 'table': ['Insert table','Insert Row Above','Insert Row Below','Insert Column Left','Insert Column Right','Delete Row','Delete Column','Delete Table' ] }]",
                     ]);
         $this->crud->addField([
                         'name' => 'thumb',
@@ -61,7 +61,26 @@ trait PageTemplates
                         'hint' => 'Thumbnails may be cropped on the site',
                         'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
                         'crop' => true, // set to true to allow cropping, false to disable
-                        'tab' => 'Content'
+                        'tab' => 'Setup'
+                    ]);
+        $this->crud->addField([
+                        'name' => 'iframe',
+                        'label' => 'Iframe',
+                        'fake' => true,
+                        'store_in' => 'extras',
+                        'tab' => 'iFrame',
+                        'type' => 'select_from_array',
+                        'options' => ['donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
+                        'allows_null' => false,
+                    ]);
+        $this->crud->addField([
+                        'name' => 'iframe_parameters',
+                        'label' => 'Iframe parameters',
+                        'type' => 'text',
+                        'fake' => true,
+                        'store_in' => 'extras',
+                        'tab' => 'iFrame',
+                        'hint' => 'e.g. Attribute_Fund%20Type=Response'
                     ]);
     }
 
