@@ -28,6 +28,10 @@ class Page extends Model
     // protected $dates = [];
     protected $fakeColumns = ['extras'];
 
+    protected $casts = [
+      'extras' => 'array',
+    ];
+
     /**
      * Return the sluggable configuration array for this model.
      *
