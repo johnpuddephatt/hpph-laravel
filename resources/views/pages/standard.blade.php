@@ -23,8 +23,8 @@
       <h1 class="page-standard--title">{{ $page->title }}</h1>
       {!! $page->content !!}
 
-      @if($page->iframe)
-        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ $page->iframe }}.aspx?resize=true&amp;{{ urlencode($page->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ $page->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
+      @if($page->extras->iframe)
+        <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ $page->extras->iframe }}.aspx?resize=true&amp;{{ urlencode($page->extras->iframe_parameters) }}" class="spectrix-iframe spectrix-{{ $page->extras->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
         <script type="text/javascript" src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js"></script>
       @endif
 
