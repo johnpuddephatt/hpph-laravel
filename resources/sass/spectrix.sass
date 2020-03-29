@@ -114,7 +114,7 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, #ctl00_ContentPlaceHolder_RedeemGiftLink
     @extend .button__gray
   .DeclineButton, .PreviousButton
     @extend .button__gray
@@ -124,7 +124,7 @@ dd.Footer
       margin-top: $small-spacing
   .FindAddressButton
     @extend .button__yellow
-  .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton, .spx-button-primary
+  .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton, .spx-button-primary, .AddToBasketButton
     @extend .button__yellow
     @extend .button__big
     @media screen and (max-width: $medium-screen)
@@ -398,3 +398,20 @@ dd.Footer
 
 .DonationsBlurb
   display: none
+
+
+/** Gift vouchers **/
+
+.DateToSend
+  select
+    width: auto
+    + select
+      margin-left: $small-spacing
+  input
+    flex: 0 0 25%
+    margin-left: $small-spacing
+
+.left
+  display: inline-block
+  margin-right: $base-spacing
+  width: 20%
