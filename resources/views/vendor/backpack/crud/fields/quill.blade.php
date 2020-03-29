@@ -136,7 +136,7 @@
               var url = response.secure_url;
               // Create a thumbnail of the uploaded image, with 740px width
               var tokens = url.split('/');
-              tokens.splice(-2, 0, 'w_740,c_scale,q_75');
+              tokens.splice(-3, 0, 'w_740,c_scale,q_75');
               var imgURL = tokens.join('/');
               insertToEditor(quill, imgURL, range);
             }
