@@ -23,7 +23,7 @@
       <h1 class="page-standard--title">{{ $page->title }}</h1>
       {!! $page->content !!}
 
-      @if(property_exists(json_decode($page->extras), 'iframe'))
+      @if(property_exists(json_decode($page->extras), 'iframe') && json_decode($page->extras)->iframe)
         <iframe src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/{{ json_decode($page->extras)->iframe }}.aspx?resize=true{{ json_decode($page->extras)->iframe_parameters ? '&' . str_replace(' ', '%20', json_decode($page->extras)->iframe_parameters) : '' }}" class="spectrix-iframe spectrix-{{ json_decode($page->extras)->iframe }}" id="SpektrixIFrame" name="SpektrixIFrame"></iframe>
         <script type="text/javascript" src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js"></script>
       @endif
