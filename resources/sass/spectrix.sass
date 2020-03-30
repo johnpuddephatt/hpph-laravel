@@ -13,6 +13,9 @@ body
 .ChooseSeats, .Basket2
   padding: $base-spacing $small-spacing
 
+.SpektrixFooter
+  margin-right: $base-spacing
+
 .SpektrixFooterFixed
   position: static
 
@@ -115,7 +118,7 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, #ctl00_ContentPlaceHolder_RedeemGiftLink
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery
     @extend .button__gray
   .DeclineButton, .PreviousButton
     @extend .button__gray
@@ -159,7 +162,6 @@ dd.Footer
   padding-right: $base-spacing
   position: relative
   label
-    flex: 1 0 25%
     margin-bottom: 0
   input
     flex: 0 0 65%
@@ -174,7 +176,7 @@ dd.Footer
     font-size: modular-scale(1)
     margin-bottom: 0
     height: 2 * modular-scale(1)
-  .Input_Text
+  .Input_Text, .MoneyTextBox
     flex: 1 1 50%
   button + button
     margin-left: $small-spacing/2
@@ -404,6 +406,8 @@ dd.Footer
 
 
 /** Gift vouchers **/
+#ctl00_ContentPlaceHolder_RedeemGiftLink
+  @extend .button__gray
 
 .DateToSend
   select
@@ -415,6 +419,11 @@ dd.Footer
     margin-left: $small-spacing
 
 .left
+  font-weight: 600
+  flex: 1 0 22.5%
   display: inline-block
   margin-right: $base-spacing
-  width: 20%
+
+#ctl00_ContentPlaceHolder_OtherEmailAddressTextBox
+  margin-left: 39%
+  margin-top: $small-spacing
