@@ -94,5 +94,25 @@ trait PageTemplates
                         'toolbar' => "['bold', 'italic'],['image','link','video'],[{ 'list': 'bullet' }]",
                         'placeholder' => trans('backpack::pagemanager.content_placeholder'),
                     ]);
+
+        $this->crud->addField([
+                        'name' => 'iframe',
+                        'label' => 'Iframe',
+                        'fake' => true,
+                        'store_in' => 'extras',
+                        'tab' => 'iFrame',
+                        'type' => 'select_from_array',
+                        'options' => ['donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
+                        'allows_null' => true,
+                    ]);
+        $this->crud->addField([
+                        'name' => 'iframe_parameters',
+                        'label' => 'Iframe parameters',
+                        'type' => 'text',
+                        'fake' => true,
+                        'store_in' => 'extras',
+                        'tab' => 'iFrame',
+                        'hint' => 'e.g. Attribute_Fund Type=Response'
+                    ]);
     }
 }
