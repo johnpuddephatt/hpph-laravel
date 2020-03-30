@@ -187,6 +187,7 @@ dd.Footer
     text-align: center
     width: 0
     text-indent: -9999px
+    margin: 0
     &::after
       content: '*'
       display: block
@@ -410,8 +411,9 @@ dd.Footer
   @extend .button
   @extend .button__gray
 
-input + label
-  margin-left: $base-spacing
+.SendTo
+  input + label
+    margin-left: $base-spacing
 
 .DateToSend
   select
