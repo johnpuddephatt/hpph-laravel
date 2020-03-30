@@ -70,7 +70,7 @@ trait PageTemplates
                         'store_in' => 'extras',
                         'tab' => 'iFrame',
                         'type' => 'select_from_array',
-                        'options' => ['checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],                        'allows_null' => true,
+                        'options' => ['secure/checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],                        'allows_null' => true,
                     ]);
         $this->crud->addField([
                         'name' => 'iframe_parameters',
@@ -101,7 +101,7 @@ trait PageTemplates
                         'store_in' => 'extras',
                         'tab' => 'iFrame',
                         'type' => 'select_from_array',
-                        'options' => ['checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
+                        'options' => ['secure/checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
                         'allows_null' => true,
                     ]);
         $this->crud->addField([
