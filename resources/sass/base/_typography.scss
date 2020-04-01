@@ -66,6 +66,34 @@ a {
   }
 }
 
+%underlined-link {
+  a {
+    color: inherit;
+    font-weight: 500;
+    transition: color $base-duration $base-timing;
+    position: relative;
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: relative;
+      background-color: $yellow;
+      height: 0.15em;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.15em;
+      opacity: 0.6;
+      transition: opacity $base-duration $base-timing;
+    }
+  }
+}
+
 hr {
   border-bottom: $base-border;
   border-left: 0;

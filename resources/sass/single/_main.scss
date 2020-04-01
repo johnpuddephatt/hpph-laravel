@@ -50,6 +50,7 @@
   h3:not(:first-child) {
     margin-top: $base-spacing;
   }
+  @extend %underlined-link;
 }
 
 .single-listing--text {

@@ -61,6 +61,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+  @extend %underlined-link;
   h2 {
     font-size: modular-scale(3);
     margin-top: 2 * $base-spacing;

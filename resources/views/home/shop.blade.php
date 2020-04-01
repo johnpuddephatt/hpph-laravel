@@ -17,7 +17,7 @@
             <p class="shop--link--description">Prints, bags, mugs &amp; postcards</p>
           </div>
         </a>
-        <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/product/gift-voucher-5">
+        <a class="shop--link" href="/vouchers">
           @include('utils.intervention', [
             'alt' => "Photograph of cinema vouchers",
             'img' => "/images/shop-gift-voucher-studio.jpg",
@@ -31,7 +31,7 @@
             <h3 class="shop--link--title">Gift Vouchers</h3>
           </div>
         </a>
-        <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/product/membership">
+        <a class="shop--link" href="/membership">
           @include('utils.intervention', [
             'alt' => "Photograph of membership card",
             'img' => "/images/shop-membership-card-studio.jpg",
