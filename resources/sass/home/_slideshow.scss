@@ -153,6 +153,7 @@
   font-family: $heading-font-family;
   font-size: modular-scale(2);
   font-style: italic;
+  line-height: $heading-line-height;
   -webkit-font-smoothing: antialiased;
   margin-top: 0;
   &::after {
