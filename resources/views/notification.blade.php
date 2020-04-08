@@ -1,2 +1,8 @@
-<div class="disclaimer">
-<button class="disclaimer-close">&times;</button></div>
+<div class="notification">
+  <div class="container">
+    {{ env('SITE_NOTIFICATION') }}
+    @if(env('SITE_NOTIFICATION_URL'))
+      <a class="button button__gray" href="{{ env('SITE_NOTIFICATION_URL') }}">Find out more</a>
+    @endif
+  </div>
+</div>

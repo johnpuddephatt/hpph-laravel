@@ -279,17 +279,14 @@
 
   editorContent_{{ $field['name'] }}.innerHTML = textarea_{{ $field['name'] }}.value;
 
-
-
    // We need to manually supply the HTML content of our custom dropdown list
-  // if(tabletruth_{{ $field['name'] }}) {
-  //    const tablePickerItems_{{ $field['name'] }} = Array.prototype.slice.call(document.querySelectorAll('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-item'));
-  //    tablePickerItems_{{ $field['name'] }}.forEach(item => item.textContent = item.dataset.value);
-  //    document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-label').innerHTML =
-  //    '<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>'
-  //    + document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table .ql-picker-label').innerHTML;
-  //    const tableButton_{{ $field['name'] }} = document.querySelector('#quill-editor-{{ $field['name'] }} .ql-table.ql-picker');
-  // }
+    const tablePickerItems_{{ $field['name'] }} = Array.prototype.slice.call(document.querySelectorAll('.ql-table .ql-picker-item'));
+    tablePickerItems_{{ $field['name'] }}.forEach(item => item.textContent = item.dataset.value);
+    document.querySelector('.ql-toolbar .ql-table .ql-picker-label').insertAdjacentHTML('afterbegin','<svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect> <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect> <g class="ql-fill ql-transparent"> <rect height="2" width="3" x="5" y="8"></rect> <rect height="2" width="4" x="9" y="8"></rect> <rect height="2" width="3" x="5" y="11"></rect> <rect height="2" width="4" x="9" y="11"></rect> </g> </svg>');
+    const tableButton_{{ $field['name'] }} = document.querySelector('.ql-table.ql-picker');
+
+    document.querySelector('.ql-toolbar .ql-divider').insertAdjacentHTML('afterbegin','<svg viewBox="0 0 18 18"><rect class="ql-stroke" height="1" width="18" x="0" y="8"></rect></svg>');
+
 </script>
 @endpush
 

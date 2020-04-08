@@ -7,7 +7,7 @@
 @section('content')
 
   @include('home.hero')
-  @include('bookmark', ['class'=> 'home'])
+  {{-- @include('bookmark', ['class'=> 'home']) --}}
   @include('home.listings')
   @include('home.newsletter')
   @include('home.shop')

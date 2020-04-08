@@ -13,9 +13,9 @@
       {{-- <h2 class="section-title">Never miss a screening</h2>
       <p>Sign up to our weekly listings newsletter to stay on top of our screenings.</p>
       <a class="button button__ghost button__white" href="{{ config('app.mailchimp')}}">Sign up now</a> --}}
-      <h2 class="section-title">Response Fund</h2>
-      <p>To continue supporting the Picture House during this exceptionally difficult time, please consider making a donation to our response fund.</p>
-      <a class="button button__ghost button__white" href="/donate/">Learn more</a>
+      <h2 class="section-title">Support us</h2>
+      <p>Continue supporting the Picture House during this difficult period by donating to our Response Fund or purchasing a gift voucher.</p>
+      <a class="button button__ghost button__white" href="/support/">Learn more</a>
     </div>
   </div>
 </section>

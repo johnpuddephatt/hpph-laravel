@@ -1,3 +1,15 @@
+.notification {
+  background-color: $yellow;
+  text-align: center;
+  padding-top: $small-spacing;
+  padding-bottom: $small-spacing;
+  font-weight: 500;
+  .button {
+    margin-left: $small-spacing/2;
+    vertical-align: middle;
+  }
+}
+
 .alert {
   background-color: $off-white;
   padding: $base-spacing;

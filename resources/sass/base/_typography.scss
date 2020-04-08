@@ -99,7 +99,8 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: $base-spacing 0;
+  margin: 3 * $base-spacing auto;
+  width: 66.67%;
 }
 
 sup {
