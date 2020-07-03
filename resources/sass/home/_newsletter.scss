@@ -5,15 +5,17 @@
   text-align: right;
   color: white;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  height: 100vw;
+  height: calc(100vh - #{2 * $base-spacing});
   @media screen and (min-width: $medium-screen) {
-    display: block;
-    height: auto;
+    // display: block;
+    // height: auto;
+    // height: calc(100vh - #{4 * $base-spacing});
   }
   .container {
     position: relative;
+    width: 100%;
     z-index: 99;
   }
   .section--home-newsletter--text {

@@ -6,6 +6,8 @@
   font-weight: 500;
   .button {
     margin-left: $small-spacing/2;
+    margin-top: -2px;
+    font-size: modular-scale(0);
     vertical-align: middle;
   }
 }
