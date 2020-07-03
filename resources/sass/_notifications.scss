@@ -55,6 +55,7 @@
   padding: $small-spacing;
   display: none;
   position: relative;
+  z-index: 99;
   @media screen and (orientation: portrait) {
     padding: $small-spacing 1.5 * $base-spacing;
     display: block;
