@@ -7,11 +7,11 @@
   position: relative;
   z-index: 99;
 
-  .button {
+  a {
+    display: inline-block;
     margin-left: $small-spacing/2;
-    margin-top: -2px;
     font-size: modular-scale(0);
-    vertical-align: middle;
+    @extend %underlined-link;
   }
 }
 
