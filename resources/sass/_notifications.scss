@@ -6,12 +6,11 @@
   font-weight: 500;
   position: relative;
   z-index: 99;
+  @extend %underlined-link;
 
   a {
     display: inline-block;
     margin-left: $small-spacing/2;
-    font-size: modular-scale(0);
-    @extend %underlined-link;
   }
 }
 
