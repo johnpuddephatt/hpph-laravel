@@ -70,4 +70,8 @@ picture {
   @media screen and (orientation: landscape) {
     height: calc(#{$large-screen *  0.5625 * 0.7} );
   }
+
+  @media screen and (min-width: $xl-screen) {
+    height: calc(#{$xl-screen *  0.5625 * 0.7} );
+  }
 }
