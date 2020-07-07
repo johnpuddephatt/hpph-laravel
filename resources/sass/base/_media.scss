@@ -63,6 +63,7 @@ picture {
 }
 
 .ql-video {
+  margin: $base-spacing 0;
   width: 100%;
   height: calc((100vw - #{2 * $base-spacing}) * 0.5625);
 
