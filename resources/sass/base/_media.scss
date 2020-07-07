@@ -61,3 +61,12 @@ picture {
     height: 100%;
   }
 }
+
+.ql-video {
+  width: 100%;
+  height: calc((100vw - #{2 * $base-spacing}) * 0.5625);
+
+  @media screen and (orientation: landscape) {
+    height: calc(#{$large-screen *  0.5625 * 0.7} - #{4 * $base-spacing * 0.5625 } );
+  }
+}
