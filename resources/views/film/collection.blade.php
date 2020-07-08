@@ -27,7 +27,7 @@
 
         <div class="collection--text">
           <h1 class="single-listing--title">{{ $collection->title }}</h1>
-          @if($collection->venue_name)<p class="single-listing--venue">at {{ $collection->venue_name }}</p> @endif
+          @if($collection->venue_name)<p class="single-listing--venue">{{ $collection->venue_name }}</p> @endif
           <div class="single-listing--description">{!! $collection->description !!}</div>
         </div>
       </div>

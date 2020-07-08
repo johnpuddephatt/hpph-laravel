@@ -11,7 +11,7 @@
           <span class="film-card--certificate">({{ $film->certificate }})</span>
         @endif
       </h3>
-      @if($film->venue)<div class="film-card--venue">at {{$film->venue->title}}</div>@endif
+      @if($film->venue)<div class="film-card--venue">{{$film->venue->title}}</div>@endif
       @if(!isset($compact))
         <div class="film-card--subtitle">{{ $film->subtitle }}</div>
       @endif
