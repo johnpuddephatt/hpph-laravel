@@ -63,10 +63,12 @@ if(screeningTable && screeningAnnouncer) {
      script.src = 'https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js';
 
      let sidebar = document.querySelector('.single-listing--sidebar');
-     sidebar.classList.add('has-spectrix-open');
-     sidebar.classList.add('open');
-     sidebar.insertBefore(iframe, sidebar.childNodes[0]);
-     sidebar.insertBefore(script, sidebar.childNodes[0]);
+     if(sidebar) {
+       sidebar.classList.add('has-spectrix-open');
+       sidebar.classList.add('open');
+       sidebar.insertBefore(iframe, sidebar.childNodes[0]);
+       sidebar.insertBefore(script, sidebar.childNodes[0]);
+     }
 
    }
   };
