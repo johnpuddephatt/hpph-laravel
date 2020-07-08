@@ -69,11 +69,11 @@ picture {
   height: calc((100vw - #{2 * $base-spacing}) * 0.5625);
 
   @media screen and (orientation: landscape) {
-    height: calc(#{$large-screen *  0.5625 * 0.5} );
+    height: calc(#{$large-screen *  0.5625 * 0.5} - #{ 2 * $base-spacing *  0.5625 * 0.5});
   }
 
   @media screen and (min-width: $xl-screen) {
-    height: calc(#{$xl-screen *  0.5625 * 0.5} );
+    height: calc(#{$xl-screen *  0.5625 * 0.5} - #{ 4 * $base-spacing *  0.5625 * 0.5});
   }
 
   .page-standard--main & {
