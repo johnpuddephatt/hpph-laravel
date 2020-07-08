@@ -289,7 +289,10 @@
     }
     const tableButton_{{ $field['name'] }} = document.querySelector('.ql-table.ql-picker');
 
-    document.querySelector('.ql-toolbar .ql-divider').insertAdjacentHTML('afterbegin','<svg viewBox="0 0 18 18"><rect class="ql-stroke" height="1" width="18" x="0" y="8"></rect></svg>');
+    const dividerButton_{{ $field['name'] }} = document.querySelector('.ql-toolbar .ql-divider');
+    if(dividerButton_{{ $field['name'] }}) {
+      dividerButton_{{ $field['name'] }}.insertAdjacentHTML('afterbegin','<svg viewBox="0 0 18 18"><rect class="ql-stroke" height="1" width="18" x="0" y="8"></rect></svg>');
+    }
 
 </script>
 @endpush
