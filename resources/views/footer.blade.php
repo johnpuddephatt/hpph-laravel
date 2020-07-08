@@ -3,26 +3,27 @@
     @include('icons.home')
     <div>Home</div>
   </a>
-  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
     <div>Visit</div>
-  </a> --}}
+  </a>
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/picks/') === 0) current @endif" href="/picks/">
-    @include('icons.whats-on')
+    @include('icons.search')
     <div>Picks</div>
   </a>
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
     @include('icons.plan-visit')
     <div>Support</div>
   </a>
-  <button class="site-footer--navigation--link site-footer--navigation--link__search">
+  {{-- <button class="site-footer--navigation--link site-footer--navigation--link__search">
     @include('icons.search')
     <div>Search</div>
-  </button>
+  </button> --}}
+
   <a class="site-footer--navigation--link" href="#" id="nav-trigger">
     @include('icons.more')
     <div>More</div>
