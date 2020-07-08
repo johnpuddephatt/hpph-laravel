@@ -65,13 +65,26 @@ picture {
 .ql-video {
   margin: $base-spacing 0;
   width: 100%;
+
   height: calc((100vw - #{2 * $base-spacing}) * 0.5625);
 
   @media screen and (orientation: landscape) {
-    height: calc(#{$large-screen *  0.5625 * 0.7} );
+    height: calc(#{$large-screen *  0.5625 * 0.5} );
   }
 
   @media screen and (min-width: $xl-screen) {
-    height: calc(#{$xl-screen *  0.5625 * 0.7} );
+    height: calc(#{$xl-screen *  0.5625 * 0.5} );
+  }
+
+  .page-standard--main & {
+    height: calc((100vw - #{2 * $base-spacing}) * 0.5625);
+
+    @media screen and (orientation: landscape) {
+      height: calc(#{$large-screen *  0.5625 * 0.7} );
+    }
+
+    @media screen and (min-width: $xl-screen) {
+      height: calc(#{$xl-screen *  0.5625 * 0.7} );
+    }
   }
 }

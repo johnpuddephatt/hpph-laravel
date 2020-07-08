@@ -76,8 +76,12 @@
     margin-right: auto;
     text-align: center;
   }
-  > *:last-child {
+  > *:last-child:not(.single-listing--strand-details) {
     padding-bottom: 5 * $base-spacing;
+  }
+
+  > *:last-child:not(.single-listing--strand-details) {
+    margin-bottom: 5 * $base-spacing;
   }
 }
 
