@@ -16,10 +16,12 @@
   @else
     <div class="alert">
       <h3>{{ $film->custom_coming_soon ?? "Showtimes to be confirmed" }}</h3>
-      <p>Please check back again soon for details of specific showtimes and to book tickets.</p>
 
-      @if(config('app.mailchimp'))
-        <p>Full listings are confirmed every Monday for the week beginning the following Friday. To receive our weekly listings emails, <a href="{{ config('app.mailchimp') }}">sign up here.</a></p>
+      @if($film->venue->title != 'Online Release')
+        <p>Please check back again soon for details of specific showtimes and to book tickets.</p>
+        @if(config('app.mailchimp'))
+          <p>Full listings are confirmed every Monday for the week beginning the following Friday. To receive our weekly listings emails, <a href="{{ config('app.mailchimp') }}">sign up here.</a></p>
+        @endif
       @endif
     </div>
   @endif

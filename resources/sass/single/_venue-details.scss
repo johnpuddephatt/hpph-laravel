@@ -1,3 +1,7 @@
+.single-listing--venue {
+  margin-bottom: 2 * $base-spacing;
+}
+
 .single-listing--venue--title {
   font-size: modular-scale(3);
   font-family: $heading-font-family;
@@ -13,7 +17,6 @@
 }
 
 .single-listing--venue--details {
-  margin-bottom: 2 * $base-spacing;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
   @media screen and (min-width: $large-screen) {

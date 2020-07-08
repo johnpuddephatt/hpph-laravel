@@ -50,7 +50,6 @@
   h3:not(:first-child) {
     margin-top: $base-spacing;
   }
-  @extend %underlined-link;
 }
 
 .single-listing--text {
@@ -69,6 +68,8 @@
     @media screen and (min-width: $large-screen) {
       font-size: modular-scale(-1);
     }
+
+    @extend %underlined-link;
   }
   &__centered {
     margin-left: auto;
