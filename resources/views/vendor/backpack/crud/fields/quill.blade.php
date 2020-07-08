@@ -179,12 +179,9 @@
 @push('crud_fields_scripts')
 <script>
 
-  if(typeof BlockEmbed === 'undefined') {
-    let BlockEmbed = Quill.import('blots/block/embed');
-  }
-
   if(typeof DividerBlot === 'undefined') {
-    class DividerBlot extends BlockEmbed { }
+    let BlockEmbed = Quill.import('blots/block/embed');
+    class DividerBlot extends BlockEmbed;
     DividerBlot.blotName = 'divider';
     DividerBlot.tagName = 'hr';
     Quill.register(DividerBlot);
