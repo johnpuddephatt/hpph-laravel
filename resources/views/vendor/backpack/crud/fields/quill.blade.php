@@ -179,7 +179,7 @@
 @push('crud_fields_scripts')
 <script>
 
-  if(!BlockEmbed) {
+  if(BlockEmbed === undefined) {
     let BlockEmbed = Quill.import('blots/block/embed');
   }
 
