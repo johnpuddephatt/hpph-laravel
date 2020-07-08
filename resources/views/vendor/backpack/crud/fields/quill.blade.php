@@ -179,12 +179,16 @@
 @push('crud_fields_scripts')
 <script>
 
-  let BlockEmbed = Quill.import('blots/block/embed');
+  if(!BlockEmbed) {
+    let BlockEmbed = Quill.import('blots/block/embed');
+  }
 
-  class DividerBlot extends BlockEmbed { }
-  DividerBlot.blotName = 'divider';
-  DividerBlot.tagName = 'hr';
-  Quill.register(DividerBlot);
+  if(!DividerBlot instanceof BlockEmbed) {
+    class DividerBlot extends BlockEmbed { }
+    DividerBlot.blotName = 'divider';
+    DividerBlot.tagName = 'hr';
+    Quill.register(DividerBlot);
+  }
 
   const tabletruth_{{ $field['name'] }} = {{ strpos($field['toolbar'],"['table']") ? 'true' : 'false' }};
 
