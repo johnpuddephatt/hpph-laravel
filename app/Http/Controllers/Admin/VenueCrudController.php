@@ -58,21 +58,21 @@ class VenueCrudController extends CrudController
         $accessInfoArray = [
           'name' => 'access_info',
           'label' => 'Access info',
-          'type' => 'quill',
+          'type' => 'textarea',
           'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
         $refreshmentInfoArray = [
           'name' => 'refreshment_info',
           'label' => 'Refreshment info',
-          'type' => 'quill',
+          'type' => 'textarea',
           'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
         $parkingInfoArray = [
           'name' => 'parking_info',
           'label' => 'Parking info',
-          'type' => 'quill',
+          'type' => 'textarea',
           'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
