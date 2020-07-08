@@ -3,7 +3,11 @@
     @include('icons.home')
     <div>Home</div>
   </a>
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
+  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
+    @include('icons.whats-on')
+    <div>What’s On</div>
+  </a> --}}
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/strand/digital-releases') === 0) current @endif" href="/strand/digital-releases/">
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
