@@ -17,7 +17,7 @@
     <div class="alert">
       <h3>{{ $film->custom_coming_soon ?? "Showtimes to be confirmed" }}</h3>
 
-      @if($film->venue->title != 'Online Release')
+      @if($film->venue->id != 13)
         <p>Please check back again soon for details of specific showtimes and to book tickets.</p>
         @if(config('app.mailchimp'))
           <p>Full listings are confirmed every Monday for the week beginning the following Friday. To receive our weekly listings emails, <a href="{{ config('app.mailchimp') }}">sign up here.</a></p>
