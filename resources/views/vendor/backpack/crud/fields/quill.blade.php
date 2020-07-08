@@ -183,7 +183,7 @@
     let BlockEmbed = Quill.import('blots/block/embed');
   }
 
-  if(!DividerBlot instanceof BlockEmbed) {
+  if(!(DividerBlot instanceof BlockEmbed)) {
     class DividerBlot extends BlockEmbed { }
     DividerBlot.blotName = 'divider';
     DividerBlot.tagName = 'hr';
