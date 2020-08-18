@@ -1,0 +1,76 @@
+.section--home-lost {
+  @media screen and (min-width: $medium-screen) {
+    margin-top: 4 * $base-spacing;
+  }
+  margin-bottom: 4 * $base-spacing;
+  overflow: hidden;
+  .section-title {
+    @media screen and (min-width: $medium-screen) {
+      text-align: left;
+    }
+    margin-bottom: $small-spacing;
+  }
+  .lost--band {
+    @media screen and (min-width: $medium-screen) {
+      background-color: #fbf8db;
+    }
+    padding: $base-spacing 0 $base-spacing;
+    .button {
+      font-size: modular-scale(-1);
+      display: block;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      @media screen and (min-width: $medium-screen) {
+        text-align: left;
+        flex-direction: row;
+      }
+    }
+  }
+  .lost--text {
+    padding: 0 $base-spacing;
+    @media screen and (min-width: $medium-screen) {
+      flex: 0 0 47.5%;
+      margin-right: 2.5%;
+      padding: 0;
+    }
+    a {
+      color: $black;
+      font-weight: 500;
+    }
+  }
+  .lost--image {
+    flex: 0 0 50%;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      background-color: #fbf8db;
+      left: -99999px;
+      right: -9999px;
+      top: 3 * $base-spacing;
+      bottom: -$base-spacing;
+      position: absolute;
+      z-index: -1;
+      @media screen and (min-width: $medium-screen) {
+        display: none;
+      }
+    }
+
+    img {
+      margin: $base-spacing auto 0;
+      width: 75%;
+      @media screen and (min-width: $medium-screen) {
+        width: 95%;
+        margin-top: 0;
+        position: absolute;
+        bottom: -0.5em;
+        left: 0;
+      }
+      display: block;
+    }
+  }
+}

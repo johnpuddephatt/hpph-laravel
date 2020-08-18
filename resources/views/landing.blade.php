@@ -10,6 +10,8 @@
   {{-- @include('bookmark', ['class'=> 'home']) --}}
   {{-- @include('home.listings') --}}
   @include('home.newsletter')
+  @include('home.lost')
+
   @include('home.shop')
   @include('home.membership')
   @include('home.strands')
