@@ -445,9 +445,13 @@ dd.Footer
 
   .Merchandise
     position: relative
-    padding-top: 3rem
-    padding-bottom: 3rem
-    padding-left: 120px
+    padding-top: 2rem
+    padding-bottom: 2rem
+    padding-left: 80px
+    @media screen and (min-width: $medium-screen)
+      padding-left: 120px
+      padding-top: 3rem
+      padding-bottom: 3rem
 
     + .Merchandise
       border-top: $base-border
@@ -455,12 +459,19 @@ dd.Footer
     .Footer
       margin-top: 1rem
 
+      *
+        vertical-align: middle
+
     img
       position: absolute
       left: 0
-      top: 6rem
-      width: 100px
+      top: 4rem
+      width: 70px
       height: auto
+      @media screen and (min-width: $medium-screen)
+        width: 100px
+        top: 6rem
+
 
     .Button
       @extend .button__yellow
