@@ -55,7 +55,7 @@
         <h2 class="site-footer--header">Learn more</h2>
 
           <ul class="site-footer--menu-links">
-            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="http://hydeparkpicturehouse.bigcartel.com/">Shop</a></li>
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership">Membership</a></li>
             @if(isset($footermenu))
               @foreach($footermenu as $page)
