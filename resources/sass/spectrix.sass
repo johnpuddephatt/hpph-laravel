@@ -442,10 +442,18 @@ dd.Footer
 .SpektrixPage.Merchandise
   .Merchandise
     position: relative
-    margin-bottom: 2rem
-    padding-bottom: 2rem
-    border-bottom: $base-border
+    padding-top: 3rem
+    padding-bottom: 3rem
     padding-left: 120px
+
+    .header
+      display: none
+
+    + .Merchandise
+      border-top: $base-border
+
+    .footer
+      margin-top: 1rem
 
     img
       position: absolute
@@ -453,3 +461,7 @@ dd.Footer
       top: 3rem
       width: 100px
       height: auto
+
+    .button
+      @extend .button__yellow
+      @extend .button__big
