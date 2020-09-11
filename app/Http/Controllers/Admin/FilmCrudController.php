@@ -254,9 +254,10 @@ class FilmCrudController extends CrudController
 
         $embedArray = [
           'name' => 'embed',
-          'label' => 'Embded code',
+          'label' => 'Embed code',
           'type' => 'textarea',
-          'tab' => 'Overview'
+          'tab' => 'Overview',
+          'hint' => 'Enter embed code for custom players etc. Will appear below film description.',
         ];
 
         $dateCol = [
