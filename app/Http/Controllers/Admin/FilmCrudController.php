@@ -252,6 +252,13 @@ class FilmCrudController extends CrudController
           'tab' => 'Overview'
         ];
 
+        $embedArray = [
+          'name' => 'embed',
+          'label' => 'Embded code',
+          'type' => 'textarea',
+          'tab' => 'Overview'
+        ];
+
         $dateCol = [
           'name' => 'created_at',
           'label' => 'Date created',
@@ -304,7 +311,7 @@ class FilmCrudController extends CrudController
         //   }
         // ];
 
-        $this->crud->addFields([$titleArray,$slugArray,$venueArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
+        $this->crud->addFields([$titleArray,$slugArray,$venueArray,$subtitleArray,$altLanguageTitleArray,$strandArray,$seasonArray,$certificateArray,$runtimeArray,$directorArray,$countryArray,$starringArray,$languageArray,$thumbArray,$trailerArray,$embedArray,$screeningsArray,$trailerDurationArray,$customComingSoonArray,$shortDescriptionArray,$descriptionArray,$reviewsArray,$fRatingArray,$yearArray,$associationArray,$formatArray,$ticketsArray,$audioDescriptionArray,$freeArray], 'both');
 
         $this->crud->addColumns([$titleArray,$dateCol]);
 

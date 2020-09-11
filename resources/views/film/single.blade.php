@@ -48,6 +48,8 @@
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
       </div>
+      
+      {!! $film->embed !!}
 
       @include('film.single.reviews')
 
