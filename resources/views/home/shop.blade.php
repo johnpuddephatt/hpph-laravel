@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="section-title">Shop</h2>
       <div class="shop--grid">
-        <a class="shop--link" href="//hydeparkpicturehouse.bigcartel.com/products">
+        <a class="shop--link" href="//leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">
           @include('utils.intervention', [
             'alt' => "Photograph of mug with colourful, abstract cinema illustration",
             'img' => "/images/shop-mug-studio.jpg",

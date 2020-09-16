@@ -14,7 +14,7 @@
 
   @include('home.shop')
   {{-- @include('home.membership') --}}
-  @include('home.strands')
+  {{-- @include('home.strands') --}}
   @include('home.project')
 
 @stop
