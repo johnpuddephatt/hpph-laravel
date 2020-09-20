@@ -3,14 +3,14 @@
     @include('icons.home')
     <div>Home</div>
   </a>
-  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
-    @include('icons.whats-on')
-    <div>What’s On</div>
-  </a> --}}
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/strand/digital-releases') === 0) current @endif" href="/strand/digital-releases/">
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/whats-on/') === 0) current @endif" href="/whats-on/">
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
+  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/strand/digital-releases') === 0) current @endif" href="/strand/digital-releases/">
+    @include('icons.whats-on')
+    <div>What’s On</div>
+  </a> --}}
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
     <div>Visit</div>
@@ -74,7 +74,7 @@
   <div class="site-footer--secondary">
     <ul class="container">
       <li class="double">
-        <p>Hyde Park Picture House is part of Leeds Grand Theatre & Opera House Ltd.</p>
+        <p>Hyde Park Picture House is part of Leeds Heritage Theatres</p>
         <p>Registered Charity No.500408</p>
         {{-- <img src="{{url('/images/logos/city-varieties.png')}}" /> --}}
         {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
