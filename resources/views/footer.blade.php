@@ -56,7 +56,8 @@
 
           <ul class="site-footer--menu-links">
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
-            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/membership">Membership</a></li>
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/strand/digital-releases/">Digital releases</a></li>
+
             @if(isset($footermenu))
               @foreach($footermenu as $page)
                 <li class="site-footer--menu-item"><a class="site-footer--menu-link" href="{{ url($page->slug) }}">{{ $page->title }}</a></li>
