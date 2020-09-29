@@ -15,10 +15,10 @@
     @include('icons.plan-visit')
     <div>Visit</div>
   </a>
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/picks/') === 0) current @endif" href="/picks/">
+  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/picks/') === 0) current @endif" href="/picks/">
     @include('icons.search')
     <div>Picks</div>
-  </a>
+  </a> --}}
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
     @include('icons.plan-visit')
     <div>Support</div>
