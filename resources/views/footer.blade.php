@@ -9,7 +9,7 @@
   </a>
   {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/strand/digital-releases') === 0) current @endif" href="/strand/digital-releases/">
     @include('icons.whats-on')
-    <div>What’s On</div>
+    <div>Digital releases On</div>
   </a> --}}
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
