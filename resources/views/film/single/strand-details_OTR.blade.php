@@ -1,5 +1,5 @@
 <div class="single-listing--strand-details__OTR"
-  style="background-color: {{ $strand->secondary_color ||  }}; color: {{$strand->color}}; fill: {{$strand->color}}; stroke: {{$strand->color}}; stroke-width: 0;">
+  style="background-color: {{ $strand->secondary_color || '#f5f5f5' }}; color: {{$strand->color}}; fill: {{$strand->color}}; stroke: {{$strand->color}}; stroke-width: 0;">
   @include('icons.on-the-road')
   <h3 class="single-listing--strand-heading">{{$strand->title}}</h3>
   @if($strand->venue_name)<p class="single-listing--strand-subtitle">{{$strand->venue_name}}</p>@endif
