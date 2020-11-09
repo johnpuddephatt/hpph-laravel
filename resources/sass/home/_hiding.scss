@@ -46,11 +46,11 @@
       content: '';
       background-color: white;
       border-radius: 99999px;
-      
+
       @media screen and (orientation: landscape) {
         width: 120%;
         padding-top: 120%;
-        left: calc(100% - #{2 * $base-spacing});
+        left: calc(50% - #{$base-spacing});
       }
     }
 
