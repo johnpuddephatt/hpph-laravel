@@ -108,7 +108,8 @@
     &:hover {
       color: white;
       .home-slider--heading span {
-        @extend %underline_simple;
+        text-decoration: underline;
+        text-decoration-color: $yellow;
       }
     }
   }
@@ -153,11 +154,10 @@
 }
 
 .home-slider--subheading {
-  font-size: modular-scale(2);
   font-weight: 500;
   line-height: $heading-line-height;
   -webkit-font-smoothing: antialiased;
-  margin-top: 0;
+  margin-top: $small-spacing/2;
   &::after {
     content: '>';
     font-style: normal;
@@ -166,7 +166,7 @@
     color: $yellow;
 
     margin-left: $small-spacing/2;
-    line-height: $base-spacing;
+    line-height: 1;
 
   }
 }

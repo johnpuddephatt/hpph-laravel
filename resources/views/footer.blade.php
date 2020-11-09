@@ -67,7 +67,7 @@
 
       </div>
       <div class="site-footer--social">
-        <h2 class="site-footer--header">Social</h2>
+        <h2 class="sr-only" class="site-footer--header">Social</h2>
         @include('social')
       </div>
     </div>
