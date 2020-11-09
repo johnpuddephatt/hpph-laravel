@@ -19,7 +19,7 @@ class CreateVenuesTable extends Migration
             $table->string('title');
             $table->text('slug')->nullable();
             $table->text('description')->nullable();
-            $table->jsonb('address')->nullable();
+            $table->text('address')->nullable();
             $table->text('access_info')->nullable();
             $table->text('refreshment_info')->nullable();
         });
