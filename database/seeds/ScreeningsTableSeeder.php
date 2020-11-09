@@ -20,7 +20,7 @@ class ScreeningsTableSeeder extends Seeder
 
           DB::table('screenings')->insert([
             'film_id' => ($i % $film_count) + 1,  // splits screenings evenly across all films
-            'date' => date("Y/m/d",(time() + rand(0,($screening_count/3)) * 86400)), // gives an average of three screening per day
+            'date' => date("Y/m/d",(time() + rand(0,($screening_count)) * 86400)), // gives an average of three screening per day
             'time' => rand(5,11) * 2 . ':00',
             'url' => '123'
           ]);
