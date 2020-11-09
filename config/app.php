@@ -106,7 +106,7 @@ return [
 
     'jack_roe' => env('JACK_ROE'),
     'spectrix' => env('SPECTRIX'),
-
+    'spektrix_newsletter_redirect' => env('SPEKTRIX_NEWSLETTER_REDIRECT'),
     'mailchimp' => env('MAILCHIMP'),
     'twitter' => env('TWITTER_USERNAME'),
     'facebook' => env('FACEBOOK_USERNAME'),

@@ -119,19 +119,39 @@ sup {
 }
 
 .section-title {
-  font-family: $heading-font-family, 'Times New Roman', serif;
-  font-weight: 400;
+  font-weight: 900;
   color: inherit;
   font-size: modular-scale(6);
-  @media screen and (min-width: $large-screen) {
+
+  @media screen and (min-width: $xl-screen) {
     font-size: modular-scale(7);
   }
-  font-style: italic;
+
+  @media screen and (min-width: $xxl-screen) {
+    font-size: modular-scale(8);
+  }
   text-align: center;
   margin: 2.5 * $base-spacing 0 1.5 * $base-spacing;
-  letter-spacing: .025em;
+  letter-spacing: .01em;
   -webkit-font-smoothing: antialiased;
+
+  + .section-subtitle {
+    margin-top: -$base-spacing;
+  }
 }
+
+.section-subtitle {
+  font-size: modular-scale(1);
+  text-align: center;
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  padding-bottom: $base-spacing;
+  max-width: $medium-screen;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+
 
 %underline {
   text-shadow: -2px -2px white, -2px 2px white, 2px -2px white, 2px 2px white;

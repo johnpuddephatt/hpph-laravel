@@ -10,10 +10,9 @@
   display: inline-block;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  -webkit-font-smoothing: antialiased;
   font-weight: 500;
-  line-height: 1.25 * $base-spacing;
-  padding: 0 $small-spacing;
+  line-height: 1.5 * $base-spacing;
+  padding: 0 1.5 * $small-spacing;
   text-align: center;
   text-decoration: none;
   text-transform: lowercase;
@@ -21,6 +20,7 @@
   user-select: none;
   vertical-align: bottom;
   white-space: nowrap;
+  letter-spacing: 0;
   &:hover,
   &:focus {
     // background-color: $base-font-color;
@@ -74,6 +74,10 @@
     &:hover {
       color: $base-font-color;
     }
+  }
+  &__black {
+    border-color: $base-font-color;
+    color: $base-font-color;
   }
   &__text {
     background-color: transparent;

@@ -1,6 +1,6 @@
 .site-footer--navigation {
   display: none;
-  margin-top: $base-spacing;;
+  margin-top: $base-spacing;
   .hpph-logo {
     display: none;
   }
@@ -69,10 +69,12 @@
 .site-footer {
   position: relative;
   z-index: 999;
+
   .hpph-logo {
     display: none;
   }
-  a:focus {
+
+  a:hover, a:focus {
     outline: none;
     @extend %underline_simple;
   }
@@ -130,10 +132,10 @@
     text-align: left;
     margin-bottom: 0;
     padding: 3 * $base-spacing 0 $base-spacing;
-    background-color: $black;
   }
-  color: white;
   > .container {
+    padding-top: 4 * $base-spacing;
+    border-top: $base-border;
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
@@ -159,7 +161,6 @@
 }
 
 .site-footer--header {
-  color: white;
   line-height: 1.5 * $base-spacing;
   display: none;
   margin-bottom: 0;
@@ -248,18 +249,18 @@
     }
   }
   a {
-    color: white;
+    color: $base-font-color;
     opacity: 0.8;
     &:hover {
       opacity: 1;
-      color: $yellow;
+      color: $base-font-color;
     }
   }
 }
 
 
 .site-footer--menu-link {
-  color: white;
+  color: $base-font-color;
   display: block;
   line-height: 2.5 * $base-spacing;
   font-size: modular-scale(1);
@@ -269,35 +270,32 @@
   transform: translateY(1em);
   text-transform: lowercase;
   @media (min-width: $medium-screen) {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translateY(0em);
     font-weight: 400;
     line-height: 1.25 * $base-spacing;
     font-size: modular-scale(-2);
     &:hover {
       opacity: 1;
-      color: $yellow;
+      color: $base-font-color;
     }
   }
 }
 
 
-
 .site-footer--secondary {
-  padding: $small-spacing 0;
+  padding: $small-spacing 0 3 * $base-spacing;
   display: none;
   @media (min-width: $medium-screen) {
       display: block;
-      background-color: $black;
-      padding: $base-spacing 0;
-      border-top: 1px solid transparentize(#fff,.8);
+      padding: $base-spacing 0 3 * $base-spacing;
   }
   letter-spacing: 0.025em;
   svg  {
     width: 100%;
     display: block;
     path {
-      fill: white;
+      fill: $base-font-color;
       opacity: 0.8;
     }
   }
@@ -353,7 +351,6 @@
         padding-right: $base-spacing;
         text-align: center;
         font-size: modular-scale(-1);
-        color: white;
         -webkit-font-smoothing: antialiased;
         @media (min-width: $medium-screen) {
           text-align: left;

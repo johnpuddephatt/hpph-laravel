@@ -27,6 +27,9 @@
 
 .section--home-slider {
   height: 100vh;
+  .section--home-hero__with-notification & {
+    height: calc(100vh - #{1.7 * $base-spacing});
+  }
   width: 100%;
   overflow: hidden;
   margin-top: -($header-height-landscape);
@@ -150,19 +153,18 @@
 }
 
 .home-slider--subheading {
-  font-family: $heading-font-family;
   font-size: modular-scale(2);
-  font-style: italic;
+  font-weight: 500;
   line-height: $heading-line-height;
   -webkit-font-smoothing: antialiased;
   margin-top: 0;
   &::after {
-    content: '›';
+    content: '>';
     font-style: normal;
     display: inline-block;
-    vertical-align: sub;
+    vertical-align: top;
     color: $yellow;
-    font-size: modular-scale(4);
+
     margin-left: $small-spacing/2;
     line-height: $base-spacing;
 

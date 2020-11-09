@@ -1,16 +1,35 @@
 <section class="section section--home-project">
-  @include('utils.intervention', [
-    'alt' => "",
-    'img' => "/images/home-project.jpg",
-    'class' => "section--home-project--image",
-    'height' => "250",
-    'width' => "750",
-  ])
   <div class="container">
-    <div class="section section--home-project--text">
-      <h2 class="section-title">An exciting new chapter</h2>
+    <div class="section--home-project--text">
+      <h2 class="section-title">An exciting new chapter has begun!</h2>
       <p>Thanks to backing from the Heritage Lottery Fund, Leeds City Council and our valued Friends and partners, our Grade II listed cinema is being restored and renewed.</p>
-      <a class="section--home-project--link" href="https://www.thepicturehouseproject.com/">Learn about The Picture House Project »</a>
+      <a class="button button__ghost button__black section--home-project--link" href="https://www.thepicturehouseproject.com/">Learn more</a>
+    </div>
+
+    <div class="section--home-project--slider">
+      <div class="section--home-project--slider--inner">
+        @include('utils.intervention', [
+          'alt' => "",
+          'img' => "/images/render-daytime.jpg",
+          'class' => "section--home-project--image",
+          'height' => "550",
+          'width' => "750",
+        ])
+        @include('utils.intervention', [
+          'alt' => "",
+          'img' => "/images/home-slider-2.jpg",
+          'class' => "section--home-project--image",
+          'height' => "550",
+          'width' => "750",
+        ])
+        @include('utils.intervention', [
+          'alt' => "",
+          'img' => "/images/home-slider-3.jpg",
+          'class' => "section--home-project--image",
+          'height' => "550",
+          'width' => "750",
+        ])
+      </div>
     </div>
   </div>
 </section>

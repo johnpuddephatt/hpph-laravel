@@ -55,11 +55,9 @@ body {
     main {
       transform-style: preserve-3d;
     }
-    .section--home-newsletter,
     .section--home-membership {
         transform-style: preserve-3d;
     }
-    .section--home-newsletter--image,
     .section--home-membership--image {
       display: block;
       transform: translate3d(0,0,-0.2px) scale(1.3);

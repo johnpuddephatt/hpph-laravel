@@ -25,14 +25,14 @@
     display: block;
     position: relative;
     width: $base-spacing;
-    color: white;
+    color: $base-font-color;
     font-size: modular-scale(-1);
     text-transform: lowercase;
 
     @media screen and (min-width: $medium-screen) {
       line-height: 1.25 * $base-spacing;
       width: auto;
-      opacity: 0.7;
+      opacity: 0.8;
       font-size: modular-scale(-2);
       // svg * {
       //   opacity: 0.7;
@@ -40,7 +40,7 @@
     }
     &:hover, &:focus {
       opacity: 1;
-      color: $yellow;
+      color: $base-font-color;
       svg * {
         opacity: 1;
         color: $yellow;
@@ -58,7 +58,7 @@
       margin-bottom: -$small-spacing/2;
     }
     * {
-      fill: white;
+      fill: $base-font-color;
       transition: fill $base-duration;
     }
 

@@ -6,15 +6,17 @@
 
 @section('content')
 
-  {{-- @include('home.hero') --}}
-  {{-- @include('bookmark', ['class'=> 'home']) --}}
-  {{-- @include('home.listings') --}}
+  @include('bookmark', ['class'=> 'circular'])
+  @include('home.hero')
+  @include('home.weekly-listings')
+  @include('home.project')
+  @include('home.support')
+  @include('home.watch')
   @include('home.newsletter')
-  @include('home.lost')
-
-  @include('home.shop')
+  @include('home.hiding')
+  {{-- @include('home.lost') --}}
+  {{-- @include('home.shop') --}}
   {{-- @include('home.membership') --}}
   {{-- @include('home.strands') --}}
-  @include('home.project')
 
 @stop

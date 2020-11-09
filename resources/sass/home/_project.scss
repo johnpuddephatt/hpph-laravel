@@ -1,86 +1,84 @@
 .section--home-project {
   padding: 2 * $base-spacing 0;
-  margin-bottom: 3 * $base-spacing;
+  margin-bottom: 2 * $base-spacing;
   position: relative;
-  overflow: hidden;
-  text-align: center;
-  color: white;
+  text-align: left;
   display: flex;
-  height: 100vw;
   align-items: center;
   justify-content: center;
+
   @media screen and (min-width: $medium-screen) {
     display: block;
-    height: auto;
-    color: $red;
-    text-align: left;
+    margin-bottom: 4 * $base-spacing;
   }
-  &::after {
-    content: '';
-    display: block;
-    @media screen and (min-width: $medium-screen) {
-      display: none;
-    }
-    z-index: 9;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-  }
+
   .container {
     position: relative;
     z-index: 99;
   }
-  &--image {
-    position: absolute;
-    max-width: none;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: 75% center;
-  }
-  .section--home-project--text {
-    @extend %padded-box;
-    @media screen and (min-width: $medium-screen) {
-      width: 60%;
-      padding-right: 0;
-    }
-  }
-  .section-title {
-    margin-top: 0;
-    font-size: modular-scale(6);
-    text-align: inherit;
-    margin-bottom: $small-spacing;
-    // &::after {
-    //   content: '';
-    //   width: 33%;
-    //   height: $xl-border-width;
-    //   background-color: white;
-    //   display: block;
-    //   margin: $base-spacing auto $base-spacing;
-    //   @media screen and (min-width: $medium-screen) {
-    //     margin: $base-spacing 0 $base-spacing;
-    //     background-color: $red;
-    //   }
-    // }
-  }
-  p {
-    font-size: modular-scale(0);
-    margin-bottom: 0;
-  }
-  .section--home-project--link {
-    display: inline-block;
-    color: white;
-    @media screen and (min-width: $medium-screen) {
-      color: $red;
-    }
-    margin-top: $base-spacing;
-    font-size: modular-scale(1);
-    font-weight: 700;
+
+  .button {
+    text-transform: lowercase;
   }
 
+  &--text {
+    padding-left: $base-spacing;
+    padding-right: $base-spacing;
+
+    @extend %padded-box;
+
+    background-color: $off-white;
+    padding-top: 3 * $base-spacing;
+    padding-bottom: 8 * $base-spacing;
+    margin-bottom: -6 * $base-spacing;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-bottom: 0;
+      padding-left: 2 * $base-spacing;
+      padding-bottom: 3 * $base-spacing;
+      padding-right: 30%;
+      padding-bottom: 4 * $base-spacing;
+    }
+  }
+
+  .section-title {
+    margin-top: 0;
+    text-align: inherit;
+    margin-bottom: $small-spacing;
+  }
+
+  p {
+    margin-bottom: $base-spacing;
+    margin-top: $base-spacing;
+    font-weight: 500;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-top: 2 * $base-spacing;
+      max-width: 60%;
+    }
+  }
+
+  &--link {
+    margin-top: $small-spacing;
+  }
+
+  &--slider {
+    display: block;
+    margin-left: $base-spacing;
+    margin-right: $base-spacing;
+    width: calc(100% - #{2 * $base-spacing});
+
+    &--inner {
+      padding-top: 73.33%;
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      margin-left: 0;
+      margin-right: 0;
+      position: absolute !important;
+      right: 4 * $base-spacing;
+      width: calc(50% - #{6 * $base-spacing});
+      bottom: -3 * $base-spacing;
+    }
+  }
 }

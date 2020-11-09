@@ -1,178 +1,51 @@
 .bookmark--container {
-  body.home &,
   body.page-simple__checkout &,
   body.page-simple__checkout-test & {
     display: none;
-    &.home {
-      display: block;
-      @media screen and (min-width: $medium-screen) {
-        display: none;
-      }
-    }
   }
 
-  @media screen and (min-width: $medium-screen) {
-    body.home & {
-      display: block;
-    }
-    position: fixed;
-    left: 0;
-    z-index: 9999;
-    top: 0;
-    width: 100%;
+  @media screen and (orientation: portrait) {
+    display: none;
   }
+
   .container {
     position: relative;
   }
 }
 
 .bookmark {
-  overflow: auto;
-  padding: $small-spacing $base-spacing;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: $alabaster;
   transition: transform .5s 1s ease;
-  margin-left: -$small-spacing;
-  margin-right: -$small-spacing;
-  @media screen and (min-width: $medium-screen) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: transparent;
-    display: block;
-    padding: 2 * $base-spacing $small-spacing 1 * $base-spacing;
-    background-color: transparent;
-    text-align: center;
-    left: auto;
-    bottom: auto;
-    right: $small-spacing;
-    width: 8 * $base-spacing;
-    transform-origin: 75% 0%;
-    transition: transform .5s 1s ease;
-    transform: translateY(-105%);
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -5 * $base-spacing;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: $alabaster;
-      z-index: -1;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.18);
-    }
+  position: absolute;
+  z-index: 999;
+  top: 82.5vh;
+  right: 0;
+  width: 10 * $base-spacing;
+  padding: $small-spacing;
+  background-color: $alabaster;
+  border-radius: 99999px;
+
+  svg {
+    width: 100%;
+    margin: 0;
   }
-  @media screen and (min-width: $large-screen) {
-    right: -1px;
-  }
+
   &.active {
     transition: transform .5s 0s ease;
     transform: translateY(0);
-
-    &.compact:not(:hover) {
-      @media screen and (min-width: $medium-screen) {
-        transform: scale(0.5);
-      }
-
-      p,
-      a {
-        opacity: 0;
-      }
-
-      &::before {
-        transform: translateY(-5.5em);
-      }
-
-      svg {
-        transform: scale(1.2);
-      }
-    }
-
   }
 
-
-
-
   svg {
-    width: 4 * $base-spacing;
     height: auto;
     display: block;
-    margin-right: 1.5 * $small-spacing;
-    @media screen and (min-width: $medium-screen) {
-      margin: 0 auto $base-spacing;
-      float: none;
-      width: 75%;
-    }
-
-    transform-origin: center top;
-    transition: transform .5s ease;
     stroke: $light-black;
     stroke-width: 0;
+    // transform-origin: center top;
+    // transition: transform .5s ease;
     // #revolver {
     //   animation: revolver 6s ease infinite;
     //   transform-origin: center center;
     // }
   }
-
-  h3 {
-    margin-bottom: $small-spacing/2;
-    @media screen and (min-width: $medium-screen) {
-      display: none;
-    }
-  }
-
-  p,
-  a {
-    display: block;
-    font-family: $heading-font-family;
-    line-height: $heading-line-height;
-    color: $base-font-color;
-    font-size: modular-scale(0);
-    letter-spacing: $base-letter-spacing/2;
-    transition: opacity .25s;
-  }
-  p {
-    margin-bottom: 0;
-    max-width: 20em;
-    &:last-child {
-      margin-top: $small-spacing/2;
-      @media screen and (min-width: $medium-screen) {
-        margin-top: $small-spacing;
-      }
-      &::before {
-        content: '';
-        display: block;
-        height: 1px;
-        background-color: $base-font-color;
-        width: 55%;
-        max-width: 12em;
-        margin: 0 0 $small-spacing/2;
-        @media screen and (min-width: $medium-screen) {
-          margin: 0 auto $small-spacing;
-        }
-      }
-    }
-  }
-
-  // &::after {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   top: 0;
-  //   background-image: url(https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1540352095219-1PEK700EYRYUIZMCF15R/ke17ZwdGBToddI8pDm48kE8S_s2-Ez5WAzV14Ql2mi5Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzzZUQ2JJG0HfWW-asyctmg1e2urW_-EeMtYO7sEWvVN_CPLGlS-qI9BKIWG3vKjmM/mask-web.jpg?format=750w);
-  //   mix-blend-mode: lighten;
-  //   background-size: 40em;
-  //   opacity: 1;
-  //   pointer-events: none;
-  //   filter: invert(1);
-  // }
 }
 
 @keyframes enterBookmark {

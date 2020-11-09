@@ -18,7 +18,7 @@ class HomeController extends Controller
   public function index($day = 1) {
 
     $today = $this->today;
-    
+
     /*
     ** SLIDES
     */
@@ -43,42 +43,65 @@ class HomeController extends Controller
     });
 
     /*
-    ** SCREENINGS
+    ** WEEKLY SCREENINGS
+    */
+
+    // First week; collect today screenings separately
+    $week_commencing = date("Y/m/d",$this->today + DAYINSECONDS);
+    $screenings_today_query = Screening::laterToday()
+                        ->with(['film.strands','film.venue','tags'])
+                        ->orderBy('date')
+                        ->orderBy('time');
+
+    // For all weeks
+    $week_ending = date("Y/m/d",time() + (6 * DAYINSECONDS));
+    $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])
+                                  ->with(['film.strands','film.venue','tags'])
+                                  ->orderBy('date')
+                                  ->orderBy('time');
+
+    // Run the queries
+    $screenings = $screenings_query->get();
+    $screenings_today = $screenings_today_query->get();
+
+
+    /*
+    ** DAILY SCREENINGS
     */
 
     // For screenings today we only include those which are in the future
-    $screenings_today = Screening::laterToday()
-                        ->with('film.strands')
-                        ->orderBy('date')
-                        ->orderBy('time')
-                        ->get();
-
-    // Out of range; abort.
-    if($day < 1 || $day > 7) abort(404);
-
-    // On day one and there are screenings; get them.
-    if($day == 1 && count($screenings_today)) {
-      $screenings = $screenings_today;
-    }
-    // On day one but there are no screenings; skip day.
-    elseif($day == 1) {
-      $day++;
-      $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
-      $screenings = Screening::where('date',$current_date)
-                      ->with('film.strands')
-                      ->orderBy('date')
-                      ->orderBy('time')
-                      ->get();
-    }
-    // Not on first day
-    else {
-      $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
-      $screenings = Screening::where('date',$current_date)
-                              ->with('film.strands')
-                              ->orderBy('date')
-                              ->orderBy('time')
-                              ->get();
-    }
+    // $screenings_today = Screening::laterToday()
+    //                     ->with('film.strands')
+    //                     ->orderBy('date')
+    //                     ->orderBy('time')
+    //                     ->get();
+    //
+    // // Out of range; abort.
+    // if($day < 1 || $day > 7) abort(404);
+    //
+    // // On day one and there are screenings; get them.
+    // if($day == 1 && count($screenings_today)) {
+    //   $screenings = $screenings_today;
+    // }
+    // // On day one but there are no screenings; skip day.
+    // elseif($day == 1) {
+    //   $day++;
+    //   $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
+    //   $screenings = Screening::where('date',$current_date)
+    //                   ->with('film.strands')
+    //                   ->orderBy('date')
+    //                   ->orderBy('time')
+    //                   ->get();
+    // }
+    // // Not on first day
+    // else {
+    //   $current_date = date("Y/m/d",$today + ($day - 1) * DAYINSECONDS);
+    //   $screenings = Screening::where('date',$current_date)
+    //                           ->with('film.strands')
+    //                           ->orderBy('date')
+    //                           ->orderBy('time')
+    //                           ->get();
+    // }
 
     /*
     ** STRANDS

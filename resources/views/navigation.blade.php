@@ -12,5 +12,7 @@
 </ul>
 
 <ul class="site-header--right">
-  {{-- <li class="pull-right"><button class="button button__text search-button">@include('icons.search')Search</button></li> --}}
+  <li class="pull-right"><button class="button button__text search-button">@include('icons.search')Search</button></li>
+  {{-- Also uncomment scripts in header... --}}
+  {{-- @include('basket') --}}
 </ul>

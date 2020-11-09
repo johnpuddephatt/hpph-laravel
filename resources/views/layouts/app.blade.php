@@ -12,11 +12,15 @@
       <meta name="description" content="@yield('description', config('app.description'))">
       <link rel="canonical" href="@yield('canonical', Request::url())" />
       <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
+      <script defer type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+
+      {{-- <script src="https://webcomponents.spektrix.com/stable/webcomponents-loader.js"></script> --}}
+      {{-- <script src="https://webcomponents.spektrix.com/stable/spektrix-component-loader.js" data-components="spektrix-basket-summary" async></script> --}}
+
     </head>
     <body class="@stack('body-classes')">
 
       {{-- @include('bookmark') --}}
-
       <div class="wrapper">
         @include('header')
         @include('search')
@@ -28,7 +32,6 @@
         @include('footer')
       </div>
 
-    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
   </body>
 </html>
