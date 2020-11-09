@@ -4,11 +4,17 @@
   font-weight: 700;
 }
 
-@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
+@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTMedium", $file-formats: woff2 woff){
   font-style: normal;
   font-display: block;
   font-weight: 500;
 }
+
+// @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTDemi", $file-formats: woff2 woff){
+//   font-style: normal;
+//   font-display: block;
+//   font-weight: 500;
+// }
 
 @include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
   font-style: normal;

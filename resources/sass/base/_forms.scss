@@ -1,6 +1,15 @@
 .field {
   display: flex;
   flex-direction: row;
+  max-width: 35em;
+
+  + .field {
+    margin-top: $small-spacing/2;
+  }
+
+  input ~ input {
+    margin-left: $small-spacing;
+  }
 }
 
 fieldset {

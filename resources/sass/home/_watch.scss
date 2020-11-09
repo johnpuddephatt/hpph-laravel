@@ -119,8 +119,8 @@
     -webkit-font-smoothing: antialiased;
     letter-spacing: $base-letter-spacing/2;
 
-    @media screen and (min-width: $medium-screen) {
-      max-width: 20em;
-    }
+    // @media screen and (min-width: $medium-screen) {
+    //   max-width: 20em;
+    // }
   }
 }

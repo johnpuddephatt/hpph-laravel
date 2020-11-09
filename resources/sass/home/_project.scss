@@ -9,7 +9,7 @@
 
   @media screen and (min-width: $medium-screen) {
     display: block;
-    margin-bottom: 4 * $base-spacing;
+    margin-bottom: 6 * $base-spacing;
   }
 
   .container {
@@ -77,8 +77,8 @@
       margin-right: 0;
       position: absolute !important;
       right: 4 * $base-spacing;
-      width: calc(50% - #{6 * $base-spacing});
-      bottom: -3 * $base-spacing;
+      width: calc(55% - #{6 * $base-spacing});
+      bottom: -5 * $base-spacing;
     }
   }
 }

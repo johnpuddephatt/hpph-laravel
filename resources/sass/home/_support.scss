@@ -19,7 +19,7 @@
       flex-direction: row;
       padding-left: 4 * $base-spacing;
       padding-right: 4 * $base-spacing;
-      align-items: center;
+      align-items: flex-end;
     }
   }
 
@@ -61,11 +61,17 @@
       font-style: italic;
       letter-spacing: 0.015em;
       color: $base-font-color;
+      margin-left: 0.7em;
+
+      &:hover {
+        @extend %underline;
+      }
 
       &::before {
         content: '»';
         color: $yellow;
         display: inline-block;
+        margin-left: -0.6em;
         margin-right: $small-spacing;
         font-family: $base-font-family;
         font-style: normal;

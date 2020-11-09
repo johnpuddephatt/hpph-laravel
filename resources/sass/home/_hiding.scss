@@ -27,6 +27,7 @@
 
   &--image {
     padding-bottom: 2 * $base-spacing;
+    position: relative;
 
     @media screen and (orientation: landscape) {
       flex: 0 0 25%;
@@ -34,8 +35,29 @@
       padding-right: 2 * $base-spacing;
     }
 
+    &::before {
+      display: block;
+      position: absolute;
+      width: 100%;
+      padding-top: 100%;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      content: '';
+      background-color: white;
+      border-radius: 99999px;
+      
+      @media screen and (orientation: landscape) {
+        width: 120%;
+        padding-top: 120%;
+        left: calc(100% - #{2 * $base-spacing});
+      }
+    }
+
     svg {
       display: block;
+      position: relative;
+      z-index: 9;
       width: 66%;
       height: auto;
       margin-left: auto;
@@ -63,7 +85,7 @@
     margin-bottom: 0;
     @media screen and (min-width: $medium-screen) {
       text-align: left;
-    
+
       &::before {
         margin-left: -1.2em;
         margin-right: 0.2em;
@@ -96,7 +118,8 @@
     @media screen and (min-width: $medium-screen) {
       margin-left: 0;
       margin-right: 0;
-      max-width: 65%;
+      // max-width: 65%;
+      max-width: 100%;
     }
   }
 

@@ -83,7 +83,7 @@
   p {
     font-size: modular-scale(1);
     font-weight: 500;
-    max-width: 22em;
+    // max-width: 22em;
     margin-bottom: $base-spacing;
     -webkit-font-smoothing: antialiased;
     letter-spacing: $base-letter-spacing/2;
@@ -95,16 +95,11 @@
   }
 
   input {
-    max-width: 16em;
-
-    &[type="submit"] {
-      max-width: 100%;
-      width: 100%;
-
-      @media screen and (min-width: $medium-screen) {
-        width: 16em;
-        margin-left: calc(10em + #{$small-spacing});
-      }
+    line-height: 1.5em;
+    // max-width: 16em;
+    &[type='submit'] {
+      width: 15em;
+      margin-bottom: $small-spacing;
     }
   }
 
