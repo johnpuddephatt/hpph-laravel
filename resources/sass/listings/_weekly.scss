@@ -6,6 +6,8 @@
 
 
 .weekly-screenings--screenings {
+  max-width: $xl-screen;
+
   .alert {
     @media screen and (orientation: portrait) {
       margin: $base-spacing $base-spacing;
@@ -195,6 +197,7 @@
   font-weight: 500;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
+  margin-top: $small-spacing/4;
   margin-bottom: $small-spacing/2;
   &:empty {
     visibility: hidden;
@@ -206,10 +209,6 @@
     background-color: $yellow;
     display: inline-block;
     margin-right: $small-spacing/3;
-  }
-
-  @media screen and (min-width: $medium-screen) {
-    font-size: modular-scale(0);
   }
 }
 
