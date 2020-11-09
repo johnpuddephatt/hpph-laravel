@@ -33,11 +33,11 @@
 
   &--text {
     @media screen and (min-width: $medium-screen) {
-      flex: 0 0 40%;
+      flex: 0 0 45%;
     }
 
     p {
-      font-size: modular-scale(1);
+      // font-size: modular-scale(1);
       font-weight: 500;
     }
   }
