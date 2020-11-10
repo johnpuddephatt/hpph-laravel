@@ -249,7 +249,8 @@ class FilmCrudController extends CrudController
           'type' => 'video',
           'label' => 'Trailer',
           'hint' => 'Link to YouTube or Vimeo',
-          'tab' => 'Overview'
+          'tab' => 'Overview',
+          'youtube_api_key' => 'AIzaSyBer2AHe0rQmClRRYK9W3KEp4YuYVpZfpY',
         ];
 
         $embedArray = [
