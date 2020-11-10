@@ -49,6 +49,10 @@ $field['wrapper']['data-video'] = '';
     @if (isset($field['hint']))
         <p class="help-block">{!! $field['hint'] !!}</p>
     @endif
+
+    <script>
+    let videoField = document.querySelector('[data-video]');
+    bpFieldInitVideoElement(videoField)</script>
 </div>
 
 {{-- ########################################## --}}
@@ -345,6 +349,8 @@ $field['wrapper']['data-video'] = '';
                 }
             });
         }
+
+
 
         jQuery(document).ready(function($) {
             $('form').on('submit', function(e){
