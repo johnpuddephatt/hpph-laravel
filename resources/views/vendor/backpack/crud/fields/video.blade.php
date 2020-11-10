@@ -293,7 +293,7 @@ $field['wrapper']['data-video'] = '';
                 linkField = $this.find('.video-link'),
                 pDummy = $this.find('.video-dummy'),
                 pWrap = $this.find('.video-preview'),
-                apiKey = {{env('GOOGLE_MAPS_KEY')}};
+                apiKey = "{{env('GOOGLE_MAPS_KEY')}}";
 
                 try {
                     var videoJson = JSON.parse(jsonField.val());
