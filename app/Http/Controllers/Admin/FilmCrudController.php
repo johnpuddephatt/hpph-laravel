@@ -257,7 +257,7 @@ class FilmCrudController extends CrudController
           'label' => 'Embed code',
           'type' => 'textarea',
           'tab' => 'Overview',
-          'hint' => 'Enter embed code for custom players etc. Will appear below film description.',
+          'hint' => 'Enter embed code for custom players etc. Will appear below film description.'
         ];
 
         $dateCol = [
@@ -331,7 +331,9 @@ class FilmCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         \Cache::forget('homeSlides');
+        \Cache::forget('homeOnline');
         \Cache::forget('searchData');
+
 
         return $redirect_location;
     }
@@ -343,6 +345,7 @@ class FilmCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         \Cache::forget('homeSlides');
+        \Cache::forget('homeOnline');
         \Cache::forget('searchData');
         return $redirect_location;
     }

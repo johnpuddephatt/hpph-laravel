@@ -12,10 +12,15 @@ use App\Models\Screening;
 use App\Models\Slide;
 use App\Models\Strand;
 use App\Models\Tag;
+use App\Models\Film;
 
 class HomeController extends Controller
 {
   public function index($day = 1) {
+
+    $home_online = \Cache::rememberForever('homeOnline', function () {
+      return Strand::find(config('app.watch_online_strand'))->films()->latest()->first();
+    });
 
     $today = $this->today;
 
@@ -119,7 +124,7 @@ class HomeController extends Controller
       return Tag::whereIn('id',config('app.homepage_tags'))->get();
     });
 
-    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags'));
+    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags', 'home_online'));
   }
 
 }

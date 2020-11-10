@@ -119,6 +119,7 @@ return [
 
     'homepage_strands' =>  explode(',', env('HOMEPAGE_STRANDS', '')),
     'homepage_tags' => explode(',', env('HOMEPAGE_TAGS', '')),
+    'watch_online_strand' => env('WATCH_ONLINE_STRAND'),
 
 
     /*
