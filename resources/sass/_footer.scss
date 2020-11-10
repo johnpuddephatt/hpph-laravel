@@ -291,6 +291,16 @@
       padding: $base-spacing 0 3 * $base-spacing;
   }
   letter-spacing: 0.025em;
+
+  a {
+    color: $base-font-color;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+      color: $base-font-color;
+    }
+  }
+  
   svg  {
     width: 100%;
     display: block;

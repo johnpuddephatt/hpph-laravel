@@ -1,6 +1,8 @@
 html {
   box-sizing: border-box;
   touch-action: manipulation;
+  width: 100%;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -9,8 +11,7 @@ html {
   box-sizing: inherit;
 }
 
-html {
-  width: 100%;
+// html {
   // // Prevent bottom bar on iOS Safari interfering with menu
   // &.iOSSafari {
   //   height: 100%;
@@ -21,7 +22,7 @@ html {
   //     -webkit-overflow-scrolling: touch;
   //   }
   // }
-}
+// }
 
 .locked {
   height: 100%;

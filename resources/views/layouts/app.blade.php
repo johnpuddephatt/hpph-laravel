@@ -20,7 +20,11 @@
     </head>
     <body class="@stack('body-classes')">
 
-      {{-- @include('bookmark') --}}
+      @if (\Request::is('/') and (count($screenings_today) or count($screenings)))
+        @include('bookmark')
+      @endif
+
+
       <div class="wrapper">
         @include('header')
         @include('search')

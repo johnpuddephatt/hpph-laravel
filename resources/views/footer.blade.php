@@ -11,10 +11,10 @@
     @include('icons.whats-on')
     <div>Digital releases On</div>
   </a> --}}
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
+  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/visit/') === 0) current @endif" href="/visit/">
     @include('icons.plan-visit')
     <div>Visit</div>
-  </a>
+  </a> --}}
   {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/picks/') === 0) current @endif" href="/picks/">
     @include('icons.search')
     <div>Picks</div>
@@ -22,6 +22,10 @@
   <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
     @include('icons.plan-visit')
     <div>Support</div>
+  </a>
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/news/') === 0) current @endif" href="/news/">
+    @include('icons.news')
+    <div>News</div>
   </a>
   {{-- <button class="site-footer--navigation--link site-footer--navigation--link__search">
     @include('icons.search')
@@ -56,7 +60,7 @@
 
           <ul class="site-footer--menu-links">
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
-            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/strand/digital-releases/">Digital releases</a></li>
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/strand/watch-online/">Watch online</a></li>
 
             @if(isset($footermenu))
               @foreach($footermenu as $page)
@@ -75,16 +79,17 @@
   <div class="site-footer--secondary">
     <ul class="container">
       <li class="double">
-        <p>Hyde Park Picture House is part of Leeds Heritage Theatres</p>
+        <p>Hyde Park Picture House is part of <a target="_blank" href="https://leedsheritagetheatres.com/">Leeds Heritage Theatres</a></p>
         <p>Registered Charity No.500408</p>
         {{-- <img src="{{url('/images/logos/city-varieties.png')}}" /> --}}
         {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
       </li>
       <li class="spacer"></li>
+      <li>@include('logos.LHT')</li>
       <li>@include('logos.hlf_white')</li>
       <li>@include('logos.leeds-city-council_white')</li>
       <li>@include('logos.BFI_white')</li>
-      <li>@include('logos.GWF_white')</li>
+      {{-- <li>@include('logos.GWF_white')</li> --}}
       <li class="andahalf">@include('logos.europa-cinemas_white')</li>
       <li class="andahalf">@include('logos.fundraising_regulator')</li>
     </ul>

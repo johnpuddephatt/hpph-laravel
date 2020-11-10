@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     display: block;
     margin-bottom: 6 * $base-spacing;
   }
@@ -32,7 +32,7 @@
     padding-bottom: 8 * $base-spacing;
     margin-bottom: -6 * $base-spacing;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       margin-bottom: 0;
       padding-left: 2 * $base-spacing;
       padding-bottom: 3 * $base-spacing;
@@ -52,7 +52,7 @@
     margin-top: $base-spacing;
     font-weight: 500;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       margin-top: 2 * $base-spacing;
       max-width: 60%;
     }
@@ -72,7 +72,7 @@
       padding-top: 73.33%;
     }
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       margin-left: 0;
       margin-right: 0;
       position: absolute !important;

@@ -3,7 +3,7 @@
   text-align: center;
   position: relative;
 
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     text-align: left;
     padding: 3 * $base-spacing 0;
   }
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       padding-left: 0;
       padding-right: 0;
       flex-direction: row;
@@ -33,7 +33,7 @@
     padding-top: 2.5 * $base-spacing;
     padding-bottom: 2 * $base-spacing;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       padding-left: 2 * $base-spacing;
       padding-right: 2 * $base-spacing;
       padding-top: 0;
@@ -49,7 +49,7 @@
     flex: 0 0 50%;
     position: relative;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       position: static;
     }
 
@@ -64,7 +64,7 @@
     bottom: -$base-spacing;
     width: calc(100% - #{2 * $base-spacing});
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       bottom: $base-spacing;
       left: 50%;
       width: auto;
@@ -100,7 +100,7 @@
 
   .section-title {
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       text-align: left;
     }
 
@@ -119,7 +119,7 @@
     -webkit-font-smoothing: antialiased;
     letter-spacing: $base-letter-spacing/2;
 
-    // @media screen and (min-width: $medium-screen) {
+    // @media screen and (min-width: $large-screen) {
     //   max-width: 20em;
     // }
   }

@@ -6,7 +6,6 @@
 
 @section('content')
 
-  @include('bookmark', ['class'=> 'circular'])
   @include('home.hero')
   @include('home.weekly-listings')
   @include('home.project')

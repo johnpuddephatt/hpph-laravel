@@ -4,7 +4,7 @@ let projectSliderImages = document.querySelector('.section--home-project--slider
 let projectSlider = simpleslider.getSlider({
   container: projectSliderImages,
   duration: 1,
-  delay: 1.5,
+  delay: 3,
   prop: 'opacity',
   unit: '',
   init: 0,

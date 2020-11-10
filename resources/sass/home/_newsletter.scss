@@ -21,15 +21,15 @@
     padding-left: $base-spacing;
     padding-right: $base-spacing;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       padding-left: 4 * $base-spacing;
-      // padding-right: 0;
-      padding-top: 2.5 * $base-spacing;
+      padding-right: 40%;
     }
 
     @media screen and (min-width: $medium-screen) {
+      padding-top: 2.5 * $base-spacing;
       text-align: left;
-      padding-right: 40%;
+      padding-right: 50%;
     }
 
     form {

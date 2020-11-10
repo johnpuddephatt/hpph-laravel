@@ -10,8 +10,8 @@
       'modes' => 'c_fill,g_center,f_auto'
     ])
     <div class="section--home-newsletter--text">
-      <h2 class="section-title">Never miss a screening</h2>
-      <p>Sign up to our weekly listings newsletter to stay on top of our screenings.</p>
+      <h2 class="section-title">Stay up to date</h2>
+      <p>From news and developments, to the latest screenings and special events – subscribe to our emails and stay up to date with your friendly, local cinema.</p>
       <form
         action="https://system.spektrix.com/hydeparkpicturehouse/website/secure/signup.aspx"
         method="POST">

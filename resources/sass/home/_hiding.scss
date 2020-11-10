@@ -4,7 +4,7 @@
   text-align: center;
   background-color: #dcebf5;
 
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     text-align: left;
     display: block;
   }
@@ -16,7 +16,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    @media screen and (orientation: landscape) {
+    @media screen and (min-width: $large-screen) {
       flex-direction: row;
     }
   }
@@ -29,7 +29,7 @@
     padding-bottom: 2 * $base-spacing;
     position: relative;
 
-    @media screen and (orientation: landscape) {
+    @media screen and (min-width: $large-screen) {
       flex: 0 0 25%;
       padding-bottom: 0;
       padding-right: 2 * $base-spacing;
@@ -47,7 +47,7 @@
       background-color: white;
       border-radius: 99999px;
 
-      @media screen and (orientation: landscape) {
+      @media screen and (min-width: $large-screen) {
         width: 120%;
         padding-top: 120%;
         left: calc(50% - #{$base-spacing});
@@ -63,7 +63,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      @media screen and (orientation: landscape) {
+      @media screen and (min-width: $large-screen) {
         width: 100%;
       }
     }
@@ -75,7 +75,7 @@
 
     @extend %padded-box;
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
     }
   }
 
@@ -83,7 +83,7 @@
     margin-top: 0;
     text-align: inherit;
     margin-bottom: 0;
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       text-align: left;
 
       &::before {
@@ -115,7 +115,7 @@
       margin-top: -$small-spacing;
     }
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       margin-left: 0;
       margin-right: 0;
       // max-width: 65%;

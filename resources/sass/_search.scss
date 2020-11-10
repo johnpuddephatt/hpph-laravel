@@ -104,11 +104,12 @@
   padding-left: 0;
   padding-right: 0;
   border: none;
+  font-weight: 600;
   border-radius: 0;
   padding-top: 0;
   padding-bottom: 0;
   line-height: 1.5 * $base-spacing;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
   letter-spacing: $base-letter-spacing;
   body.home &,
   body.film &,

@@ -2,6 +2,8 @@
   <div class="listings-navigation--inner">
     <a href="/whats-on/weekly" class=" @if(isset($screenings))current @endif">By date</a>
     <a href="/whats-on/a-z" class=" @if(isset($films))current @endif">By title (A&ndash;Z)</a>
+    <a href="/strands/watch-online">Watch online</a>
+
     @if($type == 'weekly')
       <div class="weekly-screenings--navigation">
           @if($week == 1)
