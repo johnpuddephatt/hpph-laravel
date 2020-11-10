@@ -260,8 +260,8 @@
 
 
 .site-footer--menu-link {
-  color: $base-font-color;
-  display: block;
+  display: inline-block;
+  color: white;
   line-height: 2.5 * $base-spacing;
   font-size: modular-scale(1);
   font-weight: 500;
@@ -270,6 +270,7 @@
   transform: translateY(1em);
   text-transform: lowercase;
   @media (min-width: $medium-screen) {
+    color: $base-font-color;
     opacity: 0.8;
     transform: translateY(0em);
     font-weight: 400;
@@ -300,7 +301,7 @@
       color: $base-font-color;
     }
   }
-  
+
   svg  {
     width: 100%;
     display: block;
