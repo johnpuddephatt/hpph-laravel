@@ -4,7 +4,7 @@
       <div class="section--home-watch--image">
         @include('utils.intervention', [
           'alt' => "",
-          'img' => {{ $home_online->thumb }},
+          'img' => $home_online->thumb,
           'class' => "",
           'height' => "750",
           'width' => "750",
