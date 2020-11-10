@@ -21,7 +21,7 @@ $field['wrapper']['data-video'] = '';
 ?>
 
 
-@include('crud::fields.inc.wrapper_start')
+<div data-video @include('crud::inc.field_wrapper_attributes') >
     <label for="{{ $field['name'] }}_link">{!! $field['label'] !!}</label>
     @include('crud::fields.inc.translatable_icon')
     <input class="video-json" type="hidden" name="{{ $field['name'] }}" value="{{ $value }}">
@@ -49,7 +49,7 @@ $field['wrapper']['data-video'] = '';
     @if (isset($field['hint']))
         <p class="help-block">{!! $field['hint'] !!}</p>
     @endif
-@include('crud::fields.inc.wrapper_end')
+</div>
 
 {{-- ########################################## --}}
 {{-- Extra CSS and JS for this particular field --}}
