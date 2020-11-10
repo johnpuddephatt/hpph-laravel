@@ -135,13 +135,13 @@
   }
   > .container {
     padding-top: 4 * $base-spacing;
-    border-top: $base-border;
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     @media (min-width: $medium-screen) {
+      border-top: $base-border;
       align-items: flex-start;
       flex-direction: row;
     }
