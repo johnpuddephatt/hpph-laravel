@@ -51,8 +51,7 @@ $field['wrapper']['data-video'] = '';
     @endif
 
     <script>
-    let videoField = document.querySelector('[data-video]');
-    bpFieldInitVideoElement(videoField)</script>
+    bpFieldInitVideoElement($('[data-video]'))</script>
 </div>
 
 {{-- ########################################## --}}
@@ -169,6 +168,7 @@ $field['wrapper']['data-video'] = '';
                 url: api,
                 crossDomain: true,
                 success: function (data) {
+                    console.log(data);
                     if (typeof(data.items[0]) != "undefined") {
                                     var v = data.items[0].snippet;
 
