@@ -353,6 +353,9 @@ $field['wrapper']['data-video'] = '';
 
 
         jQuery(document).ready(function($) {
+
+           bpFieldInitVideoElement($('[data-video]'));
+
             $('form').on('submit', function(e){
                 if( videoParsing ){
                     new Noty({
