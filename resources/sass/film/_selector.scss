@@ -87,7 +87,7 @@
   }
   transition: transform $base-timing 2 * $base-duration $base-duration;
   transform: translateY(100%);
-  margin-top: -3.5 * $base-spacing;
+  // margin-top: -3.5 * $base-spacing;
 
   &.active {
     pointer-events: all;
