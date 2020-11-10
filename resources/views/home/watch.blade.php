@@ -11,7 +11,7 @@
           'quality' => "68",
           'modes' => 'c_fill,g_center,f_auto'
         ])
-        <a href="/films/{{ $home_online->slug }}" class="section--home-watch--button button button__yellow button__big">
+        <a href="/film/{{ $home_online->slug }}" class="section--home-watch--button button button__yellow button__big">
           <span>Watch:</span>
           {{ $home_online->title }}
         </a>
