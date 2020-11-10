@@ -23,10 +23,10 @@ $field['wrapper']['data-video'] = '';
 
 <div data-video @include('crud::inc.field_wrapper_attributes') >
     <label for="{{ $field['name'] }}_link">{!! $field['label'] !!}</label>
-    @include('crud::fields.inc.translatable_icon')
+    @include('crud::inc.translatable_icon')
     <input class="video-json" type="hidden" name="{{ $field['name'] }}" value="{{ $value }}">
     <div class="input-group">
-        <input @include('crud::fields.inc.attributes', ['default_class' => 'video-link form-control']) type="url" id="{{ $field['name'] }}_link">
+        <input @include('crud::inc.attributes', ['default_class' => 'video-link form-control']) type="url" id="{{ $field['name'] }}_link">
         <div class="input-group-append video-previewSuffix video-noPadding">
             <div class="video-preview">
                 <span class="video-previewImage"></span>
