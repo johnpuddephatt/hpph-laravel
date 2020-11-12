@@ -3,11 +3,10 @@
   <section class="section section--az-listings" id="daily-screenings">
 
     <h2 class="section-title">On the Road</h2>
-    {{-- <p class="section-subtitle">Our On the Road programme is a year of exciting film screenings and live events, held across Leeds.</p> --}}
-    <p class="section-subtitle">With the cinema closed and work on our redevelopment due to begin, the Hyde Park Picture House is now On the Road – screening brilliant films at venues across the city including the City Varieties, HEART Centre and Brudenell Social Club. See below for the latest screenings or visit our <a href="/whats-on/">what’s on page</a> for full listings.</p>
+    <p class="section-subtitle">With the cinema closed and work on our redevelopment due to begin, the Hyde Park Picture House is now On the Road – screening brilliant films at venues across the city.</p>
     <div class="weekly-screenings--content">
 
-      <div class="weekly-screenings--screenings container">
+      <div class="weekly-screenings--screenings daily-screenings--screenings container">
         @if( isset($screenings_today) && count($screenings_today))
           <h2 class="weekly-screenings--date">Today</h2>
           <div class="weekly-screenings--entries">
@@ -28,7 +27,7 @@
                 @php $current_date = $screening->date @endphp
                 <div class="weekly-screenings--entries">
               @endif
-              @include('screening.weekly-item')
+              @include('screening.home-weekly-item')
             @endif
           @endforeach
           </div>

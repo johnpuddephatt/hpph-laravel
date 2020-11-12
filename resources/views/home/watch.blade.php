@@ -12,7 +12,7 @@
           'modes' => 'c_fill,g_center,f_auto'
         ])
         <a href="/film/{{ $home_online->slug }}" class="section--home-watch--button button button__yellow button__big">
-          <span>Watch:</span>
+          <span>watch:</span>
           {{ $home_online->title }}
         </a>
       </div>

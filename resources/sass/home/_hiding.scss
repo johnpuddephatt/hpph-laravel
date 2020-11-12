@@ -16,8 +16,11 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    @extend %padded-box;
+
     @media screen and (min-width: $large-screen) {
       flex-direction: row;
+
     }
   }
 
@@ -71,11 +74,10 @@
   }
 
   &--text {
-    flex: 0 0 75%;
-
-    @extend %padded-box;
+    flex: 0 0 60%;
 
     @media screen and (min-width: $large-screen) {
+      margin-left: 2 * $base-spacing;
     }
   }
 

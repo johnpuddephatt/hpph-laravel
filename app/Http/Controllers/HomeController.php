@@ -54,23 +54,28 @@ class HomeController extends Controller
     ** WEEKLY SCREENINGS
     */
 
-    // First week; collect today screenings separately
+    $max_screenings = 4;
+
+    // // First week; collect today screenings separately
     $week_commencing = date("Y/m/d",$this->today + DAYINSECONDS);
     $screenings_today_query = Screening::laterToday()
                         ->with(['film.strands','film.venue','tags'])
+                        ->limit($max_screenings)
                         ->orderBy('date')
                         ->orderBy('time');
 
-    // For all weeks
-    $week_ending = date("Y/m/d",time() + (6 * DAYINSECONDS));
+
+    // // For all weeks
+    $week_ending = date("Y/m/d",time() + (30 * DAYINSECONDS));
     $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])
                                   ->with(['film.strands','film.venue','tags'])
+                                  ->limit($max_screenings - $screenings_today_query->count())
                                   ->orderBy('date')
                                   ->orderBy('time');
 
     // Run the queries
-    $screenings = $screenings_query->get();
     $screenings_today = $screenings_today_query->get();
+    $screenings = $screenings_query->get();
 
 
     /*
