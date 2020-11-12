@@ -1,3 +1,16 @@
+.section--az-listings {
+  svg {
+    width: 5 * $base-spacing;
+    height: auto;
+    display: block;
+    stroke: $black;
+    margin: 2 * $base-spacing auto (-2 * $base-spacing);
+    border-radius: 99999px;
+    background-color: $alabaster;
+    padding: $small-spacing/2;
+  }
+}
+
 .section--home-listings {
   background-color: white;
   padding-bottom: $base-spacing;

@@ -1,7 +1,7 @@
 @if(count($screenings_today) or count($screenings))
 
   <section class="section section--az-listings" id="daily-screenings">
-
+    @include('icons.on-the-road')
     <h2 class="section-title">On the Road</h2>
     <p class="section-subtitle">With the cinema closed and work on our redevelopment due to begin, the Hyde Park Picture House is now On the Road – screening brilliant films at venues across the city.</p>
     <div class="weekly-screenings--content">
