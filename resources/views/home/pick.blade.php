@@ -16,7 +16,7 @@
           'quality' => "68",
           'modes' => 'c_fill,g_center,f_auto'
         ])
-        <a href="/picks/{{ str_slug($home_pick->title) }}" class="section--home-picks--button button button__yellow button__big">
+        <a href="/picks#{{ str_slug($home_pick->title) }}" class="section--home-picks--button button button__yellow button__big">
           <span class="pre">our latest pick:</span>
           <span class="title">{{ $home_pick->title }}</span>
         </a>
