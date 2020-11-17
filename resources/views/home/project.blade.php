@@ -8,27 +8,21 @@
 
     <div class="section--home-project--slider">
       <div class="section--home-project--slider--inner">
-        @include('utils.intervention', [
-          'alt' => "",
-          'img' => "/images/render-daytime.jpg",
-          'class' => "section--home-project--image",
-          'height' => "550",
-          'width' => "750",
-        ])
-        @include('utils.intervention', [
-          'alt' => "",
-          'img' => "/images/home-slider-2.jpg",
-          'class' => "section--home-project--image",
-          'height' => "550",
-          'width' => "750",
-        ])
-        @include('utils.intervention', [
-          'alt' => "",
-          'img' => "/images/home-slider-3.jpg",
-          'class' => "section--home-project--image",
-          'height' => "550",
-          'width' => "750",
-        ])
+        @foreach([
+          "/images/render-daytime.jpg",
+          "/images/home-slider-2.jpg",
+          "/images/home-slider-3.jpg"
+        ] as $image)
+          @include('utils.intervention', [
+            'alt' => "",
+            'img' => $image,
+            'class' => "section--home-project--image",
+            'height' => "550",
+            'width' => "750",
+            'quality' => 90,
+            'sizes' => "(min-width: 900px) 50vw, 80vw",
+          ])
+        @endforeach
       </div>
     </div>
   </div>

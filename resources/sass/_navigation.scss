@@ -100,9 +100,10 @@
     font-size: modular-scale(0);
     line-height: 1.5 * $base-spacing;
     -webkit-font-smoothing: antialiased;
-    &:hover {
-      color: $yellow !important;
-    }
+
+
+
+    &:hover,
     &:focus {
       outline: none;
       @extend %underline_simple;

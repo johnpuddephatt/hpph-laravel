@@ -35,6 +35,12 @@
 }
 
 .weekly-screenings--date {
+
+  .section--home--listings & {
+    position: static !important;
+    margin-bottom: 0 !important;
+  }
+
   font-size: modular-scale(1);
   background-color: #fff;
   color: $base-font-color;

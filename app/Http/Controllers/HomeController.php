@@ -54,7 +54,7 @@ class HomeController extends Controller
     ** WEEKLY SCREENINGS
     */
 
-    $max_screenings = 4;
+    $max_screenings = 2;
 
     // // First week; collect today screenings separately
     $week_commencing = date("Y/m/d",$this->today + DAYINSECONDS);

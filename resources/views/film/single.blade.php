@@ -26,7 +26,13 @@
   <div class="container single-listing--content">
     <div class="single-listing--text">
       <div class="single-listing--heading">
-        <h1 class="single-listing--title">{{ $film->title }}</h1>
+        <h1 class="single-listing--title">
+          {{ $film->title }}
+          @if(backpack_user())
+            <a class="edit-link" href="/admin/film/{{ $film->id }}/edit">Edit</a>
+          @endif
+
+        </h1>
         @if($film->alt_language_title)<div class="single-listing--alt-language-title">{{ $film->alt_language_title }}</div>@endif
         <div class="single-listing--meta">
     @if($film->country){{ $film->country }}, @endif
@@ -42,14 +48,16 @@
         @endforeach
       </div>
       <div class="single-listing--mobile--screenings">
-        Showtimes and location
+        @if($film->is_online)
+          Watch this online
+        @else
+          Showtimes and location
+        @endif
       </div>
       <div class="single-listing--text--content">
         <h2 class="sr-only">Film description</h2>
         {!! $film->description !!}
       </div>
-      
-      {!! $film->embed !!}
 
       @include('film.single.reviews')
 
@@ -73,11 +81,25 @@
     </div>
 
     <div class="single-listing--sidebar">
-      @if($film->venue)
-        @include('film.single.venue-details')
+
+      @if($film->is_online)
+        <h3 class="single-listing--watchonline--header is-closable">How to watch</h3>
+        @if(substr( $film->embed, 0, 4 ) === "http")
+          <a class="button button__big button__yellow" href="{{ $film->embed }}" target="_blank">Watch this on {{ parse_url($film->embed, PHP_URL_HOST)}}</a>
+        @elseif($film->embed)
+          {!! $film->embed !!}
+        @else
+          <div class="alert">
+            This film isn’t currently available to watch online. Please check back soon.
+          </div>
+        @endif
+      @else
+        @if($film->venue)
+          @include('film.single.venue-details')
+        @endif
+        @include('film.single.screening-details')
       @endif
 
-      @include('film.single.screening-details')
     </div>
   </div>
 

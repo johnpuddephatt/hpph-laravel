@@ -83,11 +83,32 @@
     border-color: $base-font-color;
     color: $base-font-color;
   }
+  &__link {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    text-transform: none;
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &::before {
+      content: none;
+      display: none;
+    }
+  }
   &__text {
     background-color: transparent;
     border-color: transparent;
     text-transform: none;
     padding: $base-spacing/3 $small-spacing/2;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+
     &::before {
       content: none;
       display: none;

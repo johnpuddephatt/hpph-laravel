@@ -17,12 +17,14 @@ Route::get('/16-25', function () { return redirect('/membership/16-25'); });
 Route::get('/', 'HomeController@index');
 Route::get('day-{day}', 'HomeController@index');
 
+Route::get('picks', 'PickController@index');
+
 Route::get('film/{slug}', 'FilmController@single');
 
 Route::redirect('whats-on', '/whats-on/weekly', 301);
 Route::get('whats-on/a-z', 'FilmController@index');
 
-Route::get('whats-on/weekly', 'ScreeningController@weekly');
+Route::get('whats-on/weekly', 'ScreeningController@weekly')->name('screenings.weekly');
 Route::get('whats-on/weekly/week-{week}', 'ScreeningController@weekly');
 
 Route::redirect('subscribe', 'http://hydeparkpicturehouse.us4.list-manage.com/subscribe?u=8bc4f3836ccb9012c150eda87&id=9c4ddb7eb6', 301);
@@ -31,6 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
 {
   CRUD::resource('film', 'FilmCrudController');
   CRUD::resource('slide', 'SlideCrudController');
+  CRUD::resource('pick', 'PickCrudController');
   CRUD::resource('screening', 'ScreeningCrudController');
   Route::post ( 'screening/add', '\App\Http\Controllers\ScreeningController@addScreening' );
   Route::post ( 'screening/delete', '\App\Http\Controllers\ScreeningController@deleteScreening' );

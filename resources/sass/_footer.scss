@@ -129,6 +129,7 @@
   flex-direction: column;
   @media (min-width: $medium-screen) {
     display: block;
+    border-top: $base-border;
     text-align: left;
     margin-bottom: 0;
     padding: 0 0 $base-spacing;
@@ -141,7 +142,6 @@
     align-items: center;
     justify-content: space-between;
     @media (min-width: $medium-screen) {
-      border-top: $base-border;
       align-items: flex-start;
       flex-direction: row;
     }

@@ -9,6 +9,7 @@ require('./components/search');
 require('./components/mobile-navigation');
 require('./components/bookmark');
 require('./components/home-project');
+require('./components/showhide');
 
 var smoothScroll = require ('smoothScroll');
 

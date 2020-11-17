@@ -69,8 +69,7 @@
   height: 3.5 * $base-spacing;
   background-color: $light-black;
   color: white;
-  padding-top: $small-spacing;
-  padding-bottom: $small-spacing;
+
   position: fixed;
   bottom: 0;
   left: 0;
@@ -82,16 +81,23 @@
   }
   @media screen and (min-width: $large-screen) {
     z-index: 9;
-    padding-top: $small-spacing/2;
-    padding-bottom: $small-spacing/2;
   }
   transition: transform $base-timing 2 * $base-duration $base-duration;
   transform: translateY(100%);
+  opacity: 0;
   // margin-top: -3.5 * $base-spacing;
 
   &.active {
     pointer-events: all;
     transform: translateY(0);
+    opacity: 1;
+    padding-top: $small-spacing;
+    padding-bottom: $small-spacing;
+
+    @media screen and (min-width: $large-screen) {
+      padding-top: $small-spacing/2;
+      padding-bottom: $small-spacing/2;
+    }
   }
 }
 

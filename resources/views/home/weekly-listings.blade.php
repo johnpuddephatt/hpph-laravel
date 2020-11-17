@@ -1,9 +1,9 @@
 @if(count($screenings_today) or count($screenings))
 
-  <section class="section section--az-listings" id="daily-screenings">
+  <section class="section section--home--listings section--az-listings" id="daily-screenings">
     @include('icons.on-the-road')
     <h2 class="section-title">On the Road</h2>
-    <p class="section-subtitle">With the cinema closed and work on our redevelopment due to begin, the Hyde Park Picture House is now On the Road – screening brilliant films at venues across the city.</p>
+    <p class="section-subtitle">Our off-site programme of screenings and events is on pause due to lockdown restrictions. We’ll resume as soon as we can – see <a href="/news/">our news page</a> for updates.</p>
     <div class="weekly-screenings--content">
 
       <div class="weekly-screenings--screenings daily-screenings--screenings container">
@@ -31,9 +31,10 @@
             @endif
           @endforeach
           </div>
-        @else
-          <div class="alert alert__empty">No screenings currently scheduled for this week.</div>
         @endif
+        <div class="more-screenings">
+          <a class="button button__ghost button__black" href="{{ route('screenings.weekly')}}">See the full programme</a>
+        </div>
     </div>
   </section>
 @endif

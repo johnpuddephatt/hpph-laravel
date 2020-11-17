@@ -102,6 +102,14 @@
   // font-style: italic;
   // font-family: $heading-font-family;
   margin-bottom: 0;
+
+  .edit-link {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $dark-gray;
+    text-transform: lowercase;
+    text-decoration: underline;
+  }
 }
 
 .single-listing--description {

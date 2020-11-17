@@ -7,10 +7,10 @@
 @section('content')
 
   @include('home.hero')
-  @include('home.weekly-listings')
   @include('home.project')
   @include('home.support')
   @include('home.watch')
+  @include('home.weekly-listings')
   @include('home.newsletter')
   @include('home.hiding')
   {{-- @include('home.lost') --}}

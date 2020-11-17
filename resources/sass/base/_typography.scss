@@ -69,6 +69,7 @@ a {
 %underlined-link {
   a {
     color: inherit;
+    display: inline-block;
     font-weight: 500;
     transition: color $base-duration $base-timing;
     position: relative;
@@ -146,7 +147,7 @@ sup {
   padding-right: $base-spacing;
   padding-bottom: 0;
   max-width: $medium-screen;
-  margin: 0 auto;
+  margin: 0 auto $base-spacing;
   font-weight: 500;
   @extend %underlined-link;
 }

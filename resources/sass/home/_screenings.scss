@@ -1,3 +1,15 @@
+.section--home--listings {
+
+  .more-screenings {
+    text-align: center;
+    margin-top: $base-spacing;
+
+    .button {
+      text-transform: lowercase;
+    }
+  }
+}
+
 .section--az-listings {
   svg {
     width: 5 * $base-spacing;
@@ -22,6 +34,11 @@
 .daily-screenings--navigation,
 .daily-screenings--screenings {
   @extend %padded-box;
+
+  @media screen and (max-width: $medium-screen) {
+    padding-left: $small-spacing/2;
+    padding-right: $small-spacing/2;
+  }
 }
 
 .daily-screenings--navigation {

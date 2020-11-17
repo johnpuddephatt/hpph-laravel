@@ -17,6 +17,7 @@
 </li>
 
 <li><a href="{{ backpack_url('slide') }}"><i class="fa fa-youtube-play"></i> <span>Homepage slides</span></a></li>
+<li><a href="{{ backpack_url('pick') }}"><i class="fa fa-star"></i> <span>Picks</span></a></li>
 
 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/menu') }}"><i class="fa fa-bars"></i> <span>Menus</span></a></li>

@@ -76,7 +76,7 @@
 .single-listing--season-details {
   display: block;
   color: inherit;
-  padding: $small-spacing $base-spacing;
+  padding: $base-spacing $base-spacing;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
   font-size: modular-scale(-1);
@@ -117,7 +117,7 @@
 
   .single-listing--strand-heading,
   .single-listing--season-heading, {
-    text-transform: uppercase;
+    font-size: modular-scale(2);
     margin-bottom: $small-spacing;
     font-weight: 500;
   }

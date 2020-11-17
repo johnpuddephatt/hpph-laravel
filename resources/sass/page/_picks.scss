@@ -1,0 +1,33 @@
+.pick--item {
+  margin-bottom: 2 * $base-spacing;
+}
+
+.pick--header {
+  margin-top: 0 !important;
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    &::before {
+      content: none !important;
+    }
+  }
+}
+
+.pick--date {
+  margin-top: $base-spacing;
+  margin-bottom: $small-spacing;
+}
+
+.pick--extended {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3 * $base-duration $base-timing, opacity 3 * $base-duration $base-timing;
+  opacity: 0;
+
+  &.expanded {
+    max-height: 500px;
+    opacity: 1;
+    overflow: auto;
+  }
+}

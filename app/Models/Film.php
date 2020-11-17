@@ -35,6 +35,11 @@
       |--------------------------------------------------------------------------
       */
 
+      public function getIsOnlineAttribute()
+      {
+        return $this->strands->contains(config('app.watch_online_strand'));
+      }
+
       public function setThumbAttribute($value)
         {
           $attribute_name = "thumb";

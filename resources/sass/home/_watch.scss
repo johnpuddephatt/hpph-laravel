@@ -55,6 +55,11 @@
 
     img {
       display: block;
+      margin-top: -$small-spacing;
+
+      @media screen and (min-width: $large-screen) {
+        margin-top: 0;
+      }
     }
   }
 

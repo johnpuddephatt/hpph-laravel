@@ -9,7 +9,7 @@
 
   @media screen and (min-width: $large-screen) {
     display: block;
-    margin-bottom: 6 * $base-spacing;
+    margin-bottom: 5 * $base-spacing;
   }
 
   .container {
@@ -70,6 +70,17 @@
 
     &--inner {
       padding-top: 73.33%;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 0;
+        image-rendering: pixelated;
+
+        &:not(:first-child) {
+          opacity: 0;
+        }
+      }
     }
 
     @media screen and (min-width: $large-screen) {
@@ -78,7 +89,7 @@
       position: absolute !important;
       right: 4 * $base-spacing;
       width: calc(55% - #{6 * $base-spacing});
-      bottom: -5 * $base-spacing;
+      bottom: -4 * $base-spacing;
     }
   }
 }
