@@ -9,7 +9,7 @@ class PickController extends Controller
 {
     public function index()
     {
-      $picks = Pick::paginate(7);
+      $picks = Pick::orderBy('date','DESC')->paginate(7);
       return view('picks', compact('picks'));
     }
 }
