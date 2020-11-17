@@ -2,12 +2,13 @@
   <div class="container">
     @include('utils.intervention', [
       'alt' => "",
-      'img' => "/images/home-membership.jpg",
+      'img' => "/images/cinema-front.jpg",
       'class' => "section--home-newsletter--image",
       'height' => "750",
       'width' => "750",
-      'quality' => "65",
-      'modes' => 'c_fill,g_center,f_auto'
+      'quality' => "85",
+      'sizes' => '40vw',
+      'modes' => 'c_fill,g_top,f_auto'
     ])
     <div class="section--home-newsletter--text">
       <h2 class="section-title">Stay up to date</h2>

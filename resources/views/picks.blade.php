@@ -21,16 +21,18 @@
 
   <div class="container page-standard--container">
     <main class="page-standard--main no-aside">
-
+        <div class="page-intro">
+          Continue discovering brilliant cinema from home with Hyde Park Picks – regular recommendations of some of our favourite films and where to find them.
+        </div>
         @foreach($picks as $pick)
           <div class="pick--item" id="{{ str_slug($pick->title) }}">
             @include('utils.intervention', [
               'alt' => "Image for " . $pick->image,
               'img' => $pick->image ?? '/images/page-header.jpg',
-              'class' => "",
+              'class' => "pick--image",
               'height' => "240",
               'width' => "720",
-              'sizes' => "100vw",
+              'sizes' => "(min-width: 700px) 70vw, 100vw",
             ])
 
             <div class="pick--date">{{ $pick->date->format('jS F Y') }}</div>

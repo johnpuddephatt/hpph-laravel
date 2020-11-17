@@ -1,5 +1,7 @@
 .pick--item {
+  padding-bottom: 1.5 * $base-spacing;
   margin-bottom: 2 * $base-spacing;
+  border-bottom: $light-border;
 }
 
 .pick--header {
@@ -12,6 +14,11 @@
       content: none !important;
     }
   }
+}
+
+.pick--image {
+  width: 100%;
+  height: auto;
 }
 
 .pick--date {

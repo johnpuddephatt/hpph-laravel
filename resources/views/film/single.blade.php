@@ -85,6 +85,7 @@
       @if($film->is_online)
         <h3 class="single-listing--watchonline--header is-closable">How to watch</h3>
         @if(substr( $film->embed, 0, 4 ) === "http")
+          <p class="single-listing--watchonline--subtitle">This film is being hosted by one of our brilliant partners. To stream the movie and enjoy from home, follow the link below.</p>
           <a class="button button__big button__yellow" href="{{ $film->embed }}" target="_blank">Watch this on {{ parse_url($film->embed, PHP_URL_HOST)}}</a>
         @elseif($film->embed)
           {!! $film->embed !!}

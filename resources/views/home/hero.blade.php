@@ -31,6 +31,6 @@
           </div>
         @endforeach
     </div>
-    <a href="#daily-screenings" tabindex="-1" class="section--home-hero--jump">»</a>
+    {{-- <a href="#daily-screenings" tabindex="-1" class="section--home-hero--jump">»</a> --}}
   </section>
 @endif

@@ -1,3 +1,13 @@
+.page-intro {
+  font-size: modular-scale(1);
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  font-weight: 500;
+  margin: 0 auto 1.5 * $base-spacing;
+  text-align: center;
+  max-width: $medium-screen;
+}
+
 .page-standard--header {
   // height: 56.25vw;
   height: 75vw;
@@ -19,6 +29,7 @@
     right: 0;
     bottom: 0;
     background-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,0) 35%);
+
     @media (min-width: $medium-screen) {
       background-image: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%);
     }

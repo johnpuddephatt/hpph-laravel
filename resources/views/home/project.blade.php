@@ -2,7 +2,7 @@
   <div class="container">
     <div class="section--home-project--text">
       <h2 class="section-title">An exciting new chapter has begun!</h2>
-      <p>Thanks to backing from the National Lottery Heritage Lottery, Leeds City Council and our valued Friends and partners, work on The Picture House Project is set to begin early next year.</p>
+      <p>Thanks to backing from the National Lottery Heritage Lottery Fund, Leeds City Council and our valued Friends and partners, work on The Picture House Project is set to begin early next year.</p>
       <a class="button button__ghost button__black section--home-project--link" href="https://www.thepicturehouseproject.com/">Learn more</a>
     </div>
 

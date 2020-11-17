@@ -18,7 +18,7 @@
       </div>
       <div class="section--home-watch--text">
         <h2 class="section-title">Watch online</h2>
-        <p>From dazzling new dramas to award-winning docs, we’re proud to be supporting a number of exciting new film releases – all available to stream online and enjoy at home.</p>
+        <p>From dazzling new dramas to award-winning docs, we’re proud to be supporting a number of exciting new film releases – all available to enjoy online.</p>
         <a href="/strands/watch-online/" class="button button__ghost button__black">Learn more</a>
       </div>
     </div>
