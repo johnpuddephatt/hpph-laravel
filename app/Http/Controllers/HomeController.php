@@ -13,6 +13,7 @@ use App\Models\Slide;
 use App\Models\Strand;
 use App\Models\Tag;
 use App\Models\Film;
+use App\Models\Pick;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
       if($strand) {
         return $strand->films()->latest()->first();
       }
+    });
+
+    $home_pick = \Cache::rememberForever('homePick', function () {
+      return Pick::latest()->first();
     });
 
     $today = $this->today;
@@ -132,7 +137,7 @@ class HomeController extends Controller
       return Tag::whereIn('id',config('app.homepage_tags'))->get();
     });
 
-    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags', 'home_online'));
+    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags', 'home_online','home_pick'));
   }
 
 }

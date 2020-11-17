@@ -1,4 +1,4 @@
-.section--home-watch {
+.section--home-picks {
   padding: 3 * $base-spacing 0 0;
   text-align: center;
   position: relative;
@@ -23,6 +23,16 @@
     }
   }
 
+  &--logo {
+    width: 50%;
+    margin: 0 auto $base-spacing;
+
+    @media screen and (min-width: $large-screen) {
+      width: 60%;
+      margin: 0 0 $base-spacing;
+    }
+  }
+
   &--text {
     flex: 0 0 50%;
     padding-left: $small-spacing;
@@ -37,7 +47,7 @@
       padding-left: 2 * $base-spacing;
       padding-right: 2 * $base-spacing;
       padding-top: 0;
-      padding-bottom: 2 * $base-spacing;
+      padding-bottom: 0;
     }
 
     .button {
@@ -72,9 +82,10 @@
 
     @media screen and (min-width: $large-screen) {
       bottom: 0;
-      left: 0;
-      right: -2 * $base-spacing;
+      left: -2 * $base-spacing;
+      right: 0;
       width: auto;
+
     }
 
     .pre {
@@ -91,8 +102,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-
-
 
     &::after {
       font-size: modular-scale(-1);

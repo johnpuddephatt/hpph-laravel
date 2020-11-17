@@ -2,7 +2,7 @@
 
   .more-screenings {
     text-align: center;
-    margin-top: $base-spacing;
+    margin-top: 2 * $base-spacing;
 
     .button {
       text-transform: lowercase;
@@ -176,12 +176,7 @@
   color: $base-font-color;
   border-bottom: $light-border;
   line-height: $base-line-height;
-
-  margin-left: -$small-spacing;
-  margin-right: -$small-spacing;
   padding: $small-spacing;
-
-
 
   @media screen and (min-width: $medium-screen) {
     margin-left: 0;

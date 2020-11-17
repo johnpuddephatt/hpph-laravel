@@ -7,6 +7,7 @@
 @section('content')
 
   @include('home.hero')
+  @include('home.pick')
   @include('home.project')
   @include('home.support')
   @include('home.watch')

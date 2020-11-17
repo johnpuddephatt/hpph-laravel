@@ -13,13 +13,13 @@ class Pick extends Model
 
   protected $table = 'picks';
 
-  // protected static function boot()
-  // {
-  //   parent::boot();
-  //   static::saved(function() {
-  //     \Cache::forget('homeSlides');
-  //   });
-  // }
+  protected static function boot()
+  {
+    parent::boot();
+    static::saved(function() {
+      \Cache::forget('homePick');
+    });
+  }
 
   protected $casts = [
     'date' => 'date',

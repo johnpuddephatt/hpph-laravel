@@ -52,8 +52,8 @@
   top: 2 * $base-spacing;
 
   top: calc(#{2 * $base-spacing}  - 1px );
-  margin-left: -$small-spacing;
-  margin-right: -$small-spacing;
+  // margin-left: -$small-spacing;
+  // margin-right: -$small-spacing;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
 
@@ -82,6 +82,10 @@
     height: 1px;
   }
 
+}
+
+.weekly-screenings--content {
+  margin: 2 * $base-spacing 0 0;
 }
 
 .weekly-screenings--entry {
