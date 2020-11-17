@@ -1,4 +1,4 @@
-@push('body-classes','page-simple page-simple__picks')
+@push('body-classes','page page-simple page-simple__picks')
 
 @extends('layouts.app')
 
