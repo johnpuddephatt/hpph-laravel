@@ -22,7 +22,7 @@
   <div class="container page-standard--container">
     <main class="page-standard--main no-aside">
         <div class="page-intro">
-          Continue discovering brilliant cinema from home with Hyde Park Picks – regular recommendations of some of our favourite films and where to find them.
+          Friendly film recommendations from your local indie cinema.
         </div>
         @foreach($picks as $pick)
           <div class="pick--item" id="{{ str_slug($pick->title) }}">
