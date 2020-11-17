@@ -27,7 +27,7 @@ class HomeController extends Controller
     });
 
     $home_pick = \Cache::rememberForever('homePick', function () {
-      return Pick::orderBy('date','DESC')->latest()->first();
+      return Pick::orderBy('date','DESC')->first();
     });
 
     $today = $this->today;
