@@ -27,7 +27,7 @@
 
 .section--home-slider {
   height: 100vh;
-  .section--home-hero__with-notification & {
+  body.has-notification & {
     height: calc(100vh - #{1.7 * $base-spacing});
   }
   width: 100%;
@@ -42,6 +42,10 @@
   @media (orientation: portrait) and (max-width: $medium-screen) {
     // height: calc(100vh - #{ $footer-nav-height });
     height: calc(100vh - #{ $footer-nav-height });
+
+    body.has-notification & {
+      height: calc(100vh - #{ $footer-nav-height } - #{1.7 * $base-spacing});
+    }
   }
   &.ios {
     .home-slider--text {

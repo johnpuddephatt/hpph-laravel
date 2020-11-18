@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section--home-picks--text">
         <img class="section--home-picks--logo" src="/images/picks-logo.png" />
-        <p>Continue discovering brilliant cinema from home with Hyde Park Picks – regular recommendations of some of our favourite films and where to find them.</p>
+        <p>Continue discovering brilliant films from home with Hyde Park Picks – friendly movie recommendations from your local indie cinema.</p>
         <a href="/picks/" class="button button__ghost button__black">Learn more</a>
       </div>
       <div class="section--home-picks--image">

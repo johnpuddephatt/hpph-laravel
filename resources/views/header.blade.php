@@ -1,7 +1,3 @@
-@if(env('SITE_NOTIFICATION'))
-  @include('notification')
-@endif
-
 <header class="site-header">
   <div class="container">
     <a href="{{ url('/') }}" class="site-header--home-link">

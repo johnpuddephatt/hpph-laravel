@@ -2,7 +2,7 @@
 @if(count($home_slides))
 
   <script>document.getElementsByTagName("BODY")[0].classList.add('slider-loading');</script>
-  <section class="section section--home-hero @if(env('SITE_NOTIFICATION')) section--home-hero__with-notification @endif">
+  <section class="section section--home-hero">
 
     <div class="section section--home-slider">
 

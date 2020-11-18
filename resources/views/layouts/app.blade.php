@@ -18,7 +18,7 @@
       {{-- <script src="https://webcomponents.spektrix.com/stable/spektrix-component-loader.js" data-components="spektrix-basket-summary" async></script> --}}
 
     </head>
-    <body class="@stack('body-classes')">
+    <body class="@stack('body-classes') @if(env('SITE_NOTIFICATION'))has-notification @endif">
 
       @if (\Request::is('/') and (count($screenings_today) or count($screenings)))
         @include('bookmark')
@@ -26,6 +26,10 @@
 
 
       <div class="wrapper">
+        @if(env('SITE_NOTIFICATION'))
+          @include('notification')
+        @endif
+
         @include('header')
         @include('search')
 
