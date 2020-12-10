@@ -51,7 +51,10 @@ $field['wrapper']['data-video'] = '';
     @endif
 
     <script>
-    bpFieldInitVideoElement($('[data-video]'))</script>
+      document.addEventListener('DOMContentLoaded', () =>{
+        bpFieldInitVideoElement($('[data-video]'));
+      });
+    </script>
 </div>
 
 {{-- ########################################## --}}
