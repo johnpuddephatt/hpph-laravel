@@ -2,7 +2,7 @@
   <section class="section section--home-picks">
     <div class="container">
       <div class="section--home-picks--text">
-        <img class="section--home-picks--logo" src="/images/picks-logo.png" />
+        <img alt="Hyde Park Picks logo" class="section--home-picks--logo" src="/images/picks-logo.png" />
         <p>Continue discovering brilliant films from home with Hyde Park Picks – friendly movie recommendations from your local indie cinema.</p>
         <a href="/picks/" class="button button__ghost button__black">Learn more</a>
       </div>
