@@ -3,7 +3,6 @@
   justify-content: center;
 
   .page-item {
-    padding: 1em;
     line-height: 1;
     border: 1px solid $light-gray;
     font-weight: 500;
@@ -20,7 +19,9 @@
       background-color: $yellow;
     }
 
-    a {
+    .page-link {
+      padding: 1em;
+
       &:before {
         content: none;
       }
