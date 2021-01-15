@@ -16,7 +16,7 @@
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "2.2.2",
         "cross-env": "^5.2.1",
-        "jquery": "^3.4",
+        "jquery": "^3.5",
         "laravel-mix": "^2.1.14",
         "lodash": "^4.17.19",
         "popper.js": "^1.15.0",
