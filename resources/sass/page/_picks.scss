@@ -16,6 +16,12 @@
   }
 }
 
+.pick--author {
+  margin-top: -$base-spacing;
+  margin-bottom: 1.5 * $base-spacing;
+  font-style: italic;
+}
+
 .pick--image {
   width: 100%;
   height: auto;

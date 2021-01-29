@@ -9,7 +9,7 @@ class Pick extends Model
 {
   use CrudTrait;
 
-  protected $fillable = ['title','date','image','description'];
+  protected $fillable = ['title','author','date','image','description'];
 
   protected $table = 'picks';
 

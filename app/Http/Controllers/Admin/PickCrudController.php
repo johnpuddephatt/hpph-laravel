@@ -37,6 +37,12 @@ class PickCrudController extends CrudController
           ],
         ];
 
+        $authorArray = [
+          'name' => 'author',
+          'label' => 'Author',
+          'type' => 'text'
+        ];
+
         $descriptionArray = [
           'name' => 'description',
           'label' => 'Description',
@@ -59,7 +65,7 @@ class PickCrudController extends CrudController
           'type' => 'date'
         ];
 
-        $this->crud->addFields([$titleArray,$dateArray,$thumbArray,$descriptionArray], 'both');
+        $this->crud->addFields([$titleArray,$authorArray,$dateArray,$thumbArray,$descriptionArray], 'both');
         $this->crud->addColumns([$titleArray,$dateArray]);
 
         // ------ CRUD FIELDS
