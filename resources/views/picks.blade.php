@@ -37,7 +37,7 @@
 
             <div class="pick--date">{{ $pick->date->format('jS F Y') }}</div>
             <h2 class="pick--header"><a href="#{{ str_slug($pick->title) }}">{{ $pick->title }}</a></h2>
-            @if($pick->author)<p class="pick--author">Contributed by {{ $pick->author }}</p>@endif
+            @if($pick->author)<p class="pick--author">Recommended by {{ $pick->author }}</p>@endif
 
             {!! implode(array_slice(explode('</p>',$pick->description),0,2)) !!}
 

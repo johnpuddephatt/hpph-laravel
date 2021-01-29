@@ -19,6 +19,9 @@
 .pick--author {
   margin-top: -$small-spacing;
   margin-bottom: $base-spacing;
+  font-family: $heading-font-family;
+  letter-spacing: 0;
+  font-size: modular-scale(1);
   font-style: italic;
 }
 
