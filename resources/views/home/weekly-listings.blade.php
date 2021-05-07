@@ -3,7 +3,6 @@
   <section class="section section--home--listings section--az-listings" id="daily-screenings">
     @include('icons.on-the-road')
     <h2 class="section-title">On the Road</h2>
-    <p class="section-subtitle">Our off-site programme of screenings is on pause due to lockdown restrictions. We’ll resume these as soon as we can – <a href="/news/">see our news page</a> for the latest.</p>
     <div class="weekly-screenings--content">
 
       <div class="weekly-screenings--screenings daily-screenings--screenings container">
