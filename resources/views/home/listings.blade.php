@@ -1,31 +1,38 @@
 <section class="section section--home-listings" id="daily-screenings">
   <div class="container">
-    <h2 class="section-title">Now Showing</h2>
+    @if($screenings || $screenings_today)
+      <h2 class="section-title">Now Showing</h2>
+    @else
+      <h2 class="section-title">Coming up</h2>
+    @endif
     <div class="daily-screenings--content">
+
 
       <nav class="daily-screenings--navigation">
         <div class="daily-screenings--navigation--inner">
-          @if ($day == 1)
-            <span class="daily-screenings--navigation--link current">Today</span>
-          @elseif (count($screenings_today))
-            <a href="/#daily-screenings" class="daily-screenings--navigation--link">Today</a>
-          @endif
-          @for ($i = 2; $i < 6; $i++)
-
-            @php $loop_date = date("D jS",$today + ($i - 1) * 86400) @endphp
-            @if($i == $day)
-              <span class="daily-screenings--navigation--link current">{!! $loop_date !!}</span>
-            @else
-              <a class="daily-screenings--navigation--link"  href="/day-{{ $i }}#daily-screenings">{!! $loop_date !!}</a>
+          @if($screenings || $screenings_today)
+            @if ($day == 1)
+              <span class="daily-screenings--navigation--link current">Today</span>
+            @elseif (count($screenings_today))
+              <a href="/#daily-screenings" class="daily-screenings--navigation--link">Today</a>
             @endif
-          @endfor
+            @for ($i = 2; $i < 6; $i++)
+
+              @php $loop_date = date("D jS",$today + ($i - 1) * 86400) @endphp
+              @if($i == $day)
+                <span class="daily-screenings--navigation--link current">{!! $loop_date !!}</span>
+              @else
+                <a class="daily-screenings--navigation--link"  href="/day-{{ $i }}#daily-screenings">{!! $loop_date !!}</a>
+              @endif
+            @endfor
+          @endif
           <a class="button button__ghost daily-screenings--navigation--view-all" href="/whats-on">View all</a>
         </div>
       </nav>
 
       <div class="daily-screenings--screenings">
-        @if(count($screenings))
-          @foreach ($screenings as $screening)
+        @if(count($screenings) || count($future_screenings))
+          @foreach (($screenings || $future_screenings) as $screening)
             @if($screening->film)
                 <a class="daily-screenings--entry" href="/film/{{ $screening->film->slug }}?screeningID={{$screening->id}}" data-barba="slide">
                   <div class="daily-screenings--entry--date" >

@@ -55,11 +55,12 @@ class HomeController extends Controller
       return $slides;
     });
 
-    /*
-    ** WEEKLY SCREENINGS
-    */
-
     $max_screenings = 2;
+
+
+    /*
+    ** THIS WEEK
+    */
 
     // // First week; collect today screenings separately
     $week_commencing = date("Y/m/d",$this->today + DAYINSECONDS);
@@ -82,6 +83,19 @@ class HomeController extends Controller
     $screenings_today = $screenings_today_query->get();
     $screenings = $screenings_query->get();
 
+
+
+    /*
+    ** NEXT TWO SCREENINGS
+    */
+    if(!$screenings->count() && !$screenings_today->count()) {
+      $future_screenings_query = Screening::with(['film.strands','film.venue','tags'])
+                                    ->limit($max_screenings)
+                                    ->orderBy('date')
+                                    ->orderBy('time');
+
+      $future_screenings = $future_screenings_query->get();
+    }
 
     /*
     ** DAILY SCREENINGS
@@ -137,7 +151,7 @@ class HomeController extends Controller
       return Tag::whereIn('id',config('app.homepage_tags'))->get();
     });
 
-    return view('landing', compact('home_slides','screenings','day', 'today', 'screenings_today','home_strands','home_tags', 'home_online','home_pick'));
+    return view('landing', compact('home_slides','screenings', 'future_screenings', 'day', 'today', 'screenings_today','home_strands','home_tags', 'home_online','home_pick'));
   }
 
 }
