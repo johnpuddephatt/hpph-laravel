@@ -72,7 +72,7 @@ class HomeController extends Controller
 
 
     // // For all weeks
-    $week_ending = date("Y/m/d",time() + (60 * DAYINSECONDS));
+    $week_ending = date("Y/m/d",time() + (90 * DAYINSECONDS));
     $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])
                                   ->with(['film.strands','film.venue','tags'])
                                   ->limit($max_screenings - $screenings_today_query->count())
