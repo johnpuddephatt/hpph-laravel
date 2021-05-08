@@ -76,7 +76,14 @@ class VenueCrudController extends CrudController
           'toolbar' => "['bold', 'italic'],['link'],[{ 'list': 'bullet' }]"
         ];
 
-        $this->crud->addFields([$titleArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray, $parkingInfoArray], 'both');
+        $linkArray = [
+          'name' => 'link',
+          'label' => 'Venue details URL',
+          'type' => 'text',
+          'hint' => 'Adding a URL will override the description, parking, refreshment and access information fields on this page.'
+        ];
+
+        $this->crud->addFields([$titleArray,$linkArray,$addressFieldArray,$descriptionArray,$accessInfoArray,$refreshmentInfoArray, $parkingInfoArray], 'both');
         $this->crud->addColumns([$titleArray]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

@@ -3,7 +3,9 @@
     <h2 class="single-listing--venue--header is-closable">Showing at</h2>
     <p class="single-listing--venue--title">{{$film->venue->title}}</p>
 
-    @if($film->venue->address || $film->venue->access_info || $film->venue->refreshment_info || $film->venue->parking_info)
+    @if($film->venue->link)
+      <a href="{{ $film->venue->link }}">Venue details</a>
+    @elseif($film->venue->address || $film->venue->access_info || $film->venue->refreshment_info || $film->venue->parking_info)
 
       <details class="single-listing--venue--details">
           <summary>Venue details</summary>
