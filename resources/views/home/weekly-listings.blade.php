@@ -14,9 +14,8 @@
             @endforeach
           </div>
         @endif
-        @if(count($screenings) || count($future_screenings))
+        @if(count($screenings))
           @php $current_date = '' @endphp
-          @php if(!count($screenings)) { $screenings = $future_screenings; } @endphp
           @foreach ($screenings as $screening)
             @if($screening->film)
               @if ($current_date != $screening->date)
