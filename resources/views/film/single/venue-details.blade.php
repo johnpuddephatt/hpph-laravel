@@ -4,7 +4,7 @@
     <p class="single-listing--venue--title">{{$film->venue->title}}</p>
 
     @if($film->venue->link)
-      <a href="{{ $film->venue->link }}">Venue details</a>
+      <a class="single-listing--venue--link" href="{{ $film->venue->link }}">Venue details</a>
     @elseif($film->venue->address || $film->venue->access_info || $film->venue->refreshment_info || $film->venue->parking_info)
 
       <details class="single-listing--venue--details">

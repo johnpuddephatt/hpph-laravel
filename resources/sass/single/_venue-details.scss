@@ -10,11 +10,15 @@
   letter-spacing: $base-letter-spacing/2;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
-  
+
   @media screen and (min-width: $large-screen) {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.single-listing--venue--link {
+  @extend %underlined-link;
 }
 
 .single-listing--venue--details {
