@@ -1,4 +1,4 @@
-@if(count($screenings_today) or count($screenings) or count($future_screenings))
+@if(count($screenings_today) or count($screenings))
 
   <section class="section section--home--listings section--az-listings" id="daily-screenings">
     @include('icons.on-the-road')
