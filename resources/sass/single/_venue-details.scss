@@ -1,5 +1,7 @@
 .single-listing--venue {
   margin-bottom: 2 * $base-spacing;
+
+  @extend %underlined-link;
 }
 
 .single-listing--venue--title {
@@ -15,10 +17,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-}
-
-.single-listing--venue--link {
-  @extend %underlined-link;
 }
 
 .single-listing--venue--details {
