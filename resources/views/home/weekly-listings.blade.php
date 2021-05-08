@@ -16,7 +16,7 @@
         @endif
         @if(count($screenings) || count($future_screenings))
           @php $current_date = '' @endphp
-          {{-- @php $screenings = $screenings || $future_screenings @endphp --}}
+          @php if(!count($screenings)) { $screenings = $future_screenings; } @endphp
           @foreach ($screenings as $screening)
             @if($screening->film)
               @if ($current_date != $screening->date)
