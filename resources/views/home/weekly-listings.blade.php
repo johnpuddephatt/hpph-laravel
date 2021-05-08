@@ -1,4 +1,4 @@
-@if(count($screenings_today) or count($screenings))
+@if(count($screenings_today) or count($screenings) or count($future_screenings))
 
   <section class="section section--home--listings section--az-listings" id="daily-screenings">
     @include('icons.on-the-road')
@@ -14,9 +14,9 @@
             @endforeach
           </div>
         @endif
-        @if(count($screenings))
+        @if(count($screenings) || count($future_screenings))
           @php $current_date = '' @endphp
-          @foreach ($screenings as $screening)
+          @foreach ($screenings||$future_screenings as $screening)
             @if($screening->film)
               @if ($current_date != $screening->date)
                 @if(!$loop->first)
