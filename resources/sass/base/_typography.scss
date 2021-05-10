@@ -150,6 +150,10 @@ sup {
   margin: 0 auto $base-spacing;
   font-weight: 500;
   @extend %underlined-link;
+
+  + .section-subtitle {
+    margin-top: -$small-spacing;
+  }
 }
 
 
