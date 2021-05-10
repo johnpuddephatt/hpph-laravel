@@ -3,6 +3,8 @@
   <section class="section section--home--listings section--az-listings" id="daily-screenings">
     @include('icons.on-the-road')
     <h2 class="section-title">On the Road</h2>
+    <p class="section-subtitle">With work on our redevelopment now underway, the Picture House has taken to the road – screening films in venues across the city.</p>
+    <p class="section-subtitle"><a href="https://hydeparkpicturehouse.co.uk/on_the_road">Learn more about On The Road</a></p>
     <div class="weekly-screenings--content">
 
       <div class="weekly-screenings--screenings daily-screenings--screenings container">
