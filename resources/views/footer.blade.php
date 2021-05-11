@@ -7,14 +7,14 @@
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
-    @include('icons.plan-visit')
-    <div>Support</div>
-  </a>
   <button class="site-footer--navigation--link site-footer--navigation--link__search">
     @include('icons.search')
     <div>Search</div>
   </button>
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
+    @include('icons.plan-visit')
+    <div>Support</div>
+  </a>
   <a class="site-footer--navigation--link" href="#" id="nav-trigger">
     @include('icons.more')
     <div>More</div>
