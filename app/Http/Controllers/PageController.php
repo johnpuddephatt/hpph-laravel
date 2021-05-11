@@ -40,7 +40,7 @@ class PageController extends Controller
         else {
           $parent_page_id = isset($page->parent_id) ? $page->parent_id : $page->id;
           $parent_page = Page::find($parent_page_id);
-          $sibling_pages = Page::where('parent_id', $parent_page_id)->get();
+          $sibling_pages = Page::where('parent_id', $parent_page_id)->whereNull('deleted_at')->get();
           return view('pages.'.$page->template, compact('page', 'parent_page', 'sibling_pages'));
         }
 
