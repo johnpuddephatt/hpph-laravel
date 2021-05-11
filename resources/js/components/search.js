@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   function openSearch() {
     searchContainer.classList.toggle('active');
-    document.body.classList.toggle('locked');
+    document.documentElement.classList.toggle('locked');
     searchInput.focus();
   }
 

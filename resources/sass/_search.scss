@@ -45,6 +45,7 @@
 .search-inner {
   width: 100%;
   max-width: 20 * $base-spacing;
+  position: relative;
 }
 
 .search-output-container {
@@ -99,7 +100,9 @@
 }
 
 .search-button {
-  position: relative;
+  position: absolute;
+  bottom: 100%;
+  right: -2em;
   z-index: 9999;
   padding-left: 0;
   padding-right: 0;
