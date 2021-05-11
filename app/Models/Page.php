@@ -11,6 +11,7 @@ class Page extends Model
 {
     use CrudTrait;
     use Sluggable;
+    use SoftDeletes;
     use SluggableScopeHelpers;
 
     /*
