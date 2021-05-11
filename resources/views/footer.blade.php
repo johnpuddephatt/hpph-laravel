@@ -61,7 +61,6 @@
           <ul class="site-footer--menu-links">
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/news/">News</a></li>
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
-            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/strand/watch-online/">Watch online</a></li>
 
             @if(isset($footermenu))
               @foreach($footermenu as $page)
