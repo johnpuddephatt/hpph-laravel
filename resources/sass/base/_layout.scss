@@ -26,7 +26,13 @@ html {
 
 .locked {
   height: 100%;
-  overflow: hidden;
+  overflow: hidden !important;
+
+  body,
+  .wrapper {
+    height: 100%;
+    overflow: hidden !important;
+  }
 }
 
 html,body {
