@@ -135,13 +135,14 @@
     padding: 0 0 $base-spacing;
   }
   > .container {
-    padding-top: 4 * $base-spacing;
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    
     @media (min-width: $medium-screen) {
+      padding-top: 4 * $base-spacing;
       align-items: flex-start;
       flex-direction: row;
     }

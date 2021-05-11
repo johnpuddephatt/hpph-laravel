@@ -7,6 +7,23 @@
     @include('icons.whats-on')
     <div>What’s On</div>
   </a>
+  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
+    @include('icons.plan-visit')
+    <div>Support</div>
+  </a>
+  <button class="site-footer--navigation--link site-footer--navigation--link__search">
+    @include('icons.search')
+    <div>Search</div>
+  </button>
+  <a class="site-footer--navigation--link" href="#" id="nav-trigger">
+    @include('icons.more')
+    <div>More</div>
+  </a>
+
+  {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/news/') === 0) current @endif" href="/news/">
+    @include('icons.news')
+    <div>News</div>
+  </a> --}}
   {{-- <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/strand/digital-releases') === 0) current @endif" href="/strand/digital-releases/">
     @include('icons.whats-on')
     <div>Digital releases On</div>
@@ -19,23 +36,6 @@
     @include('icons.search')
     <div>Picks</div>
   </a> --}}
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/support/') === 0) current @endif" href="/support/">
-    @include('icons.plan-visit')
-    <div>Support</div>
-  </a>
-  <a class="site-footer--navigation--link @if (strpos($_SERVER['REQUEST_URI'], '/news/') === 0) current @endif" href="/news/">
-    @include('icons.news')
-    <div>News</div>
-  </a>
-  {{-- <button class="site-footer--navigation--link site-footer--navigation--link__search">
-    @include('icons.search')
-    <div>Search</div>
-  </button> --}}
-
-  <a class="site-footer--navigation--link" href="#" id="nav-trigger">
-    @include('icons.more')
-    <div>More</div>
-  </a>
 </nav>
 
 <footer class="site-footer">
@@ -59,6 +59,7 @@
         <h2 class="site-footer--header">Learn more</h2>
 
           <ul class="site-footer--menu-links">
+            <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/news/">News</a></li>
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
             <li class="site-footer--menu-item hide-on-desktop"><a class="site-footer--menu-link" href="/strand/watch-online/">Watch online</a></li>
 

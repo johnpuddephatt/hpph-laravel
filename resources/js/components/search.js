@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   function closeSearch() {
     searchContainer.classList.remove('active');
-    document.body.classList.remove('locked');
+    document.documentElement.classList.remove('locked');
     searchInput.blur();
   }
   if(searchClose) {
