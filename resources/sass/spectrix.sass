@@ -150,11 +150,16 @@ dd.Footer
     @extend .button__gray
     @extend .button__small
     margin-left: 0.5em
-    flex-grow: 0
+    flex-grow: 0 !important
 
   input[type="tel"]
     flex: 0 0 3em
     margin-left: auto
+
+#ctl00_ContentPlaceHolder_ChangeMySeatsLink
+  @extend .button
+  @extend .button__gray
+  @extend .button__small
 
 .CheckoutLink
   @extend .button

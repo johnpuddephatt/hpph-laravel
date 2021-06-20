@@ -36,11 +36,10 @@
   }
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 0.125em adjust-color($action-color, $lightness: -5%, $alpha: -0.75);
+    box-shadow: 0 0 0 0.125em
+      adjust-color($action-color, $lightness: -5%, $alpha: -0.75);
   }
-
 }
-
 
 .button {
   position: relative;
@@ -64,7 +63,8 @@
     }
   }
   &__small {
-    font-size: modular-scale(-1);
+    font-size: modular-scale(0);
+    font-weight: 500;
     line-height: $base-spacing;
   }
   &__big {
@@ -132,9 +132,9 @@
       display: none;
     }
     &:hover {
-      background-color: darken($yellow,20%);
+      background-color: darken($yellow, 20%);
       color: $base-font-color;
-      border-color: darken($yellow,20%);
+      border-color: darken($yellow, 20%);
     }
   }
 
@@ -146,9 +146,9 @@
       display: none;
     }
     &:hover {
-      background-color: darken($light-gray,20%);
+      background-color: darken($light-gray, 20%);
       color: $base-font-color;
-      border-color: darken($light-gray,20%);
+      border-color: darken($light-gray, 20%);
     }
   }
 }
