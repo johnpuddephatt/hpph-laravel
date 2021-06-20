@@ -118,7 +118,7 @@ dd.Footer
   #ctl00_ContentPlaceHolder_WhatsOnLink
     display: none
   // Edit and delete buttons
-  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery
+  .ItemEditButton, .ItemDeleteButton, .Delete, .Edit, .Delivery, .RefreshButton
     @extend .button__gray
   .DeclineButton, .PreviousButton
     @extend .button__gray
@@ -136,6 +136,7 @@ dd.Footer
       width: 100%
       margin-top: $small-spacing
       margin-left: 0
+
   #ctl00_ContentPlaceHolder_NewAccountLink
     @extend .button__big
     display: block
@@ -146,6 +147,11 @@ dd.Footer
 
 // Used for food and drink
 .TicketType
+  padding-right: 0
+  span + span
+    margin-left: 0.5em
+    font-weight: 500
+
   .Button
     @extend .button__gray
     @extend .button__small
