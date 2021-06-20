@@ -129,13 +129,14 @@ dd.Footer
   .FindAddressButton
     @extend .button__yellow
     @extend .button__big
-  .Button.Continue, .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton, .spx-button-primary, .AddToBasketButton, .ResetPasswordButton, #ctl00_ContentPlaceHolder_ContinueToBasketButton
-    @extend .button__yellow
-    @extend .button__big
-    @media screen and (max-width: $medium-screen)
-      width: 100%
-      margin-top: $small-spacing
-      margin-left: 0
+
+.Button.Continue, .ContinueButton, .CheckoutLink, .UpdateButton, .Login, .NextButton, #ctl00_ContentPlaceHolder_MembershipsRepeater_ctl00_AddToBasketButton, .spx-button-primary, .AddToBasketButton, .ResetPasswordButton, #ctl00_ContentPlaceHolder_ContinueToBasketButton
+  @extend .button__yellow
+  @extend .button__big
+  @media screen and (max-width: $medium-screen)
+    width: 100%
+    margin-top: $small-spacing
+    margin-left: 0
 
   #ctl00_ContentPlaceHolder_NewAccountLink
     @extend .button__big
@@ -147,7 +148,7 @@ dd.Footer
 
 // Used for food and drink
 .TicketType
-  padding-right: 0
+  padding-right: 0 !important
   span + span
     margin-left: 0.5em
     font-weight: 500
