@@ -48,7 +48,7 @@
     letter-spacing: $base-letter-spacing;
 
     display: inline-block;
-    margin-right: $small-spacing;
+    margin-right: $small-spacing/2;
     @media screen and (min-width: $medium-screen) {
       margin-right: $base-spacing;
     }
@@ -58,7 +58,10 @@
     -webkit-font-smoothing: antialiased;
     &.current {
       font-weight: 700;
-      padding: $small-spacing;
+
+      @media screen and (min-width: $medium-screen) {
+        padding: $small-spacing;
+      }
       @extend %underline;
     }
     &.current,
