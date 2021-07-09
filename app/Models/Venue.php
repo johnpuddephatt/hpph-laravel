@@ -51,6 +51,11 @@ class Venue extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function setThumbAttribute($value)
       {
         $attribute_name = "image";

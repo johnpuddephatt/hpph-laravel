@@ -27,7 +27,7 @@ class FilmController extends Controller
     return view('film.single', compact('film'));
   }
 
-  public function index(Request $request, Venue $venue = null) {
+  public function index(Venue $venue = null) {
 
     $films = Film::hasFutureScreenings()
               ->atVenue($venue)
@@ -43,6 +43,6 @@ class FilmController extends Controller
                 return trim(str_replace('The', '', ' ' . $film['title'] . ' '));
               });
 
-    return view('listings.a-z', compact('films'));
+    return view('listings.a-z', compact('films','venue'));
   }
 }

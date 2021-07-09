@@ -49,12 +49,12 @@
     content: "";
     position: absolute;
     background: $yellow;
-    left: 0;
-    right: 100%;
+    left: -1px;
+    right: calc(100% + 1px);
     top: 0;
     z-index: -1;
     bottom: -1px;
-    transition: right $base-duration $base-timing;
+    transition: right $base-duration/2 $base-timing;
   }
   &:hover,
   &:focus {
@@ -150,5 +150,11 @@
       color: $base-font-color;
       border-color: darken($light-gray, 20%);
     }
+  }
+
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: text-bottom;
   }
 }

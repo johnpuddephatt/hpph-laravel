@@ -60,7 +60,12 @@ class ScreeningController extends Controller
 
     // Run the queries
     $screenings = $screenings_query->get();
-    if($week == 1) $screenings_today = $screenings_today_query->get();
+    if($week == 1) {
+      $screenings_today = $screenings_today_query->get();
+    }
+    else {
+      $screenings_today = null;
+    }
 
     return view('listings.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today'));
   }

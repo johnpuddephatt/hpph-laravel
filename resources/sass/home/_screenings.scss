@@ -1,5 +1,4 @@
 .section--home--listings {
-
   .more-screenings {
     text-align: center;
     margin-top: 2 * $base-spacing;
@@ -10,7 +9,7 @@
   }
 }
 
-.section--az-listings {
+.section--home-az-listings {
   svg {
     width: 5 * $base-spacing;
     height: auto;
@@ -73,16 +72,14 @@
     font-size: modular-scale(0);
   }
 
-
   &::after {
     position: absolute;
     width: 100%;
     height: 1px;
     background-color: $light-gray;
-    content: '';
+    content: "";
     bottom: 0px;
     left: 0;
-
   }
 }
 
@@ -98,7 +95,8 @@
   sup {
     display: none;
   }
-  &:nth-child(4), &:nth-child(5) {
+  &:nth-child(4),
+  &:nth-child(5) {
     display: none;
   }
   @media screen and (min-width: $medium-screen) {
@@ -114,7 +112,6 @@
     &:nth-child(5) {
       display: block;
     }
-
   }
   &:first-child {
     margin-left: 0;
@@ -130,7 +127,6 @@
     color: $base-font-color;
     font-weight: 700;
     @extend %underline;
-
   }
   &:focus {
     outline-offset: 0;
@@ -190,7 +186,8 @@
   &:last-child {
     border-bottom: none;
   }
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $base-font-color;
     &::after {
       color: $yellow;
@@ -205,11 +202,10 @@
   }
 }
 
-
 .daily-screenings--entry--date {
   flex: 0 0 23%;
   font-family: $heading-font-family;
-  line-height: .9;
+  line-height: 0.9;
   font-style: italic;
   font-weight: 400;
   padding-left: 0;
@@ -226,7 +222,6 @@
     font-size: modular-scale(3);
     line-height: 1.2;
   }
-
 }
 
 .daily-screenings--entry--finish-time {
@@ -267,7 +262,6 @@
     width: 100%;
   }
 }
-
 
 .daily-screenings--entry--title {
   font-weight: 700;
@@ -318,7 +312,6 @@
   @media (min-width: $medium-screen) {
     display: block;
   }
-
 }
 
 .daily-screenings--entry--certificate {
@@ -326,7 +319,6 @@
   display: inline-block;
   font-weight: 400;
   color: $dark-gray;
-
 }
 
 .daily-screenings--entry--footer {
