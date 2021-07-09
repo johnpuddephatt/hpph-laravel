@@ -24,6 +24,8 @@ Route::get('film/{slug}', 'FilmController@single');
 Route::redirect('whats-on', '/whats-on/a-z', 301);
 Route::get('whats-on/a-z', 'FilmController@index');
 
+Route::get('whats-on/{venue:slug}', 'FilmController@index');
+
 Route::get('whats-on/weekly', 'ScreeningController@weekly')->name('screenings.weekly');
 Route::get('whats-on/weekly/week-{week}', 'ScreeningController@weekly');
 

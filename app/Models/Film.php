@@ -135,6 +135,16 @@
           $query->where('date', '>=', date('Y/m/d'));
         })->doesntHave('screenings', 'or');
       }
+
+      public function scopeAtVenue($query, $venue)
+      {
+        if($venue) {
+          return $query->where('venue_id', $venue->id);
+        }
+        else {
+          return $query;
+        }
+      }
       /*
       |--------------------------------------------------------------------------
       | ACCESORS

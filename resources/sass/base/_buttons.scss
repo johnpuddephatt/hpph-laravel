@@ -53,13 +53,13 @@
     right: 100%;
     top: 0;
     z-index: -1;
-    bottom: 0px;
+    bottom: -1px;
     transition: right $base-duration $base-timing;
   }
   &:hover,
   &:focus {
     &::before {
-      right: 0;
+      right: -1px;
     }
   }
   &__small {

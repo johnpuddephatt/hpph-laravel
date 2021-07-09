@@ -1,1 +1,1122 @@
-!function(e){var t={};function n(i){if(t[i])return t[i].exports;var o=t[i]={i:i,l:!1,exports:{}};return e[i].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,i){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:i})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="/",n(n.s=0)}({"/APx":function(e,t){var n=document.querySelector(".single-listing--venue--header")||document.querySelector(".single-listing--screenings--header")||document.querySelector(".single-listing--watchonline--header"),i=document.querySelector(".single-listing--sidebar"),o=document.querySelector(".single-listing--mobile--screenings");function r(){i.classList.toggle("open"),document.documentElement.classList.toggle("locked"),document.body.classList.toggle("locked")}o&&n&&(o.addEventListener("click",function(){r()}),n.addEventListener("click",function(){r()}))},0:function(e,t,n){n("F1kH"),n("0oai"),n("TBUl"),e.exports=n("Fn2L")},"0oai":function(e,t){},"8rnt":function(e,t){document.querySelectorAll(".pick--extended--button").forEach(function(e){e.addEventListener("click",function(e){e.target.previousElementSibling.classList.toggle("expanded"),e.target.innerText="Read more"==e.target.innerText?"Hide":"Read more"})})},"BHo+":function(e,t){var n=document.querySelector(".screenings-table"),i=document.querySelector(".screenings-table--announcer"),o=document.querySelector(".screenings-table--explainer"),r=document.querySelector(".screenings-table--announcer--wrapper");if(n&&i){var c=function(e,t,n){o.style.visibility="hidden",i.innerHTML='<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>'+t+" at "+e+'</p></div><button class="button button__gray cancel-button">Cancel</button><a class="button button__yellow book-button" href="'+n+'">Book »</a>';var c=document.querySelector(".book-button");document.querySelector(".cancel-button").addEventListener("click",function(e){a()}),c.addEventListener("click",function(e){s(e)}),r.classList.add("active")},a=function(){r.classList.remove("active"),n.querySelector("input:checked").checked=!1,o.style.visibility="visible"},s=function(e){if(e.target.href.startsWith("https://tickets.hydeparkpicturehouse.co.uk/")){e.preventDefault(),a();var t=document.createElement("iframe");t.classList.add("spectrix-boxoffice"),t.setAttribute("id","SpektrixIFrame"),t.setAttribute("name","SpektrixIFrame"),t.setAttribute("onload","setTimeout(function(){ document.querySelector('#SpektrixIFrame').scrollIntoView() }, 100)"),t.src=e.target.href;var n=document.createElement("script");n.src="https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js";var i=document.querySelector(".single-listing--sidebar");i&&(i.classList.add("has-spectrix-open"),i.classList.add("open"),i.insertBefore(t,i.childNodes[0]),i.insertBefore(n,i.childNodes[0]))}};n.addEventListener("click",function(e){"INPUT"==e.target.nodeName&&c(e.target.dataset.time,e.target.dataset.date,e.target.dataset.url)}),document.addEventListener("DOMContentLoaded",function(){var e=window.location.href,t=new URL(e).searchParams.get("screeningID");if(t){var n=document.querySelector("input#screening-"+t);n&&(n.checked=!0,c(n.dataset.time,n.dataset.date,n.dataset.url))}})}},"DTs+":function(e,t,n){var i,o,r,c;c=function(e){"use strict";function t(e,t){return null==e?t:e}function n(e){return e.length}function i(e,t,n,i){return(e/=i/2)<1?n/2*e*e*e+t:n/2*((e-=2)*e*e+2)+t}Object.defineProperty(e,"__esModule",{value:!0}),e.getSlider=function(e){var o=void 0,r=void 0,c=void 0,a=void 0,s=void 0,l=t((e=e||{}).container,document.querySelector("*[data-simple-slider]")),u=t(e.prop,"left"),d=1e3*t(e.duration,.5),f=1e3*t(e.delay,3),m=t(e.unit,"%"),v=t(e.init,-100),g=t(e.show,0),y=t(e.end,100),p=e.paused,h=t(e.ease,i),L=t(e.onChange,0),b=t(e.onChangeEnd,0),w=Date.now;function S(){k()&&(r&&clearTimeout(r),function e(){c=w(),r=setTimeout(function(){c=w(),s=f,E(x()),e()},s)}())}function k(){return!p&&n(a)>1}function q(){k()&&(s=f-(w()-c),clearTimeout(r),r=0)}function E(e){for(var t=n(a);--t>=0;)a[t].style.zIndex=1;a[e].style.zIndex=3,a[o].style.zIndex=2,function e(t,n,i,r,c,a,s,l,d,f){function v(e,t,n){e[u]=f(d-l,t,n-t,s)+m}if(l>0){if(!(d-l<s))return t[u]=i+m,r[u]=a+m,void(b&&b(o,x()));v(t,n,i),v(r,c,a)}requestAnimationFrame(function(o){0===l&&(l=o),e(t,n,i,r,c,a,s,l,o,f)})}(a[o].style,g,y,a[e].style,v,g,d,0,0,h),o=e,L&&L(T(),o)}function x(){var e=o+1;return e>=n(a)?0:e}function T(){var e=o-1;return e<0?n(a)-1:e}function I(){document.hidden?q():S()}return document.addEventListener("visibilitychange",I),function(){if(n(l.children)>0){var t=l.style;t.position="relative",t.overflow="hidden",t.display="block",a=function(e,t,i,o,r,c){var a=void 0,s=[];t||(t=e.children);for(var l=n(t);--l>=0;)s[l]=t[l],(a=s[l].style).position="absolute",a.top=a.left=a.zIndex=0,a[c]=o+i;return a[c]=r+i,a.zIndex=1,s}(l,e.children,m,v,g,u),o=0,s=f}}(),a&&n(a)>1&&S(),{currentIndex:function(){return o},pause:q,resume:S,nextIndex:x,prevIndex:T,next:function(){E(x()),S()},prev:function(){E(T()),S()},change:E,reverse:function(){var e=v;v=y,y=e,o=Math.abs(o-(n(a)-1)),a=a.reverse()},dispose:function(){clearTimeout(r),document.removeEventListener("visibilitychange",I),a=l=r=u=d=f=v=y=p=o=s=L=b=null}}}},o=[t],void 0===(r="function"==typeof(i=c)?i.apply(t,o):i)||(e.exports=r)},F1kH:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});n("TyXU"),n("pzp0"),n("u3Jw"),n("/APx"),n("BHo+"),n("hFJ8"),n("biHv"),n("nHy7"),n("wLSP"),n("mNRf"),n("8rnt");n("Vprl")},Fn2L:function(e,t){},TBUl:function(e,t){},TyXU:function(e,t,n){var i=n("DTs+"),o=document.querySelector(".section--home-slider"),r=(document.querySelector(".loading-text"),document.getElementsByTagName("BODY")[0]);document.addEventListener("DOMContentLoaded",function(){if(o){var e=function(e,t){a[e].classList.add("out"),a[t].classList.add("coming-in")},t=function(e,t){a[e].classList.remove("coming-in"),a[t].classList.remove("out")},n=o.querySelector(".home-slider--slide"),c=n.querySelector(".home-slider--image"),a=o.querySelectorAll(".home-slider--slide");if(a.length){n.classList.add("coming-in");var s=setInterval(function(){c.naturalWidth&&(r.classList.remove("slider-loading"),n.classList.remove("coming-in"),i.getSlider({container:o,duration:1.5,delay:7.5,prop:"opacity",unit:"",init:0,show:1,end:0,onChange:e,onChangeEnd:t}),clearInterval(s))},50)}}})},Vprl:function(e,t,n){var i,o;!function(r,c){"use strict";void 0===(o="function"==typeof(i=c)?i.call(t,n,t,e):i)||(e.exports=o)}(0,function(){"use strict";if("object"==typeof window&&void 0!==document.querySelectorAll&&void 0!==window.pageYOffset&&void 0!==history.pushState){var e=function(e,t,n,i){return n>i?t:e+(t-e)*((o=n/i)<.5?4*o*o*o:(o-1)*(2*o-2)*(2*o-2)+1);var o},t=function(t,n,i,o){n=n||500;var r=(o=o||window).scrollTop||window.pageYOffset;if("number"==typeof t)var c=parseInt(t);else c=function(e,t){return"HTML"===e.nodeName?-t:e.getBoundingClientRect().top+t}(t,r);var a=Date.now(),s=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(e){window.setTimeout(e,15)},l=function(){var u=Date.now()-a;o!==window?o.scrollTop=e(r,c,u,n):window.scroll(0,e(r,c,u,n)),u>n?"function"==typeof i&&i(t):s(l)};l()},n=function(e){if(!e.defaultPrevented){e.preventDefault(),location.hash!==this.hash&&window.history.pushState(null,null,this.hash);var n=document.getElementById(this.hash.substring(1));if(!n)return;t(n,500,function(e){location.replace("#"+e.id)})}};return document.addEventListener("DOMContentLoaded",function(){for(var e,t=document.querySelectorAll('a[href^="#"]:not([href="#"])'),i=t.length;e=t[--i];)e.addEventListener("click",n,!1)}),t}})},biHv:function(e,t){document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".search-input"),t=document.querySelector(".search-output"),n=document.querySelector(".search-button"),i=document.querySelector(".search-container"),o=document.querySelector(".site-footer--navigation"),r=document.querySelector(".site-footer--navigation--link__search"),c=document.querySelector(".search-close");function a(){i.classList.toggle("active"),document.documentElement.classList.toggle("locked"),e.focus()}function s(){i.classList.remove("active"),document.documentElement.classList.remove("locked"),e.blur()}r&&r.addEventListener("click",function(e){r.classList.contains("open")?(s(),r.classList.remove("open"),o.classList.remove("navigation--search-open")):(a(),r.classList.add("open"),o.classList.add("navigation--search-open"))}),n&&n.addEventListener("click",function(){a()}),c&&c.addEventListener("click",function(e){s()}),e&&e.addEventListener("keyup",function(e){if(27===e.keyCode&&s(),e.target.value){var n=e.target.value.toLowerCase(),i=window.searchData.filter(function(e){return!!e.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace("’","'").includes(n.replace("’","'"))||!(!e.alt_language_title||!e.alt_language_title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace("’","'").includes(n.replace("’","'")))}),o="";if(Object.keys(i).length>0){var r=!0,c=!1,a=void 0;try{for(var l,u=Object.keys(i)[Symbol.iterator]();!(r=(l=u.next()).done);r=!0){var d=l.value;o+='\n              <li>\n                <a href="/film/'+i[d].slug+'">\n                  <div class="search-result--title">'+i[d].title+'</div>\n                  <div class="search-result--alt-title">'+(i[d].alt_language_title?i[d].alt_language_title:"")+"</div>\n                </a>\n              </li>\n            "}}catch(e){c=!0,a=e}finally{try{!r&&u.return&&u.return()}finally{if(c)throw a}}t.innerHTML=o}else t.innerHTML="<em>No results found.</em>"}else t.innerHTML=""})})},hFJ8:function(e,t){var n,i=document.querySelector(".single-listing--trailer"),o=document.querySelector(".single-listing--trailer--iframe"),r=document.querySelector(".trailer-button");if(r)var c=r.dataset.iframe,a=r.dataset.provider;if(c){var s,l;if("youtube"==a)(s=document.createElement("script")).src="//www.youtube.com/iframe_api",(l=document.getElementsByTagName("script")[0]).parentNode.insertBefore(s,l),window.onYouTubeIframeAPIReady=function(){youtubePlayer=new YT.Player(o,{height:"390",width:"640",videoId:c,events:{onReady:onPlayerReady}})};if("vimeo"==a)(s=document.createElement("script")).src="//player.vimeo.com/api/player.js",(l=document.getElementsByTagName("script")[0]).parentNode.insertBefore(s,l),s.addEventListener("load",function(){n=new Vimeo.Player(o,{id:c}),u(),r.classList.add("loaded")});window.innerHeight>window.innerWidth?o.style.width="100%":o.style.width="75%",o.style.height=o.clientWidth*(9/16)+"px"}function u(){r.addEventListener("click",function(){i.querySelector(".single-listing--trailer--iframe");r.classList.contains("play")?(i.classList.add("lights-out"),"youtube"==a&&youtubePlayer.playVideo(),"vimeo"==a&&n.play(),document.body.classList.add("locked"),r.innerText="Close trailer",r.blur(),r.classList.remove("play"),!0):d()})}function d(){i.classList.remove("lights-out"),document.body.classList.remove("locked"),"youtube"==a&&youtubePlayer.stopVideo(),"vimeo"==a&&n.pause(),r.innerText="Watch trailer ",r.classList.add("play"),r.blur(),playing=!1}window.onPlayerReady=function(e){u(),r.classList.add("loaded")},document.addEventListener("keyup",function(e){if(!e.defaultPrevented){var t=e.key||e.keyCode;"Escape"!==t&&"Esc"!==t&&27!==t||d()}})},mNRf:function(e,t,n){var i=n("DTs+"),o=document.querySelector(".section--home-project--slider--inner");if(o){var r=i.getSlider({container:o,duration:1,delay:3,prop:"opacity",unit:"",init:0,show:1,end:0});r.pause();new IntersectionObserver(function(e,t){e.forEach(function(e){e.intersectionRatio>=.95&&r.resume()})},{threshold:[.95]}).observe(o)}},nHy7:function(e,t){var n=document.getElementById("nav-trigger"),i=document.querySelector(".site-footer"),o=document.querySelector(".site-footer--navigation");n&&n.addEventListener("click",function(e){e.preventDefault(),i.classList.toggle("visible"),n.classList.toggle("open"),o.classList.toggle("nav-open"),document.documentElement.classList.toggle("locked"),document.body.classList.toggle("locked")});var r=window.navigator.userAgent,c=!!r.match(/iPad/i)||!!r.match(/iPhone/i),a=!!r.match(/WebKit/i),s=c&&a&&!r.match(/CriOS/i),l=c&&a&&r.match(/CriOS/i);(s||l)&&document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".section--home-slider");e&&(e.style.height=document.documentElement.clientHeight,e.classList.add("ios"))})},pzp0:function(e,t){var n=document.querySelector(".weekly-screenings--navigation--trigger"),i=document.querySelector(".weekly-screenings--week-picker");n&&i&&(n.addEventListener("click",function(){n.classList.toggle("active"),i.classList.toggle("visible")}),document.body.addEventListener("click",function(e){e.target.classList.contains("weekly-screenings--navigation--trigger")||(n.classList.remove("active"),i.classList.remove("visible"))}))},u3Jw:function(e,t){var n=document.querySelector(".fade-image-onload");if(n){n.classList.add("loading"),n.onload=function(){n.classList.remove("loading")};var i=setTimeout(function(){n.naturalWidth&&(n.classList.remove("loading"),clearTimeout(i))},100)}},wLSP:function(e,t){var n=document.querySelector(".bookmark"),i=document.querySelector(".site-header");if(n){document.addEventListener("DOMContentLoaded",function(){n.classList.add("active"),new IntersectionObserver(o,r).observe(i)});var o=function(e){e.forEach(function(e){e.intersectionRatio<=r.threshold?n.classList.add("compact"):n.classList.remove("compact")})},r={rootMargin:"0px 0px",threshold:.25}}}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/simple-slider/dist/simpleslider.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports);
+    global.simpleslider = mod.exports;
+  }
+})(this, function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  function getdef(val, def) {
+    return val == null ? def : val;
+  }
+
+  function len(arr) {
+    return arr.length;
+  }
+
+  function startSlides(containerElem, children, unit, startVal, visVal, trProp) {
+    var style = void 0,
+        imgs = [];
+
+    if (!children) {
+      children = containerElem.children;
+    }
+
+    var i = len(children);
+
+    while (--i >= 0) {
+      imgs[i] = children[i];
+      style = imgs[i].style;
+      style.position = 'absolute';
+      style.top = style.left = style.zIndex = 0;
+      style[trProp] = startVal + unit;
+    }
+
+    style[trProp] = visVal + unit;
+    style.zIndex = 1;
+
+    return imgs;
+  }
+
+  function defaultEase(time, begin, change, duration) {
+    return (time = time / (duration / 2)) < 1 ? change / 2 * time * time * time + begin : change / 2 * ((time -= 2) * time * time + 2) + begin;
+  }
+
+  function getSlider(options) {
+    options = options || {};
+    var actualIndex = void 0,
+        interval = void 0,
+        intervalStartTime = void 0,
+        imgs = void 0,
+        remainingTime = void 0;
+
+    var containerElem = getdef(options.container, document.querySelector('*[data-simple-slider]'));
+    var trProp = getdef(options.prop, 'left');
+    var trTime = getdef(options.duration, 0.5) * 1000;
+    var delay = getdef(options.delay, 3) * 1000;
+    var unit = getdef(options.unit, '%');
+    var startVal = getdef(options.init, -100);
+    var visVal = getdef(options.show, 0);
+    var endVal = getdef(options.end, 100);
+    var paused = options.paused;
+    var ease = getdef(options.ease, defaultEase);
+    var onChange = getdef(options.onChange, 0);
+    var onChangeEnd = getdef(options.onChangeEnd, 0);
+    var now = Date.now;
+
+    function reset() {
+      if (len(containerElem.children) > 0) {
+        var style = containerElem.style;
+        style.position = 'relative';
+        style.overflow = 'hidden';
+        style.display = 'block';
+
+        imgs = startSlides(containerElem, options.children, unit, startVal, visVal, trProp);
+        actualIndex = 0;
+        remainingTime = delay;
+      }
+    }
+
+    function setAutoPlayLoop() {
+      intervalStartTime = now();
+      interval = setTimeout(function () {
+        intervalStartTime = now();
+        remainingTime = delay;
+
+        change(nextIndex());
+
+        setAutoPlayLoop();
+      }, remainingTime);
+    }
+
+    function resume() {
+      if (isAutoPlay()) {
+        if (interval) {
+          clearTimeout(interval);
+        }
+
+        setAutoPlayLoop();
+      }
+    }
+
+    function isAutoPlay() {
+      return !paused && len(imgs) > 1;
+    }
+
+    function pause() {
+      if (isAutoPlay()) {
+        remainingTime = delay - (now() - intervalStartTime);
+        clearTimeout(interval);
+        interval = 0;
+      }
+    }
+
+    function reverse() {
+      var newEndVal = startVal;
+      startVal = endVal;
+      endVal = newEndVal;
+      actualIndex = Math.abs(actualIndex - (len(imgs) - 1));
+      imgs = imgs.reverse();
+    }
+
+    function change(newIndex) {
+      var count = len(imgs);
+      while (--count >= 0) {
+        imgs[count].style.zIndex = 1;
+      }
+
+      imgs[newIndex].style.zIndex = 3;
+      imgs[actualIndex].style.zIndex = 2;
+
+      anim(imgs[actualIndex].style, visVal, endVal, imgs[newIndex].style, startVal, visVal, trTime, 0, 0, ease);
+
+      actualIndex = newIndex;
+
+      if (onChange) {
+        onChange(prevIndex(), actualIndex);
+      }
+    }
+
+    function next() {
+      change(nextIndex());
+      resume();
+    }
+
+    function prev() {
+      change(prevIndex());
+      resume();
+    }
+
+    function nextIndex() {
+      var newIndex = actualIndex + 1;
+      return newIndex >= len(imgs) ? 0 : newIndex;
+    }
+
+    function prevIndex() {
+      var newIndex = actualIndex - 1;
+      return newIndex < 0 ? len(imgs) - 1 : newIndex;
+    }
+
+    function dispose() {
+      clearTimeout(interval);
+      document.removeEventListener('visibilitychange', visibilityChange);
+
+      imgs = containerElem = interval = trProp = trTime = delay = startVal = endVal = paused = actualIndex = remainingTime = onChange = onChangeEnd = null;
+    }
+
+    function currentIndex() {
+      return actualIndex;
+    }
+
+    function anim(insertElem, insertFrom, insertTo, removeElem, removeFrom, removeTo, transitionDuration, startTime, elapsedTime, easeFunc) {
+      function setProp(elem, from, to) {
+        elem[trProp] = easeFunc(elapsedTime - startTime, from, to - from, transitionDuration) + unit;
+      }
+
+      if (startTime > 0) {
+        if (elapsedTime - startTime < transitionDuration) {
+          setProp(insertElem, insertFrom, insertTo);
+          setProp(removeElem, removeFrom, removeTo);
+        } else {
+          insertElem[trProp] = insertTo + unit;
+          removeElem[trProp] = removeTo + unit;
+
+          if (onChangeEnd) {
+            onChangeEnd(actualIndex, nextIndex());
+          }
+          return;
+        }
+      }
+
+      requestAnimationFrame(function (time) {
+        if (startTime === 0) {
+          startTime = time;
+        }
+
+        anim(insertElem, insertFrom, insertTo, removeElem, removeFrom, removeTo, transitionDuration, startTime, time, easeFunc);
+      });
+    }
+
+    function visibilityChange() {
+      if (document.hidden) {
+        pause();
+      } else {
+        resume();
+      }
+    }
+
+    document.addEventListener('visibilitychange', visibilityChange);
+    reset();
+
+    if (imgs && len(imgs) > 1) {
+      resume();
+    }
+
+    return {
+      currentIndex: currentIndex,
+      pause: pause,
+      resume: resume,
+      nextIndex: nextIndex,
+      prevIndex: prevIndex,
+      next: next,
+      prev: prev,
+      change: change,
+      reverse: reverse,
+      dispose: dispose
+    };
+  }
+
+  exports.getSlider = getSlider;
+});
+
+/***/ }),
+
+/***/ "./node_modules/smoothScroll/smoothscroll.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, smoothScroll) {
+  'use strict';
+
+  // Support RequireJS and CommonJS/NodeJS module formats.
+  // Attach smoothScroll to the `window` when executed as a <script>.
+
+  // RequireJS
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (smoothScroll),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+  // CommonJS
+  } else if (typeof exports === 'object' && typeof module === 'object') {
+    module.exports = smoothScroll();
+
+  } else {
+    root.smoothScroll = smoothScroll();
+  }
+
+})(this, function(){
+'use strict';
+
+// Do not initialize smoothScroll when running server side, handle it in client:
+if (typeof window !== 'object') return;
+
+// We do not want this script to be applied in browsers that do not support those
+// That means no smoothscroll on IE9 and below.
+if(document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) { return; }
+
+// Get the top position of an element in the document
+var getTop = function(element, start) {
+    // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
+    if(element.nodeName === 'HTML') return -start
+    return element.getBoundingClientRect().top + start
+}
+// ease in out function thanks to:
+// http://blog.greweb.fr/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/
+var easeInOutCubic = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 }
+
+// calculate the scroll position we should be in
+// given the start and end point of the scroll
+// the time elapsed from the beginning of the scroll
+// and the total duration of the scroll (default 500ms)
+var position = function(start, end, elapsed, duration) {
+    if (elapsed > duration) return end;
+    return start + (end - start) * easeInOutCubic(elapsed / duration); // <-- you can change the easing funtion there
+    // return start + (end - start) * (elapsed / duration); // <-- this would give a linear scroll
+}
+
+// we use requestAnimationFrame to be called by the browser before every repaint
+// if the first argument is an element then scroll to the top of this element
+// if the first argument is numeric then scroll to this location
+// if the callback exist, it is called when the scrolling is finished
+// if context is set then scroll that element, else scroll window
+var smoothScroll = function(el, duration, callback, context){
+    duration = duration || 500;
+    context = context || window;
+    var start = context.scrollTop || window.pageYOffset;
+
+    if (typeof el === 'number') {
+      var end = parseInt(el);
+    } else {
+      var end = getTop(el, start);
+    }
+
+    var clock = Date.now();
+    var requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+        function(fn){window.setTimeout(fn, 15);};
+
+    var step = function(){
+        var elapsed = Date.now() - clock;
+        if (context !== window) {
+          context.scrollTop = position(start, end, elapsed, duration);
+        }
+        else {
+          window.scroll(0, position(start, end, elapsed, duration));
+        }
+
+        if (elapsed > duration) {
+            if (typeof callback === 'function') {
+                callback(el);
+            }
+        } else {
+            requestAnimationFrame(step);
+        }
+    }
+    step();
+}
+
+var linkHandler = function(ev) {
+    if (!ev.defaultPrevented) {
+        ev.preventDefault();
+
+        if (location.hash !== this.hash) window.history.pushState(null, null, this.hash)
+        // using the history api to solve issue #1 - back doesn't work
+        // most browser don't update :target when the history api is used:
+        // THIS IS A BUG FROM THE BROWSERS.
+        // change the scrolling duration in this call
+        var node = document.getElementById(this.hash.substring(1))
+        if (!node) return; // Do not scroll to non-existing node
+
+        smoothScroll(node, 500, function (el) {
+            location.replace('#' + el.id)
+            // this will cause the :target to be activated.
+        });
+    }
+}
+
+// We look for all the internal links in the documents and attach the smoothscroll function
+document.addEventListener("DOMContentLoaded", function () {
+    var internal = document.querySelectorAll('a[href^="#"]:not([href="#"])'), a;
+    for(var i=internal.length; a=internal[--i];){
+        a.addEventListener("click", linkHandler, false);
+    }
+});
+
+// return smoothscroll API
+return smoothScroll;
+
+});
+
+
+/***/ }),
+
+/***/ "./resources/js/app.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util_in_view__ = __webpack_require__("./resources/js/util/in-view.js");
+
+__webpack_require__("./resources/js/components/slideshow.js");
+__webpack_require__("./resources/js/components/week-navigation.js");
+__webpack_require__("./resources/js/components/fade-image-on-load.js");
+__webpack_require__("./resources/js/components/mobile-screenings-menu.js");
+__webpack_require__("./resources/js/components/select-screenings.js");
+__webpack_require__("./resources/js/components/trailer-player.js");
+__webpack_require__("./resources/js/components/search.js");
+__webpack_require__("./resources/js/components/mobile-navigation.js");
+__webpack_require__("./resources/js/components/bookmark.js");
+__webpack_require__("./resources/js/components/home-project.js");
+__webpack_require__("./resources/js/components/showhide.js");
+
+var smoothScroll = __webpack_require__("./node_modules/smoothScroll/smoothscroll.js");
+
+// let {iframeResizer} = require('iframe-resizer');
+
+/***/ }),
+
+/***/ "./resources/js/components/bookmark.js":
+/***/ (function(module, exports) {
+
+var bookmark = document.querySelector('.bookmark');
+var header = document.querySelector('.site-header');
+
+if (bookmark) {
+  document.addEventListener('DOMContentLoaded', function () {
+    bookmark.classList.add('active');
+    var observer = new IntersectionObserver(callback, options);
+    observer.observe(header);
+  });
+  var callback = function callback(entries) {
+    entries.forEach(function (entry) {
+      if (entry.intersectionRatio <= options.threshold) {
+        bookmark.classList.add('compact');
+      } else {
+        bookmark.classList.remove('compact');
+      }
+    });
+  };
+
+  var options = {
+    rootMargin: '0px 0px',
+    threshold: 0.25
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/fade-image-on-load.js":
+/***/ (function(module, exports) {
+
+/*
+** Fade selected images on load
+*/
+
+var fadeOnloadImage = document.querySelector('.fade-image-onload');
+if (fadeOnloadImage) {
+  fadeOnloadImage.classList.add('loading');
+  fadeOnloadImage.onload = function () {
+    fadeOnloadImage.classList.remove('loading');
+  };
+  var fadeOnloadImageCheck = setTimeout(function () {
+    if (fadeOnloadImage.naturalWidth) {
+      fadeOnloadImage.classList.remove('loading');
+      clearTimeout(fadeOnloadImageCheck);
+    }
+  }, 100);
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/home-project.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var simpleslider = __webpack_require__("./node_modules/simple-slider/dist/simpleslider.js");
+var projectSliderImages = document.querySelector('.section--home-project--slider--inner');
+
+if (projectSliderImages) {
+
+  var projectSlider = simpleslider.getSlider({
+    container: projectSliderImages,
+    duration: 1,
+    delay: 3,
+    prop: 'opacity',
+    unit: '',
+    init: 0,
+    show: 1,
+    end: 0
+  });
+
+  projectSlider.pause();
+
+  var options = {
+    threshold: [0.95]
+  };
+
+  var callback = function callback(entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.intersectionRatio >= 0.95) {
+        projectSlider.resume();
+      }
+    });
+  };
+
+  var observer = new IntersectionObserver(callback, options);
+  observer.observe(projectSliderImages);
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/mobile-navigation.js":
+/***/ (function(module, exports) {
+
+/*
+** Open 'more' menu
+*/
+
+var navTrigger = document.getElementById('nav-trigger');
+var nav = document.querySelector('.site-footer');
+var navBar = document.querySelector('.site-footer--navigation');
+if (navTrigger) {
+  navTrigger.addEventListener('click', function (e) {
+    e.preventDefault();
+    nav.classList.toggle('visible');
+    navTrigger.classList.toggle('open');
+    navBar.classList.toggle('nav-open');
+    document.documentElement.classList.toggle('locked');
+    document.body.classList.toggle('locked');
+  });
+}
+
+/*
+** UA sniffing to prevent judder due to navbar movement on iOS
+*/
+
+var ua = window.navigator.userAgent;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var iOSChrome = iOS && webkit && ua.match(/CriOS/i);
+
+if (iOSSafari || iOSChrome) {
+  document.addEventListener('DOMContentLoaded', function () {
+    // document.documentElement.classList.add('iOSSafari');
+    var homeSlider = document.querySelector('.section--home-slider');
+    if (homeSlider) {
+      // homeSlider.style.height = document.documentElement.clientHeight - navBar.clientHeight + 1 + 'px';
+      homeSlider.style.height = document.documentElement.clientHeight;
+      homeSlider.classList.add('ios');
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/mobile-screenings-menu.js":
+/***/ (function(module, exports) {
+
+/*
+** Slide up screenings on mobile
+*/
+var screeningsTitle = document.querySelector('.single-listing--venue--header') || document.querySelector('.single-listing--screenings--header') || document.querySelector('.single-listing--watchonline--header');
+var screeningsContainer = document.querySelector('.single-listing--sidebar');
+var screeningsMobileButton = document.querySelector('.single-listing--mobile--screenings');
+if (screeningsMobileButton && screeningsTitle) {
+  screeningsMobileButton.addEventListener('click', function () {
+    toggleScreeningsMenu();
+  });
+  screeningsTitle.addEventListener('click', function () {
+    toggleScreeningsMenu();
+  });
+}
+
+function toggleScreeningsMenu() {
+  screeningsContainer.classList.toggle('open');
+  document.documentElement.classList.toggle('locked');
+  document.body.classList.toggle('locked');
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/search.js":
+/***/ (function(module, exports) {
+
+
+/*
+** Search
+*/
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var searchInput = document.querySelector('.search-input'),
+      searchOutput = document.querySelector('.search-output'),
+      searchButton = document.querySelector('.search-button'),
+      searchContainer = document.querySelector('.search-container'),
+      siteNavigationFooter = document.querySelector('.site-footer--navigation'),
+      searchFooterButton = document.querySelector('.site-footer--navigation--link__search'),
+      searchClose = document.querySelector('.search-close');
+
+  if (searchFooterButton) {
+    searchFooterButton.addEventListener('click', function (e) {
+      if (searchFooterButton.classList.contains('open')) {
+        closeSearch();
+        searchFooterButton.classList.remove('open');
+        siteNavigationFooter.classList.remove('navigation--search-open');
+      } else {
+        openSearch();
+        searchFooterButton.classList.add('open');
+        siteNavigationFooter.classList.add('navigation--search-open');
+      }
+    });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener('click', function () {
+      openSearch();
+    });
+  }
+
+  function openSearch() {
+    searchContainer.classList.toggle('active');
+    document.documentElement.classList.toggle('locked');
+    searchInput.focus();
+  }
+
+  function closeSearch() {
+    searchContainer.classList.remove('active');
+    document.documentElement.classList.remove('locked');
+    searchInput.blur();
+  }
+  if (searchClose) {
+    searchClose.addEventListener('click', function (e) {
+      closeSearch();
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function (e) {
+      if (e.keyCode === 27) {
+        closeSearch();
+      };
+      if (e.target.value) {
+        var searchValue = e.target.value.toLowerCase();
+
+        var searchResults = window.searchData.filter(function (item) {
+          if (item.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("’", "'").includes(searchValue.replace("’", "'"))) {
+            return true;
+          } else if (item.alt_language_title && item.alt_language_title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("’", "'").includes(searchValue.replace("’", "'"))) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        var searchHTML = '';
+        if (Object.keys(searchResults).length > 0) {
+          var _iteratorNormalCompletion = true;
+          var _didIteratorError = false;
+          var _iteratorError = undefined;
+
+          try {
+            for (var _iterator = Object.keys(searchResults)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              var key = _step.value;
+
+              searchHTML += '\n              <li>\n                <a href="/film/' + searchResults[key].slug + '">\n                  <div class="search-result--title">' + searchResults[key].title + '</div>\n                  <div class="search-result--alt-title">' + (searchResults[key].alt_language_title ? searchResults[key].alt_language_title : '') + '</div>\n                </a>\n              </li>\n            ';
+            }
+          } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+              }
+            } finally {
+              if (_didIteratorError) {
+                throw _iteratorError;
+              }
+            }
+          }
+
+          searchOutput.innerHTML = searchHTML;
+        } else {
+          searchOutput.innerHTML = '<em>No results found.</em>';
+        }
+      } else {
+        searchOutput.innerHTML = '';
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/select-screenings.js":
+/***/ (function(module, exports) {
+
+/*
+** Select (or preselect) screenings
+*/
+
+var screeningTable = document.querySelector('.screenings-table');
+var screeningAnnouncer = document.querySelector('.screenings-table--announcer');
+var screeningExplainer = document.querySelector('.screenings-table--explainer');
+var screeningWrapper = document.querySelector('.screenings-table--announcer--wrapper');
+
+if (screeningTable && screeningAnnouncer) {
+  var selectScreening = function selectScreening(screeningTime, screeningDate, screeningURL) {
+    screeningExplainer.style.visibility = 'hidden';
+    screeningAnnouncer.innerHTML = '<div class="screenings-table--announcer--text"><h3 class="screenings-table--announcer--heading">Selected showtime:</h3><p>' + screeningDate + ' at ' + screeningTime + '</p></div><button class="button button__gray cancel-button">Cancel</button><a class="button button__yellow book-button" href="' + screeningURL + '">Book \xBB</a>';
+    var bookButton = document.querySelector('.book-button');
+    var cancelButton = document.querySelector('.cancel-button');
+    cancelButton.addEventListener('click', function (e) {
+      cancelSelectedScreening();
+    });
+    bookButton.addEventListener('click', function (e) {
+      bookSelectedScreening(e);
+    });
+
+    // bookButton.addEventListener('click',(e)=>{bookingFormEmbed(e)});
+    screeningWrapper.classList.add('active');
+  };
+
+  var cancelSelectedScreening = function cancelSelectedScreening() {
+    screeningWrapper.classList.remove('active');
+    screeningTable.querySelector('input:checked').checked = false;
+    screeningExplainer.style.visibility = 'visible';
+  };
+
+  var bookSelectedScreening = function bookSelectedScreening(e) {
+    if (e.target.href.startsWith('https://tickets.hydeparkpicturehouse.co.uk/')) {
+      e.preventDefault();
+      cancelSelectedScreening();
+      var iframe = document.createElement('iframe');
+      iframe.classList.add('spectrix-boxoffice');
+      iframe.setAttribute('id', 'SpektrixIFrame');
+      iframe.setAttribute('name', 'SpektrixIFrame');
+      iframe.setAttribute('onload', 'setTimeout(function(){ document.querySelector(\'#SpektrixIFrame\').scrollIntoView() }, 100)');
+      iframe.src = e.target.href;
+
+      var script = document.createElement('script');
+      script.src = 'https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js';
+
+      var sidebar = document.querySelector('.single-listing--sidebar');
+      if (sidebar) {
+        sidebar.classList.add('has-spectrix-open');
+        sidebar.classList.add('open');
+        sidebar.insertBefore(iframe, sidebar.childNodes[0]);
+        sidebar.insertBefore(script, sidebar.childNodes[0]);
+      }
+    }
+  };
+
+  screeningTable.addEventListener('click', function (e) {
+    if (e.target.nodeName == 'INPUT') {
+      selectScreening(e.target.dataset.time, e.target.dataset.date, e.target.dataset.url);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var screeningID = url.searchParams.get("screeningID");
+    if (screeningID) {
+      var screeningInput = document.querySelector('input#screening-' + screeningID);
+      if (screeningInput) {
+        screeningInput.checked = true;
+        selectScreening(screeningInput.dataset.time, screeningInput.dataset.date, screeningInput.dataset.url);
+      }
+    }
+  });
+
+  ;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/showhide.js":
+/***/ (function(module, exports) {
+
+var pickButtons = document.querySelectorAll('.pick--extended--button');
+
+pickButtons.forEach(function (button) {
+  button.addEventListener('click', function (e) {
+    e.target.previousElementSibling.classList.toggle('expanded');
+    e.target.innerText = e.target.innerText == 'Read more' ? 'Hide' : 'Read more';
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/slideshow.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var simpleslider = __webpack_require__("./node_modules/simple-slider/dist/simpleslider.js");
+
+/*
+** Homepage slideshow
+*/
+
+var slider = document.querySelector('.section--home-slider');
+var loadingText = document.querySelector('.loading-text');
+var body = document.getElementsByTagName("BODY")[0];
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (slider) {
+    var onChangeFn = function onChangeFn(prev, next) {
+      // slides[prev].classList.remove('in');
+      slides[prev].classList.add('out');
+      slides[next].classList.add('coming-in');
+    };
+
+    var onChangeEndFn = function onChangeEndFn(prev, next) {
+      slides[prev].classList.remove('coming-in');
+      // slides[prev].classList.add('in');
+      slides[next].classList.remove('out');
+    };
+
+    var startSlider = function startSlider() {
+      firstSlide.classList.remove('coming-in');
+      simpleslider.getSlider({
+        container: slider,
+        duration: 1.5,
+        delay: 7.5,
+        prop: 'opacity',
+        unit: '',
+        init: 0,
+        show: 1,
+        end: 0,
+        onChange: onChangeFn,
+        onChangeEnd: onChangeEndFn
+      });
+    };
+
+    var firstSlide = slider.querySelector('.home-slider--slide');
+    var firstSlideImage = firstSlide.querySelector('.home-slider--image');
+    var slides = slider.querySelectorAll('.home-slider--slide');
+    if (slides.length) {
+      // body.classList.add('slider-loading');
+      firstSlide.classList.add('coming-in');
+      var firstSlideImageCheck = setInterval(function () {
+        if (firstSlideImage.naturalWidth) {
+          body.classList.remove('slider-loading');
+          startSlider();
+          clearInterval(firstSlideImageCheck);
+        }
+      }, 50);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/trailer-player.js":
+/***/ (function(module, exports) {
+
+/*
+** Trailer on film pages
+*/
+var trailerContainer = document.querySelector('.single-listing--trailer');
+var trailerIframe = document.querySelector('.single-listing--trailer--iframe');
+var trailerButton = document.querySelector('.trailer-button');
+var vimeoPlayer;
+if (trailerButton) {
+  var trailerID = trailerButton.dataset.iframe;
+  var trailerProvider = trailerButton.dataset.provider;
+}
+if (trailerID) {
+  if (trailerProvider == 'youtube') {
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    window.onYouTubeIframeAPIReady = function () {
+
+      youtubePlayer = new YT.Player(trailerIframe, {
+        height: '390',
+        width: '640',
+        videoId: trailerID,
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    };
+  }
+
+  if (trailerProvider == 'vimeo') {
+    var tag = document.createElement('script');
+    tag.src = "//player.vimeo.com/api/player.js";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    tag.addEventListener('load', function () {
+      vimeoPlayer = new Vimeo.Player(trailerIframe, {
+        id: trailerID
+      });
+      connectTrailerButton();
+      trailerButton.classList.add('loaded');
+    });
+  }
+
+  if (window.innerHeight > window.innerWidth) {
+    trailerIframe.style.width = '100%';
+  } else {
+    trailerIframe.style.width = '75%';
+  }
+  trailerIframe.style.height = trailerIframe.clientWidth * (9 / 16) + 'px';
+}
+
+// 4. The API will call this function when the video player is ready.
+window.onPlayerReady = function (event) {
+  connectTrailerButton();
+  trailerButton.classList.add('loaded');
+};
+
+function connectTrailerButton() {
+  var playing = false;
+
+  trailerButton.addEventListener('click', function () {
+    var trailerIframe = trailerContainer.querySelector('.single-listing--trailer--iframe');
+    if (trailerButton.classList.contains('play')) {
+      trailerContainer.classList.add('lights-out');
+      if (trailerProvider == 'youtube') {
+        youtubePlayer.playVideo();
+      }
+      if (trailerProvider == 'vimeo') {
+        vimeoPlayer.play();
+      }
+      document.body.classList.add('locked');
+      trailerButton.innerText = 'Close trailer';
+      trailerButton.blur();
+      trailerButton.classList.remove('play');
+      playing = true;
+    } else {
+      closeVideo();
+    }
+  });
+}
+
+function closeVideo() {
+  trailerContainer.classList.remove('lights-out');
+  document.body.classList.remove('locked');
+  if (trailerProvider == 'youtube') {
+    youtubePlayer.stopVideo();
+  }
+  if (trailerProvider == 'vimeo') {
+    vimeoPlayer.pause();
+  }
+  trailerButton.innerText = 'Watch trailer ';
+  trailerButton.classList.add('play');
+  trailerButton.blur();
+  playing = false;
+}
+
+// Trigger trailer close when escape is pressed
+document.addEventListener('keyup', function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  var key = event.key || event.keyCode;
+  if (key === 'Escape' || key === 'Esc' || key === 27) {
+    closeVideo();
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/week-navigation.js":
+/***/ (function(module, exports) {
+
+/*
+** Weekly navigation menu
+*/
+
+var weeklyNavigationMenuTrigger = document.querySelector('.weekly-screenings--navigation--trigger');
+var weeklyNavigationMenuTarget = document.querySelector('.weekly-screenings--week-picker');
+if (weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
+  weeklyNavigationMenuTrigger.addEventListener('click', function () {
+    weeklyNavigationMenuTrigger.classList.toggle('active');
+    weeklyNavigationMenuTarget.classList.toggle('visible');
+  });
+  document.body.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('weekly-screenings--navigation--trigger')) {
+      weeklyNavigationMenuTrigger.classList.remove('active');
+      weeklyNavigationMenuTarget.classList.remove('visible');
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/util/in-view.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * Use intersection observer to detect when an element is in view
+ */
+/* unused harmony default export */ var _unused_webpack_default_export = (function (elem, threshold, rootMargin, parentCallback) {
+
+  if (!(elem instanceof Element || elem instanceof HTMLDocument)) {
+    elem = document.querySelectorAll(elem);
+  }
+
+  if (!elem) return;
+
+  var callback = function callback(entries) {
+    entries.forEach(function (entry) {
+      if (entry.intersectionRatio >= options.threshold) {
+        if (parentCallback) {
+          parentCallback();
+        } else {
+          entry.target.classList.add('in-view');
+        }
+      }
+    });
+  };
+
+  var options = {
+    rootMargin: rootMargin || '0px 0px',
+    threshold: threshold
+  };
+
+  var observer = new IntersectionObserver(callback, options);
+  if (elem.length) {
+    elem.forEach(function (elem) {
+      observer.observe(elem);
+    });
+  } else {
+    observer.observe(elem);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/sass/admin.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/app.sass":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/spectrix.sass":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("./resources/js/app.js");
+__webpack_require__("./resources/sass/app.sass");
+__webpack_require__("./resources/sass/admin.scss");
+module.exports = __webpack_require__("./resources/sass/spectrix.sass");
+
+
+/***/ })
+
+/******/ });

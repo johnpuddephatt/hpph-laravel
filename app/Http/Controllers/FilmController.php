@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Film;
+use App\Models\Venue;
 use App\Models\Screening;
 use Carbon\Carbon;
 
@@ -26,9 +27,10 @@ class FilmController extends Controller
     return view('film.single', compact('film'));
   }
 
-  public function index() {
+  public function index(Venue $venue = null) {
 
     $films = Film::hasFutureScreenings()
+              ->atVenue($venue)
               ->with(['screenings' => function ($query) {
                 $query->where('date', '>=', date('Y/m/d'))
                       ->orderBy('date')
