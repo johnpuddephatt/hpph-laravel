@@ -1,5 +1,7 @@
 .listings-navigation {
   margin-bottom: 0;
+  white-space: nowrap;
+
   .listings-navigation--inner {
     display: flex;
     position: relative;
