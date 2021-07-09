@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+let mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,14 +11,15 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.sass', 'public/css')
-    .sass('resources/sass/admin.scss', 'public/css')
-    .sass('resources/sass/spectrix.sass', 'public/css')
-    .version();
+mix
+  .js("resources/js/app.js", "public/js")
+  .sass("resources/sass/app.sass", "public/css")
+  .sass("resources/sass/admin.scss", "public/css")
+  .sass("resources/sass/spectrix.sass", "public/css")
+  .version();
 
-mix.copy('resources/images/*', 'public/images');
-mix.browserSync('http://public.hpph.localhost/');
+mix.copy("resources/images/*", "public/images");
+mix.browserSync("http://public.hpph.test/");
 
 // if (mix.inProduction()) {
 

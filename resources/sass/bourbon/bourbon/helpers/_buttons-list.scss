@@ -7,9 +7,9 @@
 /// @access private
 
 $_buttons-list: (
-  "button",
-  ".button",
+  // "button",
+    ".button",
   "[type='button']",
   "[type='reset']",
-  "[type='submit']",
+  "[type='submit']"
 );

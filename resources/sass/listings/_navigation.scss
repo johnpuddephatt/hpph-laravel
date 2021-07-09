@@ -35,7 +35,19 @@
   top: -1px;
   z-index: 99;
 
-  a {
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  a,
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: $base-font-family;
+    letter-spacing: $base-letter-spacing;
+
     display: inline-block;
     margin-right: $small-spacing;
     line-height: $base-spacing;
@@ -62,7 +74,8 @@
     position: relative;
   }
 
-  .weekly-screenings--week-picker {
+  .weekly-screenings--week-picker,
+  .whatson--venue-target {
     display: none;
     top: 100%;
     margin-top: $small-spacing;
@@ -103,6 +116,7 @@
     }
   }
 
+  .whatson--venue-trigger,
   .weekly-screenings--navigation--trigger {
     font-size: modular-scale(0);
     font-weight: 500;

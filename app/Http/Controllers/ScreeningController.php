@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Http\Requests\ScreeningRequest;
 use App\Models\Screening;
 use App\Models\Tag;
+use App\Models\Venue;
 
 class ScreeningController extends Controller
 {
@@ -67,7 +68,10 @@ class ScreeningController extends Controller
       $screenings_today = null;
     }
 
-    return view('listings.weekly', compact('screenings','week','week_commencing','week_ending','screenings_today'));
+        $venues = Venue::hasFutureScreenings()->get();
+
+
+    return view('listings.weekly', compact('screenings','week','week_commencing','venues','week_ending','screenings_today'));
   }
 
   public function addScreening(ScreeningRequest $request) {

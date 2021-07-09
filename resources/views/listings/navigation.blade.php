@@ -1,8 +1,31 @@
 <nav class="listings-navigation container">
   <div class="listings-navigation--inner">
     <a href="/whats-on/weekly" class=" @if(isset($screenings))current @endif">By date</a>
-    <a href="/whats-on/a-z" class=" @if(isset($films))current @endif">By film (A&ndash;Z)</a>
-    <a href="/strand/watch-online">Watch online</a>
+    <a href="/whats-on/a-z" class=" @if(isset($films) && !isset($venue))current @endif">By film (A&ndash;Z)</a>
+    <div class="dropdown-wrapper">
+      @if(!isset($venue) || $venue == null)
+      <button class="whatson--venue-trigger">
+        By location</button>
+      @else
+      <button class="whatson--venue-trigger current">
+        At {{ $venue->title }}
+      </button>
+      @endif
+
+      <nav class="whatson--venue-target">
+        {{-- @if(isset($venue) && $venue)
+        <a class="weekly-screenings--week-picker--date" href="/whats-on/a-z">
+          All locations
+        </a>
+        @endif --}}
+        @foreach($venues as $current_venue)
+        <a href="/whats-on/{{ $current_venue->slug }}"
+          class="weekly-screenings--week-picker--date @if (isset($venue) && $venue && $venue->id == $current_venue->id) current @endif">
+          At {{ $current_venue->title }}
+        </a>
+        @endforeach
+      </nav>
+    </div>
 
     @if($type == 'weekly')
     <div class="weekly-screenings--navigation">
@@ -31,31 +54,6 @@
           From {{ date("D jS F",time() + (($i - 1) * 7) * 86400) }}
           </a>
           @endfor
-      </nav>
-    </div>
-    @else
-    <div class="weekly-screenings--navigation">
-      @if($venue == null)
-      <button class="weekly-screenings--navigation--trigger button button__ghost">
-        All locations</button>
-      @else
-      <button class="weekly-screenings--navigation--trigger button button__ghost">
-        {{ $venue->title }}
-      </button>
-      @endif
-
-      <nav class="weekly-screenings--week-picker">
-        @if($venue)
-        <a class="weekly-screenings--week-picker--date" href="/whats-on/a-z">
-          All locations
-        </a>
-        @endif
-        @foreach($venues as $current_venue)
-        <a href="/whats-on/{{ $current_venue->slug }}"
-          class="weekly-screenings--week-picker--date @if ($venue && $venue->id == $current_venue->id) current @endif">
-          {{ $current_venue->title }}
-        </a>
-        @endforeach
       </nav>
     </div>
     @endif
