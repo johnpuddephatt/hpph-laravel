@@ -8,8 +8,7 @@
         By location</button>
       @else
       <button class="whatson--venue-trigger current">
-        At {{ $venue->title }}
-      </button>
+        At {{ $venue->title }}</button>
       @endif
 
       <nav class="whatson--venue-target">
@@ -21,8 +20,7 @@
         @foreach($venues as $current_venue)
         <a href="/whats-on/{{ $current_venue->slug }}"
           class="weekly-screenings--week-picker--date @if (isset($venue) && $venue && $venue->id == $current_venue->id) current @endif">
-          At {{ $current_venue->title }}
-        </a>
+          At {{ $current_venue->title }}</a>
         @endforeach
       </nav>
     </div>
