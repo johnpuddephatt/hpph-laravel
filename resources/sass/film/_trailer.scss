@@ -60,6 +60,7 @@
   text-transform: lowercase;
   font-weight: 700;
   z-index: 9;
+  position: relative;
   padding: 0;
   text-shadow: 0 0 $small-spacing transparentize($black, 0.5);
   &:hover {
