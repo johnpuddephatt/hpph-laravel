@@ -22,7 +22,9 @@ class Controller extends BaseController
 
   public function __construct()
     {
-      define('DAYINSECONDS', 86400);
+      if(!defined('DAYINSECONDS')) {
+        define('DAYINSECONDS', 86400);
+      }
       $this->today = time() - (60 * 30);
     }
 }
