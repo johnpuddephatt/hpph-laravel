@@ -27,4 +27,8 @@ class Controller extends BaseController
       }
       $this->today = time() - (60 * 30);
     }
+
+    public function spektrix() {
+      return null;
+    }
 }
