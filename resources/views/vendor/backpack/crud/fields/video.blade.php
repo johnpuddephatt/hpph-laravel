@@ -21,12 +21,13 @@ $field['wrapper']['data-video'] = '';
 ?>
 
 
-<div data-video @include('crud::inc.field_wrapper_attributes') >
+<div data-video @include('crud::inc.field_wrapper_attributes')>
     <label for="{{ $field['name'] }}_link">{!! $field['label'] !!}</label>
     @include('crud::inc.field_translatable_icon')
     <input class="video-json" type="hidden" name="{{ $field['name'] }}" value="{{ $value }}">
     <div class="input-group">
-        <input @include('crud::inc.field_attributes', ['default_class' => 'video-link form-control']) type="url" id="{{ $field['name'] }}_link">
+        <input @include('crud::inc.field_attributes', ['default_class'=> 'video-link form-control']) type="url"
+        id="{{ $field['name'] }}_link">
         <div class="input-group-append video-previewSuffix video-noPadding">
             <div class="video-preview">
                 <span class="video-previewImage"></span>
@@ -47,11 +48,11 @@ $field['wrapper']['data-video'] = '';
 
     {{-- HINT --}}
     @if (isset($field['hint']))
-        <p class="help-block">{!! $field['hint'] !!}</p>
+    <p class="help-block">{!! $field['hint'] !!}</p>
     @endif
 
     <script>
-      document.addEventListener('DOMContentLoaded', () =>{
+        document.addEventListener('DOMContentLoaded', () =>{
         bpFieldInitVideoElement($('[data-video]'));
       });
     </script>
@@ -62,45 +63,61 @@ $field['wrapper']['data-video'] = '';
 {{-- If a field type is shown multiple times on a form, the CSS and JS will only be loaded once --}}
 @if ($crud->checkIfFieldIsFirstOfItsType($field))
 
-    {{-- FIELD CSS - will be loaded in the after_styles section --}}
-    @push('crud_fields_styles')
-    {{-- @push('crud_fields_styles')
+{{-- FIELD CSS - will be loaded in the after_styles section --}}
+@push('crud_fields_styles')
+{{-- @push('crud_fields_styles')
         {{-- YOUR CSS HERE --}}
-        <style media="screen">
-            .video-previewSuffix {
-                border: 0;
-                min-width: 68px; }
-            .video-noPadding {
-                padding: 0; }
-            .video-preview {
-                display: none; }
-            .video-previewLink {
-                 color: #fff;
-                 display: block;
-                 width: 2.375rem; height: 2.375rem;
-                 text-align: center;
-                 float: left; }
-            .video-previewLink.youtube {
-                background: #DA2724; }
-            .video-previewLink.vimeo {
-                background: #00ADEF; }
-            .video-previewIcon {
-                transform: translateY(7px); }
-            .video-previewImage {
-                float: left;
-                display: block;
-                width: 2.375rem; height: 2.375rem;
-                background-size: cover;
-                background-position: center center; }
-        </style>
-    @endpush
+<style media="screen">
+    .video-previewSuffix {
+        border: 0;
+        min-width: 68px;
+    }
 
-    {{-- FIELD JS - will be loaded in the after_scripts section --}}
-    @push('crud_fields_scripts')
-        {{-- YOUR JS HERE --}}
-        <script>
+    .video-noPadding {
+        padding: 0;
+    }
 
-        var tryYouTube = function( link ){
+    .video-preview {
+        display: none;
+    }
+
+    .video-previewLink {
+        color: #fff;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        text-align: center;
+        float: left;
+    }
+
+    .video-previewLink.youtube {
+        background: #DA2724;
+    }
+
+    .video-previewLink.vimeo {
+        background: #00ADEF;
+    }
+
+    .video-previewIcon {
+        transform: translateY(7px);
+    }
+
+    .video-previewImage {
+        float: left;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+@endpush
+
+{{-- FIELD JS - will be loaded in the after_scripts section --}}
+@push('crud_fields_scripts')
+{{-- YOUR JS HERE --}}
+<script>
+    var tryYouTube = function( link ){
 
             var id = null;
 
@@ -296,7 +313,7 @@ $field['wrapper']['data-video'] = '';
                 linkField = $this.find('.video-link'),
                 pDummy = $this.find('.video-dummy'),
                 pWrap = $this.find('.video-preview'),
-                apiKey = "{{env('GOOGLE_MAPS_KEY')}}";
+                apiKey = "{{config('google_maps')}}";
 
                 try {
                     var videoJson = JSON.parse(jsonField.val());
@@ -370,9 +387,9 @@ $field['wrapper']['data-video'] = '';
                 }
             })
         });
-        </script>
+</script>
 
-    @endpush
+@endpush
 @endif
 {{-- End of Extra CSS and JS --}}
 {{-- ########################################## --}}

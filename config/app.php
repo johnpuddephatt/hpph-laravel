@@ -116,6 +116,7 @@ return [
     'cloudinary_upload_preset' => env('CLOUDINARY_UPLOAD_PRESET'),
 
     'analytics' => env('GOOGLE_ANALYTICS'),
+    'google_maps' => env('GOOGLE_MAPS_KEY'),
 
     'homepage_strands' =>  explode(',', env('HOMEPAGE_STRANDS', '')),
     'homepage_tags' => explode(',', env('HOMEPAGE_TAGS', '')),
