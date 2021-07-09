@@ -43,6 +43,8 @@ class FilmController extends Controller
                 return trim(str_replace('The', '', ' ' . $film['title'] . ' '));
               });
 
-    return view('listings.a-z', compact('films','venue'));
+    $venues = Venue::hasFutureScreenings()->get();
+
+    return view('listings.a-z', compact('films','venue', 'venues'));
   }
 }

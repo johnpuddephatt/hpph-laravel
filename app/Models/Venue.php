@@ -98,6 +98,13 @@ class Venue extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function scopeHasFutureScreenings($query)
+      {
+        return $query->whereHas('films', function ($query) {
+          $query->hasFutureScreenings();
+        });
+      }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
