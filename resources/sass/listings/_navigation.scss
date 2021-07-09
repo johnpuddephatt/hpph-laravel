@@ -43,14 +43,12 @@
   button {
     appearance: none;
     background-color: transparent;
-    border: none;
     outline: none;
     font-family: $base-font-family;
     letter-spacing: $base-letter-spacing;
 
     display: inline-block;
     margin-right: $small-spacing;
-    line-height: $base-spacing;
     @media screen and (min-width: $medium-screen) {
       margin-right: $base-spacing;
     }
@@ -58,7 +56,6 @@
     font-weight: 500;
     font-size: modular-scale(0);
     -webkit-font-smoothing: antialiased;
-    padding: $small-spacing 0;
     &.current {
       font-weight: 700;
       padding: $small-spacing;
@@ -116,8 +113,13 @@
     }
   }
 
+  .whatson--venue-trigger {
+    border: none;
+  }
+
   .whatson--venue-trigger,
   .weekly-screenings--navigation--trigger {
+    margin-right: 0;
     font-size: modular-scale(0);
     font-weight: 500;
     // padding-left: 1.5 * $base-spacing;

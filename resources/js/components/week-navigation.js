@@ -11,8 +11,7 @@ var weeklyNavigationMenuTarget = document.querySelector(
 );
 
 if (weeklyNavigationMenuTrigger && weeklyNavigationMenuTarget) {
-  weeklyNavigationMenuTrigger.addEventListener("click", () => {
-    e.preventDefault();
+  weeklyNavigationMenuTrigger.addEventListener("click", (e) => {
     weeklyNavigationMenuTrigger.classList.toggle("active");
     weeklyNavigationMenuTarget.classList.toggle("visible");
   });
