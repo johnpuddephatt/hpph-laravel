@@ -45,10 +45,10 @@
       @endif
 
       <nav class="weekly-screenings--week-picker">
-        @foreach(App\Models\Venue::all() as $current_venue)
         <a class="weekly-screenings--week-picker--date" href="/whats-on/a-z">
           All locations
         </a>
+        @foreach(App\Models\Venue::all() as $current_venue)
         <a href="/whats-on/{{ $current_venue->slug }}"
           class="weekly-screenings--week-picker--date @if ($venue && $venue->id == $current_venue->id) current @endif">
           {{ $current_venue->title }}
