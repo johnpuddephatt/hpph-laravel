@@ -27,7 +27,7 @@ class FilmController extends Controller
     return view('film.single', compact('film'));
   }
 
-  public function index(Venue $venue = null) {
+  public function index(Request $request, Venue $venue = null) {
 
     $films = Film::hasFutureScreenings()
               ->atVenue($venue)

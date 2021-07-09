@@ -12,7 +12,8 @@
 */
 
 Route::get('/spektrix', function () { return null; }); // Used by Spektrix for iframe resizing
-Route::get('/16-25', function () { return redirect('/membership/16-25'); });
+
+Route::redirect('16-25', 'membership/16-25', 301);
 
 Route::get('/', 'HomeController@index');
 Route::get('day-{day}', 'HomeController@index');
@@ -24,10 +25,10 @@ Route::get('film/{slug}', 'FilmController@single');
 Route::redirect('whats-on', '/whats-on/a-z', 301);
 Route::get('whats-on/a-z', 'FilmController@index');
 
-Route::get('whats-on/{venue:slug}', 'FilmController@index');
-
 Route::get('whats-on/weekly', 'ScreeningController@weekly')->name('screenings.weekly');
 Route::get('whats-on/weekly/week-{week}', 'ScreeningController@weekly');
+
+Route::get('whats-on/{venue:slug}', 'FilmController@index');
 
 Route::redirect('subscribe', 'http://hydeparkpicturehouse.us4.list-manage.com/subscribe?u=8bc4f3836ccb9012c150eda87&id=9c4ddb7eb6', 301);
 Route::redirect('strand/digital-releases', '/strand/watch-online', 301);
