@@ -18,11 +18,12 @@
   transform: translateY($base-spacing);
   &.active {
     pointer-events: all;
-    z-index: 9999;
+    z-index: 99999;
     opacity: 1;
     transform: translateY(0);
 
-    transition: opacity $base-duration, transform $base-duration, z-index $base-duration 0ms;
+    transition: opacity $base-duration, transform $base-duration,
+      z-index $base-duration 0ms;
   }
 }
 
@@ -56,24 +57,24 @@
   width: 100%;
   position: relative;
   &::before {
-    content: '';
+    content: "";
     pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 2 * $base-spacing;
-    background: linear-gradient(to bottom, $base-font-color, rgba(0,0,0,0));
+    background: linear-gradient(to bottom, $base-font-color, rgba(0, 0, 0, 0));
   }
   &::after {
-    content: '';
+    content: "";
     pointer-events: none;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 3 * $base-spacing;
-    background: linear-gradient(to top, $base-font-color, rgba(0,0,0,0));
+    background: linear-gradient(to top, $base-font-color, rgba(0, 0, 0, 0));
   }
 }
 
@@ -140,8 +141,8 @@
       stroke: $base-font-color;
     }
     // margin-top: .25 * $base-spacing;
-    width: .75 * $base-spacing;
-    height: .75 * $base-spacing;
+    width: 0.75 * $base-spacing;
+    height: 0.75 * $base-spacing;
   }
 }
 
@@ -153,14 +154,17 @@
 .search-close {
   position: absolute;
   bottom: 100%;
-  right: -2 * $base-spacing;
+  @media screen and (orientation: portrait) {
+    right: -2 * $base-spacing;
+  }
   text-indent: -9999px;
   height: 2 * $base-spacing;
   width: 2 * $base-spacing;
   background-color: transparent;
   line-height: 1.4;
   border: none;
-  &:focus, &:active {
+  &:focus,
+  &:active {
     &::after {
       color: $yellow;
     }
@@ -178,7 +182,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    content: '×';
+    content: "×";
     color: white;
     font-size: modular-scale(4);
   }
