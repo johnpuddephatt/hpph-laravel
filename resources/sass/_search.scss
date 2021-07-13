@@ -154,7 +154,7 @@
 .search-close {
   position: absolute;
   bottom: 100%;
-  @media screen and (orientation: portrait) {
+  @media screen and (orientation: landscape) {
     right: -2 * $base-spacing;
   }
   text-indent: -9999px;

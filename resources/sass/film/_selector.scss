@@ -1,4 +1,3 @@
-
 .screenings-table {
   white-space: nowrap;
   margin: 0;
@@ -65,7 +64,7 @@
 }
 
 .screenings-table--announcer--wrapper {
-  z-index: 99999;
+  z-index: 999999;
   height: 3.5 * $base-spacing;
   background-color: $light-black;
   color: white;
