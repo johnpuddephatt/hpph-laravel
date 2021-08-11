@@ -83,7 +83,7 @@ class HomeController extends Controller
       $screenings = $screenings_query->get();
     }
     else {
-      $screenings = null;
+      $screenings = [];
     }
 
     // Run the queries
