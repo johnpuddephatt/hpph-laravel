@@ -55,7 +55,7 @@ class HomeController extends Controller
       return $slides;
     });
 
-    $max_screenings = 2;
+    $max_screenings = 3;
 
 
     /*
@@ -66,22 +66,27 @@ class HomeController extends Controller
     $week_commencing = date("Y/m/d",$this->today + DAYINSECONDS);
     $screenings_today_query = Screening::laterToday()
                         ->with(['film.strands','film.venue','tags'])
-                        ->limit($max_screenings)
+                        // ->limit($max_screenings)
                         ->orderBy('date')
                         ->orderBy('time');
+    $screenings_today = $screenings_today_query->get();
 
 
     // // For all weeks
-    $week_ending = date("Y/m/d",time() + (90 * DAYINSECONDS));
-    $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])
-                                  ->with(['film.strands','film.venue','tags'])
-                                  ->limit($max_screenings - $screenings_today_query->count())
-                                  ->orderBy('date')
-                                  ->orderBy('time');
+    if(!$screenings_today->count()) {
+      $week_ending = date("Y/m/d",time() + (90 * DAYINSECONDS));
+      $screenings_query = Screening::whereBetween('date',[$week_commencing,$week_ending])
+                                    ->with(['film.strands','film.venue','tags'])
+                                    ->limit($max_screenings)
+                                    ->orderBy('date')
+                                    ->orderBy('time');
+      $screenings = $screenings_query->get();
+    }
+    else {
+      $screenings = null;
+    }
 
     // Run the queries
-    $screenings_today = $screenings_today_query->get();
-    $screenings = $screenings_query->get();
 
     /*
     ** DAILY SCREENINGS
