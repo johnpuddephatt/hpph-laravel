@@ -8,11 +8,12 @@
 
 @include('home.hero')
 @include('home.weekly-listings')
-@include('home.pick')
+@include('home.hyde_and_seek')
+
 @include('home.project')
 @include('home.support')
 {{-- @include('home.watch') --}}
-@include('home.hyde_and_seek')
+@include('home.pick')
 @include('home.newsletter')
 @include('home.hiding')
 {{-- @include('home.lost') --}}
