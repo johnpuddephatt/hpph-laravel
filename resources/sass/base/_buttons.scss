@@ -82,6 +82,7 @@
   &__underline {
     background-color: transparent;
     text-transform: none;
+    border: none;
     border-bottom: $thick-border;
     border-color: $yellow;
     &:hover {
