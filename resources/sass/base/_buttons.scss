@@ -80,6 +80,9 @@
     }
   }
   &__underline {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: modular-scale(1);
     background-color: transparent;
     text-transform: none;
     border: none;
