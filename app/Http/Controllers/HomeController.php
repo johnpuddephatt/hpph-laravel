@@ -20,7 +20,7 @@ class HomeController extends Controller
   public function index($day = 1) {
 
     $home_hydeandseek = \Cache::rememberForever('homeHydeSeek', function () {
-      Strand::where('slug', 'hyde-seek')->films()->firstOrFail();
+      Strand::where('slug', 'hyde-seek')->screenings()->first()->film()->firstOrFail();
     });
 
     // $home_online = \Cache::rememberForever('homeOnline', function () {
