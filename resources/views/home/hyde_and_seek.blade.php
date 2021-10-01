@@ -14,7 +14,7 @@
       <a href="/film/{{ $home_hydeandseek->slug }}"
         class="section--home-watch--button button button__yellow button__big">
         <span class="pre">watch:</span>
-        <span class="title">{{ Carbon\Carbon::parse($screening->date)->format('D jS F') }}:
+        <span class="title">{{ Carbon\Carbon::parse($home_hydeandseek->date)->format('D jS F') }}:
           {{ $home_hydeandseek->title }}</span>
       </a>
     </div>
