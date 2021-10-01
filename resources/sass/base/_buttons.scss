@@ -79,6 +79,15 @@
       color: $base-font-color;
     }
   }
+  &__underline {
+    background-color: transparent;
+    text-transform: none;
+    border-bottom: $thick-border;
+    border-color: $yellow;
+    &:hover {
+      color: $base-font-color;
+    }
+  }
   &__black {
     border-color: $base-font-color;
     color: $base-font-color;
