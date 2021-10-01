@@ -1,22 +1,23 @@
 @if(count($home_slides))
-  @push('body-classes','home')
+@push('body-classes','home')
 @endif
 
 @extends('layouts.app')
 
 @section('content')
 
-  @include('home.hero')
-  @include('home.weekly-listings')
-  @include('home.pick')
-  @include('home.project')
-  @include('home.support')
-  @include('home.watch')
-  @include('home.newsletter')
-  @include('home.hiding')
-  {{-- @include('home.lost') --}}
-  {{-- @include('home.shop') --}}
-  {{-- @include('home.membership') --}}
-  {{-- @include('home.strands') --}}
+@include('home.hero')
+@include('home.weekly-listings')
+@include('home.pick')
+@include('home.project')
+@include('home.support')
+{{-- @include('home.watch') --}}
+@include('home.hyde_and_seek')
+@include('home.newsletter')
+@include('home.hiding')
+{{-- @include('home.lost') --}}
+{{-- @include('home.shop') --}}
+{{-- @include('home.membership') --}}
+{{-- @include('home.strands') --}}
 
 @stop

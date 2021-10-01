@@ -19,12 +19,16 @@ class HomeController extends Controller
 {
   public function index($day = 1) {
 
-    $home_online = \Cache::rememberForever('homeOnline', function () {
-      $strand = Strand::find(config('app.watch_online_strand'));
-      if($strand) {
-        return $strand->films()->latest()->first();
-      }
+    $home_hydeandseek = \Cache::rememberForever('homeHydeSeek', function () {
+      Strand::where('slug', 'hyde-seek')->films()->firstOrFail();
     });
+
+    // $home_online = \Cache::rememberForever('homeOnline', function () {
+    //   $strand = Strand::find(config('app.watch_online_strand'));
+    //   if($strand) {
+    //     return $strand->films()->latest()->first();
+    //   }
+    // });
 
     $home_pick = \Cache::rememberForever('homePick', function () {
       return Pick::orderBy('date','DESC')->first();
@@ -142,7 +146,7 @@ class HomeController extends Controller
       return Tag::whereIn('id',config('app.homepage_tags'))->get();
     });
 
-    return view('landing', compact('home_slides','screenings', 'day', 'today', 'screenings_today','home_strands','home_tags', 'home_online','home_pick'));
+    return view('landing', compact('home_slides','screenings', 'day', 'today', 'screenings_today','home_strands','home_tags', 'home_hydeandseek','home_pick'));
   }
 
 }

@@ -26,6 +26,14 @@ class Screening extends Model
     // protected $casts = [
     //   'date' => 'date',
     // ];
+
+    protected static function boot()
+    {
+      parent::boot();
+      static::saved(function() {
+        \Cache::forget('homeHydeSeek');
+      });
+    }
     /*
     |-----------------------------------------------------  ---------------------
     | FUNCTIONS
