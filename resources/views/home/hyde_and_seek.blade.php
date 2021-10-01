@@ -19,9 +19,10 @@
     </div>
     <div class="section--home-watch--text">
       <h2 class="section-title">Hyde and Seek</h2>
-      <p>From dazzling new dramas to award-winning docs, we’re proud to be supporting a number of exciting new film
-        releases – all available to enjoy online.</p>
-      <a href="/strand/watch-online/" class="button button__ghost button__black">Learn more</a>
+      <p>Hyde and Seek screenings are back at the brilliant Heart Centre in Headingley and The Tetley is Leeds City
+        Centre. Join us for family-friendly screenings of spellbinding classics, stunning animations and alternative
+        gem.</p>
+      <a href="/strand/hyde-seek/" class="button button__ghost button__black">Learn more</a>
     </div>
   </div>
 </section>
