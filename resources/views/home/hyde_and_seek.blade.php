@@ -24,8 +24,7 @@
         discover the
         wonder of cinema.</p>
       <a href="/strand/hyde-seek/" class="button button__underline button__black">Hyde &amp; Seek film screenings</a>
-      <a href="/discover-cinema" class="button button__underline button__black">Discover Cinema – online learning
-        resources</a>
+      {{-- <a href="/discover-cinema" class="button button__underline button__black">Discover Cinema – online learning resources</a> --}}
 
     </div>
   </div>
