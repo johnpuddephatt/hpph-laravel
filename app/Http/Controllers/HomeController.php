@@ -20,7 +20,11 @@ class HomeController extends Controller
   public function index($day = 1) {
 
     $home_hydeandseek = \Cache::rememberForever('homeHydeSeek', function () {
-      return Strand::where('slug','hyde-seek')->first()->films()->latest()->first();
+      $strand = Strand::where('slug','hyde-seek')->first();
+      if($strand) {
+        $film_ids = $strand->films()->hasFutureScreenings()->select('films.id')->get()->pluck('id')->toArray();
+        return Screening::orderBy('date', 'ASC')->whereIn('film_id', $film_ids)->first()->film()->with('screenings')->first();
+      }
     });
 
     // $home_online = \Cache::rememberForever('homeOnline', function () {
