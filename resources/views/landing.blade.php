@@ -8,7 +8,7 @@
 
 @include('home.hero')
 @include('home.weekly-listings')
-@include('home.hyde_and_seek')
+{{-- @include('home.hyde_and_seek') --}}
 
 @include('home.project')
 @include('home.support')
