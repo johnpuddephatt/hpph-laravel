@@ -2,9 +2,9 @@
 
 @push('scripts')
 
-<script defer src="https://webcomponents.spektrix.com/stable/webcomponents-loader.js"></script>
-<script defer src="https://webcomponents.spektrix.com/stable/spektrix-component-loader.js"
-    data-components="spektrix-basket-summary" async></script>
+<script src="https://webcomponents.spektrix.com/stable/webcomponents-loader.js"></script>
+<script src="https://webcomponents.spektrix.com/stable/spektrix-component-loader.js" data-components="spektrix-donate"
+    async></script>
 @endpush
 
 @extends('layouts.app')
