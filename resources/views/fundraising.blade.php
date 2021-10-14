@@ -13,7 +13,7 @@
 
 <div class="container">
     <spektrix-donate client-name="hydeparkpicturehouse" custom-domain="tickets.hydeparkpicturehouse.co.uk"
-        fund-id="XMAS">
+        fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH">
         <span>Amount you are donating: £</span><span data-display-donation-amount></span>
         <button data-donate-amount="10">£10</button>
         <button data-donate-amount="20">£20</button>
