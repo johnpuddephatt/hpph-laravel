@@ -20,6 +20,10 @@ Route::get('day-{day}', 'HomeController@index');
 
 Route::get('picks', 'PickController@index');
 
+Route::get('fundraising', function() {
+  return view('fundraising');
+});
+
 Route::get('film/{slug}', 'FilmController@single');
 
 Route::redirect('whats-on', '/whats-on/weekly', 301);
