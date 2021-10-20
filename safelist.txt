@@ -1,0 +1,4 @@
+bg-[#fdf6df]
+bg-[#b4cce8]
+bg-[#d17d47]
+bg-[#efd68d]

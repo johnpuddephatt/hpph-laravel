@@ -106,7 +106,7 @@
   }
 
   h3 {
-    margin-bottom: $small-spacing/2;
+    margin-bottom: $small-spacing*0.5;
     @media screen and (min-width: $medium-screen) {
       display: none;
     }
@@ -119,14 +119,14 @@
     line-height: $heading-line-height;
     color: $base-font-color;
     font-size: modular-scale(0);
-    letter-spacing: $base-letter-spacing/2;
+    letter-spacing: $base-letter-spacing*0.5;
     transition: opacity .25s;
   }
   p {
     margin-bottom: 0;
     max-width: 20em;
     &:last-child {
-      margin-top: $small-spacing/2;
+      margin-top: $small-spacing*0.5;
       @media screen and (min-width: $medium-screen) {
         margin-top: $small-spacing;
       }
@@ -137,7 +137,7 @@
         background-color: $base-font-color;
         width: 55%;
         max-width: 12em;
-        margin: 0 0 $small-spacing/2;
+        margin: 0 0 $small-spacing*0.5;
         @media screen and (min-width: $medium-screen) {
           margin: 0 auto $small-spacing;
         }

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .section--home-hero {
   position: relative;
 }
@@ -138,7 +140,7 @@
 }
 
 .home-slider--link *:nth-child(2) {
-  transition: opacity 1s $base-duration/3, transform 1s $base-duration/3;
+  transition: opacity 1s math.div($base-duration, 3), transform 1s math.div($base-duration, 3);
 }
 
 .home-slider--heading {
@@ -154,14 +156,14 @@
   text-transform: uppercase;
   letter-spacing: 3 * $base-letter-spacing;
   font-size: modular-scale(-1);
-  margin-bottom: $small-spacing/2;
+  margin-bottom: $small-spacing*0.5;
 }
 
 .home-slider--subheading {
   font-weight: 500;
   line-height: $heading-line-height;
   -webkit-font-smoothing: antialiased;
-  margin-top: $small-spacing/2;
+  margin-top: $small-spacing*0.5;
   &::after {
     content: '>';
     font-style: normal;
@@ -169,7 +171,7 @@
     vertical-align: top;
     color: $yellow;
 
-    margin-left: $small-spacing/2;
+    margin-left: $small-spacing*0.5;
     line-height: 1;
 
   }

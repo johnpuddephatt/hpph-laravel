@@ -1,10 +1,18 @@
-@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBold", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHA",
+  "../fonts/ITCAvantGardeGothicLTBold",
+  $file-formats: woff2 woff
+) {
   font-style: normal;
   font-display: fallback;
   font-weight: 700;
 }
 
-@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTMedium", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHA",
+  "../fonts/ITCAvantGardeGothicLTMedium",
+  $file-formats: woff2 woff
+) {
   font-style: normal;
   font-display: block;
   font-weight: 500;
@@ -16,7 +24,11 @@
 //   font-weight: 500;
 // }
 
-@include font-face("HPPHA", "../fonts/ITCAvantGardeGothicLTBook", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHA",
+  "../fonts/ITCAvantGardeGothicLTBook",
+  $file-formats: woff2 woff
+) {
   font-style: normal;
   font-display: block;
   font-weight: 400;
@@ -27,20 +39,31 @@
 //   font-weight: 700;
 // }
 
-@include font-face("HPPHB", "../fonts/Bodoni-Italic-BT", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHB",
+  "../fonts/Bodoni-Italic-BT",
+  $file-formats: woff2 woff
+) {
   font-style: italic;
   font-display: block;
   font-weight: 400;
 }
 
-@include font-face("HPPHB", "../fonts/Bodoni-Bold-BT", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHB",
+  "../fonts/Bodoni-Bold-BT",
+  $file-formats: woff2 woff
+) {
   font-style: regular;
   font-display: block;
   font-weight: 400;
 }
 
-
-@include font-face("HPPHC", "../fonts/baloo-regular", $file-formats: woff2 woff){
+@include font-face(
+  "HPPHC",
+  "../fonts/baloo-regular",
+  $file-formats: woff2 woff
+) {
   font-style: regular;
   font-display: block;
   font-weight: 400;

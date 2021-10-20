@@ -7,7 +7,7 @@
 .strand--grid {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 (-$small-spacing/2);
+  margin: 0 (-$small-spacing*0.5);
 }
 
 .strand--item {
@@ -36,7 +36,7 @@
   flex: 0 0 100%;
   margin: 0 0 $small-spacing;
   @media screen and (min-width: $medium-screen) {
-    margin: 0 $small-spacing/2 $small-spacing;
+    margin: 0 $small-spacing*0.5 $small-spacing;
     flex: 1 0 40%;
     &:hover {
       &::after {
@@ -112,7 +112,7 @@
   color: white;
   font-weight: 400;
   line-height: $heading-line-height;
-  letter-spacing: $base-letter-spacing/2;
+  letter-spacing: $base-letter-spacing*0.5;
   font-size: modular-scale(1);
   margin-top: $small-spacing;
   margin-bottom: 0;
@@ -143,7 +143,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  margin: $base-spacing (-$small-spacing/2) 0;
+  margin: $base-spacing (-$small-spacing*0.5) 0;
 }
 
 .tag--item {
@@ -157,7 +157,7 @@
     flex: 1 0 40%;
   }
   display: block;
-  margin: 0 $small-spacing/2 $small-spacing;
+  margin: 0 $small-spacing*0.5 $small-spacing;
   text-align: center;
   padding: $small-spacing;
 }

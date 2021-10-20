@@ -120,7 +120,7 @@
 
   a {
     color: $base-font-color;
-    border-left: $base-spacing/5 solid $off-white;
+    border-left: $base-spacing*0.2 solid $off-white;
     margin-bottom: 1px;
 
     &.current, &:hover {
@@ -186,8 +186,8 @@
   flex-wrap: wrap;
   margin-top: 1.5 * $base-spacing;
   margin-bottom: 2 * $base-spacing;
-  margin-left: -$small-spacing/2;
-  margin-right: -$small-spacing/2;
+  margin-left: -$small-spacing*0.5;
+  margin-right: -$small-spacing*0.5;
 }
 
 .page-standard--grid-nav--link {
@@ -199,7 +199,7 @@
   }
 
   position: relative;
-  margin: $small-spacing/2;
+  margin: $small-spacing*0.5;
   padding: $small-spacing;
   overflow: hidden;
   display: flex;

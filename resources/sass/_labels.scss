@@ -1,7 +1,7 @@
 .label {
   display: inline-block;
   line-height: $heading-line-height;
-  padding: $small-spacing/2;
+  padding: $small-spacing*0.5;
   font-weight: 500;
   border: $base-border;
   color: $base-font-color;

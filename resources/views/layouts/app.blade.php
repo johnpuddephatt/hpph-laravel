@@ -34,7 +34,7 @@
     @include('header')
     @include('search')
 
-    <main class="page-content" aria-label="Content" id="main" tabIndex="-1">
+    <main class="page-content" aria-label="Content" id="app" tabIndex="-1">
       @yield('content')
     </main>
 

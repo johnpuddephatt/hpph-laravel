@@ -1,4 +1,6 @@
 
+@use "sass:math";
+
 .weekly-screenings--header,
 .weekly-screenings--entry {
   @extend %padded-box;
@@ -134,8 +136,8 @@
   font-weight: 400;
   text-transform: lowercase;
   padding-left: 0;
-  padding-right: $small-spacing/2;
-  margin-top: $small-spacing/2;
+  padding-right: $small-spacing*0.5;
+  margin-top: $small-spacing*0.5;
   font-size: modular-scale(1);
   @media screen and (min-width: $medium-screen) {
     flex: 0 0 22.5%;
@@ -155,7 +157,7 @@
     // font-weight: 700;
     text-transform: none;
     font-size:modular-scale(-1);
-    margin: $small-spacing/2 0;
+    margin: $small-spacing*0.5 0;
   }
   .day + .time {
     font-size: modular-scale(-2);
@@ -163,7 +165,7 @@
 }
 
 .weekly-screenings--entry--text {
-  margin-right: $small-spacing/2;
+  margin-right: $small-spacing*0.5;
   display: flex;
   flex-basis: 0;
   flex-direction: column;
@@ -193,7 +195,7 @@
   font-weight: 700;
   font-size: modular-scale(1);
   margin-bottom: 0;
-  margin-top: $small-spacing/2;
+  margin-top: $small-spacing*0.5;
   @media screen and (min-width: $medium-screen) {
     margin-top: $small-spacing;
     font-size: modular-scale(2);
@@ -207,18 +209,18 @@
   font-weight: 500;
   line-height: $heading-line-height;
   font-size: modular-scale(-1);
-  margin-top: $small-spacing/4;
-  margin-bottom: $small-spacing/2;
+  margin-top: $small-spacing*0.25;
+  margin-bottom: $small-spacing*0.5;
   &:empty {
     visibility: hidden;
   }
   &::before {
     content: '';
-    width: $base-spacing/3;
-    height: $base-spacing/3;
+    width: math.div($base-spacing, 3);
+    height: math.div($base-spacing, 3);
     background-color: $yellow;
     display: inline-block;
-    margin-right: $small-spacing/3;
+    margin-right: math.div($small-spacing, 3);
   }
 }
 
@@ -230,7 +232,7 @@
   }
   font-family: $heading-font-family;
   font-style: italic;
-  margin-bottom: $small-spacing/2;
+  margin-bottom: $small-spacing*0.5;
   color: $dark-gray;
 }
 
@@ -241,8 +243,8 @@
 
 .weekly-screenings--entry--description {
   font-size: modular-scale(-1);
-  margin-top: $small-spacing/2;
-  margin-bottom: $small-spacing/2;
+  margin-top: $small-spacing*0.5;
+  margin-bottom: $small-spacing*0.5;
   color: $dark-gray;
   display: none;
   @media screen and (min-width: $large-screen) {
@@ -265,9 +267,9 @@
   white-space: nowrap;
   font-size: modular-scale(-2);
   padding-top: $small-spacing;
-  padding-bottom: $small-spacing/2;
+  padding-bottom: $small-spacing*0.5;
   * + * {
-    margin-left: $small-spacing/2;
+    margin-left: $small-spacing*0.5;
   }
 }
 
@@ -308,7 +310,7 @@
   &:last-child {
     text-align: right;
     i {
-      margin-left: $base-spacing/2;
+      margin-left: $base-spacing*0.5;
       margin-right: 0;
     }
   }
@@ -325,7 +327,7 @@
     vertical-align: sub;
     line-height:  2 * $base-spacing;
     display: inline-block;
-    margin-right: $base-spacing/2;
+    margin-right: $base-spacing*0.5;
   }
 }
 

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .single-listing--image {
   //height: 56.25vw;
   height: 75vw;
@@ -124,17 +126,17 @@
   margin-top: $small-spacing;
   font-weight: 500;
   line-height: $heading-line-height;
-  letter-spacing: $base-letter-spacing/2;
+  letter-spacing: $base-letter-spacing*0.5;
   &:empty {
     visibility: hidden;
   }
   &::before {
     content: '';
-    width: $base-spacing/3;
-    height: $base-spacing/3;
+    width: math.div($base-spacing, 3);
+    height: math.div($base-spacing, 3);
     background-color: $yellow;
     display: inline-block;
-    margin-right: $small-spacing/3;
+    margin-right: math.div($small-spacing, 3);
   }
 }
 
@@ -149,7 +151,7 @@
 .single-listing--alt-language-title {
   font-size: modular-scale(4);
   font-family: $heading-font-family;
-  letter-spacing: $base-letter-spacing/2;
+  letter-spacing: $base-letter-spacing*0.5;
   font-style: italic;
   -webkit-font-smoothing: antialiased;
   color: $dark-gray;
@@ -166,7 +168,7 @@
   }
   font-size: modular-scale(-1);
   > * {
-    margin-right: $small-spacing/2;
+    margin-right: $small-spacing*0.5;
   }
 }
 

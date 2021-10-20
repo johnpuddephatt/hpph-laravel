@@ -75,7 +75,7 @@
     bottom: -$base-spacing;
     width: calc(100% - #{2 * $base-spacing});
     font-size: modular-scale(2);
-    padding-top: $small-spacing/4;
+    padding-top: $small-spacing*0.25;
     padding-bottom: $small-spacing * 1.5;
     line-height: $heading-line-height;
     text-transform: none;
@@ -134,7 +134,7 @@
     font-weight: 500;
     margin-bottom: $base-spacing;
     -webkit-font-smoothing: antialiased;
-    letter-spacing: $base-letter-spacing/2;
+    letter-spacing: $base-letter-spacing*0.5;
 
     // @media screen and (min-width: $large-screen) {
     //   max-width: 20em;

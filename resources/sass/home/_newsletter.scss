@@ -86,7 +86,7 @@
     // max-width: 22em;
     margin-bottom: $base-spacing;
     -webkit-font-smoothing: antialiased;
-    letter-spacing: $base-letter-spacing/2;
+    letter-spacing: $base-letter-spacing*0.5;
   }
 
   label {

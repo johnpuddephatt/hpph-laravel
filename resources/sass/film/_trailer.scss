@@ -29,7 +29,7 @@
     }
     .trailer-button {
       position: fixed;
-      bottom: $small-spacing/2;
+      bottom: $small-spacing*0.5;
       z-index: 9999999;
     }
   }
@@ -74,7 +74,7 @@
     visibility: visible;
   }
   &.play::after {
-    margin-left: $small-spacing/2;
+    margin-left: $small-spacing*0.5;
     content: "\25BA";
     display: inline-block;
     color: $yellow;

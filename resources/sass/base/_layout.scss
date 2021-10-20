@@ -12,16 +12,16 @@ html {
 }
 
 // html {
-  // // Prevent bottom bar on iOS Safari interfering with menu
-  // &.iOSSafari {
-  //   height: 100%;
-  //   overflow-x: hidden;
-  //   body {
-  //     height: 100%;
-  //     overflow-y: scroll;
-  //     -webkit-overflow-scrolling: touch;
-  //   }
-  // }
+// // Prevent bottom bar on iOS Safari interfering with menu
+// &.iOSSafari {
+//   height: 100%;
+//   overflow-x: hidden;
+//   body {
+//     height: 100%;
+//     overflow-y: scroll;
+//     -webkit-overflow-scrolling: touch;
+//   }
+// }
 // }
 
 .locked {
@@ -35,11 +35,11 @@ html {
   }
 }
 
-html,body {
+html,
+body {
   position: relative;
   margin: 0;
   padding: 0;
-
 }
 
 body {
@@ -63,11 +63,11 @@ body {
       transform-style: preserve-3d;
     }
     .section--home-membership {
-        transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
     .section--home-membership--image {
       display: block;
-      transform: translate3d(0,0,-0.2px) scale(1.3);
+      transform: translate3d(0, 0, -0.2px) scale(1.3);
       transform-style: preserve-3d;
     }
   }
@@ -79,14 +79,11 @@ body {
   @media (max-width: $medium-screen) {
     padding-bottom: 3.25 * $base-spacing;
   }
-
 }
 
 .container {
   max-width: $xl-screen;
-  &__narrow {
-    max-width: $large-screen;
-  }
+
   padding-left: $small-spacing;
   padding-right: $small-spacing;
   @media screen and (min-width: $medium-screen) {
@@ -100,11 +97,15 @@ body {
   @media screen and (min-width: $xxl-screen) {
     max-width: $xxl-screen;
   }
-
+  &__narrow {
+    max-width: $large-screen;
+    @media screen and (min-width: $xxl-screen) {
+      max-width: $xl-screen;
+    }
+  }
   margin-left: auto;
   margin-right: auto;
 }
-
 
 %padded-box {
   padding-left: 0;

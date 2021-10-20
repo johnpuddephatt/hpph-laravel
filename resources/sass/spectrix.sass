@@ -7,7 +7,7 @@ html
   font-size: .875em
 
 body
-  padding: $base-spacing $small-spacing/4 2 * $base-spacing
+  padding: $base-spacing $small-spacing*0.25 2 * $base-spacing
   max-width: 960px
 
 .ChooseSeats, .Basket2
@@ -210,7 +210,7 @@ dd.Footer
   .Input_Text, .MoneyTextBox
     flex: 1 1 50%
   button + button
-    margin-left: $small-spacing/2
+    margin-left: $small-spacing*0.5
   .Button
     flex: 1 1 20%
   .right
@@ -228,7 +228,7 @@ dd.Footer
       position: absolute
       width: $base-spacing
       top: 2.0125em
-      right: $small-spacing/4
+      right: $small-spacing*0.25
   .Format
     flex: 0 0 100%
     text-align: right
@@ -273,7 +273,7 @@ dd.Footer
     flex: 1 0 40%
   .spx-button-tertiary__checkout--credit
     margin-left: auto
-    margin-top: $small-spacing/2
+    margin-top: $small-spacing*0.5
 
 .spx-subsection-summary-container__checkout--ticket-summary
     max-width: 75%
@@ -367,7 +367,7 @@ dd.Footer
       padding: $small-spacing 0
     .spx-link-edit
       float: right
-      margin-left: $small-spacing/2
+      margin-left: $small-spacing*0.5
       margin-top: -2 * $base-spacing
       @extend .button
       @extend .button__gray
@@ -402,7 +402,7 @@ dd.Footer
   margin-bottom: $base-spacing
 
 .spx-validation-message
-  margin-top: $small-spacing/2
+  margin-top: $small-spacing*0.5
   display: block
   color: $red
 
@@ -414,7 +414,7 @@ dd.Footer
 .spx-text-copy__checkout--start-checkout-login.spx-intent-distinguishable
   font-size: modular-scale(2)
   font-weight: 700
-  margin-bottom: $small-spacing/2
+  margin-bottom: $small-spacing*0.5
 
 // 'Required' label on email address when starting checkout. Seems redundant.
 .spx-label-additional-context__checkout--start-checkout.spx-state-required

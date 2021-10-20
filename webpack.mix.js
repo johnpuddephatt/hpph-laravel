@@ -18,6 +18,15 @@ mix
   .sass("resources/sass/spectrix.sass", "public/css")
   .version();
 
+mix
+  .sass("resources/sass/fundraising.scss", "public/css")
+  .options({
+    processCssUrls: false,
+    postCss: [require("tailwindcss")],
+  })
+  .js("resources/js/fundraising.js", "public/js")
+  .vue();
+
 mix.copy("resources/images/*", "public/images");
 mix.browserSync("http://public.hpph.test/");
 

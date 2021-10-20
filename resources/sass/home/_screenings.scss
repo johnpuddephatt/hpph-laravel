@@ -18,7 +18,7 @@
     margin: 2 * $base-spacing auto (-2 * $base-spacing);
     border-radius: 99999px;
     background-color: $alabaster;
-    padding: $small-spacing/2;
+    padding: $small-spacing*0.5;
   }
 }
 
@@ -35,8 +35,8 @@
   @extend %padded-box;
 
   @media screen and (max-width: $medium-screen) {
-    padding-left: $small-spacing/2;
-    padding-right: $small-spacing/2;
+    padding-left: $small-spacing*0.5;
+    padding-right: $small-spacing*0.5;
   }
 }
 
@@ -211,8 +211,8 @@
   padding-left: 0;
   padding-right: $small-spacing;
   font-size: modular-scale(2);
-  margin-top: $small-spacing/2;
-  letter-spacing: $base-letter-spacing/2;
+  margin-top: $small-spacing*0.5;
+  letter-spacing: $base-letter-spacing*0.5;
   @media screen and (min-width: $medium-screen) {
     margin-top: $small-spacing;
     padding-left: $small-spacing;
@@ -240,7 +240,7 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  margin-top: $small-spacing/2;
+  margin-top: $small-spacing*0.5;
   @media screen and (min-width: $medium-screen) {
     margin-right: $base-spacing;
     margin-top: $small-spacing;
@@ -284,7 +284,7 @@
   text-indent: 3px;
   font-family: $heading-font-family;
   font-style: italic;
-  margin-bottom: $small-spacing/2;
+  margin-bottom: $small-spacing*0.5;
   color: $dark-gray;
 }
 
@@ -323,7 +323,7 @@
 
 .daily-screenings--entry--footer {
   margin-top: auto;
-  padding-top: $small-spacing/2;
+  padding-top: $small-spacing*0.5;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -332,6 +332,6 @@
   white-space: nowrap;
   overflow: hidden;
   * + * {
-    margin-left: $small-spacing/2;
+    margin-left: $small-spacing*0.5;
   }
 }

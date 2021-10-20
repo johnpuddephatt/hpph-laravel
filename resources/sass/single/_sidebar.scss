@@ -74,9 +74,9 @@
   text-align: center;
   display: inline-block;
   + .listings--screenings--book {
-    margin-left: $small-spacing/2;
+    margin-left: $small-spacing*0.5;
     @media screen and (min-width: $large-screen) {
-      margin-left: $small-spacing/4
+      margin-left: $small-spacing*0.25
     }
   }
 }
@@ -127,7 +127,7 @@
 }
 
 .single-listing--venue--header {
-  margin-bottom: $base-spacing/2;
+  margin-bottom: $base-spacing*0.5;
 
   button {
     line-height: $small-spacing;
