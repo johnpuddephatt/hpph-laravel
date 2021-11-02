@@ -10,12 +10,13 @@
     <span data-basket-item-count></span> item(s) (<span data-basket-summary-currency></span><span
       data-basket-summary-basket-total></span>)
   </a>
+  <script>
+    var spektrixBasketSummary = document.getElementById('spektrixBasketSummary');
+    if(spektrixBasketSummary.count > 0) {
+      spektrixBasketSummary.setAttribute('hidden', false);
+    }
+  </script>
 </spektrix-basket-summary>
 
-<script>
-  var spektrixBasketSummary = document.getElementById('spektrixBasketSummary');
-  if(spektrixBasketSummary.count > 0) {
-    spektrixBasketSummary.setAttribute('hidden', false);
-  }
-</script>
+
 @endif
