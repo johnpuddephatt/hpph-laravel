@@ -1,16 +1,26 @@
 module.exports = {
   mode: 'jit',
-  purge: ['safelist.txt', './app/**/*.php', './resources/**/*.{php,vue,js}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['safelist.txt', './app/**/*.php', './resources/**/*.{php,vue,js}'],
   corePlugins: {
     // ...
     container: false,
   },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['HPPHA'],
+        serif: ['HPPHB'],
+      },
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [],
+  experimental: {
+    optimizeUniversalDefaults: true,
+  },
+  corePlugins: {
+    preflight: false,
+  },
 };

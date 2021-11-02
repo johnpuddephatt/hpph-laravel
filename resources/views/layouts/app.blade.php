@@ -14,7 +14,9 @@
   <link rel="canonical" href="@yield('canonical', Request::url())" />
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
   <script defer type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
-
+  <script src="https://webcomponents.spektrix.com/stable/webcomponents-loader.js"></script>
+  <script src="https://webcomponents.spektrix.com/stable/spektrix-component-loader.js"
+    data-components="spektrix-basket-summary" async></script>
   @stack('scripts')
 
 </head>

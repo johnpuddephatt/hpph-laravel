@@ -1,27 +1,27 @@
 <template>
   <div>
     <div>
-      <div class="inline-block relative">
+      <div class="relative inline-block">
         <div
-          class="absolute -top-3 -right-3 text-xs flex items-center justify-center text-center w-20 h-20 rounded-full bg-red-900 text-white"
+          class="absolute flex items-center justify-center w-20 h-20 text-xs text-center text-white bg-red-900 rounded-full -top-3 -right-3"
         >
           <span v-html="`${selected.available}<br> available`"></span>
         </div>
         <div
-          class="overflow-hidden pt-4 px-4 h-48 w-48 rounded-full mx-auto my-4"
+          class="w-48 h-48 px-4 pt-4 mx-auto my-4 overflow-hidden rounded-full"
           :class="selected.color"
         >
           <img class="block max-h-full mx-auto" :src="selected.image" />
         </div>
       </div>
 
-      <div class="text-4xl font-bold mb-1" v-text="`£${selected.value}`"></div>
+      <div class="mb-1 text-4xl font-bold" v-text="`£${selected.value}`"></div>
 
       <h3 class="mb-1">
         <span v-text="selected.label"></span>
       </h3>
       <p
-        class="inline-block font-normal bg-gray-500 text-white text-xs px-3 py-1 rounded-full"
+        class="inline-block px-3 py-1 text-xs font-normal text-white bg-gray-500 rounded-full"
         v-text="selected.location"
       ></p>
       <p class="max-w-md mx-auto text-sm">
@@ -30,7 +30,7 @@
       </p>
     </div>
 
-    <div class="flex space-x-4 mx-auto my-4 w-1/2 flex-row items-center">
+    <div class="flex flex-row items-center w-1/2 mx-auto my-4 space-x-4">
       <label class="mb-0" for="volume">Amount</label>
       <input
         v-model="value"
@@ -53,10 +53,12 @@
         Make your donation of £<span data-display-donation-amount></span>
       </button>
       <div data-success-container style="display: none;">
-        Insert success content/markup here
+        Added to basket. <a href="/checkout">Go to checkout</a>
       </div>
       <div data-fail-container style="display: none;">
-        Insert failure content/markup here
+        Could not add to basket.
+        <a href="mailto:info@hydeparkpicturehouse.co.uk">Contact us</a> if
+        problems persist.
       </div>
     </spektrix-donate>
   </div>
