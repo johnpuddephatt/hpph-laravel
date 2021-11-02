@@ -17,7 +17,7 @@
       spektrixBasketSummary.removeAttribute('hidden');
       }
 
-    }, 5000);
+    }, 2000);
     
   </script>
 </spektrix-basket-summary>
