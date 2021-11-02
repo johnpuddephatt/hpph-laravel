@@ -9,7 +9,7 @@
 
 @section('content')
 
-<spektrix-donate donation-amount="25" id="spektrixDonate" client-name="hydeparkpicturehouse"
+<spektrix-donate hidden donation-amount="25" id="spektrixDonate" client-name="hydeparkpicturehouse"
     custom-domain="tickets.hydeparkpicturehouse.co.uk" fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH">
 
     <button class="button button__big" data-submit-donation>Submit</button>

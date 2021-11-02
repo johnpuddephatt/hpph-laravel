@@ -11,13 +11,21 @@
       data-basket-summary-basket-total></span>)
   </a>
   <script>
-    setTimeout(()=> {
+    let showBasketIfNotEmpty = function() {
       var spektrixBasketSummary = document.getElementById('spektrixBasketSummary');
       if(spektrixBasketSummary.getAttribute('count') > 0) {
-      spektrixBasketSummary.removeAttribute('hidden');
+        spektrixBasketSummary.removeAttribute('hidden');
       }
-
+    };
+    setTimeout(()=> {
+      showBasketIfNotEmpty()
+    }, 1000);
+    setTimeout(()=> {
+      showBasketIfNotEmpty()
     }, 2000);
+    setTimeout(()=> {
+      showBasketIfNotEmpty()
+    }, 5000);
     
   </script>
 </spektrix-basket-summary>
