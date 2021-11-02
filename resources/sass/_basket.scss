@@ -1,8 +1,10 @@
 #spektrixBasketSummary {
   font-weight: 500;
+
   a {
-    color: white;
+    color: $base-font-color;
   }
+
   svg {
     width: 1.2em;
     height: 1.2em;
