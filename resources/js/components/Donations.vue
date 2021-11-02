@@ -6,6 +6,9 @@
       custom-domain="tickets.hydeparkpicturehouse.co.uk"
       fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH"
     >
+      <input type="text" value="15" data-custom-donation-input />
+
+      <p>Donating <span class="amount" data-display-donation-amount></span></p>
       <button class="button button__big" data-submit-donation>Submit</button>
       <div data-success-container style="display: none;">
         Added to basket. <a href="/checkout">Go to checkout</a>
@@ -255,7 +258,9 @@ export default {
     makeDonation(amount) {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donationAmount', amount);
-      donationComponent.querySelector('button').click();
+      let button = donationComponent.querySelector('button');
+      console.log(button);
+      button.click();
     },
   },
 };
