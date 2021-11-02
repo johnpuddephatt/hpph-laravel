@@ -85,7 +85,7 @@
           </div>
         </div>
         <div
-          class="gap-2 px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse"
+          class="flex flex-col gap-2 px-4 py-3 bg-gray-50 sm:px-6 sm:flex-row-reverse"
         >
           <a href="/checkout" class="button button__big button__yellow">
             Go to checkout
