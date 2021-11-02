@@ -44,6 +44,9 @@
             restore some of your favourite original features back to their
             former glory.
           </p>
+          <button @click="showRewards = true" class="button button__big">
+            View the opportunities
+          </button>
 
           <h2 class="mt-16 mb-8 text-3xl ">
             Frequently asked questions
