@@ -7,7 +7,7 @@
     aria-modal="true"
   >
     <div
-      class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+      class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
     >
       <!--
       Background overlay, show/hide based on modal state.
@@ -68,13 +68,13 @@
             </div>
             <div class="mt-3 text-center sm:mt-0 sm:ml-6 sm:text-left">
               <h3
-                class="text-lg font-medium leading-6 text-gray-900"
+                class="text-xl font-medium leading-6 text-gray-900"
                 id="modal-title"
               >
                 Thank you!
               </h3>
               <div class="mt-2">
-                <p class="text-sm text-gray-500">
+                <p class="text-gray-500">
                   Your selected sponsorship opportunity has been added to your
                   basket. You can now go to straight checkout to make your
                   payment or continue browsing if you wish to add other
