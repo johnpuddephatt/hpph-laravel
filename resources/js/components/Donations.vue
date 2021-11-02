@@ -97,35 +97,33 @@
         </div>
       </div>
       <div class="w-screen p-6 prose lg:p-12 lg:w-2/3 lg:pr-36">
-        <transition name="slide-fade">
-          <div class="pt-8" v-if="currentRewardID">
-            <button
-              @click="currentRewardID = null"
-              class="font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
+        <div class="pt-8" v-if="currentRewardID">
+          <button
+            @click="currentRewardID = null"
+            class="font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
+          >
+            &larr; Back to rewards
+          </button>
+          <header class="flex-row gap-4 mb-12 lg:flex">
+            <h2 class="mt-6 text-5xl">{{ currentReward.label }}</h2>
+            <div
+              class="flex flex-row items-center justify-between gap-2 mt-6 lg:flex-col"
             >
-              &larr; Back to rewards
-            </button>
-            <header class="flex-row gap-4 mb-12 lg:flex">
-              <h2 class="mt-6 text-5xl">{{ currentReward.label }}</h2>
-              <div
-                class="flex flex-row items-center justify-between gap-2 mt-6 lg:flex-col"
+              <div class="text-3xl font-bold">£{{ currentReward.value }}</div>
+              <button
+                @click="makeDonation(currentReward.value)"
+                class="mt-1 mb-auto button button__big"
               >
-                <div class="text-3xl font-bold">£{{ currentReward.value }}</div>
-                <button
-                  @click="makeDonation(currentReward.value)"
-                  class="mt-1 mb-auto button button__big"
-                >
-                  Add to basket
-                </button>
-              </div>
-            </header>
+                Add to basket
+              </button>
+            </div>
+          </header>
 
-            <div class="text-gray-500" v-html="currentReward.description"></div>
+          <div class="text-gray-500" v-html="currentReward.description"></div>
 
-            <h3 class="mt-12">Reward: {{ currentReward.reward }}</h3>
-            <div v-html="currentReward.reward_description"></div>
-          </div>
-        </transition>
+          <h3 class="mt-12">Reward: {{ currentReward.reward }}</h3>
+          <div v-html="currentReward.reward_description"></div>
+        </div>
       </div>
     </div>
   </div>
