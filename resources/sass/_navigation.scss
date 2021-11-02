@@ -106,8 +106,9 @@
 
 .site-header--right {
   display: block;
+  margin-left: auto;
   @media screen and (orientation: portrait) {
-    margin-left: auto;
+    margin-left: 0;
   }
 }
 
