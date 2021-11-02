@@ -14,7 +14,7 @@
     console.log('basket');
     
     var spektrixBasketSummary = document.getElementById('spektrixBasketSummary');
-    console.log(spektrixBasketSummary.count);
+    console.log(spektrixBasketSummary);
     if(spektrixBasketSummary.count > 0) {
       spektrixBasketSummary.setAttribute('hidden', false);
     }
