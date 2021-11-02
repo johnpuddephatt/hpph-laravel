@@ -96,7 +96,7 @@
         {{-- <img src="{{url('/images/logos/leeds-grand-theatre.png')}}" /> --}}
       </li>
       <li class="spacer"></li>
-      <li>@include('logos.lht')</li>
+      <li>@include('logos.LHT')</li>
       <li>@include('logos.hlf_white')</li>
       <li>@include('logos.leeds-city-council_white')</li>
       <li>@include('logos.bfi_white')</li>
