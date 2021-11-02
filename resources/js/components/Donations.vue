@@ -1,24 +1,5 @@
 <template>
   <div class="w-screen overflow-hidden">
-    <spektrix-donate
-      id="spektrixDonate"
-      client-name="hydeparkpicturehouse"
-      custom-domain="tickets.hydeparkpicturehouse.co.uk"
-      fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH"
-    >
-      <input type="text" value="15" data-custom-donation-input />
-
-      <p>Donating <span class="amount" data-display-donation-amount></span></p>
-      <button class="button button__big" data-submit-donation>Submit</button>
-      <div data-success-container style="display: none;">
-        Added to basket. <a href="/checkout">Go to checkout</a>
-      </div>
-      <div data-fail-container style="display: none;">
-        Could not add to basket.
-        <a href="mailto:info@hydeparkpicturehouse.co.uk">Contact us</a>
-        if problems persist.
-      </div>
-    </spektrix-donate>
     <div
       class="flex flex-row w-[300vw] lg:w-[166.67vw] transform transition"
       :class="{
@@ -233,15 +214,7 @@ export default {
       ],
     };
   },
-  mounted() {
-    let componentScript = document.createElement('script');
-    componentScript.setAttribute(
-      'src',
-      'https://webcomponents.spektrix.com/stable/spektrix-component-loader.js'
-    );
-    componentScript.setAttribute('data-components', 'spektrix-donate');
-    document.head.appendChild(componentScript);
-  },
+  mounted() {},
   computed: {
     currentReward: function() {
       return this.rewards.find(elem => {

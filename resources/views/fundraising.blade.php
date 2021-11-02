@@ -9,6 +9,21 @@
 
 @section('content')
 
+<spektrix-donate id="spektrixDonate" client-name="hydeparkpicturehouse"
+    custom-domain="tickets.hydeparkpicturehouse.co.uk" fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH">
+    <input type="text" value="15" data-custom-donation-input />
+
+    <p>Donating <span class="amount" data-display-donation-amount></span></p>
+    <button class="button button__big" data-submit-donation>Submit</button>
+    <div data-success-container style="display: none;">
+        Added to basket. <a href="/checkout">Go to checkout</a>
+    </div>
+    <div data-fail-container style="display: none;">
+        Could not add to basket.
+        <a href="mailto:info@hydeparkpicturehouse.co.uk">Contact us</a>
+        if problems persist.
+    </div>
+</spektrix-donate>
 
 <header
     class="min-h-[60vh] flex items-center px-12 lg:px-32 py-16 space-x-8 bg-gray-100 border-solid border-0 border-b border-gray-300">
