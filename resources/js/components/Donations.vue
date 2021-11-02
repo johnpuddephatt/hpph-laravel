@@ -44,7 +44,10 @@
             restore some of your favourite original features back to their
             former glory.
           </p>
-          <button @click="showRewards = true" class="button button__big">
+          <button
+            @click="showRewards = true"
+            class="lg:hidden button button__big"
+          >
             View the opportunities
           </button>
 
