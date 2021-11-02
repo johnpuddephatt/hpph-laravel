@@ -8,7 +8,7 @@
         'translate-x-[-33.333%]': showRewards,
       }"
     >
-      <div class="w-screen p-12 lg:w-2/3 lg:pl-32">
+      <div class="w-screen p-6 lg:p-12 lg:w-2/3 lg:pl-32">
         <div class="flex flex-row items-center gap-4 mb-12 lg:hidden">
           <button
             @click="showRewards = false"
@@ -63,7 +63,7 @@
           </details>
         </div>
       </div>
-      <div class="w-screen p-12 bg-gray-100 lg:w-1/3 lg:pr-32">
+      <div class="w-screen p-6 bg-gray-100 lg:p-12 lg:w-1/3 lg:pr-32">
         <div
           :class="{
             'transform translate-x-20': currentRewardID,
@@ -83,7 +83,7 @@
             :key="reward.id"
             v-for="reward in rewards"
             @click="currentRewardID = reward.id"
-            class="flex flex-row items-center justify-between w-full gap-2 p-4 font-sans text-left bg-white border-none rounded shadow appearance-none hover:ring-4 ring-yellow-200"
+            class="flex flex-row items-center justify-between w-full gap-2 px-4 py-6 font-sans text-left bg-white border-none rounded shadow appearance-none hover:ring-4 ring-yellow-200"
             :class="{ 'ring-yellow-300 ring-4': currentRewardID == reward.id }"
           >
             <div>
@@ -96,7 +96,7 @@
           </button>
         </div>
       </div>
-      <div class="w-screen p-12 prose lg:w-2/3 lg:pr-36">
+      <div class="w-screen p-6 prose lg:p-12 lg:w-2/3 lg:pr-36">
         <transition name="slide-fade">
           <div class="pt-8" v-if="currentRewardID">
             <button
@@ -105,10 +105,12 @@
             >
               &larr; Back to rewards
             </button>
-            <header class="flex flex-row gap-4">
-              <h2 class="mt-6 mb-12 text-5xl">{{ currentReward.label }}</h2>
-              <div class="mt-6 text-center">
-                <div class="text-2xl font-bold">£{{ currentReward.value }}</div>
+            <header class="flex-row gap-4 mb-12 lg:flex">
+              <h2 class="mt-6 text-5xl">{{ currentReward.label }}</h2>
+              <div
+                class="flex flex-row items-center justify-between gap-2 mt-6 lg:flex-col"
+              >
+                <div class="text-3xl font-bold">£{{ currentReward.value }}</div>
                 <button
                   @click="makeDonation(currentReward.value)"
                   class="mt-1 mb-auto button button__big"

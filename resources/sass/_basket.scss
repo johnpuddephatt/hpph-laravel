@@ -1,6 +1,16 @@
 #spektrixBasketSummary {
   font-weight: 500;
 
+  @media screen and (orientation: portrait) {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    .basket-text {
+      display: none;
+    }
+  }
+
   a {
     color: $base-font-color;
   }

@@ -24,7 +24,7 @@
 </spektrix-donate>
 
 <header
-    class="min-h-[60vh] flex items-center px-12 lg:px-32 py-16 space-x-8 bg-gray-100 border-solid border-0 border-b border-gray-300">
+    class="min-h-[60vh] flex items-center px-6 lg:px-32 py-16 space-x-8 bg-gray-100 border-solid border-0 border-b border-gray-300">
     <div class="container px-0">
         <div class="lg:w-2/3">
             <h1 class="mt-12 mb-8 text-6xl">Picture House Winter Fundraiser</h1>
