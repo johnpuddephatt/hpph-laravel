@@ -231,8 +231,8 @@ export default {
     makeDonation(amount) {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donationAmount', amount);
+      console.log(donationComponent);
       let button = donationComponent.querySelector('button');
-      console.log(button);
       button.click();
     },
   },

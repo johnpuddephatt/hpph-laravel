@@ -9,11 +9,9 @@
 
 @section('content')
 
-<spektrix-donate id="spektrixDonate" client-name="hydeparkpicturehouse"
+<spektrix-donate donation-amount="25" id="spektrixDonate" client-name="hydeparkpicturehouse"
     custom-domain="tickets.hydeparkpicturehouse.co.uk" fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH">
-    <input type="text" value="15" data-custom-donation-input />
 
-    <p>Donating <span class="amount" data-display-donation-amount></span></p>
     <button class="button button__big" data-submit-donation>Submit</button>
     <div data-success-container style="display: none;">
         Added to basket. <a href="/checkout">Go to checkout</a>
