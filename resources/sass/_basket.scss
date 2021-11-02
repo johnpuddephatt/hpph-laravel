@@ -5,6 +5,20 @@
     display: inline;
   }
 
+  .mobile-basket-count {
+    display: none;
+    @media screen and (orientation: portrait) {
+      display: block;
+      position: absolute;
+      top: -0.5em;
+      right: -0.5em;
+      background-color: $yellow;
+      padding: 0 0.5em;
+      font-size: ms(-1);
+      border-radius: 9999px;
+    }
+  }
+
   @media screen and (orientation: portrait) {
     position: absolute;
     top: 2em;
