@@ -11,12 +11,9 @@
       data-basket-summary-basket-total></span>)
   </a>
   <script>
-    console.log('basket');
-    
     var spektrixBasketSummary = document.getElementById('spektrixBasketSummary');
-    console.log(spektrixBasketSummary);
-    if(spektrixBasketSummary.count > 0) {
-      spektrixBasketSummary.setAttribute('hidden', false);
+    if(spektrixBasketSummary.getAttribute('count') > 0) {
+      spektrixBasketSummary.removeAttribute('hidden');
     }
   </script>
 </spektrix-basket-summary>

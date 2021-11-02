@@ -254,7 +254,7 @@ export default {
   methods: {
     makeDonation(amount) {
       let donationComponent = document.getElementById('spektrixDonate');
-      donationComponent.donationAmount = amount;
+      donationComponent.setAttribute('donationAmount', amount);
       donationComponent.querySelector('button').click();
     },
   },
