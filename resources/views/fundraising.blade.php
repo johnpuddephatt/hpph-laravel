@@ -28,9 +28,9 @@
     <div class="container px-0">
         <div class="lg:w-2/3">
             <h1 class="mt-12 mb-8 text-6xl">Picture House Winter Fundraiser</h1>
-            <p>With our redevelopment project now underway, we’re asking you – our wonderful community – for your help
-                to raise the final funds required to
-                deliver upcoming conservation work, ahead of our reopening next year.</p>
+            <p class="text-lg font-medium lg:mr-20">With our redevelopment project now underway, we’re asking you – our
+                wonderful community – for your help to raise the final funds required to deliver upcoming conservation
+                work, ahead of our reopening next year.</p>
         </div>
     </div>
 </header>

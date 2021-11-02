@@ -17,15 +17,9 @@
         spektrixBasketSummary.removeAttribute('hidden');
       }
     };
-    setTimeout(()=> {
+    setInterval(()=> {
       showBasketIfNotEmpty()
     }, 1000);
-    setTimeout(()=> {
-      showBasketIfNotEmpty()
-    }, 2000);
-    setTimeout(()=> {
-      showBasketIfNotEmpty()
-    }, 5000);
     
   </script>
 </spektrix-basket-summary>
