@@ -201,10 +201,11 @@
           />
 
           <div class="mx-6 lg:mx-12">
-          <div
-            class="mx-12 responsive-iframe"
-            v-html="currentReward.about_video"
-          ></div>
+            <div
+              class="responsive-iframe"
+              v-html="currentReward.about_video"
+            ></div>
+          </div>
 
           <h3
             ref="rewardDetails"
