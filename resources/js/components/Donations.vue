@@ -181,7 +181,7 @@
           />
 
           <div
-            class="flex flex-row gap-4 mx-6 my-16 lg:mx-12"
+            class="flex flex-row gap-4 my-16 lg:mx-12"
             v-if="currentReward.about_images"
           >
             <img
@@ -200,7 +200,7 @@
             v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
           />
 
-          <div class="mx-6 lg:mx-12">
+          <div class="lg:mx-12">
             <div
               class="responsive-iframe"
               v-html="currentReward.about_video"
@@ -228,7 +228,7 @@
           ></p>
 
           <div
-            class="flex flex-row gap-4 mx-6 my-16 lg:mx-12"
+            class="flex flex-row gap-4 my-16 lg:mx-12"
             v-if="currentReward.reward_images"
           >
             <img
