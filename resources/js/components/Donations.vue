@@ -121,7 +121,7 @@
           </button>
         </div>
       </div>
-      <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36">
+      <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36 lg:pt-4">
         <div class="pb-8" v-if="currentRewardID">
           <button
             @click="currentRewardID = null"
@@ -248,7 +248,7 @@
                 `/imager/w_800,h_600,q_80,f_jpg,g_center/${currentReward.thumbnail}`
               "
             />
-            <div class="px-4 py-6 lg:p-8 lg:pt-24">
+            <div class="px-4 py-6 lg:p-8">
               <h2 class="m-0 mb-2 text-xl lg:text-2xl lg:mb-6">
                 {{ currentReward.label }}
               </h2>
