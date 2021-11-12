@@ -24,14 +24,15 @@
 </spektrix-donate>
 
 <header
-    class="min-h-[60vh] flex items-center px-6 lg:px-32 py-16 space-x-8 bg-gray-100 border-solid border-0 border-b border-gray-300">
+    class="min-h-[100vw] lg:min-h-[45vw] flex px-6 lg:px-32 space-x-8 bg-christmas-beige border-solid border-0 border-b relative">
     <div class="container px-0">
-        <div class="lg:w-2/3">
-            <h1 class="mt-12 mb-8 text-6xl">Picture House Winter Fundraiser</h1>
-            <p class="text-lg font-medium lg:mr-20">With our redevelopment project now underway, we’re asking you – our
-                wonderful community – for your help to raise the final funds required to deliver upcoming conservation
-                work, ahead of our reopening next year.</p>
+        <div class="mt-16 lg:mt-28 lg:w-2/3">
+            <div class="mb-2 font-serif text-4xl italic font-normal lg:text-5xl text-christmas-blue">The Picture House
+            </div>
+            <h1 class="font-serif italic font-normal text-7xl lg:text-8xl">Winter Fundraiser</h1>
         </div>
+        <img src="{{ @asset('/images/winter-fundraising-banner.svg') }}"
+            class="absolute right-0 w-full lg:w-[80%] bottom-12">
     </div>
 </header>
 <donations></donations>

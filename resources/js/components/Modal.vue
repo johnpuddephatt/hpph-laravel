@@ -1,7 +1,7 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
   <div
-    class="fixed inset-0 z-10 overflow-y-auto"
+    class="fixed inset-0 z-[9999] overflow-y-auto"
     aria-labelledby="modal-title"
     role="dialog"
     aria-modal="true"

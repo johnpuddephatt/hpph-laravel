@@ -1,43 +1,49 @@
 <template>
-  <div class="w-screen overflow-hidden">
+  <div ref="wrapper" class="w-screen overflow-hidden">
     <modal @closeModal="showModal = false" v-show="showModal"></modal>
     <div
-      class="flex flex-row w-[300vw] lg:w-[166.67vw] transform transition"
+      class="flex flex-row w-[300vw] lg:w-[160vw] transform transition"
       :class="{
-        '!translate-x-[-66.667%] lg:!translate-x-[-40%]': currentRewardID,
+        '!translate-x-[-66.667%] lg:!translate-x-[-37.5%]': currentRewardID,
         'translate-x-[-33.333%]': showRewards,
       }"
     >
-      <div class="w-screen p-6 lg:p-12 lg:w-2/3 lg:pl-32">
+      <div class="w-screen p-6 lg:p-12 lg:w-3/5 lg:pl-32">
         <div class="flex flex-row items-center gap-4 mb-12 lg:hidden">
           <button
             @click="showRewards = false"
-            class="px-6 py-3 font-sans text-lg border-none rounded-lg appearance-none bg-gray-50"
+            class="px-6 py-3 font-sans text-lg bg-blue-100 border-none rounded-lg appearance-none"
           >
             Overview
           </button>
           <button
             @click="showRewards = true"
-            class="px-6 py-3 font-sans text-lg bg-transparent border-none rounded-lg appearance-none hover:bg-gray-100"
+            class="px-6 py-3 font-sans text-lg bg-transparent border-none rounded-lg appearance-none hover:bg-blue-200"
           >
             Sponsorship opportunities
           </button>
         </div>
-        <div class="mt-12 text-gray-500 lg:pr-12">
+        <div class="mt-12 text-gray-600 lg:pr-12">
+          <p class="mb-8 text-2xl font-medium text-black">
+            With our redevelopment project now underway, we’re asking you – our
+            amazing community – for your help to raise the final funds required
+            to deliver upcoming conservation work, ahead of our reopening next
+            year.
+          </p>
           <p>
             The Picture House Winter Fundraiser provides you with an opportunity
             to sponsor parts of the cinema which are in need of expert
             conservation – from the repair of our tiled façade to the
             restoration of our iconic lamppost.
           </p>
+
           <p>
-            And as a thankyou, we’ve produced several bespoke, limited-edition
-            rewards – which also make perfect gifts at this time of year.
+            And as a thank you, we’ve produced several bespoke, limited-edition
+            rewards – which also make perfect gifts at this time of year. These
+            also come with commemorative postcards, with information about what
+            your donation is helping to support.
           </p>
-          <p>
-            They also come with commemorative postcards, with infomation about
-            what your donation will be helping to support.
-          </p>
+
           <p>
             So this Christmas, be part of this crucial chapter in the Picture
             House’s story. Help us complete this once in a century project and
@@ -46,7 +52,7 @@
           </p>
           <button
             @click="showRewards = true"
-            class="lg:hidden button button__big"
+            class="px-8 py-6 mt-4 font-sans text-lg font-medium bg-blue-100 border-0 rounded appearance-none hover:bg-blue-200 lg:hidden"
           >
             View the opportunities
           </button>
@@ -69,66 +75,210 @@
           </details>
         </div>
       </div>
-      <div class="w-screen p-6 bg-gray-100 lg:p-12 lg:w-1/3 lg:pr-32">
+      <div class="w-screen p-6 py-8 bg-blue-50 lg:p-12 lg:w-2/5 lg:pr-32">
         <div
+          v-if="dataLoaded"
           :class="{
             'transform translate-x-20': currentRewardID,
             '!translate-x-0': currentRewardID && showRewards,
           }"
-          class="flex flex-col gap-4 transition"
+          class="flex flex-col gap-6 transition"
         >
           <button
             @click="currentRewardID = showRewards = null"
-            class="py-3 font-sans text-base text-left bg-transparent border-none appearance-none"
+            class="font-sans text-base text-left bg-transparent border-none appearance-none"
             :class="{ invisible: !(showRewards || currentRewardID) }"
           >
             &larr; Back to overview
           </button>
-          <h2 class="text-3xl">Sponsorship opportunities</h2>
+          <h2 class="mt-0 text-5xl lg:text-2xl">Sponsorship opportunities</h2>
           <button
             :key="reward.id"
             v-for="reward in rewards"
             @click="currentRewardID = reward.id"
-            class="flex flex-row items-center justify-between w-full gap-2 px-4 py-6 font-sans text-left bg-white border-none rounded shadow appearance-none hover:ring-4 ring-yellow-200"
-            :class="{ 'ring-yellow-300 ring-4': currentRewardID == reward.id }"
+            class="flex flex-row items-stretch justify-between w-full gap-3 py-0 pl-0 pr-0 font-sans text-left transition bg-white border-0 border-none appearance-none hover:ring-4 ring-blue-300"
+            :class="{ 'ring-blue-400 ring-4': currentRewardID == reward.id }"
           >
-            <div>
-              <h3 class="mb-1.5">{{ reward.label }}</h3>
-              <p class="mb-0 leading-snug text-gray-500">
-                Reward: {{ reward.reward }}
+            <img
+              class="w-28 h-28"
+              :src="
+                `/imager/w_400,h_400,q_80,f_jpg,g_center/${reward.thumbnail}`
+              "
+            />
+            <div class="flex-grow py-2 my-auto">
+              <h3 class="mb-1.5 leading-tight">{{ reward.label }}</h3>
+              <p
+                class="mb-0 font-serif text-lg italic leading-none text-gray-600"
+              >
+                Reward: {{ reward.reward_title_short }}
               </p>
             </div>
-            <div class="text-2xl font-bold">£{{ reward.value }}</div>
+            <div
+              class="flex flex-col justify-center flex-none w-1/6 px-1 text-lg font-bold text-center text-white bg-christmas-blue"
+            >
+              <div>£{{ reward.value }}</div>
+            </div>
           </button>
         </div>
       </div>
-      <div class="w-screen p-6 prose lg:p-12 lg:w-2/3 lg:pr-36">
-        <div class="pt-8" v-if="currentRewardID">
+      <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36">
+        <div class="pb-8" v-if="currentRewardID">
           <button
             @click="currentRewardID = null"
             class="font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
           >
             &larr; Back to rewards
           </button>
-          <header class="flex-row gap-4 mb-12 lg:flex">
-            <h2 class="mt-6 text-5xl">{{ currentReward.label }}</h2>
-            <div
-              class="flex flex-row items-center justify-between gap-2 mt-6 lg:flex-col"
+          <header class="flex-row items-center justify-between gap-4 lg:flex">
+            <h2 class="m-0 mt-4 text-5xl lg:mt-0">{{ currentReward.label }}</h2>
+
+            <button
+              aria-label="Add this reward to your basket"
+              @click="makeDonation(currentReward.value)"
+              class="flex flex-row items-center flex-none p-0 m-0 mt-6 font-sans text-white transition border-0 appearance-none lg:mt-0 hover:ring-4 ring-blue-300 bg-christmas-blue"
             >
-              <div class="text-3xl font-bold">£{{ currentReward.value }}</div>
-              <button
-                @click="makeDonation(currentReward.value)"
-                class="mt-1 mb-auto button button__big"
+              <div
+                class="flex flex-row items-center pr-6 text-sm font-bold leading-none text-gray-700 lowercase bg-white border-2 border-solid border-christmas-blue"
               >
-                Add to basket
-              </button>
-            </div>
+                <img
+                  class="w-16 h-16 px-4 py-2 "
+                  src="/images/present-icon.svg"
+                />
+                Add to <br />basket
+              </div>
+              <div class="px-6 text-xl font-bold text-center ">
+                £{{ currentReward.value }}
+              </div>
+            </button>
           </header>
 
-          <div class="text-gray-500" v-html="currentReward.description"></div>
+          <div
+            class="mt-3 mb-12 font-serif text-xl italic tracking-normal text-gray-600"
+          >
+            Reward: {{ currentReward.reward_title }}
+            <span class="block lg:inline"
+              >({{ currentReward.available }}
+              available) –
+              <button
+                class="p-0 font-sans text-sm text-gray-600 underline bg-transparent border-0 appearance-none"
+                @click="$refs.rewardDetails.scrollIntoView()"
+              >
+                see details
+              </button>
+            </span>
+          </div>
 
-          <h3 class="mt-12">Reward: {{ currentReward.reward }}</h3>
-          <div v-html="currentReward.reward_description"></div>
+          <p
+            v-if="currentReward.about_intro"
+            class="text-gray-600"
+            v-html="currentReward.about_intro.replace(/\n/g, '<br />')"
+          />
+
+          <div
+            class="flex flex-row gap-4 my-16"
+            v-if="currentReward.about_images"
+          >
+            <img
+              class="w-1/2 bg-blue-50"
+              v-for="about_image in currentReward.about_images"
+              :key="about_image"
+              height="640"
+              width="480"
+              :src="`/imager/w_480,h_640,q_80,f_jpg,g_center/${about_image}`"
+            />
+          </div>
+
+          <p
+            v-if="currentReward.about_outro"
+            class="text-gray-600"
+            v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
+          />
+
+          <div
+            class="my-12 responsive-iframe"
+            v-html="currentReward.about_video"
+          ></div>
+
+          <h3
+            ref="rewardDetails"
+            class="pt-12 mt-16 mb-1 text-4xl border-0 border-t-2 border-black border-solid"
+          >
+            About the reward
+          </h3>
+          <div
+            class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
+          >
+            {{ currentReward.reward_title }}
+            <span class="block lg:inline">
+              ({{ currentReward.available }} available)
+            </span>
+          </div>
+          <p
+            v-if="currentReward.reward_intro"
+            class="text-gray-600"
+            v-html="currentReward.reward_intro.replace(/\n/g, '<br />')"
+          ></p>
+
+          <div
+            class="flex flex-row gap-4 my-16"
+            v-if="currentReward.reward_images"
+          >
+            <img
+              class="w-1/2 bg-blue-50"
+              v-for="reward_image in currentReward.reward_images"
+              :key="reward_image"
+              height="480"
+              width="480"
+              :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${reward_image}`"
+            />
+          </div>
+
+          <p
+            v-if="currentReward.reward_outro"
+            class="text-gray-600"
+            v-html="currentReward.reward_outro.replace(/\n/g, '<br />')"
+          ></p>
+
+          <div class="flex flex-row mt-16 bg-blue-50">
+            <img
+              height="600"
+              width="800"
+              class="object-cover object-center w-1/3 bg-blue-200 lg:w-2/5"
+              :src="
+                `/imager/w_800,h_600,q_80,f_jpg,g_center/${currentReward.thumbnail}`
+              "
+            />
+            <div class="px-4 py-6 lg:p-8">
+              <h2 class="m-0 mb-2 text-xl lg:text-2xl lg:mb-6">
+                {{ currentReward.label }}
+              </h2>
+
+              <button
+                aria-label="Add this reward to your basket"
+                @click="makeDonation(currentReward.value)"
+                class="flex flex-row items-center p-0 m-0 font-sans text-white transition border-0 appearance-none hover:ring-4 ring-blue-300 bg-christmas-blue"
+              >
+                <div
+                  class="flex flex-row items-center pr-6 text-sm font-bold leading-none text-gray-700 lowercase bg-white border-2 border-solid border-christmas-blue"
+                >
+                  <img
+                    class="w-16 h-16 px-4 py-2 "
+                    src="/images/present-icon.svg"
+                  />
+                  Add to <br />basket
+                </div>
+                <div class="px-6 text-xl font-bold text-center ">
+                  £{{ currentReward.value }}
+                </div>
+              </button>
+            </div>
+          </div>
+          <button
+            @click="currentRewardID = null"
+            class="mt-8 font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
+          >
+            &larr; Back to rewards
+          </button>
         </div>
       </div>
     </div>
@@ -143,130 +293,24 @@ export default {
   },
   data() {
     return {
+      dataLoaded: false,
       showModal: false,
       currentRewardID: null,
       showRewards: false,
-      rewards: [
-        {
-          id: 1,
-          label: 'Repainting & plasterwork repair',
-          location: 'main auditorium & foyer',
-          reward: 'A3 paint sample print',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          value: 25,
-          available: 250,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1596451154/hidinginplainsight/starcinema.svg',
-        },
-        {
-          id: 2,
-          label: 'Terrazzo repair & restoration',
-          location: 'foyer',
-          reward: 'Terrazzo workshop',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          value: 50,
-          available: 100,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1596451156/hidinginplainsight/scala.svg',
-        },
-        {
-          id: 3,
-          label: 'Façade repair & restoration',
-          location: 'external',
-          value: 75,
-          reward: 'Façade style coasters from Sunken Studio',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          available: 100,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1596451162/hidinginplainsight/pudseypicturehouse.svg',
-        },
-        {
-          id: 4,
-          label: 'Lamppost restoration',
-          location: 'external',
-          reward: 'Golden lamppost broach',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          value: 100,
-          available: 100,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1595964823/hidinginplainsight/abbeypicturehouse.svg',
-        },
-        {
-          id: 5,
-          label: 'Sponsor a seat',
-          location: 'main auditorium',
-          reward: 'Plaque for lifetime of seat',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          value: 150,
-          available: 100,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1595964823/hidinginplainsight/abbeypicturehouse.svg',
-        },
-        {
-          id: 6,
-          label: 'Gas light refurbishment',
-          location: 'main auditorium & foyer',
-          reward: 'Plaque under lamp',
-          reward_description:
-            'Limited edition enamel pin badge, featuring illustration by Adam Allsuch Boardman. Comes with commemorative postcard. Delivery within 5 working days',
-          value: 1000,
-          available: 9,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1595964823/hidinginplainsight/abbeypicturehouse.svg',
-        },
-        {
-          id: 7,
-          label: '35mm projector refurbishment',
-          location: 'external',
-          reward: 'Plaque on projector and more',
-          reward_description:
-            'Plaque on projector, ‘become a projectionist’ day at the cinema & thank you slide on screen before every 35mm screening',
-          value: 5000,
-          available: 2,
-          description:
-            '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, labore reiciendis, laudantium, nam beatae assumenda obcaecati quasi enim illo eius eaque libero. Minima cupiditate facere ab. Inventore praesentium asperiores quas.</p>',
-          image:
-            'https://res.cloudinary.com/hpph/image/upload/w_175,e_trim,c_scale/f_auto/v1595964823/hidinginplainsight/abbeypicturehouse.svg',
-        },
-      ],
-      faqs: [
-        {
-          question: 'How can I gift my sponsorship to another person?',
-          answer:
-            'If you’d like to make a donation as a gift to a loved one, in the check-out simply select ‘giftsponsorship’. You can also provide us with the person’s name and address if you’d like us to send the rewards directly to them.',
-        },
-        {
-          question:
-            'Why are you raising money? Don’t you already have funding?',
-          answer:
-            'We are hugely grateful for the support we’ve already received on the project from all of our funders. However, alongside the funding grant we received from the National Lottery Heritage Fund, we’ve always needed to raise additional match-funding, and as a result of COVID and Brexit, the match-funding we need to raise has increased. So far we’ve been successful in securing match-funding from Leeds City Council and a variety of trusts and foundations. However we’ve always planned on reaching out to our community to help us raise some of this money. We’ve purposefully waited until now, closer to our reopening date, before reaching out to our community for support.',
-        },
-        {
-          question: 'When will my reward be delivered?',
-          answer:
-            'Not all rewards will be delivered at the same time. Please see individual sponsorship and reward infomation for details of expected delivery times. The tile coasters produced by Suken Studios are being made to order and by hand. We therefore cannot guarantee exactly when these will be delivered to you, and for later orders these may take a number of months. ',
-        },
-      ],
+
+      rewards: [],
+      faqs: [],
     };
   },
-  mounted() {},
+  mounted() {
+    fetch('https://simplejsoncms.com/api/vygli8mtv78')
+      .then(response => response.json())
+      .then(data => {
+        this.rewards = data.rewards;
+        this.faqs = data.faqs;
+        this.dataLoaded = true;
+      });
+  },
   computed: {
     currentReward: function() {
       return this.rewards.find(elem => {
@@ -275,15 +319,18 @@ export default {
     },
   },
   watch: {
-    // currentRewardID: function() {
-    // },
+    currentRewardID: function() {
+      this.$refs.wrapper.scrollIntoView();
+    },
+    showRewards: function() {
+      this.$refs.wrapper.scrollIntoView();
+    },
   },
 
   methods: {
     makeDonation(amount) {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donation-amount', amount);
-      console.log(donationComponent);
       let button = donationComponent.querySelector('button');
       button.click();
       this.showModal = true;

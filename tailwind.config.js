@@ -7,6 +7,11 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: {
+        'christmas-beige': '#e0dbd7',
+        'christmas-red': '#c4382c',
+        'christmas-blue': '#4186c3',
+      },
       fontFamily: {
         sans: ['HPPHA'],
         serif: ['HPPHB'],
