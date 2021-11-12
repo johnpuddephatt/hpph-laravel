@@ -75,57 +75,63 @@
           </details>
         </div>
       </div>
-      <div class="w-screen p-6 py-8 bg-blue-50 lg:p-12 lg:w-2/5 lg:pr-32">
+      <div
+        class="w-screen p-6 py-8 bg-blue-50 lg:p-12 lg:pt-16 lg:w-2/5 lg:pr-32"
+      >
         <div
           v-if="dataLoaded"
           :class="{
             'transform translate-x-20': currentRewardID,
             '!translate-x-0': currentRewardID && showRewards,
           }"
-          class="flex flex-col gap-6 transition"
+          class="transition"
         >
           <button
             @click="currentRewardID = showRewards = null"
-            class="font-sans text-base text-left bg-transparent border-none appearance-none"
+            class="mb-2 font-sans text-base text-left text-gray-600 bg-transparent border-none appearance-none"
             :class="{ invisible: !(showRewards || currentRewardID) }"
           >
             &larr; Back to overview
           </button>
-          <h2 class="mt-0 text-5xl lg:text-2xl">Sponsorship opportunities</h2>
-          <button
-            :key="reward.id"
-            v-for="reward in rewards"
-            @click="currentRewardID = reward.id"
-            class="flex flex-row items-stretch justify-between w-full gap-3 py-0 pl-0 pr-0 font-sans text-left transition bg-white border-0 border-none appearance-none hover:ring-4 ring-blue-300"
-            :class="{ 'ring-blue-400 ring-4': currentRewardID == reward.id }"
-          >
-            <img
-              class="w-28 h-28"
-              :src="
-                `/imager/w_400,h_400,q_80,f_jpg,g_center/${reward.thumbnail}`
-              "
-            />
-            <div class="flex-grow py-2 my-auto">
-              <h3 class="mb-1.5 leading-tight">{{ reward.label }}</h3>
-              <p
-                class="mb-0 font-serif text-lg italic leading-none text-gray-600"
-              >
-                Reward: {{ reward.reward_title_short }}
-              </p>
-            </div>
-            <div
-              class="flex flex-col justify-center flex-none w-1/6 px-1 text-lg font-bold text-center text-white bg-christmas-blue"
+          <h2 class="mt-4 mb-12 text-5xl lg:text-2xl">
+            Sponsorship opportunities
+          </h2>
+          <div class="flex flex-col gap-6 ">
+            <button
+              :key="reward.id"
+              v-for="reward in rewards"
+              @click="currentRewardID = reward.id"
+              class="flex flex-row items-stretch justify-between w-full gap-3 py-0 pl-0 pr-0 font-sans text-left transition bg-white border-0 border-none appearance-none hover:ring-4 ring-blue-300"
+              :class="{ 'ring-blue-400 ring-4': currentRewardID == reward.id }"
             >
-              <div>£{{ reward.value }}</div>
-            </div>
-          </button>
+              <img
+                class="w-28 h-28"
+                :src="
+                  `/imager/w_400,h_400,q_80,f_jpg,g_center/${reward.thumbnail}`
+                "
+              />
+              <div class="flex-grow py-2 my-auto">
+                <h3 class="mb-1.5 leading-tight">{{ reward.label }}</h3>
+                <p
+                  class="mb-0 font-serif text-lg italic leading-none text-gray-600"
+                >
+                  Reward: {{ reward.reward_title_short }}
+                </p>
+              </div>
+              <div
+                class="flex flex-col justify-center flex-none w-1/6 px-1 text-lg font-bold text-center text-white bg-christmas-blue"
+              >
+                <div>£{{ reward.value }}</div>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
       <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36 lg:pt-16">
         <div class="pb-8" v-if="currentRewardID">
           <button
             @click="currentRewardID = null"
-            class="font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
+            class="font-sans text-base text-left text-gray-600 bg-transparent border-none appearance-none lg:hidden"
           >
             &larr; Back to rewards
           </button>
