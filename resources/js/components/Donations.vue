@@ -121,7 +121,7 @@
           </button>
         </div>
       </div>
-      <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36 lg:pt-4">
+      <div class="w-screen p-6 prose lg:p-12 lg:w-3/5 lg:pr-36 lg:pt-16">
         <div class="pb-8" v-if="currentRewardID">
           <button
             @click="currentRewardID = null"
