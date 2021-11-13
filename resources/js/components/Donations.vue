@@ -73,6 +73,11 @@
               {{ faq.answer }}
             </p>
           </details>
+
+          <img
+            class="block w-2/3 h-auto mt-12 ml-auto"
+            src="/images/fundraiser-2.svg"
+          />
         </div>
       </div>
       <div
@@ -207,20 +212,24 @@
             ></div>
           </div>
 
-          <h3
-            ref="rewardDetails"
-            class="pt-12 mt-16 mb-1 text-4xl border-0 border-t-2 border-black border-solid"
+          <header
+            class="flex items-center justify-between mt-16 border-0 border-t-2 border-black border-solid"
           >
-            About the reward
-          </h3>
-          <div
-            class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
-          >
-            {{ currentReward.reward_title }}
-            <span class="block lg:inline">
-              ({{ currentReward.available }} available)
-            </span>
-          </div>
+            <div>
+              <h3 ref="rewardDetails" class="pt-12 mb-1 text-4xl ">
+                About the reward
+              </h3>
+              <div
+                class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
+              >
+                {{ currentReward.reward_title }}
+                <span class="block lg:inline">
+                  ({{ currentReward.available }}&#8239;available)
+                </span>
+              </div>
+            </div>
+            <img class="ml-4 w-28 h-28" src="/images/fundraiser-circle-2.svg" />
+          </header>
           <p
             v-if="currentReward.reward_intro"
             class="text-gray-600"
