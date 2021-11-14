@@ -1,3 +1,8 @@
+@push('scripts')
+<link rel="stylesheet" href="{{ mix('/css/fundraising.css') }}" />
+@endpush
+
+
 @if(count($home_slides))
 @push('body-classes','home')
 @endif
@@ -6,6 +11,7 @@
 
 @section('content')
 
+{{-- @include('home.donate_hero') --}}
 @include('home.hero')
 @include('home.weekly-listings')
 @include('home.hyde_and_seek')

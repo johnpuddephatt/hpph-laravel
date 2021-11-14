@@ -1,6 +1,15 @@
 <template>
   <div ref="wrapper" class="w-screen overflow-hidden">
     <modal @closeModal="showModal = false" v-show="showModal"></modal>
+    <vue-tailwind-modal
+      :showing="showLightbox"
+      @close="showLightbox = false"
+      :showClose="true"
+      :backgroundClose="true"
+      :css="modalOptions"
+    >
+      <img :src="lightboxImage" class="block max-w-[90vw] max-h-[90vh]" />
+    </vue-tailwind-modal>
     <div
       class="flex flex-row w-[300vw] lg:w-[160vw] transform transition"
       :class="{
@@ -120,7 +129,7 @@
                 <p
                   class="mb-0 font-serif text-lg italic leading-none text-gray-600"
                 >
-                  Reward: {{ reward.reward_title_short }}
+                  Thank you: {{ reward.reward_title_short }}
                 </p>
               </div>
               <div
@@ -138,14 +147,14 @@
             @click="currentRewardID = null"
             class="font-sans text-base text-left text-gray-600 bg-transparent border-none appearance-none lg:hidden"
           >
-            &larr; Back to rewards
+            &larr; Back to all opportunities
           </button>
           <header class="flex-row items-center justify-between gap-4 lg:flex">
             <h2 class="m-0 mt-4 text-5xl lg:mt-0">{{ currentReward.label }}</h2>
 
             <button
               aria-label="Add this reward to your basket"
-              @click="makeDonation(currentReward.value)"
+              @click="makeDonation(currentReward.value, currentReward.fund_id)"
               class="flex flex-row items-center flex-none p-0 m-0 mt-6 font-sans text-white transition border-0 appearance-none lg:mt-0 hover:ring-4 ring-blue-300 bg-christmas-blue"
             >
               <div
@@ -166,7 +175,7 @@
           <div
             class="mt-3 mb-12 font-serif text-xl italic tracking-normal text-gray-600"
           >
-            Reward: {{ currentReward.reward_title }}
+            Thank you: {{ currentReward.reward_title }}
             <span class="block lg:inline"
               >({{ currentReward.available }}
               available) –
@@ -186,16 +195,21 @@
           />
 
           <div
-            class="flex flex-row gap-4 my-16 lg:mx-12"
+            class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
             v-if="currentReward.about_images"
           >
             <img
-              class="w-1/2 bg-blue-50"
-              v-for="about_image in currentReward.about_images"
-              :key="about_image"
+              class="block bg-blue-50"
+              v-for="(about_image, key) in currentReward.about_images"
+              :key="key"
+              @click="
+                openLightbox(
+                  `/imager/w_1000,q_80,f_jpg,g_center/${about_image}`
+                )
+              "
               height="640"
               width="480"
-              :src="`/imager/w_480,h_640,q_80,f_jpg,g_center/${about_image}`"
+              :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${about_image}`"
             />
           </div>
 
@@ -205,7 +219,10 @@
             v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
           />
 
-          <div class="lg:mx-12">
+          <div v-if="currentReward.about_video" class="lg:mx-12">
+            <h3 class="mt-12 -mb-4 text-xl font-bold text-center">
+              Learn more with our architect, Mark
+            </h3>
             <div
               class="responsive-iframe"
               v-html="currentReward.about_video"
@@ -217,7 +234,7 @@
           >
             <div>
               <h3 ref="rewardDetails" class="pt-12 mb-1 text-4xl ">
-                About the reward
+                About the thank you
               </h3>
               <div
                 class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
@@ -237,13 +254,18 @@
           ></p>
 
           <div
-            class="flex flex-row gap-4 my-16 lg:mx-12"
+            class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
             v-if="currentReward.reward_images"
           >
             <img
-              class="w-1/2 bg-blue-50"
-              v-for="reward_image in currentReward.reward_images"
-              :key="reward_image"
+              class="block bg-blue-50"
+              @click="
+                openLightbox(
+                  `/imager/w_1000,q_80,f_jpg,g_center/${reward_image}`
+                )
+              "
+              v-for="(reward_image, key) in currentReward.reward_images"
+              :key="key"
               height="480"
               width="480"
               :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${reward_image}`"
@@ -256,7 +278,7 @@
             v-html="currentReward.reward_outro.replace(/\n/g, '<br />')"
           ></p>
 
-          <div class="flex flex-row mt-16 bg-blue-50">
+          <div class="flex flex-row items-center mt-16 bg-blue-50">
             <img
               height="600"
               width="800"
@@ -272,7 +294,9 @@
 
               <button
                 aria-label="Add this reward to your basket"
-                @click="makeDonation(currentReward.value)"
+                @click="
+                  makeDonation(currentReward.value, currentReward.fund_id)
+                "
                 class="flex flex-row items-center p-0 m-0 font-sans text-white transition border-0 appearance-none hover:ring-4 ring-blue-300 bg-christmas-blue"
               >
                 <div
@@ -294,7 +318,7 @@
             @click="currentRewardID = null"
             class="mt-8 font-sans text-base text-left bg-transparent border-none appearance-none lg:hidden"
           >
-            &larr; Back to rewards
+            &larr; Back to all opportunities
           </button>
         </div>
       </div>
@@ -304,17 +328,27 @@
 
 <script>
 import modal from './Modal.vue';
+import VueTailwindModal from 'vue-tailwind-modal';
+
 export default {
   components: {
     modal,
+    VueTailwindModal,
   },
   data() {
     return {
       dataLoaded: false,
       showModal: false,
+      showLightbox: false,
+      lightboxImage: null,
       currentRewardID: null,
       showRewards: false,
-
+      modalOptions: {
+        // background: "",
+        modal: 'w-auto overflow-hidden',
+        close:
+          'right-4 top-4 w-12 text-3xl border-none h-12 bg-christmas-blue !text-white font-bold rounded-full',
+      },
       rewards: [],
       faqs: [],
     };
@@ -345,9 +379,14 @@ export default {
   },
 
   methods: {
-    makeDonation(amount) {
+    openLightbox(image) {
+      this.lightboxImage = image;
+      this.showLightbox = true;
+    },
+    makeDonation(amount, fundID) {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donation-amount', amount);
+      donationComponent.setAttribute('fund-id', fundID);
       let button = donationComponent.querySelector('button');
       button.click();
       this.showModal = true;

@@ -95,7 +95,7 @@
             type="button"
             class="button button__big button__gray"
           >
-            Continue shopping
+            Continue looking
           </button>
         </div>
       </div>
