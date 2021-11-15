@@ -309,19 +309,26 @@
             v-html="currentReward.reward_outro.replace(/\n/g, '<br />')"
           ></p>
 
-          <div class="flex flex-row items-center mt-16 bg-blue-50">
+          <div class="flex flex-row items-center py-8 mt-16 bg-blue-50">
             <img
               height="600"
-              width="800"
-              class="object-cover object-center w-1/3 bg-blue-200 lg:w-2/5"
+              width="600"
+              class="object-cover object-center w-1/3 ml-8 bg-blue-200 rounded-full lg:w-1/4"
               :src="
-                `/imager/w_800,h_600,q_80,f_jpg,g_center/${currentReward.thumbnail}`
+                `/imager/w_600,h_600,q_80,f_jpg,g_center/${currentReward.thumbnail}`
               "
             />
-            <div class="px-4 py-6 lg:p-8">
-              <h2 class="m-0 mb-2 text-xl lg:text-2xl lg:mb-6">
+            <div class="px-4 lg:px-8">
+              <h2 class="m-0 mb-0 text-xl lg:text-2xl">
                 {{ currentReward.label }}
               </h2>
+
+              <div
+                class="mb-4 font-serif text-xl italic tracking-normal text-gray-600"
+              >
+                {{ currentReward.available }}
+                available
+              </div>
 
               <button
                 aria-label="Add this reward to your basket"
