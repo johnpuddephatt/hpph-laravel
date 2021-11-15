@@ -140,11 +140,12 @@ export default {
       donationComponent.setAttribute('donation-amount', this.donationAmount);
       donationComponent.setAttribute('fund-id', this.donationFundId);
       document.getElementById('tribute-name').value = this.tributeName;
-      let button = donationComponent.querySelector('button');
-      button.click();
-      this.$emit('openCompleteModal');
-      this.$emit('closeModal')
-      
+      setTimeout(()=> {
+        let button = donationComponent.querySelector('button');
+        button.click();
+        this.$emit('openCompleteModal');
+        this.$emit('closeModal')
+      }, 1000)
     },
   },
 };
