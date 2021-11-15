@@ -197,7 +197,7 @@
             v-if="currentReward.about_images"
           >
             <div
-              class="relative"
+              class="relative group"
               v-for="(about_image, key) in currentReward.about_images"
               :key="key"
             >
@@ -214,7 +214,7 @@
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="absolute w-16 h-16 text-white opacity-75 pointer-events-none drop-shadow top-2 right-2"
+                class="absolute w-16 h-16 text-white pointer-events-none opacity-85 group-hover:opacity-100 drop-shadow top-2 right-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -235,9 +235,9 @@
             v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
           />
 
-          <div v-if="currentReward.about_video" class="">
+          <div v-if="currentReward.about_video" class="my-16">
             <div
-              class="responsive-iframe"
+              class="my-0 responsive-iframe"
               v-html="currentReward.about_video"
             ></div>
           </div>
@@ -253,12 +253,12 @@
                 class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
               >
                 {{ currentReward.reward_title }}
-                <span class="block lg:inline">
+                <span class="block">
                   ({{ currentReward.available }}&#8239;available)
                 </span>
               </div>
             </div>
-            <img class="ml-4 w-28 h-28" src="/images/fundraiser-circle-2.svg" />
+            <img class="ml-4 w-36 h-36" src="/images/fundraiser-circle-2.svg" />
           </header>
           <p
             v-if="currentReward.reward_intro"
@@ -271,7 +271,7 @@
             v-if="currentReward.reward_images"
           >
             <div
-              class="relative"
+              class="relative group"
               v-for="(reward_image, key) in currentReward.reward_images"
               :key="key"
             >
@@ -288,7 +288,7 @@
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="absolute w-16 h-16 text-white opacity-75 pointer-events-none drop-shadow top-2 right-2"
+                class="absolute w-16 h-16 text-white opacity-75 pointer-events-none group-hover:opacity-100 drop-shadow top-2 right-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -428,6 +428,6 @@ export default {
 
 <style lang="scss">
 .drop-shadow {
-  filter: drop-shadow(0px 0px 3px rgb(0 0 0 / 0.5));
+  filter: drop-shadow(0px 0px 3px rgb(0 0 0 / 0.2));
 }
 </style>
