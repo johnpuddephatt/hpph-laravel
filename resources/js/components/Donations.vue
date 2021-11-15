@@ -45,14 +45,12 @@
             conservation – from the repair of our tiled façade to the
             restoration of our iconic lamppost.
           </p>
-
           <p>
             And as a thank you, we’ve produced several bespoke, limited-edition
             rewards – which also make perfect gifts at this time of year. These
             also come with commemorative postcards, with information about what
             your donation is helping to support.
           </p>
-
           <p>
             So this Christmas, be part of this crucial chapter in the Picture
             House’s story. Help us complete this once in a century project and
@@ -129,7 +127,7 @@
                 <p
                   class="mb-0 font-serif text-lg italic leading-none text-gray-600"
                 >
-                  Thank you: {{ reward.reward_title_short }}
+                  Reward: {{ reward.reward_title_short }}
                 </p>
               </div>
               <div
@@ -175,7 +173,7 @@
           <div
             class="mt-3 mb-12 font-serif text-xl italic tracking-normal text-gray-600"
           >
-            Thank you: {{ currentReward.reward_title }}
+            Reward: {{ currentReward.reward_title }}
             <span class="block lg:inline"
               >({{ currentReward.available }}
               available) –
@@ -198,19 +196,37 @@
             class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
             v-if="currentReward.about_images"
           >
-            <img
-              class="block bg-blue-50"
+            <div
+              class="relative"
               v-for="(about_image, key) in currentReward.about_images"
               :key="key"
-              @click="
-                openLightbox(
-                  `/imager/w_1000,q_80,f_jpg,g_center/${about_image}`
-                )
-              "
-              height="640"
-              width="480"
-              :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${about_image}`"
-            />
+            >
+              <img
+                class="block bg-blue-50"
+                @click="
+                  openLightbox(
+                    `/imager/w_1000,q_80,f_jpg,g_center/${about_image}`
+                  )
+                "
+                height="640"
+                width="480"
+                :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${about_image}`"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute w-16 h-16 text-white opacity-75 pointer-events-none drop-shadow top-2 right-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
           </div>
 
           <p
@@ -220,9 +236,6 @@
           />
 
           <div v-if="currentReward.about_video" class="lg:mx-12">
-            <h3 class="mt-12 -mb-4 text-xl font-bold text-center">
-              Learn more with our architect, Mark
-            </h3>
             <div
               class="responsive-iframe"
               v-html="currentReward.about_video"
@@ -234,7 +247,7 @@
           >
             <div>
               <h3 ref="rewardDetails" class="pt-12 mb-1 text-4xl ">
-                About the thank you
+                About the reward
               </h3>
               <div
                 class="mb-8 font-serif text-2xl italic tracking-normal text-gray-600"
@@ -257,19 +270,37 @@
             class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
             v-if="currentReward.reward_images"
           >
-            <img
-              class="block bg-blue-50"
-              @click="
-                openLightbox(
-                  `/imager/w_1000,q_80,f_jpg,g_center/${reward_image}`
-                )
-              "
+            <div
+              class="relative"
               v-for="(reward_image, key) in currentReward.reward_images"
               :key="key"
-              height="480"
-              width="480"
-              :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${reward_image}`"
-            />
+            >
+              <img
+                class="block bg-blue-50"
+                @click="
+                  openLightbox(
+                    `/imager/w_1000,q_80,f_jpg,g_center/${reward_image}`
+                  )
+                "
+                height="480"
+                width="480"
+                :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${reward_image}`"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute w-16 h-16 text-white opacity-75 pointer-events-none drop-shadow top-2 right-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
           </div>
 
           <p
@@ -395,4 +426,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.drop-shadow {
+  filter: drop-shadow(0px 0px 3px rgb(0 0 0 / 0.5));
+}
+</style>

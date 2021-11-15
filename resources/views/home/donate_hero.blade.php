@@ -6,7 +6,8 @@
       </div>
       <h1 class="font-serif text-5xl italic font-normal lg:text-6xl">Help us deliver vital conservation work this
         Christmas</h1>
-      <a class="inline-block px-6 py-3 mt-4 font-bold text-black bg-white rounded" href="/fundraising">Learn more</a>
+      <a class="inline-block px-6 py-3 mt-4 font-bold text-black bg-white rounded" href="/winter-fundraiser">Learn
+        more</a>
     </div>
     <img src="{{ @asset('/images/winter-fundraising-banner.svg') }}"
       class="absolute right-0 w-full md:w-[80%] bottom-12">

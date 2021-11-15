@@ -20,7 +20,7 @@ Route::get('day-{day}', 'HomeController@index');
 
 Route::get('picks', 'PickController@index');
 
-Route::get('fundraising', function() {
+Route::get('winter-fundraiser', function() {
   return view('fundraising');
 });
 
