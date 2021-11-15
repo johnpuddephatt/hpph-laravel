@@ -193,7 +193,7 @@
           />
 
           <div
-            class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
+            class="grid grid-cols-2 gap-4 my-16"
             v-if="currentReward.about_images"
           >
             <div
@@ -235,7 +235,7 @@
             v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
           />
 
-          <div v-if="currentReward.about_video" class="lg:mx-12">
+          <div v-if="currentReward.about_video" class="">
             <div
               class="responsive-iframe"
               v-html="currentReward.about_video"
@@ -267,7 +267,7 @@
           ></p>
 
           <div
-            class="grid grid-cols-2 gap-4 my-16 lg:mx-12"
+            class="grid grid-cols-2 gap-4 my-16"
             v-if="currentReward.reward_images"
           >
             <div
