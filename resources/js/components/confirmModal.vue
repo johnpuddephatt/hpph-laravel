@@ -140,7 +140,7 @@ export default {
       donationComponent.setAttribute('donation-amount', this.donationAmount);
       donationComponent.setAttribute('fund-id', this.donationFundId);
 
-      if(this.tributeName) {
+      if(this.tributeName && this.isGift) {
         document.getElementById('tribute-type').value = '5ARQTDGSNKJJVRRSHGCCPRSSKDKCRMCQS';
         document.getElementById('tribute-name').value = this.tributeName;
 
@@ -149,14 +149,13 @@ export default {
         document.getElementById('tribute-type').value = null;
         document.getElementById('tribute-name').value = null;
       }
-      setTimeout(()=> {
-        var myEvent = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-        });
-        document.getElementById('tribute-type').dispatchEvent(myEvent);
-        document.getElementById('tribute-name').dispatchEvent(myEvent);
-      }, 500);
+
+      var myEvent = new Event('input', {
+        bubbles: true,
+        cancelable: true,
+      });
+      document.getElementById('tribute-type').dispatchEvent(myEvent);
+      document.getElementById('tribute-name').dispatchEvent(myEvent);
 
       setTimeout(()=> {
         let button = donationComponent.querySelector('button');
