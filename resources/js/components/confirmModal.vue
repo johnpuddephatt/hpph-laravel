@@ -139,8 +139,20 @@ export default {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donation-amount', this.donationAmount);
       donationComponent.setAttribute('fund-id', this.donationFundId);
-      document.getElementById('tribute-name').value = this.tributeName;
-      document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+
+      if(this.tributeName) {
+        document.getElementById('tribute-type').value = '5ARQTDGSNKJJVRRSHGCCPRSSKDKCRMCQS';
+        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
+        document.getElementById('tribute-name').value = this.tributeName;
+        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+
+      }
+      else {
+        document.getElementById('tribute-type').value = null;
+        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
+        document.getElementById('tribute-name').value = null;
+        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+      }
 
       setTimeout(()=> {
         let button = donationComponent.querySelector('button');
