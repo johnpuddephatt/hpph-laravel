@@ -77,7 +77,7 @@
           </button>
 
           <div class="p-6 mt-8 bg-blue-50">
-            <h3 class="text-base font-bold">
+            <h3 class="text-lg font-bold">
               Are you a business keen to support us?<br />
               We’d love to hear from you!
             </h3>
@@ -217,17 +217,19 @@
             </span>
           </div>
 
-          <div class="relative my-16 group">
+          <div v-if="currentReward.banner_image" class="relative my-16 group">
             <img
               class="block w-full h-auto bg-blue-50"
               @click="
                 openLightbox(
-                  `/imager/w_1000,q_80,f_jpg,g_center/${banner_image}`
+                  `/imager/w_1000,q_80,f_jpg,g_center/${currentReward.banner_image}`
                 )
               "
               height="768"
               width="1024"
-              :src="`/imager/w_1024,h_768,q_80,f_jpg,g_center/${banner_image}`"
+              :src="
+                `/imager/w_1024,h_768,q_80,f_jpg,g_center/${currentReward.banner_image}`
+              "
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
