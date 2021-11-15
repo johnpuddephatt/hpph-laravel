@@ -76,6 +76,23 @@
             View the opportunities
           </button>
 
+          <div class="p-6 mt-8 bg-blue-50">
+            <h3 class="text-base font-bold">
+              Are you a business keen to support us?<br />
+              We’d love to hear from you!
+            </h3>
+            <p class="mb-0 text-sm leading-relaxed">
+              Simply drop us a line and we can work together on a one-to-one
+              basis to find a sponsorship opportunity that’s a perfect fit.
+              Email the Head of Cinema Wendy at:
+              <a
+                class="font-medium text-gray-900 underline"
+                href="mailto:wendy@hydeparkpicturehouse.co.uk"
+                >wendy@hydeparkpicturehouse.co.uk</a
+              >
+            </p>
+          </div>
+
           <h2 class="mt-16 mb-8 text-3xl ">
             Frequently asked questions
           </h2>
@@ -200,14 +217,49 @@
             </span>
           </div>
 
+          <div class="relative my-16 group">
+            <img
+              class="block w-full h-auto bg-blue-50"
+              @click="
+                openLightbox(
+                  `/imager/w_1000,q_80,f_jpg,g_center/${banner_image}`
+                )
+              "
+              height="768"
+              width="1024"
+              :src="`/imager/w_1024,h_768,q_80,f_jpg,g_center/${banner_image}`"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute w-16 h-16 text-white pointer-events-none opacity-85 group-hover:opacity-100 drop-shadow top-2 right-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+
           <p
             v-if="currentReward.about_intro"
-            class="text-gray-600"
+            class="mb-16 text-gray-600"
             v-html="currentReward.about_intro.replace(/\n/g, '<br />')"
           />
 
+          <div v-if="currentReward.about_video" class="mb-4">
+            <div
+              class="my-0 responsive-iframe"
+              v-html="currentReward.about_video"
+            ></div>
+          </div>
+
           <div
-            class="grid grid-cols-2 gap-4 my-16"
+            class="grid grid-cols-2 gap-4 mb-16"
             v-if="currentReward.about_images"
           >
             <div
@@ -224,7 +276,7 @@
                 "
                 height="640"
                 width="480"
-                :src="`/imager/w_480,h_480,q_80,f_jpg,g_center/${about_image}`"
+                :src="`/imager/w_600,h_923,q_80,f_jpg,g_center/${about_image}`"
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -249,11 +301,41 @@
             v-html="currentReward.about_outro.replace(/\n/g, '<br />')"
           />
 
-          <div v-if="currentReward.about_video" class="my-16">
+          <div
+            class="grid grid-cols-2 gap-4 my-16"
+            v-if="currentReward.about_images_2"
+          >
             <div
-              class="my-0 responsive-iframe"
-              v-html="currentReward.about_video"
-            ></div>
+              class="relative group"
+              v-for="(about_image, key) in currentReward.about_images_2"
+              :key="key"
+            >
+              <img
+                class="block bg-blue-50"
+                @click="
+                  openLightbox(
+                    `/imager/w_1000,q_80,f_jpg,g_center/${about_image}`
+                  )
+                "
+                height="640"
+                width="480"
+                :src="`/imager/w_600,h_923,q_80,f_jpg,g_center/${about_image}`"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute w-16 h-16 text-white pointer-events-none opacity-85 group-hover:opacity-100 drop-shadow top-2 right-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
           </div>
 
           <header
