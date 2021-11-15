@@ -304,7 +304,10 @@
           />
 
           <div
-            class="grid grid-cols-2 gap-4 my-16"
+            class="my-16"
+            :class="{
+              'grid grid-cols-2 gap-4': currentReward.about_images_2.length > 1,
+            }"
             v-if="currentReward.about_images_2"
           >
             <div
@@ -321,8 +324,15 @@
                 "
                 height="640"
                 width="480"
-                :src="`/imager/w_600,h_923,q_80,f_jpg,g_center/${about_image}`"
+                :src="
+                  `/imager/${
+                    currentReward.about_images_2.length > 1
+                      ? 'w_600,h_923'
+                      : 'w_1024,h_768'
+                  },q_80,f_jpg,g_center/${about_image}`
+                "
               />
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="absolute w-16 h-16 text-white pointer-events-none opacity-85 group-hover:opacity-100 drop-shadow top-2 right-2"
