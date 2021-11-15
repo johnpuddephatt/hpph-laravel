@@ -139,7 +139,7 @@ export default {
       let donationComponent = document.getElementById('spektrixDonate');
       donationComponent.setAttribute('donation-amount', this.donationAmount);
       donationComponent.setAttribute('fund-id', this.donationFundId);
-      donationComponent.setAttribute('tribute-name', this.tributeName)
+      document.getElementById('tribute-name').value = this.tributeName;
       let button = donationComponent.querySelector('button');
       button.click();
       this.$emit('openCompleteModal');
