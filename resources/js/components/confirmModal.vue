@@ -142,24 +142,25 @@ export default {
 
       if(this.tributeName) {
         document.getElementById('tribute-type').value = '5ARQTDGSNKJJVRRSHGCCPRSSKDKCRMCQS';
-        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
         document.getElementById('tribute-name').value = this.tributeName;
-        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
 
       }
       else {
         document.getElementById('tribute-type').value = null;
-        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
         document.getElementById('tribute-name').value = null;
-        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
       }
+
+      setTimeout(()=> {
+        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
+        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+      }, 500);
 
       setTimeout(()=> {
         let button = donationComponent.querySelector('button');
         button.click();
         this.$emit('openCompleteModal');
         this.$emit('closeModal')
-      }, 1000)
+      }, 1000);
     },
   },
 };
