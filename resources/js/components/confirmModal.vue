@@ -149,10 +149,13 @@ export default {
         document.getElementById('tribute-type').value = null;
         document.getElementById('tribute-name').value = null;
       }
-
       setTimeout(()=> {
-        document.getElementById('tribute-type').dispatchEvent(new Event('input'));
-        document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+        var myEvent = new Event('input', {
+          bubbles: true,
+          cancelable: true,
+        });
+        document.getElementById('tribute-type').dispatchEvent(myEvent);
+        document.getElementById('tribute-name').dispatchEvent(myEvent);
       }, 500);
 
       setTimeout(()=> {
