@@ -140,6 +140,8 @@ export default {
       donationComponent.setAttribute('donation-amount', this.donationAmount);
       donationComponent.setAttribute('fund-id', this.donationFundId);
       document.getElementById('tribute-name').value = this.tributeName;
+      document.getElementById('tribute-name').dispatchEvent(new Event('input'));
+
       setTimeout(()=> {
         let button = donationComponent.querySelector('button');
         button.click();
