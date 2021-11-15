@@ -1,6 +1,18 @@
 <template>
   <div ref="wrapper" class="w-screen overflow-hidden">
-    <modal @closeModal="showModal = false" v-show="showModal"></modal>
+    <complete-modal
+      :donation-amount="donationAmount"
+      :donation-fund-id="donationFundId"
+      @closeModal="showCompleteModal = false"
+      v-show="showCompleteModal"
+    ></complete-modal>
+    <confirm-modal
+      :donation-amount="donationAmount"
+      :donation-fund-id="donationFundId"
+      @openCompleteModal="showCompleteModal = true"
+      @closeModal="showConfirmationModal = false"
+      v-show="showConfirmationModal"
+    ></confirm-modal>
     <vue-tailwind-modal
       :showing="showLightbox"
       @close="showLightbox = false"
@@ -152,7 +164,9 @@
 
             <button
               aria-label="Add this reward to your basket"
-              @click="makeDonation(currentReward.value, currentReward.fund_id)"
+              @click="
+                confirmDonation(currentReward.value, currentReward.fund_id)
+              "
               class="flex flex-row items-center flex-none p-0 m-0 mt-6 font-sans text-white transition border-0 appearance-none lg:mt-0 hover:ring-4 ring-blue-300 bg-christmas-blue"
             >
               <div
@@ -333,7 +347,7 @@
               <button
                 aria-label="Add this reward to your basket"
                 @click="
-                  makeDonation(currentReward.value, currentReward.fund_id)
+                  confirmDonation(currentReward.value, currentReward.fund_id)
                 "
                 class="flex flex-row items-center p-0 m-0 font-sans text-white transition border-0 appearance-none hover:ring-4 ring-blue-300 bg-christmas-blue"
               >
@@ -365,18 +379,23 @@
 </template>
 
 <script>
-import modal from './Modal.vue';
+import completeModal from './completeModal';
+import confirmModal from './confirmModal';
 import VueTailwindModal from 'vue-tailwind-modal';
 
 export default {
   components: {
-    modal,
+    confirmModal,
+    completeModal,
     VueTailwindModal,
   },
   data() {
     return {
+      donationAmount: null,
+      donationFundId: null,
       dataLoaded: false,
-      showModal: false,
+      showCompleteModal: false,
+      showConfirmationModal: false,
       showLightbox: false,
       lightboxImage: null,
       currentRewardID: null,
@@ -421,13 +440,10 @@ export default {
       this.lightboxImage = image;
       this.showLightbox = true;
     },
-    makeDonation(amount, fundID) {
-      let donationComponent = document.getElementById('spektrixDonate');
-      donationComponent.setAttribute('donation-amount', amount);
-      donationComponent.setAttribute('fund-id', fundID);
-      let button = donationComponent.querySelector('button');
-      button.click();
-      this.showModal = true;
+    confirmDonation(amount, fundID) {
+      this.donationAmount = amount;
+      this.donationFundId = fundID;
+      this.showConfirmationModal = true;
     },
   },
 };

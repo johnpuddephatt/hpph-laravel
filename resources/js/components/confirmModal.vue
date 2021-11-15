@@ -71,14 +71,20 @@
                 class="text-xl font-medium leading-6 text-gray-900"
                 id="modal-title"
               >
-                Thank you!
+                Confirm
               </h3>
               <div class="mt-2">
-                <p class="text-gray-500">
-                  Your selected sponsorship opportunity has been added to your
-                  basket. You can now go to straight checkout to make your
-                  payment or continue browsing if you wish to add other
-                  opportunities.
+                
+                  <p class="text-gray-500">You are making a donation of £{{ donationAmount }}.</p>
+                  <div class="flex flex-row items-center gap-1 mb-3">
+                  <input v-model="isGift" type="checkbox" id="isgift" name="isgift" checked>
+                  <label class="mb-0 font-medium" for="isgift">I want to gift this to someone</label>
+                  </div>
+
+                  <div v-if="isGift">
+                    <label class="font-medium" for="tributeName">Name and address of recipient</label>
+                    <textarea id="tributeName" v-model="tributeName"></textarea>
+                  </div>
                 </p>
               </div>
             </div>
@@ -87,15 +93,20 @@
         <div
           class="flex flex-col gap-2 px-4 py-3 bg-gray-50 sm:px-6 sm:flex-row-reverse"
         >
-          <a href="/checkout" class="button button__big button__yellow">
-            Go to checkout
-          </a>
+          <button
+            @click="makeDonation"
+            type="button"
+            class="button button__big"
+          >
+            Add to basket
+          </button>
+
           <button
             @click="$emit('closeModal')"
             type="button"
             class="button button__big button__gray"
           >
-            Continue looking
+            Cancel
           </button>
         </div>
       </div>
@@ -105,8 +116,13 @@
 
 <script>
 export default {
+  props: ['donationFundId', 'donationAmount'],
+
   data() {
-    return {};
+    return {
+      tributeName: null,
+      isGift: false
+    };
   },
   mounted() {},
   computed: {
@@ -119,8 +135,17 @@ export default {
   },
 
   methods: {
-    // makeDonation(amount) {
-    // },
+   makeDonation(goToBasket) {
+      let donationComponent = document.getElementById('spektrixDonate');
+      donationComponent.setAttribute('donation-amount', this.donationAmount);
+      donationComponent.setAttribute('fund-id', this.donationFundId);
+      donationComponent.setAttribute('tribute-name', this.tributeName)
+      let button = donationComponent.querySelector('button');
+      button.click();
+      this.$emit('openCompleteModal');
+      this.$emit('closeModal')
+      
+    },
   },
 };
 </script>
