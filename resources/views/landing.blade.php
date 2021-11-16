@@ -11,8 +11,8 @@
 
 @section('content')
 
-{{-- @include('home.donate_hero') --}}
-@include('home.hero')
+@include('home.donate_hero')
+{{-- @include('home.hero') --}}
 @include('home.weekly-listings')
 @include('home.hyde_and_seek')
 
