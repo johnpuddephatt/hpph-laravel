@@ -1,6 +1,6 @@
 <header
   class="min-h-[100vw] md:min-h-[50vw] items-center flex px-6 lg:px-32 space-x-8 bg-christmas-beige border-solid border-0 border-b relative">
-  <div class="container w-full px-0 mb-32 md:mb-40">
+  <div class="container w-full px-0 mb-32 md:mb-24">
     <div class="w-5/6">
       <div class="mb-2 font-serif text-4xl italic font-normal lg:text-5xl text-christmas-blue">Winter Fundraiser
       </div>
