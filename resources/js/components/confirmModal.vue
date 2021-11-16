@@ -78,10 +78,11 @@
                   <p class="text-gray-500">You are making a donation of £{{ donationAmount }}.</p>
                   <div class="flex flex-row items-center gap-1 mb-3">
                   <input v-model="isGift" type="checkbox" id="isgift" name="isgift" checked>
-                  <label class="mb-0 font-medium" for="isgift">I want to gift this to someone</label>
+                  <label class="mb-0 font-medium" for="isgift">Would you like us to gift this sponsorship to someone &amp; send them any rewards directly? [</label>
                   </div>
 
                   <div v-if="isGift">
+                    <p class="mb-2 text-gray-500">Please provide their name &amp; full address. Gift rewards will be posted a week before Christmas unless requested otherwise.</p>
                     <label class="font-medium" for="tributeName">Name and address of recipient</label>
                     <textarea id="tributeName" v-model="tributeName"></textarea>
                   </div>
