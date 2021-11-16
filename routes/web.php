@@ -20,6 +20,8 @@ Route::get('day-{day}', 'HomeController@index');
 
 Route::get('picks', 'PickController@index');
 
+Route::redirect('/support', 'winter-fundraiser', 301);
+
 Route::get('winter-fundraiser', function() {
   return view('fundraising');
 });
