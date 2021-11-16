@@ -316,7 +316,7 @@
               :key="key"
             >
               <img
-                class="block bg-blue-50"
+                class="block w-full h-auto bg-blue-50"
                 @click="
                   openLightbox(
                     `/imager/w_1000,q_80,f_jpg,g_center/${about_image}`
