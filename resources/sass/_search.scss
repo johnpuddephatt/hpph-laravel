@@ -57,7 +57,7 @@
   width: 100%;
   position: relative;
   &::before {
-    content: "";
+    content: '';
     pointer-events: none;
     position: absolute;
     top: 0;
@@ -67,7 +67,7 @@
     background: linear-gradient(to bottom, $base-font-color, rgba(0, 0, 0, 0));
   }
   &::after {
-    content: "";
+    content: '';
     pointer-events: none;
     position: absolute;
     bottom: 0;
@@ -113,7 +113,7 @@
   line-height: 1.5 * $base-spacing;
   -webkit-font-smoothing: antialiased;
   letter-spacing: $base-letter-spacing;
-  body.home &,
+  // body.home &,
   body.film &,
   body.page &,
   body.collection & {
@@ -124,9 +124,10 @@
   }
   &:hover {
     background-color: transparent;
-    color: $yellow !important;
-    svg * {
-      stroke: $yellow !important;
+    &:hover,
+    &:focus {
+      outline: none;
+      @extend %underline_simple;
     }
   }
   &:focus {
@@ -182,7 +183,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    content: "×";
+    content: '×';
     color: white;
     font-size: modular-scale(4);
   }

@@ -3,7 +3,7 @@
   <li><a href="/support/">Support us</a></li>
   <li><a href="/news/">News</a></li>
   <li><a href="/on_the_road">On the road</a></li>
-  <li><a href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li>
+  {{-- <li><a href="https://leedsheritagetheatres.bigcartel.com/category/hyde-park-picture-house">Shop</a></li> --}}
   <li><button class="button button__text search-button">@include('icons.search')Search</button></li>
 
   {{-- <li><a href="/strand/watch-online">Watch online</a></li> --}}
