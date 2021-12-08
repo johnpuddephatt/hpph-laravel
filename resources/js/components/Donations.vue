@@ -206,8 +206,8 @@
           >
             Reward: {{ currentReward.reward_title }}
             <span class="block lg:inline"
-              >({{ currentReward.available }}
-              available) –
+              >({{ currentReward.remaining }}
+              remaining) –
               <button
                 class="p-0 font-sans text-sm text-gray-600 underline bg-transparent border-0 appearance-none"
                 @click="$refs.rewardDetails.scrollIntoView()"
@@ -362,7 +362,7 @@
               >
                 {{ currentReward.reward_title }}
                 <span class="block">
-                  ({{ currentReward.available }}&#8239;available)
+                  ({{ currentReward.remaining }}&#8239;remaining)
                 </span>
               </div>
             </div>
@@ -434,8 +434,8 @@
               <div
                 class="mb-4 font-serif text-xl italic tracking-normal text-gray-600"
               >
-                {{ currentReward.available }}
-                available
+                {{ currentReward.remaining }}
+                remaining
               </div>
 
               <button

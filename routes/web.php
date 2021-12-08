@@ -26,6 +26,10 @@ Route::get('winter-fundraiser', function() {
   return view('fundraising');
 });
 
+Route::get('staff-seats', function() {
+  return view('staff-fundraising');
+});
+
 Route::get('film/{slug}', 'FilmController@single');
 
 Route::redirect('whats-on', '/whats-on/weekly', 301);
