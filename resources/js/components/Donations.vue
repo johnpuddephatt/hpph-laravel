@@ -180,6 +180,7 @@
             <h2 class="m-0 mt-4 text-5xl lg:mt-0">{{ currentReward.label }}</h2>
 
             <button
+              v-if="currentReward.remaining"
               aria-label="Add this reward to your basket"
               @click="
                 confirmDonation(currentReward.value, currentReward.fund_id)
@@ -199,13 +200,23 @@
                 £{{ currentReward.value }}
               </div>
             </button>
+            <button
+              v-else
+              disabled
+              aria-label="This reward is no longer available"
+              class="flex flex-row items-center flex-none p-0 m-0 mt-6 font-sans text-white transition border-0 appearance-none lg:mt-0 hover:ring-4 ring-red-300 bg-christmas-red"
+            >
+              <div class="px-6 py-8 text-xl font-bold text-center">
+                Goal reached
+              </div>
+            </button>
           </header>
 
           <div
             class="mt-3 mb-12 font-serif text-xl italic tracking-normal text-gray-600"
           >
             Reward: {{ currentReward.reward_title }}
-            <span class="block lg:inline"
+            <span class="block lg:inline" v-if="currentReward.remaining"
               >({{ currentReward.remaining }}
               remaining) –
               <button
@@ -214,6 +225,9 @@
               >
                 see details
               </button>
+            </span>
+            <span class="block lg:inline" v-else>
+              (Sold out)
             </span>
           </div>
 
@@ -439,6 +453,7 @@
               </div>
 
               <button
+                v-if="currentReward.remaining"
                 aria-label="Add this reward to your basket"
                 @click="
                   confirmDonation(currentReward.value, currentReward.fund_id)
@@ -456,6 +471,16 @@
                 </div>
                 <div class="px-6 text-xl font-bold text-center ">
                   £{{ currentReward.value }}
+                </div>
+              </button>
+              <button
+                v-else
+                disabled
+                aria-label="This reward is no longer available"
+                class="flex flex-row items-center flex-none p-0 m-0 mt-6 font-sans text-white transition border-0 appearance-none lg:mt-0 hover:ring-4 ring-red-300 bg-christmas-red"
+              >
+                <div class="px-6 py-8 text-xl font-bold text-center ">
+                  Goal reached
                 </div>
               </button>
             </div>
