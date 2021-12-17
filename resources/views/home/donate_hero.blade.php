@@ -16,11 +16,13 @@
       class="absolute pointer-events-none right-0 w-full md:w-[80%] bottom-12">
 
     <script>
-      var date1 = new Date('12/25/2021');
+      var date1 = new Date('12/24/2021');
         var date2 = new Date();
         var difference = date1.getTime() - date2.getTime();
         var days = Math.ceil(difference / (1000 * 3600 * 24));
-        document.querySelector('#time-remaining').innerText = days + ' days to go!';
+        if(days >= 0) {
+          document.querySelector('#time-remaining').innerText = days + ' days to go!';
+        }
     </script>
   </div>
 </header>

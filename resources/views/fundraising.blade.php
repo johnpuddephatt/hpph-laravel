@@ -5,11 +5,13 @@
 <script defer src="{{ @asset('js/fundraising.js') }}"></script>
 <script defer>
     document.addEventListener('DOMContentLoaded', ()=>{
-        var date1 = new Date('12/25/2021');
+        var date1 = new Date('12/24/2021');
         var date2 = new Date();
         var difference = date1.getTime() - date2.getTime();
         var days = Math.ceil(difference / (1000 * 3600 * 24));
-        document.querySelector('#time-remaining').innerText = days + ' days to go!';
+        if(days >= 0) {
+            document.querySelector('#time-remaining').innerText = days + ' days to go!';
+        }
     });
 </script>
 @endpush
