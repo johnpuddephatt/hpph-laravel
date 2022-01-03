@@ -4,23 +4,23 @@
   position: relative;
 }
 .section--home-hero--jump {
-    position: absolute;
-    left: 50%;
-    bottom: $base-spacing;
-    cursor: pointer;
-    transform: translate(-50%,50%) rotate(90deg);
-    z-index: 9;
-    width: 1.5 * $base-spacing;
-    height: 3 * $base-spacing;
-    line-height: 1.5;
-    text-align: center;
-    color: white;
-    font-size: modular-scale(6);
-    opacity: .75;
-    display: none;
-    @media screen and (min-width: $medium-screen) {
-      display: block;
-    }
+  position: absolute;
+  left: 50%;
+  bottom: $base-spacing;
+  cursor: pointer;
+  transform: translate(-50%, 50%) rotate(90deg);
+  z-index: 9;
+  width: 1.5 * $base-spacing;
+  height: 3 * $base-spacing;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
+  font-size: modular-scale(6);
+  opacity: 0.75;
+  display: none;
+  @media screen and (min-width: $medium-screen) {
+    display: block;
+  }
 }
 .slider-loading {
   height: 100%;
@@ -43,17 +43,17 @@
   }
   @media (orientation: portrait) and (max-width: $medium-screen) {
     // height: calc(100vh - #{ $footer-nav-height });
-    height: calc(100vh - #{ $footer-nav-height });
+    height: calc(100vh - #{$footer-nav-height});
 
     body.has-notification & {
-      height: calc(100vh - #{ $footer-nav-height } - #{1.7 * $base-spacing});
+      height: calc(100vh - #{$footer-nav-height} - #{1.7 * $base-spacing});
     }
   }
-  &.ios {
-    .home-slider--text {
-      bottom: ($footer-nav-height + $base-spacing);;
-    }
-  }
+  // &.ios {
+  //   .home-slider--text {
+  //     bottom: ($footer-nav-height + $base-spacing);;
+  //   }
+  // }
   // Target iOS to prevent judder as address bar hides/shows
   // @supports (-webkit-overflow-scrolling: touch) {
   //   height: calc(178vw - #{3 * $base-spacing});
@@ -80,7 +80,8 @@
       transform: translateY(0rem);
     }
   }
-  &.out, &.coming-in {
+  &.out,
+  &.coming-in {
     pointer-events: none;
   }
 
@@ -93,9 +94,22 @@
     right: 0;
     bottom: 0;
     // background-color: rgba(0,0,0,.25);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 67%, rgba(0,0,0,.5) 100%);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 67%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
     @media screen and (orientation: portrait) {
-      background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,.5) 80%, rgba(0,0,0,.5) 100%);
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.5) 80%,
+        rgba(0, 0, 0, 0.5) 100%
+      );
     }
   }
 }
@@ -106,7 +120,6 @@
   object-fit: cover;
   object-position: center;
 }
-
 
 .home-slider--text {
   a {
@@ -125,7 +138,6 @@
   left: 0;
   width: 100%;
   .container {
-
   }
 }
 
@@ -140,7 +152,8 @@
 }
 
 .home-slider--link *:nth-child(2) {
-  transition: opacity 1s math.div($base-duration, 3), transform 1s math.div($base-duration, 3);
+  transition: opacity 1s math.div($base-duration, 3),
+    transform 1s math.div($base-duration, 3);
 }
 
 .home-slider--heading {
@@ -156,14 +169,14 @@
   text-transform: uppercase;
   letter-spacing: 3 * $base-letter-spacing;
   font-size: modular-scale(-1);
-  margin-bottom: $small-spacing*0.5;
+  margin-bottom: $small-spacing * 0.5;
 }
 
 .home-slider--subheading {
   font-weight: 500;
   line-height: $heading-line-height;
   -webkit-font-smoothing: antialiased;
-  margin-top: $small-spacing*0.5;
+  margin-top: $small-spacing * 0.5;
   &::after {
     content: '>';
     font-style: normal;
@@ -171,8 +184,7 @@
     vertical-align: top;
     color: $yellow;
 
-    margin-left: $small-spacing*0.5;
+    margin-left: $small-spacing * 0.5;
     line-height: 1;
-
   }
 }
