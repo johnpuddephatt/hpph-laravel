@@ -70,7 +70,7 @@ trait PageTemplates
                         'store_in' => 'extras',
                         'tab' => 'iFrame',
                         'type' => 'select_from_array',
-                        'options' => ['basket' => 'Basket', 'secure/checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
+                        'options' => ['secure/myaccount' => 'My Account', 'basket' => 'Basket', 'secure/checkout' => 'Checkout', 'donations' => 'Donations', 'giftvouchers' => 'Gift Vouchers', 'memberships' => 'Memberships', 'merchandise' => 'Merchandise'],
                         'allows_null' => true,
                     ]);
         $this->crud->addField([
