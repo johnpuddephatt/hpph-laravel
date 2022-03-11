@@ -110,6 +110,21 @@
   @media screen and (orientation: portrait) {
     margin-left: 0;
   }
+
+  a {
+    color: $base-font-color;
+    font-weight: 600;
+    display: inline-block;
+    font-size: modular-scale(0);
+    line-height: 1.5 * $base-spacing;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      @extend %underline_simple;
+    }
+  }
 }
 
 .site-header--book-button {
