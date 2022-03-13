@@ -3,11 +3,10 @@
   custom-domain="tickets.hydeparkpicturehouse.co.uk"
 >
   <span data-logged-in-container style="display: none;">
-    <a href="/account">
-      Hello, <span data-logged-in-status-customer-first-name></span>
-    </a>
+    <a href="/account">My account </a>&nbsp;
+    <a href="/account/logout">Logout</a>
   </span>
   <span data-logged-out-container>
-    <a href="/account">My account</a>
+    <a href="/account">Login/Register</a>
   </span>
 </spektrix-login-status>
