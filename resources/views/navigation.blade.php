@@ -35,7 +35,5 @@
       @include('icons.search')Search
     </button>
   </li>
-  --}}
-  {{-- Also uncomment scripts in header... --}}
-  @include('basket') @include('login-status')
+  --}} @include('basket') @include('login-status')
 </ul>
