@@ -517,10 +517,17 @@ dd.Footer
   padding-right: 2 * $base-spacing
   border-right: 1px solid $light-gray
   clear: both
+
+  &:hover a
+    display: inline-block !important
+
   a
     color: $dark-gray
-    display: inline-block
+    display: none
     margin-bottom: 2em
+    @media screen and (min-width: $medium-screen)
+      display: inline-block
+      
     &.Selected
       color: $black
       text-decoration: underline

@@ -120,6 +120,7 @@
 
 .site-header--right {
   display: flex;
+  justify-content: flex-end;
   gap: $base-spacing/2;
   margin-left: auto;
   @media screen and (orientation: portrait) {
@@ -166,5 +167,22 @@
   left: -9999px;
   &:focus {
     left: 0;
+  }
+}
+
+#login-status {
+  span {
+    @media screen and (orientation: portrait) {
+      display: none;
+    }
+  }
+  svg {
+    width: 2.4em;
+    height: 2.4em;
+    vertical-align: text-top;
+    display: none;
+    @media screen and (orientation: portrait) {
+      display: block;
+    }
   }
 }
