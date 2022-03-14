@@ -105,10 +105,20 @@
   }
 }
 
+.site-header--left {
+  display: none;
+
+  @media screen and (orientation: portrait) {
+    display: block;
+    flex: 0 0 30%;
+  }
+}
+
 .site-header--right {
   display: block;
   margin-left: auto;
   @media screen and (orientation: portrait) {
+    flex: 0 0 30%;
     margin-left: 0;
   }
 

@@ -1,3 +1,7 @@
+<div class="site-header--left">
+  <!-- Intentionally empty, used as spacer on mobile -->
+</div>
+
 <ul class="site-header--navigation">
   <li><a href="/whats-on">What’s on</a></li>
   <li><a href="/support/">Support us</a></li>
