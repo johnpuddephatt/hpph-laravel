@@ -6,7 +6,7 @@
   max-width: 35em;
 
   + .field {
-    margin-top: $small-spacing*0.5;
+    margin-top: $small-spacing * 0.5;
   }
 
   input ~ input {
@@ -41,7 +41,8 @@ textarea {
   font-size: $base-font-size;
 }
 
-#{$all-text-inputs} {
+#{$all-text-inputs},
+select {
   appearance: none;
   background-color: $base-background-color;
   border: $base-border;
@@ -82,65 +83,64 @@ textarea {
   resize: vertical;
 }
 
-[type="checkbox"],
-[type="radio"] {
+[type='checkbox'],
+[type='radio'] {
   display: inline;
   margin-right: $small-spacing * 0.5;
 }
 
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
-    + label {
-        position: relative;
-        display: inline-block;
-        padding-left: 1.2 * $base-spacing;
-        line-height: $base-spacing;
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin-top: .1 * $base-spacing;
-            width: 0.8 * $base-spacing;
-            height: 0.8 * $base-spacing;
-            border: 1px solid $medium-gray;
-            border-radius: 100%;
-            background: #fff;
-        }
-        &:after {
-            content: '';
-            width: 1 * $small-spacing;
-            height: 1 * $small-spacing;
-            background: $yellow;
-            position: absolute;
-            top: .5 * $small-spacing;
-            left: .3 * $small-spacing;
-            border-radius: 100%;
-            -webkit-transition: all 0.2s ease;
-            transition: all 0.2s ease;
-        }
+[type='radio']:checked,
+[type='radio']:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  + label {
+    position: relative;
+    display: inline-block;
+    padding-left: 1.2 * $base-spacing;
+    line-height: $base-spacing;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 0.1 * $base-spacing;
+      width: 0.8 * $base-spacing;
+      height: 0.8 * $base-spacing;
+      border: 1px solid $medium-gray;
+      border-radius: 100%;
+      background: #fff;
     }
+    &:after {
+      content: '';
+      width: 1 * $small-spacing;
+      height: 1 * $small-spacing;
+      background: $yellow;
+      position: absolute;
+      top: 0.5 * $small-spacing;
+      left: 0.3 * $small-spacing;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+  }
 }
 
-[type="radio"][disabled] + label:before {
+[type='radio'][disabled] + label:before {
   border-color: tint($base-font-color, 40%);
 }
 
-
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
+[type='radio']:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+[type='radio']:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
-[type="file"] {
+[type='file'] {
   margin-bottom: $small-spacing;
   width: 100%;
 }
