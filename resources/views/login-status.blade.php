@@ -27,7 +27,7 @@
   </span>
   <span data-logged-out-container>
     <a href="/account">
-      <span>Login/Register</span>
+      <span>Login</span>
       <svg
         aria-label="Login/Register"
         xmlns="http://www.w3.org/2000/svg"

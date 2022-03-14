@@ -90,7 +90,7 @@
   li {
     float: left;
     margin-right: $base-spacing;
-    @media screen and (min-width: $large-screen) {
+    @media screen and (min-width: $xl-screen) {
       margin-right: 1.5 * $base-spacing;
     }
     &:last-child {
