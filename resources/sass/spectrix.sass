@@ -507,3 +507,24 @@ dd.Footer
     .Button
       @extend .button__yellow
       @extend .button__big
+
+.MyAccountHeading
+  display: none
+
+.Options
+  float: left
+  margin-right: $base-spacing
+  clear: both
+  a
+    color: $dark-gray
+    display: inine-block
+    padding: 1em 0
+    &.Selected
+      color: $black
+      text-decoration: underline
+      text-decoration-color: $yellow
+
+
+.MyDetailsHeading,
+.DetailsEditor
+  overflow: hidden
