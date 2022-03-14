@@ -48,8 +48,12 @@
     // }
     .site-header--navigation a,
     .site-header--right a,
-    #spektrixBasketSummary a {
+    #spektrixBasketSummary a,
+    button {
       color: white;
+      &:hover {
+        color: white;
+      }
     }
 
     background-color: transparent;
@@ -115,7 +119,8 @@
 }
 
 .site-header--right {
-  display: block;
+  display: flex;
+  gap: $base-spacing/2;
   margin-left: auto;
   @media screen and (orientation: portrait) {
     text-align: right;
