@@ -118,6 +118,7 @@
   display: block;
   margin-left: auto;
   @media screen and (orientation: portrait) {
+    text-align: right;
     flex: 0 0 30%;
     margin-left: 0;
   }
