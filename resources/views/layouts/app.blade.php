@@ -28,8 +28,8 @@
   <body
     class="@stack('body-classes') @if(env('SITE_NOTIFICATION'))has-notification @endif"
   >
-    @if (\Request::is('/') and (count($screenings_today) or count($screenings)))
-    @include('bookmark') @endif
+    <!-- @if (\Request::is('/') and (count($screenings_today) or count($screenings)))
+    @include('bookmark') @endif -->
 
     <div class="wrapper">
       @if(env('SITE_NOTIFICATION')) @include('notification') @endif
