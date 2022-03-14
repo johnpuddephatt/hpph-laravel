@@ -527,6 +527,9 @@ dd.Footer
     border-radius: 0 !important
     padding: 0 !important
 
+    &::after
+      content: none !important
+
   a
     color: $dark-gray
     display: none
@@ -544,9 +547,10 @@ dd.Footer
       text-decoration-thickness: 0.2em
 
       @media screen and (max-width: $medium-screen)
-        border: 1px solid
+        width: 100%
+        border: 1px solid $light-gray
         border-radius: 3px
-        padding: 0.25em 0.5em
+        padding: 0.5em 1em
         display: flex
         justify-content: space-between
 
