@@ -6,7 +6,7 @@
   .hpph-logo {
     display: none;
   }
-  @media (max-width: $medium-screen) {
+  @media (max-width: $medium-screen), (orientation: portrait) {
     margin-top: 0;
     display: block;
     position: fixed;
@@ -17,7 +17,7 @@
     height: $footer-nav-height;
     background-color: $base-font-color;
     border-top: 0.5px solid transparentize(white, 0.75);
-    padding: math.div($small-spacing, 1.5) $small-spacing*0.5;
+    padding: math.div($small-spacing, 1.5) $small-spacing * 0.5;
     color: white;
     display: flex;
     align-items: flex-end;
@@ -240,7 +240,7 @@
       display: block;
     }
     &:last-child {
-      margin-left: $small-spacing*0.5;
+      margin-left: $small-spacing * 0.5;
     }
     @media (min-width: $medium-screen) {
       display: block;
@@ -326,7 +326,7 @@
       }
       margin: 0;
       + li {
-        margin-left: $base-spacing*0.5;
+        margin-left: $base-spacing * 0.5;
         @media (min-width: $medium-screen) {
           margin-left: $small-spacing;
         }
@@ -355,7 +355,7 @@
       &.double {
         flex-basis: 100%;
         order: 999;
-        padding-top: $small-spacing*0.5;
+        padding-top: $small-spacing * 0.5;
         padding-left: $base-spacing;
         padding-right: $base-spacing;
         text-align: center;
@@ -372,7 +372,7 @@
         p {
           font-size: modular-scale(0);
           font-weight: 400;
-          margin-bottom: $small-spacing*0.25;
+          margin-bottom: $small-spacing * 0.25;
           line-height: $heading-line-height;
           display: inline;
           @media (min-width: $medium-screen) {

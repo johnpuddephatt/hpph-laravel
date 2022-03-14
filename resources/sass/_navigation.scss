@@ -83,6 +83,10 @@
   @media screen and (min-width: $medium-screen) {
     display: block;
   }
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
+
   li {
     float: left;
     margin-right: $base-spacing;
