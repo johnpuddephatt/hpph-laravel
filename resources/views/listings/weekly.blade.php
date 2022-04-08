@@ -36,7 +36,7 @@
           </div>
         @if ($week > 1)
           <div class="alert">
-            Full listings are confirmed every Monday for the week beginning the following Friday. To receive weekly listings as soon as they’re confirmed, <a href="{{ config('app.mailchimp') }}" target="_blank">sign up here.</a>
+            Full listings are confirmed every Monday for the week beginning the following Friday.
           </div>
         @endif
         @else
