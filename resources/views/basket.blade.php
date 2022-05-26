@@ -2,7 +2,7 @@
 <spektrix-basket-summary
   hidden
   id="spektrixBasketSummary"
-  client-name="hydeparkpicturehouse"
+  client-name="leedsheritagetheatres"
   custom-domain="tickets.hydeparkpicturehouse.co.uk"
 >
   <a href="/basket/">

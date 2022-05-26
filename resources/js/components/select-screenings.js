@@ -60,7 +60,7 @@ if(screeningTable && screeningAnnouncer) {
      iframe.src = e.target.href;
 
      let script = document.createElement('script');
-     script.src = 'https://tickets.hydeparkpicturehouse.co.uk/hydeparkpicturehouse/website/scripts/integrate.js';
+     script.src = 'https://tickets.hydeparkpicturehouse.co.uk/leedsheritagetheatres/website/scripts/integrate.js';
 
      let sidebar = document.querySelector('.single-listing--sidebar');
      if(sidebar) {

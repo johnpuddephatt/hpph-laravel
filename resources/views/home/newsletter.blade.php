@@ -14,7 +14,7 @@
       <h2 class="section-title">Stay up to date</h2>
       <p>From news and developments, to the latest screenings and special events – subscribe to our emails and stay up to date with your friendly, local cinema.</p>
       <form
-        action="https://system.spektrix.com/hydeparkpicturehouse/website/secure/signup.aspx"
+        action="https://system.spektrix.com/leedsheritagetheatres/website/secure/signup.aspx"
         method="POST">
         <div class="field">
           <label class="sr-only" for="firstNameSubscribe">First name</label>
