@@ -7,7 +7,7 @@
 
 <div class="container container__narrow">
     <br><br><br><br>
-    <spektrix-donate donation-amount="50" id="spektrixDonate" client-name="hydeparkpicturehouse"
+    <spektrix-donate donation-amount="50" id="spektrixDonate" client-name="leedsheritagetheatres"
         custom-domain="tickets.hydeparkpicturehouse.co.uk" fund-id="1201AQKTLDJVPVNVGVNTLHSSDPLSGRGBT">
         <h2>Sponsor a seat – staff and volunteers</h2>
         <h3>£50</h3>

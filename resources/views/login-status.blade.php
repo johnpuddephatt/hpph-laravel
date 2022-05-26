@@ -1,5 +1,5 @@
 <spektrix-login-status
-  client-name="hydeparkpicturehouse"
+  client-name="leedsheritagetheatres"
   custom-domain="tickets.hydeparkpicturehouse.co.uk"
   id="login-status"
 >

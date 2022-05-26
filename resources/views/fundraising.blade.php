@@ -20,7 +20,7 @@
 
 @section('content')
 
-<spektrix-donate hidden donation-amount="25" id="spektrixDonate" client-name="hydeparkpicturehouse"
+<spektrix-donate hidden donation-amount="25" id="spektrixDonate" client-name="leedsheritagetheatres"
     custom-domain="tickets.hydeparkpicturehouse.co.uk" fund-id="401ANPJQJQPQMRSBDNMVNLSPGTRBVQVRH">
     <input id="tribute-name" type="text" data-tribute-name />
     <input id="tribute-type" type="text" name="tributeType" data-tribute-type />
